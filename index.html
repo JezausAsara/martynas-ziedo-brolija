@@ -385,7 +385,11 @@
               <span>DEX<b id='rpgCombatDex'>10</b></span>
               <span>CON<b id='rpgCombatCon'>10</b></span>
             </div>
-            <div class='rpgCombatGear'><span>⚔ <b id='rpgCombatWeapon'>Pradinis ginklas · d8</b></span><span>🛡 <b id='rpgCombatArmor'>Be šarvų</b></span></div>
+            <div class='rpgCombatGear'>
+              <span>⚔ <b id='rpgCombatWeapon'>Pradinis ginklas · d8</b></span>
+              <span>🛡 <b id='rpgCombatArmor'>Be šarvų</b></span>
+              <span>🎯 Ataka <b id='rpgCombatAttack'>+0</b> · 💥 Žala <b id='rpgCombatDamage'>d8 +0</b> · ⚡ Iniciatyva <b id='rpgCombatInit'>+0</b></span>
+            </div>
             <div class='rpgRollBox'>
               <small>TAVO KAULIUKAS</small>
               <div id='rpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
@@ -985,7 +989,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     el.innerHTML=rows.length?rows.map(e=>{
       let cls=e.actor==="player"?"player":e.actor==="enemy"?"enemy":"system";
       if(e.type==="win")cls+=" win"; if(e.type==="loss")cls+=" loss"; if(e.type==="loot")cls+=" loot";
-      return "<div class='rpgBattleLogLine "+cls+"'>"+esc(e.text||"")+"</div>";
+      const tag=e.actor==="player"?"TU":e.actor==="enemy"?"PRIEŠAS":"KOVA";
+      return "<div class='rpgBattleLogLine "+cls+"'><b>["+tag+"]</b> "+esc(e.text||"")+"</div>";
     }).join(""):"<div class='rpgBattleLogLine system'>Kova dar nepradėta.</div>";
     el.scrollTop=el.scrollHeight;
   }
@@ -1042,6 +1047,12 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("rpgCombatCon").textContent=cs.con ?? profile.con;
     get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas · d8";
     get("rpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
+    const atkTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.attack_bonus||0);
+    const dmgTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.damage_bonus||0);
+    const initTotal=Number(cs.dex_mod ?? profile.dex_mod ?? 0)+Number(cs.initiative_bonus||0);
+    get("rpgCombatAttack").textContent=mod(atkTotal);
+    get("rpgCombatDamage").textContent="d8 "+mod(dmgTotal);
+    get("rpgCombatInit").textContent=mod(initTotal);
 
     const active=battle.status==="active";
     const locked=busy||playing;
