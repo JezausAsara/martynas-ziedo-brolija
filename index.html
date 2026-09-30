@@ -99,6 +99,18 @@
 .rpgAttemptBadge{display:inline-block;margin-left:8px;padding:5px 8px;border:1px solid #4b3825;border-radius:7px;color:#b8c0c3;font:700 10px Arial,sans-serif}
 @media(max-width:650px){.rpgRoundPerks{grid-template-columns:1fr}.rpgBardicPanel{grid-template-columns:1fr}.rpgBardicBtn{width:100%}}
 </style>
+
+<style id="rpgLootStyles">
+.rpgLootPool{margin-top:10px;padding:10px;border:1px solid #433527;border-radius:9px;background:#090e11}
+.rpgLootPool>div:first-child{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#e3c475;font:700 11px Georgia,serif}
+.rpgLootPool>div:first-child span{color:#84c993;font:700 9px Arial,sans-serif}
+.rpgLootItems{display:grid;gap:4px;margin-top:7px}
+.rpgLootItems div{display:flex;justify-content:space-between;gap:8px;color:#9fa9ad;font:10px/1.35 Arial,sans-serif}
+.rpgLootItems b{color:#c8d0d2;font-weight:600}.rpgLootItems em{color:#736f68;font-style:normal;white-space:nowrap}
+.rpgInventoryItem>span{display:grid;gap:2px}.rpgInventoryItem small{color:#7f8c91;font:10px Arial,sans-serif}
+.rpgInventoryItem b{color:#d7bb70}
+.rpgBattleLogLine.loot{color:#efcf7d;font-weight:700;background:#1c1608}
+</style>
 </head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
@@ -168,6 +180,16 @@
               <span>❤️ 52 HP</span><span>🛡 AC 11</span><span>⚔ +1</span><span>🎲 1d6+1</span>
             </div>
             <div class='rpg2-special'><b>Raudonosios žvaigždės įniršis:</b> žemiau 50% HP kitai atakai +2.</div>
+<div class='rpgLootPool'>
+  <div><b>🎁 ENEMY #1 DROP</b><span>1 GARANTUOTAS RANDOM ITEMAS</span></div>
+  <div class='rpgLootItems'>
+    <div><b>⚔ Žvaigždės legionieriaus kardas</b><em>25% · +1 Attack</em></div>
+    <div><b>🛡 Raudonojo legionieriaus šarvas</b><em>25% · +1 AC</em></div>
+    <div><b>⛑ Raudonojo žvalgo šalmas</b><em>20% · +1 Initiative</em></div>
+    <div><b>💍 Kraujo rubino žiedas</b><em>15% · +6 Max HP</em></div>
+    <div><b>🔮 Žvaigždės talismanas</b><em>15% · +1 Damage</em></div>
+  </div>
+</div>
 <div class='rpgRoundPerks'><span id='rpgAttemptStatus'>⚔️ Bandymai: — / 3</span><span id='rpgBardicStatus'>🎵 Bardic Inspiration: tik TOP 3</span></div>
 <div class='rpgBattleLaunch'><button id='rpgStartBattleBtn' type='button'>⚔️ PRADĖTI KOVĄ</button><small id='rpgBattleRequirement'>Prieš pirmą kovą nupirk bent +1 STAT.</small></div>
           </div>
@@ -640,7 +662,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         const slot=document.querySelector(".rpgSlot[data-slot='"+item.slot+"'] span");
         if(slot) slot.textContent=item.name||i.item_id;
       }
-      return "<div class='rpgInventoryItem'><span>"+(item.name||i.item_id)+"</span><b>"+(i.equipped?"Uždėta":(item.rarity||""))+"</b></div>";
+      const desc=item.stat_payload?.description||"";
+      return "<div class='rpgInventoryItem'><span>"+(item.name||i.item_id)+(desc?"<small>"+desc+"</small>":"")+"</span><b>"+(i.equipped?"Uždėta · ":"")+(item.rarity||"")+"</b></div>";
     }).join("");
   }
 
@@ -797,7 +820,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const rows=Array.isArray(log)?log.slice(-18):[];
     el.innerHTML=rows.length?rows.map(e=>{
       let cls=e.actor==="player"?"player":e.actor==="enemy"?"enemy":"system";
-      if(e.type==="win")cls+=" win"; if(e.type==="loss")cls+=" loss";
+      if(e.type==="win")cls+=" win"; if(e.type==="loss")cls+=" loss"; if(e.type==="loot")cls+=" loot";
       return "<div class='rpgBattleLogLine "+cls+"'>"+esc(e.text||"")+"</div>";
     }).join(""):"<div class='rpgBattleLogLine system'>Kova dar nepradėta.</div>";
     el.scrollTop=el.scrollHeight;
