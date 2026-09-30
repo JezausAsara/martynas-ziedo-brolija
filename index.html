@@ -413,9 +413,9 @@
             </div>
             <div class='rpgHpBar combat'><span id='rpgPlayerHpBar'></span></div>
             <div class='rpgCombatStats'>
-              <span>STR<b id='rpgCombatStr'>10</b></span>
-              <span>DEX<b id='rpgCombatDex'>10</b></span>
-              <span>CON<b id='rpgCombatCon'>10</b></span>
+              <span>DMG DIE<b id='rpgCombatDmgDie'>D8</b></span>
+              <span>ATTACK<b id='rpgCombatAttackBox'>+0</b></span>
+              <span>ARMOR<b id='rpgCombatArmorBonus'>+0 AC</b></span>
             </div>
             <div class='rpgCombatGear'>
               <span>⚔ <b id='rpgCombatWeapon'>Pradinis ginklas · d8</b></span>
@@ -1127,16 +1127,18 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     const cs=combatStats||{};
     get("rpgPlayerAc").textContent=cs.ac ?? (10+Number(profile.dex_mod||0));
-    get("rpgCombatStr").textContent=cs.str ?? profile.str;
-    get("rpgCombatDex").textContent=cs.dex ?? profile.dex;
-    get("rpgCombatCon").textContent=cs.con ?? profile.con;
     get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas · d8";
     get("rpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
     const atkTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.attack_bonus||0);
     const dmgTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.damage_bonus||0);
     const initTotal=Number(cs.dex_mod ?? profile.dex_mod ?? 0)+Number(cs.initiative_bonus||0);
+    const armorBonus=Number(cs.ac_bonus||0);
+    const weaponDie=String(cs.weapon_die||"d8").toUpperCase();
+    get("rpgCombatDmgDie").textContent=weaponDie;
+    get("rpgCombatAttackBox").textContent=mod(atkTotal);
+    get("rpgCombatArmorBonus").textContent=mod(armorBonus)+" AC";
     get("rpgCombatAttack").textContent=mod(atkTotal);
-    get("rpgCombatDamage").textContent="d8 "+mod(dmgTotal);
+    get("rpgCombatDamage").textContent=String(cs.weapon_die||"d8")+" "+mod(dmgTotal);
     get("rpgCombatInit").textContent=mod(initTotal);
 
     const active=battle.status==="active";
