@@ -217,6 +217,29 @@
  .rpg2-equipMini small{font-size:10px!important;line-height:1.25}
  .rpgEquipPreviewSlot em{font-size:9px}
 }
+</style><style id="rpgCombatLoadoutV3">
+.rpgCombatLoadout{display:grid;gap:7px;margin:9px 0}
+.rpgLoadoutCard{display:grid;grid-template-columns:42px 1fr;gap:9px;align-items:center;padding:9px;border:1px solid #344047;border-radius:9px;background:#091014}
+.rpgLoadoutCard.weapon{border-color:#4a5d48;background:linear-gradient(135deg,#0c1710,#091014)}
+.rpgLoadoutCard.armor{border-color:#554b35;background:linear-gradient(135deg,#17140d,#091014)}
+.rpgLoadoutIcon{font-size:25px;text-align:center}
+.rpgLoadoutBody small{display:block;color:#718087;font:800 8px Arial,sans-serif;letter-spacing:.08em}
+.rpgLoadoutBody strong{display:block;margin:2px 0 6px;color:#e6dcc1;font:700 11px/1.2 Georgia,serif}
+.rpgLoadoutStats{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.rpgLoadoutStats span{padding:5px 3px;border:1px solid #2d383c;border-radius:6px;background:#070d10;text-align:center;color:#748287;font:700 7px Arial,sans-serif}
+.rpgLoadoutStats b{display:block;margin-top:2px;color:#e8cb77;font-size:11px}
+.rpgCombatRatingLine{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:8px 0 3px;padding:7px 9px;border:1px solid #4c422a;border-radius:8px;background:#11100c}
+.rpgCombatRatingLine span{color:#c9b06d;font:700 10px Arial,sans-serif}.rpgCombatRatingLine b{color:#f0d47c;font-size:13px}
+.rpgCombatRatingLine small{color:#6f7c81;font:8px Arial,sans-serif;text-align:right}
+.rpgSideDie{width:82px!important;height:82px!important}
+.rpgSideDie span{font-size:9px!important}.rpgSideDie b{font-size:34px!important}
+@media(max-width:760px){
+ .rpgLoadoutCard{grid-template-columns:34px 1fr;padding:7px 6px;gap:6px}
+ .rpgLoadoutIcon{font-size:21px}.rpgLoadoutBody strong{font-size:9px}
+ .rpgLoadoutStats span{font-size:6px;padding:4px 2px}.rpgLoadoutStats b{font-size:10px}
+ .rpgCombatRatingLine{display:grid;grid-template-columns:auto 1fr}.rpgCombatRatingLine small{text-align:left}
+ .rpgSideDie{width:72px!important;height:72px!important}.rpgSideDie b{font-size:31px!important}
+}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
@@ -334,6 +357,7 @@
             <span>💥 Damage <b id='sheetDamageBonus'>+0</b></span>
             <span>🛡 AC <b id='sheetAcBonus'>+0</b></span>
             <span>⚡ Initiative <b id='sheetInitBonus'>+0</b></span>
+            <span>⚔️ DPS <b id='sheetDpsRating'>0.00</b></span>
           </div>
 
           <div class='rpg2-currencyHeader'>
@@ -430,15 +454,35 @@
               </div>
             </div>
             <div class='rpgHpBar combat'><span id='rpgPlayerHpBar'></span></div>
-            <div class='rpgCombatStats'>
-              <span>DMG DIE<b id='rpgCombatDmgDie'>D8</b></span>
-              <span>ATTACK<b id='rpgCombatAttackBox'>+0</b></span>
-              <span>ARMOR<b id='rpgCombatArmorBonus'>+0 AC</b></span>
+            <div class='rpgCombatLoadout'>
+              <div class='rpgLoadoutCard weapon'>
+                <div class='rpgLoadoutIcon'>⚔️</div>
+                <div class='rpgLoadoutBody'>
+                  <small>GINKLAS</small>
+                  <strong id='rpgCombatWeapon'>Pradinis ginklas</strong>
+                  <div class='rpgLoadoutStats'>
+                    <span>DMG DIE <b id='rpgCombatDmgDie'>D8</b></span>
+                    <span>ATTACK <b id='rpgCombatAttack'>+0</b></span>
+                    <span>DMG MOD <b id='rpgCombatDamage'>+0</b></span>
+                  </div>
+                </div>
+              </div>
+              <div class='rpgLoadoutCard armor'>
+                <div class='rpgLoadoutIcon'>🛡️</div>
+                <div class='rpgLoadoutBody'>
+                  <small>ŠARVAI</small>
+                  <strong id='rpgCombatArmor'>Be šarvų</strong>
+                  <div class='rpgLoadoutStats'>
+                    <span>AC BONUS <b id='rpgCombatArmorBonus'>+0</b></span>
+                    <span>TOTAL AC <b id='rpgCombatTotalAc'>10</b></span>
+                    <span>INIT <b id='rpgCombatInit'>+0</b></span>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class='rpgCombatGear'>
-              <span>⚔ <b id='rpgCombatWeapon'>Pradinis ginklas · d8</b></span>
-              <span>🛡 <b id='rpgCombatArmor'>Be šarvų</b></span>
-              <span>🎯 Ataka <b id='rpgCombatAttack'>+0</b> · 💥 Žala <b id='rpgCombatDamage'>d8 +0</b> · ⚡ Iniciatyva <b id='rpgCombatInit'>+0</b></span>
+            <div class='rpgCombatRatingLine'>
+              <span>⚔️ DPS <b id='rpgCombatDps'>0.00</b></span>
+              <small>Vidutinė žala per atakos ėjimą</small>
             </div>
             <div class='rpgRollBox'>
               <small>TAVO KAULIUKAS</small>
@@ -502,20 +546,6 @@
           <button id='rpgRollDamage' class='rpgCombatDieBtn damage' type='button' disabled>
             <span class='dieIcon' id='rpgDamageDieIcon'>8</span><b id='rpgDamageBtnText'>MESTI D8</b><small>Žalos metimas</small>
           </button>
-        </div>
-
-        <div class='rpgDiceTray'>
-          <span>Kiti RPG kauliukai</span>
-          <div>
-            <button type='button' data-free-die='4'>d4</button>
-            <button type='button' data-free-die='6'>d6</button>
-            <button type='button' data-free-die='8'>d8</button>
-            <button type='button' data-free-die='10'>d10</button>
-            <button type='button' data-free-die='12'>d12</button>
-            <button type='button' data-free-die='20'>d20</button>
-          </div>
-          <small>Laisvas metimas treniruotei — kovos rezultatui įtakos neturi.</small>
-          <b id='rpgFreeDieResult'>—</b>
         </div>
 
         <div class='rpgBattleLogWrap'>
@@ -944,6 +974,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     document.getElementById("sheetDamageBonus").textContent=modText(Number(stats.damage_bonus||0));
     document.getElementById("sheetAcBonus").textContent=modText(Number(stats.ac_bonus||0));
     document.getElementById("sheetInitBonus").textContent=modText(Number(stats.initiative_bonus||0));
+    const sheetDps=document.getElementById("sheetDpsRating");if(sheetDps)sheetDps.textContent=Number(stats.dps_rating||0).toFixed(2);
 
     document.querySelectorAll(".rpgBuyStat").forEach(b=>{
       const current=b.dataset.stat==="str"?Number(data.str):b.dataset.stat==="dex"?Number(data.dex):Number(data.con);
@@ -1200,19 +1231,21 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     const cs=combatStats||{};
     get("rpgPlayerAc").textContent=cs.ac ?? (10+Number(profile.dex_mod||0));
-    get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas · d8";
+    get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas";
     get("rpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
     const atkTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.attack_bonus||0);
     const dmgTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.damage_bonus||0);
     const initTotal=Number(cs.dex_mod ?? profile.dex_mod ?? 0)+Number(cs.initiative_bonus||0);
     const armorBonus=Number(cs.ac_bonus||0);
+    const totalAc=Number(cs.ac ?? (10+Number(profile.dex_mod||0)));
     const weaponDie=String(cs.weapon_die||"d8").toUpperCase();
     get("rpgCombatDmgDie").textContent=weaponDie;
-    get("rpgCombatAttackBox").textContent=mod(atkTotal);
-    get("rpgCombatArmorBonus").textContent=mod(armorBonus)+" AC";
     get("rpgCombatAttack").textContent=mod(atkTotal);
-    get("rpgCombatDamage").textContent=String(cs.weapon_die||"d8")+" "+mod(dmgTotal);
+    get("rpgCombatDamage").textContent=mod(dmgTotal);
+    get("rpgCombatArmorBonus").textContent=mod(armorBonus);
+    get("rpgCombatTotalAc").textContent=totalAc;
     get("rpgCombatInit").textContent=mod(initTotal);
+    get("rpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
 
     const active=battle.status==="active";
     const locked=busy||playing;
@@ -1422,11 +1455,6 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   d20Btn.addEventListener("click",()=>roll("d20"));
   damageBtn.addEventListener("click",()=>roll("damage"));
   if(bardicBtn)bardicBtn.addEventListener("click",armBardic);
-
-  document.querySelectorAll("[data-free-die]").forEach(btn=>btn.addEventListener("click",()=>{
-    const sides=Number(btn.dataset.freeDie),value=Math.floor(Math.random()*sides)+1;
-    get("rpgFreeDieResult").textContent="d"+sides+": "+value;
-  }));
 
   const wait=setInterval(()=>{
     if(window.rpgSupabase){
