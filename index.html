@@ -542,7 +542,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     gate.style.display="none";sheet.classList.add("show");
     const portrait=document.getElementById("rpgSheetPortrait");
-    portrait.className="rpgPortrait av-"+data.avatar_key;
+    portrait.className="rpgPortrait rpg2-portrait av-"+data.avatar_key;
     document.getElementById("rpgSheetTeam").textContent=data.team_name;
     document.getElementById("rpgSheetOwner").textContent=data.owner_name+" · "+data.league_role;
     document.getElementById("rpgSheetProgress").textContent="Įveikta "+data.defeated_enemies+" / 38 · "+(data.item_shop_unlocked?"Item Shop atrakintas":"Item Shop užrakintas");
