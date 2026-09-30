@@ -73,7 +73,20 @@
 .rpg2-portrait.av-domantas{background-image:url('assets/rpg/domantas.webp')!important;background-size:cover!important;background-position:center top!important}
 .rpg2-portrait.av-martynas{background-image:url('assets/rpg/martynas.webp')!important;background-size:cover!important;background-position:center top!important}
 .rpg2-portrait.av-ignas{background-image:url('assets/rpg/ignas.webp')!important;background-size:cover!important;background-position:center top!important}
-</style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
+</style>
+<style id="rpgCombatStyles">
+.rpgBattleLaunch{display:grid;gap:7px;margin-top:12px}.rpgBattleLaunch button{width:100%;padding:11px 10px;border:1px solid #9b6d25;border-radius:9px;background:linear-gradient(#9a641d,#5e3a10);color:#fff0c4;font:800 13px Georgia,serif;cursor:pointer;box-shadow:0 5px 18px #0008}.rpgBattleLaunch button:disabled{opacity:.45;cursor:not-allowed}.rpgBattleLaunch small{color:#8d989c;font:10px/1.35 Arial,sans-serif;text-align:center}
+.rpgBattleArena{display:none;margin-top:14px;padding:16px;border:1px solid #704a21;border-radius:15px;background:radial-gradient(circle at 50% 0,#4b160d55,transparent 34%),linear-gradient(180deg,#111316,#070b0d);box-shadow:inset 0 0 50px #0008}.rpgBattleArena.show{display:block}
+.rpgBattleTop{display:flex;justify-content:space-between;gap:16px;align-items:start;padding-bottom:12px;border-bottom:1px solid #49321f}.rpgBattleTop h3{margin:3px 0 0;color:#f0c871;font-size:23px}.rpgBattleRound{padding:8px 11px;border:1px solid #4b3825;border-radius:9px;background:#0a1013;color:#8e999e;font:10px Arial,sans-serif;white-space:nowrap}.rpgBattleRound b{color:#f1ca72;font-size:15px;margin-left:4px}
+.rpgBattleFighters{display:grid;grid-template-columns:1fr 150px 1fr;gap:12px;align-items:center;margin-top:15px}.rpgFighterCard{padding:14px;border:1px solid #334148;border-radius:12px;background:#0a1215}.rpgFighterCard.player{border-color:#375a47;background:linear-gradient(90deg,#0a1711,#0a1215)}.rpgFighterCard.enemy{border-color:#653228;background:linear-gradient(270deg,#24100c,#0a1215)}.rpgFighterLabel{color:#77868c;font:700 9px Arial,sans-serif;letter-spacing:.12em}.rpgFighterCard>strong{display:block;color:#eee;margin:5px 0 12px;font-size:17px}.rpgFighterCard.enemy>strong{color:#efc29c}.rpgHpLine{display:flex;justify-content:space-between;gap:10px;color:#9ba7ab;font:11px Arial,sans-serif}.rpgHpLine b{color:#e9edef}.rpgHpBar{height:10px;margin:6px 0 8px;border:1px solid #294236;border-radius:999px;background:#050809;overflow:hidden}.rpgHpBar span{display:block;height:100%;width:100%;background:linear-gradient(90deg,#28683b,#6abb62);transition:width .35s ease}.rpgHpBar.enemy{border-color:#573026}.rpgHpBar.enemy span{background:linear-gradient(90deg,#7e2219,#d4543f)}.rpgFighterCard small{color:#78858a;font:10px Arial,sans-serif}
+.rpgBattleVersus{text-align:center}.rpgBigDie{width:92px;height:92px;margin:auto;display:grid;place-items:center;align-content:center;border:2px solid #8e6a2a;background:radial-gradient(circle,#241b0d,#090d0f 70%);clip-path:polygon(50% 0,88% 18%,100% 58%,74% 100%,26% 100%,0 58%,12% 18%);filter:drop-shadow(0 0 12px #d79b2c33)}.rpgBigDie.rolling{animation:rpgDiePulse .35s ease 2}.rpgBigDie span{font:700 10px Arial,sans-serif;color:#967a44}.rpgBigDie b{font-size:30px;color:#ffd477}@keyframes rpgDiePulse{50%{transform:rotate(8deg) scale(1.08);filter:drop-shadow(0 0 24px #e6ad3d99)}}.rpgBattlePhase{margin-top:7px;color:#c7b17c;font:11px/1.35 Arial,sans-serif}
+.rpgBattleControls{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:15px}.rpgCombatDieBtn{display:grid;grid-template-columns:54px 1fr;grid-template-rows:1fr 1fr;column-gap:11px;align-items:center;padding:12px;border:1px solid #66502a;border-radius:12px;background:linear-gradient(180deg,#21180b,#0c1012);color:#e7d3a0;text-align:left;cursor:pointer}.rpgCombatDieBtn.damage{border-color:#405c3f;background:linear-gradient(180deg,#102217,#0b1113)}.rpgCombatDieBtn:disabled{opacity:.32;cursor:not-allowed}.rpgCombatDieBtn .dieIcon{grid-row:1/3;width:50px;height:50px;display:grid;place-items:center;border:1px solid #a07a32;background:#0d1114;clip-path:polygon(50% 0,92% 25%,82% 82%,18% 82%,8% 25%);font:800 18px Arial,sans-serif;color:#ffd472}.rpgCombatDieBtn b{align-self:end;font-size:14px}.rpgCombatDieBtn small{align-self:start;color:#869196;font:10px Arial,sans-serif}
+.rpgDiceTray{display:grid;grid-template-columns:auto 1fr auto;gap:9px;align-items:center;margin-top:12px;padding:10px 12px;border:1px solid #2d393e;border-radius:10px;background:#091013}.rpgDiceTray>span{color:#aab3b6;font:11px Arial,sans-serif}.rpgDiceTray>div{display:flex;gap:5px;flex-wrap:wrap}.rpgDiceTray button{padding:5px 8px;border:1px solid #3e4a50;border-radius:7px;background:#0e171b;color:#cbd2d5;cursor:pointer;font:700 10px Arial,sans-serif}.rpgDiceTray small{grid-column:1/3;color:#637076;font:9px Arial,sans-serif}.rpgDiceTray>b{grid-row:1/3;grid-column:3;color:#f1c96f;font-size:22px}
+.rpgBattleLogWrap{margin-top:14px;padding-top:12px;border-top:1px solid #3b2d20}.rpgBattleLog{max-height:235px;overflow:auto;margin-top:8px;border:1px solid #2c373c;border-radius:10px;background:#060a0c;padding:8px}.rpgBattleLogLine{padding:7px 9px;border-bottom:1px solid #182126;color:#b6c0c3;font:11px/1.45 Arial,sans-serif}.rpgBattleLogLine:last-child{border-bottom:0}.rpgBattleLogLine.player{color:#b9e3bd}.rpgBattleLogLine.enemy{color:#e7ad9e}.rpgBattleLogLine.system{color:#d9c17d}.rpgBattleLogLine.win{color:#9de4a5;font-weight:700}.rpgBattleLogLine.loss{color:#f08c77;font-weight:700}
+.rpgBattleEndActions{display:none;margin-top:12px;text-align:center}.rpgBattleEndActions.show{display:block}.rpgBattleEndActions button{padding:10px 16px;border:1px solid #7a5b29;border-radius:9px;background:#5f4619;color:#ffe4a0;font-weight:800;cursor:pointer}
+@media(max-width:850px){.rpgBattleFighters{grid-template-columns:1fr}.rpgBattleVersus{order:-1}.rpgBigDie{width:78px;height:78px}.rpgBattleControls{grid-template-columns:1fr}.rpgDiceTray{grid-template-columns:1fr auto}.rpgDiceTray>div{grid-column:1}.rpgDiceTray small{grid-column:1}.rpgDiceTray>b{grid-column:2;grid-row:1/4}.rpgBattleTop{display:block}.rpgBattleRound{display:inline-block;margin-top:9px}}
+</style>
+</head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
 <section id='funds' class='section'><h3>Fondas</h3><table><thead><tr><th>Valdytojas</th><th>100+ atvejai</th><th>Įnašas</th></tr></thead><tbody id='fundRows'></tbody></table><p id='finalFund'></p></section>
@@ -142,6 +155,7 @@
               <span>❤️ 52 HP</span><span>🛡 AC 11</span><span>⚔ +1</span><span>🎲 1d6+1</span>
             </div>
             <div class='rpg2-special'><b>Raudonosios žvaigždės įniršis:</b> žemiau 50% HP kitai atakai +2.</div>
+<div class='rpgBattleLaunch'><button id='rpgStartBattleBtn' type='button'>⚔️ PRADĖTI KOVĄ</button><small id='rpgBattleRequirement'>Prieš pirmą kovą nupirk bent +1 STAT.</small></div>
           </div>
         </aside>
 
@@ -229,6 +243,71 @@
             <div id='rpgShopLock'>🔒 Užrakintas iki Enemy #1 pergalės.</div>
           </div>
         </aside>
+      </div>
+
+      <div id='rpgBattleArena' class='rpgBattleArena'>
+        <div class='rpgBattleTop'>
+          <div>
+            <div class='rpg2-kicker'>ENEMY #1 · CRVENA ZVEZDA</div>
+            <h3>Kova su Raudonosios Žvaigždės Legionieriumi</h3>
+          </div>
+          <div class='rpgBattleRound'>KOVOS RAUNDAS <b id='rpgCombatRound'>1</b></div>
+        </div>
+
+        <div class='rpgBattleFighters'>
+          <div class='rpgFighterCard player'>
+            <div class='rpgFighterLabel'>TAVO PERSONAŽAS</div>
+            <strong id='rpgBattlePlayerName'>—</strong>
+            <div class='rpgHpLine'><span>HP</span><b id='rpgPlayerHpText'>0 / 0</b></div>
+            <div class='rpgHpBar'><span id='rpgPlayerHpBar'></span></div>
+            <small id='rpgPlayerCombatMeta'>AC — · STR MOD — · DEX MOD —</small>
+          </div>
+
+          <div class='rpgBattleVersus'>
+            <div id='rpgBigDie' class='rpgBigDie'><span>D20</span><b>—</b></div>
+            <div id='rpgBattlePhase' class='rpgBattlePhase'>Pasiruošk kovai</div>
+          </div>
+
+          <div class='rpgFighterCard enemy'>
+            <div class='rpgFighterLabel'>PRIEŠAS</div>
+            <strong>Raudonosios Žvaigždės Legionierius</strong>
+            <div class='rpgHpLine'><span>HP</span><b id='rpgEnemyHpText'>52 / 52</b></div>
+            <div class='rpgHpBar enemy'><span id='rpgEnemyHpBar'></span></div>
+            <small>AC 11 · Attack +1 · Damage 1d6+1</small>
+          </div>
+        </div>
+
+        <div class='rpgBattleControls'>
+          <button id='rpgRollD20' class='rpgCombatDieBtn d20' type='button'>
+            <span class='dieIcon'>20</span><b>MESTI D20</b><small id='rpgD20Hint'>Iniciatyvai / atakai</small>
+          </button>
+          <button id='rpgRollDamage' class='rpgCombatDieBtn damage' type='button' disabled>
+            <span class='dieIcon' id='rpgDamageDieIcon'>8</span><b id='rpgDamageBtnText'>MESTI D8</b><small>Žalos metimas</small>
+          </button>
+        </div>
+
+        <div class='rpgDiceTray'>
+          <span>Kiti RPG kauliukai</span>
+          <div>
+            <button type='button' data-free-die='4'>d4</button>
+            <button type='button' data-free-die='6'>d6</button>
+            <button type='button' data-free-die='8'>d8</button>
+            <button type='button' data-free-die='10'>d10</button>
+            <button type='button' data-free-die='12'>d12</button>
+            <button type='button' data-free-die='20'>d20</button>
+          </div>
+          <small>Laisvas metimas treniruotei — kovos rezultatui įtakos neturi.</small>
+          <b id='rpgFreeDieResult'>—</b>
+        </div>
+
+        <div class='rpgBattleLogWrap'>
+          <div class='rpg2-blockTitle'>KOVOS ŽURNALAS</div>
+          <div id='rpgBattleLog' class='rpgBattleLog'><div class='rpgBattleLogLine system'>Kova dar nepradėta.</div></div>
+        </div>
+
+        <div id='rpgBattleEndActions' class='rpgBattleEndActions'>
+          <button id='rpgRetryBattleBtn' type='button'>↻ BANDYTI DAR KARTĄ</button>
+        </div>
       </div>
     </div>
 
@@ -573,6 +652,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     await loadInventory();
   }
 
+  window.renderRpgSheet=renderSheet;
+
   document.querySelectorAll(".rpgBuyStat").forEach(btn=>{
     btn.addEventListener("click",async()=>{
       const sb=window.rpgSupabase;if(!sb)return;
@@ -582,7 +663,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const {error}=await sb.rpc("buy_stat",{stat_name:stat});
       if(error){
         const t=(error.message||"").toLowerCase();
-        msg.textContent=t.includes("not enough")?"Nepakanka Available FPTS.":t.includes("maximum")?"Šis atributas jau pasiekė 20.":"Nepavyko nupirkti STAT.";
+        msg.textContent=t.includes("not enough")?"Nepakanka Available FPTS.":t.includes("maximum")?"Šis atributas jau pasiekė 20.":t.includes("active battle")?"Kovos metu STAT pirkti negalima.":"Nepavyko nupirkti STAT.";
       }else{
         msg.textContent="+1 "+stat.toUpperCase()+" nupirkta už 80 FPTS.";
       }
@@ -644,6 +725,177 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       extraRefresh();
       window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(extraRefresh,100));
       document.querySelectorAll(".rpgBuyStat").forEach(b=>b.addEventListener("click",()=>setTimeout(()=>{extraRefresh();if(window.loadRpgMiniProfile)window.loadRpgMiniProfile();},350)));
+    }
+  },100);
+})();
+</script>
+
+
+<script id="rpgCombatEngine">
+(() => {
+  const get=id=>document.getElementById(id);
+  const startBtn=get("rpgStartBattleBtn");
+  const retryBtn=get("rpgRetryBattleBtn");
+  const d20Btn=get("rpgRollD20");
+  const damageBtn=get("rpgRollDamage");
+  const arena=get("rpgBattleArena");
+  if(!startBtn || !arena) return;
+
+  let profile=null;
+  let battle=null;
+  let busy=false;
+
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#39;"}[m]));
+  const mod=n=>(Number(n)>=0?"+":"")+Number(n);
+  const pct=(a,b)=>b?Math.max(0,Math.min(100,(a/b)*100)):0;
+
+  function setDie(label,value){
+    const die=get("rpgBigDie");
+    if(!die)return;
+    die.querySelector("span").textContent=(label||"D20").toUpperCase();
+    die.querySelector("b").textContent=value??"—";
+    die.classList.remove("rolling"); void die.offsetWidth; die.classList.add("rolling");
+  }
+
+  function phaseText(b){
+    if(!b)return "Pasiruošk kovai";
+    if(b.status==="win")return "PERGALĖ";
+    if(b.status==="loss")return "PRALAIMĖJIMAS";
+    if(b.phase==="initiative")return "Mesk D20 iniciatyvai";
+    if(b.phase==="player_attack")return "Tavo ėjimas · mesk D20 atakai";
+    if(b.phase==="player_damage")return b.pending_crit?"CRITICAL HIT · mesk 2D8 žalai":"Pataikei · mesk D8 žalai";
+    return "Kova baigta";
+  }
+
+  function renderLog(log){
+    const el=get("rpgBattleLog"); if(!el)return;
+    const rows=Array.isArray(log)?log.slice(-18):[];
+    el.innerHTML=rows.length?rows.map(e=>{
+      let cls=e.actor==="player"?"player":e.actor==="enemy"?"enemy":"system";
+      if(e.type==="win")cls+=" win"; if(e.type==="loss")cls+=" loss";
+      return "<div class='rpgBattleLogLine "+cls+"'>"+esc(e.text||"")+"</div>";
+    }).join(""):"<div class='rpgBattleLogLine system'>Kova dar nepradėta.</div>";
+    el.scrollTop=el.scrollHeight;
+  }
+
+  function renderBattle(){
+    if(!profile){
+      arena.classList.remove("show");
+      startBtn.disabled=true;
+      return;
+    }
+
+    const req=get("rpgBattleRequirement");
+    const hasStat=Number(profile.str)>10 || Number(profile.dex)>10 || Number(profile.con)>10;
+    const defeated=Number(profile.defeated_enemies)>=1;
+
+    if(defeated){
+      startBtn.disabled=true; startBtn.textContent="✓ ENEMY #1 ĮVEIKTAS";
+      if(req)req.textContent="Item Shop atrakintas.";
+    }else if(battle && battle.status==="active"){
+      startBtn.disabled=false; startBtn.textContent="⚔️ TĘSTI KOVĄ";
+      if(req)req.textContent="Aktyvi kova išsaugota serveryje.";
+    }else{
+      startBtn.disabled=!hasStat; startBtn.textContent="⚔️ PRADĖTI KOVĄ";
+      if(req)req.textContent=hasStat?"Pasiruošęs: pirmas priešas atrakintas.":"Prieš pirmą kovą nupirk bent +1 STAT už 80 FPTS.";
+    }
+
+    if(!battle){
+      arena.classList.remove("show");
+      return;
+    }
+
+    arena.classList.add("show");
+    get("rpgBattlePlayerName").textContent=profile.team_name;
+    get("rpgCombatRound").textContent=battle.combat_round||1;
+    get("rpgPlayerHpText").textContent=battle.player_hp+" / "+battle.player_max_hp;
+    get("rpgEnemyHpText").textContent=battle.enemy_hp+" / "+battle.enemy_max_hp;
+    get("rpgPlayerHpBar").style.width=pct(battle.player_hp,battle.player_max_hp)+"%";
+    get("rpgEnemyHpBar").style.width=pct(battle.enemy_hp,battle.enemy_max_hp)+"%";
+    get("rpgPlayerCombatMeta").textContent="AC "+(10+Number(profile.dex_mod))+" · STR MOD "+mod(profile.str_mod)+" · DEX MOD "+mod(profile.dex_mod);
+    get("rpgBattlePhase").textContent=phaseText(battle);
+
+    const active=battle.status==="active";
+    d20Btn.disabled=busy || !active || !["initiative","player_attack"].includes(battle.phase);
+    damageBtn.disabled=busy || !active || battle.phase!=="player_damage";
+    get("rpgD20Hint").textContent=battle.phase==="initiative"?"Iniciatyvos metimas":"Atakos metimas";
+    get("rpgDamageBtnText").textContent=battle.pending_crit?"MESTI 2D8":"MESTI D8";
+    get("rpgDamageDieIcon").textContent=battle.pending_crit?"2×8":"8";
+
+    const end=get("rpgBattleEndActions");
+    end.classList.toggle("show",battle.status==="loss");
+    renderLog(battle.battle_log);
+
+    const last=Array.isArray(battle.last_events)?[...battle.last_events].reverse().find(e=>e.roll||e.roll1):null;
+    if(last){
+      if(last.roll)setDie(last.die||"d20",last.roll);
+      else if(last.roll1)setDie(last.die||"d8",last.roll2?last.roll1+"+"+last.roll2:last.roll1);
+    }
+  }
+
+  async function refresh(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){profile=null;battle=null;renderBattle();return;}
+    const {data:p}=await sb.from("rpg_character_sheet").select("*").single();
+    profile=p||null;
+    if(profile){
+      const {data:b}=await sb.from("rpg_active_battles").select("*").eq("participant_id",profile.participant_id).maybeSingle();
+      battle=b||null;
+    }
+    renderBattle();
+  }
+
+  async function startBattle(){
+    if(busy)return;busy=true;startBtn.disabled=true;
+    const sb=window.rpgSupabase;
+    try{
+      const {data,error}=await sb.rpc("start_enemy1_battle");
+      if(error)throw error;
+      battle=data; arena.classList.add("show"); renderBattle(); arena.scrollIntoView({behavior:"smooth",block:"start"});
+    }catch(e){
+      const t=String(e?.message||"").toLowerCase();
+      const req=get("rpgBattleRequirement");
+      if(req)req.textContent=t.includes("at least one stat")?"Pirmiausia nupirk bent +1 STR, DEX arba CON.":t.includes("already defeated")?"Enemy #1 jau įveiktas.":"Nepavyko pradėti kovos.";
+    }finally{busy=false;renderBattle();}
+  }
+
+  async function roll(kind){
+    if(busy || !battle || battle.status!=="active")return;
+    busy=true;renderBattle();setDie(kind==="d20"?"d20":(battle.pending_crit?"2d8":"d8"),"…");
+    const sb=window.rpgSupabase;
+    try{
+      const {data,error}=await sb.rpc("enemy1_roll",{p_kind:kind});
+      if(error)throw error;
+      battle=data;
+      if(battle.status==="win"){
+        const {data:p}=await sb.from("rpg_character_sheet").select("*").single(); if(p)profile=p;
+        if(window.renderRpgSheet)await window.renderRpgSheet();
+        if(window.loadRpgMiniProfile)await window.loadRpgMiniProfile();
+      }
+    }catch(e){
+      console.error(e);
+      const log=get("rpgBattleLog");
+      if(log)log.insertAdjacentHTML("beforeend","<div class='rpgBattleLogLine loss'>Metimas nepavyko. Pakartok bandymą.</div>");
+    }finally{busy=false;renderBattle();}
+  }
+
+  startBtn.addEventListener("click",()=>battle&&battle.status==="active"?(arena.classList.add("show"),arena.scrollIntoView({behavior:"smooth",block:"start"})):startBattle());
+  retryBtn.addEventListener("click",startBattle);
+  d20Btn.addEventListener("click",()=>roll("d20"));
+  damageBtn.addEventListener("click",()=>roll("damage"));
+
+  document.querySelectorAll("[data-free-die]").forEach(btn=>btn.addEventListener("click",()=>{
+    const sides=Number(btn.dataset.freeDie);
+    const value=Math.floor(Math.random()*sides)+1;
+    get("rpgFreeDieResult").textContent="d"+sides+": "+value;
+  }));
+
+  const wait=setInterval(()=>{
+    if(window.rpgSupabase){
+      clearInterval(wait);refresh();
+      window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(refresh,120));
+      document.querySelectorAll(".rpgBuyStat").forEach(b=>b.addEventListener("click",()=>setTimeout(refresh,450)));
     }
   },100);
 })();
