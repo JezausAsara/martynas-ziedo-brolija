@@ -199,6 +199,24 @@
 .rpgRatingLegend{display:grid;grid-template-columns:1fr 50px 50px;gap:6px;color:#6f7c81;font:800 8px Arial,sans-serif;letter-spacing:.05em}.rpgRatingLegend span{text-align:center}
 .rpgRatingNote{margin-top:7px;color:#718087;font:9px/1.35 Arial,sans-serif}
 @media(max-width:620px){.rpgInventoryItem{display:grid!important}.rpgItemAction{width:100%}.rpgDerivedBonuses{justify-content:center}}
+</style>
+<style id="rpgEquipmentPreviewFix">
+.rpgEquipPreviewSlot{position:relative;cursor:pointer;transition:.18s}
+.rpgEquipPreviewSlot:hover{border-color:#6d5830!important;transform:translateY(-1px)}
+.rpgEquipPreviewSlot.equipped{border-color:#4f7d59!important;background:linear-gradient(180deg,#102019,#091311)!important;box-shadow:inset 0 0 20px #2e754026}
+.rpgEquipPreviewSlot.equipped>b{filter:none!important;transform:scale(1.08)}
+.rpgEquipPreviewSlot.equipped small{color:#e4d7b7!important;font-weight:700!important}
+.rpgEquipPreviewSlot em{display:block;min-height:22px;margin-top:5px;color:#56656a;font:700 8px/1.25 Arial,sans-serif;font-style:normal}
+.rpgEquipPreviewSlot.equipped em{color:#78cd8c}
+.rpgEquipPreviewSlot .rarity{display:block;margin-top:4px;color:#b99a58;font:700 7px/1 Arial,sans-serif;text-transform:uppercase;letter-spacing:.05em}
+@media(max-width:820px){
+ .rpg2-equipMini{grid-template-columns:repeat(2,1fr)!important}
+ .rpg2-equipMini>div{min-height:128px!important;padding:12px 8px!important}
+ .rpg2-equipMini b{font-size:30px!important}
+ .rpg2-equipMini span{font-size:11px!important}
+ .rpg2-equipMini small{font-size:10px!important;line-height:1.25}
+ .rpgEquipPreviewSlot em{font-size:9px}
+}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
@@ -342,12 +360,12 @@
           <div class='rpg2-equipmentPreview'>
             <div class='rpg2-blockTitle'>ĮRANGA</div>
             <div class='rpg2-equipMini'>
-              <div><b>⚔️</b><span>Ginklas</span><small id='eqWeapon'>Tuščia</small></div>
-              <div><b>🛡️</b><span>Šarvai</span><small id='eqArmor'>Tuščia</small></div>
-              <div><b>⛑️</b><span>Šalmas</span><small id='eqHelmet'>Tuščia</small></div>
-              <div><b>💍</b><span>Žiedas</span><small id='eqRing'>Tuščia</small></div>
-              <div><b>🔮</b><span>Artefaktas</span><small id='eqArtifact'>Tuščia</small></div>
-              <div><b>✨</b><span>Burtas</span><small id='eqSpell'>Tuščia</small></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='weapon'><b id='eqWeaponIcon'>⚔️</b><span>Ginklas</span><small id='eqWeapon'>Tuščia</small><em id='eqWeaponStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='armor'><b id='eqArmorIcon'>🛡️</b><span>Šarvai</span><small id='eqArmor'>Tuščia</small><em id='eqArmorStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='helmet'><b id='eqHelmetIcon'>⛑️</b><span>Šalmas</span><small id='eqHelmet'>Tuščia</small><em id='eqHelmetStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='ring'><b id='eqRingIcon'>💍</b><span>Žiedas</span><small id='eqRing'>Tuščia</small><em id='eqRingStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='artifact'><b id='eqArtifactIcon'>🔮</b><span>Artefaktas</span><small id='eqArtifact'>Tuščia</small><em id='eqArtifactStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='spell'><b id='eqSpellIcon'>✨</b><span>Burtas</span><small id='eqSpell'>Tuščia</small><em id='eqSpellStats'>—</em></div>
             </div>
             <button class='rpg2-openInventory' type='button' data-open-rpg-inventory>Atidaryti inventorių →</button>
           </div>
@@ -805,27 +823,80 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   const modText=n=>n>=0?"+"+n:String(n);
 
-  const itemIcon=slot=>({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
+  const itemIcon=(slot,id="")=>{
+    const special={
+      cz_starblade:"🗡️",
+      cz_legion_armor:"🛡️",
+      cz_scout_helmet:"⛑️",
+      cz_blood_ruby_ring:"💍",
+      cz_star_talisman:"🔮"
+    };
+    return special[id]||({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
+  };
+  const itemStatsText=payload=>{
+    payload=payload||{};const s=[];
+    if(payload.damage_die)s.push(String(payload.damage_die).toUpperCase());
+    if(Number(payload.attack_bonus))s.push("ATTACK "+(Number(payload.attack_bonus)>0?"+":"")+Number(payload.attack_bonus));
+    if(Number(payload.damage_bonus))s.push("DMG "+(Number(payload.damage_bonus)>0?"+":"")+Number(payload.damage_bonus));
+    if(Number(payload.ac_bonus))s.push("AC "+(Number(payload.ac_bonus)>0?"+":"")+Number(payload.ac_bonus));
+    if(Number(payload.initiative_bonus))s.push("INIT "+(Number(payload.initiative_bonus)>0?"+":"")+Number(payload.initiative_bonus));
+    if(Number(payload.max_hp_bonus))s.push("HP "+(Number(payload.max_hp_bonus)>0?"+":"")+Number(payload.max_hp_bonus));
+    if(Number(payload.str_bonus))s.push("STR "+(Number(payload.str_bonus)>0?"+":"")+Number(payload.str_bonus));
+    if(Number(payload.dex_bonus))s.push("DEX "+(Number(payload.dex_bonus)>0?"+":"")+Number(payload.dex_bonus));
+    if(Number(payload.con_bonus))s.push("CON "+(Number(payload.con_bonus)>0?"+":"")+Number(payload.con_bonus));
+    return s.join(" · ")||payload.description||"—";
+  };
   const escInv=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
 
   async function loadInventory(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,rpg_items(name,slot,rarity,stat_payload)");
     document.querySelectorAll(".rpgSlot span").forEach(x=>x.textContent="Tuščia");
+
+    const previewMeta={
+      weapon:["eqWeapon","eqWeaponIcon","eqWeaponStats","⚔️"],
+      armor:["eqArmor","eqArmorIcon","eqArmorStats","🛡️"],
+      helmet:["eqHelmet","eqHelmetIcon","eqHelmetStats","⛑️"],
+      ring:["eqRing","eqRingIcon","eqRingStats","💍"],
+      artifact:["eqArtifact","eqArtifactIcon","eqArtifactStats","🔮"],
+      spell:["eqSpell","eqSpellIcon","eqSpellStats","✨"]
+    };
+    Object.entries(previewMeta).forEach(([slot,[nameId,iconId,statsId,emptyIcon]])=>{
+      const card=document.querySelector(".rpgEquipPreviewSlot[data-preview-slot='"+slot+"']");
+      card?.classList.remove("equipped");
+      const name=document.getElementById(nameId), icon=document.getElementById(iconId), stats=document.getElementById(statsId);
+      if(name)name.textContent="Tuščia";
+      if(icon)icon.textContent=emptyIcon;
+      if(stats){stats.textContent="—";stats.removeAttribute("data-rarity");}
+    });
+
     const list=document.getElementById("rpgInventoryItems");
     if(error){list.innerHTML="<p style='color:#a97b72'>Nepavyko užkrauti inventoriaus.</p>";return;}
     if(!data || !data.length){list.innerHTML="<p style='color:#8e989d'>Inventorius kol kas tuščias.</p>";return;}
 
+    (data||[]).filter(i=>i.equipped&&i.rpg_items?.slot).forEach(i=>{
+      const item=i.rpg_items||{}, payload=item.stat_payload||{}, slotName=item.slot;
+      const slot=document.querySelector(".rpgSlot[data-slot='"+slotName+"'] span");
+      if(slot)slot.textContent=item.name||i.item_id;
+
+      const meta=previewMeta[slotName];
+      if(meta){
+        const [nameId,iconId,statsId]=meta;
+        const card=document.querySelector(".rpgEquipPreviewSlot[data-preview-slot='"+slotName+"']");
+        card?.classList.add("equipped");
+        const name=document.getElementById(nameId), icon=document.getElementById(iconId), stats=document.getElementById(statsId);
+        if(name)name.textContent=item.name||i.item_id;
+        if(icon)icon.textContent=itemIcon(slotName,i.item_id);
+        if(stats)stats.innerHTML=escInv(itemStatsText(payload))+"<span class='rarity'>"+escInv(item.rarity||"")+"</span>";
+      }
+    });
+
     list.innerHTML=data.map(i=>{
       const item=i.rpg_items||{}, payload=item.stat_payload||{};
-      if(i.equipped && item.slot){
-        const slot=document.querySelector(".rpgSlot[data-slot='"+item.slot+"'] span");
-        if(slot)slot.textContent=item.name||i.item_id;
-      }
-      const desc=payload.description||"";
+      const desc=payload.description||itemStatsText(payload);
       const req=payload.required_stat&&payload.min_stat ? "Reikia "+String(payload.required_stat).toUpperCase()+" "+payload.min_stat : "";
       return "<div class='rpgInventoryItem "+(i.equipped?"equipped":"")+"'>"+
-        "<div class='rpgItemMain'><div class='rpgItemIcon'>"+itemIcon(item.slot)+"</div><div class='rpgItemInfo'>"+
+        "<div class='rpgItemMain'><div class='rpgItemIcon'>"+itemIcon(item.slot,i.item_id)+"</div><div class='rpgItemInfo'>"+
         "<strong>"+escInv(item.name||i.item_id)+"</strong>"+
         (desc?"<small>"+escInv(desc)+"</small>":"")+
         "<em>"+escInv(item.rarity||"")+" · "+escInv(item.slot||"item")+(req?" · "+escInv(req):"")+"</em>"+
@@ -907,6 +978,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       await renderSheet();
     });
   });
+
+  document.querySelectorAll(".rpgEquipPreviewSlot").forEach(card=>card.addEventListener("click",()=>document.querySelector("[data-open-rpg-inventory]")?.click()));
 
   document.getElementById("rpgInventoryItems")?.addEventListener("click",async e=>{
     const btn=e.target.closest(".rpgItemAction");if(!btn)return;
