@@ -69,4 +69,188 @@ function finishQuiz(){const hist=qstore.history||[];hist.push({date:quizDate,sco
 renderQuiz();updateQuizStats();
 
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active')});
-</script></body></html>
+</script>
+<!-- RPG ACCOUNT / SUPABASE AUTH -->
+<style>
+  #rpgAccountBtn{
+    position:fixed;right:18px;bottom:18px;z-index:1200;
+    border:1px solid rgba(214,178,92,.62);border-radius:999px;
+    padding:10px 15px;background:rgba(13,12,15,.94);color:#f0d799;
+    font:700 13px/1.1 Georgia,serif;letter-spacing:.02em;cursor:pointer;
+    box-shadow:0 8px 28px rgba(0,0,0,.38);
+  }
+  #rpgAccountBtn:hover{transform:translateY(-1px)}
+  #rpgLoginOverlay{
+    position:fixed;inset:0;z-index:1300;display:none;align-items:center;justify-content:center;
+    padding:20px;background:rgba(0,0,0,.76);backdrop-filter:blur(6px);
+  }
+  #rpgLoginOverlay.open{display:flex}
+  .rpg-login-card{
+    width:min(430px,94vw);border:1px solid rgba(214,178,92,.48);border-radius:20px;
+    padding:25px;background:linear-gradient(180deg,#17151a,#0e0d10);
+    box-shadow:0 22px 70px rgba(0,0,0,.62);color:#eee;
+  }
+  .rpg-login-card h3{margin:0 0 7px;color:#efd99e;font-family:Georgia,serif;font-size:24px}
+  .rpg-login-card p{margin:0 0 18px;color:#aaa;font-size:13px;line-height:1.5}
+  .rpg-login-card label{display:block;margin:12px 0 6px;color:#d1c59f;font-size:12px;font-weight:700}
+  .rpg-login-card select,.rpg-login-card input{
+    width:100%;box-sizing:border-box;border:1px solid #40392e;border-radius:11px;
+    background:#0a090b;color:#eee;padding:12px 13px;font-size:15px;outline:none;
+  }
+  .rpg-login-card input:focus,.rpg-login-card select:focus{border-color:#b9994e}
+  .rpg-login-actions{display:flex;gap:9px;margin-top:18px}
+  .rpg-login-actions button{
+    flex:1;border-radius:11px;padding:11px 12px;cursor:pointer;font-weight:800;
+    border:1px solid #5a4930;background:#b18a3d;color:#0c0b0d;
+  }
+  .rpg-login-actions .ghost{background:transparent;color:#c8b98d}
+  #rpgLoginMsg{min-height:18px;margin-top:11px;font-size:12px;color:#d8a48e}
+  #rpgProfileBox{display:none;margin-top:17px;padding:14px;border:1px solid #332d24;border-radius:13px;background:#0b0a0c}
+  #rpgProfileBox.show{display:block}
+  .rpg-profile-name{font:700 18px Georgia,serif;color:#f0d799}
+  .rpg-profile-meta{margin-top:5px;color:#999;font-size:12px}
+  .rpg-profile-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:13px}
+  .rpg-profile-stat{padding:9px;border-radius:10px;background:#151317;text-align:center;border:1px solid #2f2923}
+  .rpg-profile-stat b{display:block;color:#ead49a;font-size:18px}
+  .rpg-profile-stat span{font-size:10px;color:#888}
+  .rpg-profile-fpts{display:flex;justify-content:space-between;gap:10px;margin-top:12px;font-size:12px;color:#bbb}
+  @media(max-width:600px){#rpgAccountBtn{right:12px;bottom:12px}.rpg-login-card{padding:20px}}
+</style>
+
+<button id="rpgAccountBtn" type="button">🧙 RPG prisijungimas</button>
+
+<div id="rpgLoginOverlay" aria-hidden="true">
+  <div class="rpg-login-card" role="dialog" aria-modal="true" aria-labelledby="rpgLoginTitle">
+    <h3 id="rpgLoginTitle">RPG personažas</h3>
+    <p>Pasirink savo lygos komandą ir įvesk 4 skaitmenų PIN. Progresas saugomas serveryje ir liks tas pats visuose įrenginiuose.</p>
+
+    <div id="rpgLoginForm">
+      <label for="rpgTeamSelect">Komanda</label>
+      <select id="rpgTeamSelect">
+        <option value="vytas">JėzausAšara</option>
+        <option value="rokas">3 pro Šalį</option>
+        <option value="tomas">Koksas</option>
+        <option value="rycis">Nerytas</option>
+        <option value="domantas">Duok Dėdei Vieną</option>
+        <option value="martynas">BC Tritaškis</option>
+        <option value="ignas">Šūdas McČyzas</option>
+      </select>
+
+      <label for="rpgPinInput">PIN</label>
+      <input id="rpgPinInput" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" placeholder="••••">
+
+      <div class="rpg-login-actions">
+        <button id="rpgLoginBtn" type="button">Prisijungti</button>
+        <button id="rpgCloseBtn" class="ghost" type="button">Uždaryti</button>
+      </div>
+      <div id="rpgLoginMsg"></div>
+    </div>
+
+    <div id="rpgProfileBox">
+      <div class="rpg-profile-name" id="rpgProfileName"></div>
+      <div class="rpg-profile-meta" id="rpgProfileMeta"></div>
+      <div class="rpg-profile-stats">
+        <div class="rpg-profile-stat"><b id="rpgStr">10</b><span>STR</span></div>
+        <div class="rpg-profile-stat"><b id="rpgDex">10</b><span>DEX</span></div>
+        <div class="rpg-profile-stat"><b id="rpgCon">10</b><span>CON</span></div>
+      </div>
+      <div class="rpg-profile-fpts">
+        <span>Career FPTS: <strong id="rpgCareer">0</strong></span>
+        <span>Available: <strong id="rpgAvailable">0</strong></span>
+      </div>
+      <div class="rpg-login-actions">
+        <button id="rpgLogoutBtn" class="ghost" type="button">Atsijungti</button>
+        <button id="rpgProfileCloseBtn" type="button">Gerai</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(() => {
+  const SUPABASE_URL = "https://rfcvpwkologzvbsfggiz.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_MVXJsQ3WHWBxLgHIOWK-dQ_a6_HGzGa";
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
+    auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}
+  });
+
+  const overlay=document.getElementById("rpgLoginOverlay");
+  const accountBtn=document.getElementById("rpgAccountBtn");
+  const loginForm=document.getElementById("rpgLoginForm");
+  const profileBox=document.getElementById("rpgProfileBox");
+  const msg=document.getElementById("rpgLoginMsg");
+  const pin=document.getElementById("rpgPinInput");
+  const team=document.getElementById("rpgTeamSelect");
+
+  function openModal(){overlay.classList.add("open");overlay.setAttribute("aria-hidden","false");}
+  function closeModal(){overlay.classList.remove("open");overlay.setAttribute("aria-hidden","true");msg.textContent="";pin.value="";}
+  accountBtn.addEventListener("click",openModal);
+  document.getElementById("rpgCloseBtn").addEventListener("click",closeModal);
+  document.getElementById("rpgProfileCloseBtn").addEventListener("click",closeModal);
+  overlay.addEventListener("click",(e)=>{if(e.target===overlay) closeModal();});
+
+  async function loadProfile(){
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){
+      loginForm.style.display="";
+      profileBox.classList.remove("show");
+      accountBtn.textContent="🧙 RPG prisijungimas";
+      return;
+    }
+    const {data,error}=await sb.from("rpg_character_sheet").select("*").single();
+    if(error || !data){
+      await sb.auth.signOut();
+      loginForm.style.display="";
+      profileBox.classList.remove("show");
+      accountBtn.textContent="🧙 RPG prisijungimas";
+      return;
+    }
+    loginForm.style.display="none";
+    profileBox.classList.add("show");
+    document.getElementById("rpgProfileName").textContent=data.team_name;
+    document.getElementById("rpgProfileMeta").textContent=data.owner_name+" · HP "+data.max_hp+" · įveikta "+data.defeated_enemies+"/38";
+    document.getElementById("rpgStr").textContent=data.str;
+    document.getElementById("rpgDex").textContent=data.dex;
+    document.getElementById("rpgCon").textContent=data.con;
+    document.getElementById("rpgCareer").textContent=Number(data.career_fpts).toFixed(2);
+    document.getElementById("rpgAvailable").textContent=Number(data.available_fpts).toFixed(2);
+    accountBtn.textContent="🧙 "+data.team_name;
+  }
+
+  async function doLogin(){
+    const pinValue=pin.value.trim();
+    if(!/^\\d{4}$/.test(pinValue)){msg.textContent="PIN turi būti 4 skaitmenų.";return;}
+    const btn=document.getElementById("rpgLoginBtn");
+    btn.disabled=true;btn.textContent="Jungiamasi…";msg.textContent="";
+    try{
+      const res=await fetch(SUPABASE_URL+"/functions/v1/rpg-login",{
+        method:"POST",
+        headers:{"Content-Type":"application/json","apikey":SUPABASE_KEY},
+        body:JSON.stringify({slug:team.value,pin:pinValue})
+      });
+      const data=await res.json();
+      if(!res.ok) throw new Error(data.error || "Prisijungti nepavyko.");
+      const {error}=await sb.auth.setSession({access_token:data.access_token,refresh_token:data.refresh_token});
+      if(error) throw error;
+      pin.value="";
+      await loadProfile();
+    }catch(err){
+      msg.textContent=err?.message || "Prisijungti nepavyko.";
+    }finally{
+      btn.disabled=false;btn.textContent="Prisijungti";
+    }
+  }
+
+  document.getElementById("rpgLoginBtn").addEventListener("click",doLogin);
+  pin.addEventListener("keydown",(e)=>{if(e.key==="Enter") doLogin();});
+  pin.addEventListener("input",()=>{pin.value=pin.value.replace(/\\D/g,"").slice(0,4);});
+  document.getElementById("rpgLogoutBtn").addEventListener("click",async()=>{await sb.auth.signOut();await loadProfile();});
+
+  sb.auth.onAuthStateChange(()=>{setTimeout(loadProfile,0);});
+  loadProfile();
+})();
+</script>
+<!-- /RPG ACCOUNT / SUPABASE AUTH -->
+
+</body></html>
