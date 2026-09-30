@@ -465,7 +465,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   async function doLogin(){
     const pinValue=pin.value.trim();
-    if(!/^\\d{4}$/.test(pinValue)){msg.textContent="PIN turi būti 4 skaitmenų.";return;}
+    if(!/^\d{4}$/.test(pinValue)){msg.textContent="PIN turi būti 4 skaitmenų.";return;}
     const btn=document.getElementById("rpgLoginBtn");
     btn.disabled=true;btn.textContent="Jungiamasi…";msg.textContent="";
     try{
@@ -489,7 +489,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   document.getElementById("rpgLoginBtn").addEventListener("click",doLogin);
   pin.addEventListener("keydown",(e)=>{if(e.key==="Enter") doLogin();});
-  pin.addEventListener("input",()=>{pin.value=pin.value.replace(/\\D/g,"").slice(0,4);});
+  pin.addEventListener("input",()=>{pin.value=pin.value.replace(/\D/g,"").slice(0,4);});
   document.getElementById("rpgLogoutBtn").addEventListener("click",async()=>{await sb.auth.signOut();await loadProfile();});
 
   sb.auth.onAuthStateChange(()=>{setTimeout(loadProfile,0);});
