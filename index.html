@@ -33,26 +33,26 @@ const minFpts=Math.min(...players.map(p=>p.fpts)),maxFpts=Math.max(...players.ma
 document.querySelector('#chronicle').innerHTML=chronicleEntries.slice().reverse().map(e=>`<article class='chronicleEntry' data-round='${e.round}'><h4>${e.title}</h4><p>${e.text}</p><span class='chapterTag'>${e.chapter}</span></article>`).join('');
 
 const quizBank=[
-{c:'EuroLeague',q:'Kiek žaidėjų iš vienos komandos vienu metu yra krepšinio aikštėje?',a:['4','5','6','7'],x:1,e:'Krepšinio komanda aikštėje vienu metu turi 5 žaidėjus.'},
-{c:'NBA',q:'Kiek minučių trunka standartinės NBA rungtynės be pratęsimo?',a:['40','44','48','50'],x:2,e:'NBA žaidžiami keturi 12 minučių kėliniai – iš viso 48 minutės.'},
-{c:'F1',q:'Ką lenktynėse reiškia juodai balta languota vėliava?',a:['Safety Car','Lenktynių pabaiga','Bauda','Šlapia trasa'],x:1,e:'Languota vėliava žymi lenktynių ar sesijos finišą.'},
-{c:'Futbolas',q:'Kiek minučių trunka pagrindinis futbolo rungtynių laikas?',a:['80','90','100','120'],x:1,e:'Pagrindinis laikas – du kėliniai po 45 minutes.'},
-{c:'Tenisas',q:'Koks rezultatas tenise vadinamas „deuce“?',a:['15:15','30:30','40:40','6:6'],x:2,e:'„Deuce“ yra 40:40 geimo rezultatas.'},
-{c:'Fantasy',q:'Kas yra „Gandalfas“ J. R. R. Tolkieno pasaulyje?',a:['Elfas','Burtininkas','Nykštukas','Žmogus karalius'],x:1,e:'Gandalfas yra vienas iš Istari – burtininkų.'},
-{c:'Fantasy',q:'Koks ginklas siejamas su Aragornu „Žiedų valdove“?',a:['Sting','Andúril','Glamdring','Orcrist'],x:1,e:'Aragorno kalavijas Andúril buvo perkalta Narsilo geležtė.'},
-{c:'Sci-Fi',q:'Kas parašė romaną „Dune“?',a:['Isaac Asimov','Frank Herbert','Arthur C. Clarke','Philip K. Dick'],x:1,e:'„Dune“ autorius – Frank Herbert.'},
-{c:'Sci-Fi',q:'Filme „The Matrix“ Neo pasirenka kurią tabletę?',a:['Mėlyną','Raudoną','Žalią','Baltą'],x:1,e:'Neo pasirenka raudoną tabletę ir sužino Matrix tiesą.'},
-{c:'Siaubas',q:'Kas parašė romaną „The Shining“?',a:['Stephen King','Dean Koontz','Clive Barker','Shirley Jackson'],x:0,e:'„The Shining“ parašė Stephen King.'},
-{c:'Siaubas',q:'Kuriame filme veikia padaras Xenomorph?',a:['Predator','Alien','The Thing','Event Horizon'],x:1,e:'Xenomorph yra „Alien“ franšizės būtybė.'},
-{c:'Klasika',q:'Kas parašė „1984“?',a:['George Orwell','Aldous Huxley','Ray Bradbury','H. G. Wells'],x:0,e:'„1984“ autorius – George Orwell.'},
-{c:'Klasika',q:'Kas parašė „Frankenstein“?',a:['Bram Stoker','Mary Shelley','Edgar Allan Poe','Oscar Wilde'],x:1,e:'„Frankenstein“ parašė Mary Shelley.'},
-{c:'Filmai',q:'Kas režisavo filmą „Jaws“?',a:['George Lucas','Steven Spielberg','Ridley Scott','James Cameron'],x:1,e:'„Jaws“ režisavo Steven Spielberg.'},
-{c:'Filmai',q:'Kuriame filme veikė veikėjas Maximus Decimus Meridius?',a:['Troy','Gladiator','Braveheart','Kingdom of Heaven'],x:1,e:'Maximus yra pagrindinis filmo „Gladiator“ veikėjas.'},
-{c:'Krepšinis',q:'Kiek taškų vertas metimas iš už tritaškio linijos?',a:['1','2','3','4'],x:2,e:'Už sėkmingą metimą iš už tritaškio linijos skiriami 3 taškai.'},
-{c:'EuroLeague',q:'Kiek kėlinių žaidžiama Eurolygos rungtynėse be pratęsimo?',a:['2','3','4','5'],x:2,e:'Eurolygoje žaidžiami keturi kėliniai.'},
-{c:'Fantasy',q:'Kuri rasė Tolkieno pasaulyje garsėja gyvenimu Morijoje ir meistryste kalvystėje?',a:['Elfai','Nykštukai','Hobitai','Entai'],x:1,e:'Morija buvo didinga nykštukų karalystė.'},
-{c:'Sci-Fi',q:'Kas yra HAL 9000?',a:['Robotų armija','Kosminio laivo AI','Planeta','Androidas detektyvas'],x:1,e:'HAL 9000 yra dirbtinio intelekto sistema iš „2001: A Space Odyssey“.'},
-{c:'Klasika',q:'Kuris autorius sukūrė Drakulą?',a:['Mary Shelley','Bram Stoker','H. P. Lovecraft','Robert Louis Stevenson'],x:1,e:'Grafą Drakulą sukūrė Bram Stoker.'}
+{c:'EuroLeague',q:'Kiek žaidėjų iš vienos komandos vienu metu yra krepšinio aikštėje?',a:['4','5','6','7'],x:1},
+{c:'NBA',q:'Kiek minučių trunka standartinės NBA rungtynės be pratęsimo?',a:['40','44','48','50'],x:2},
+{c:'F1',q:'Ką lenktynėse reiškia juodai balta languota vėliava?',a:['Safety Car','Lenktynių pabaiga','Bauda','Šlapia trasa'],x:1},
+{c:'Futbolas',q:'Kiek minučių trunka pagrindinis futbolo rungtynių laikas?',a:['80','90','100','120'],x:1},
+{c:'Tenisas',q:'Koks rezultatas tenise vadinamas „deuce“?',a:['15:15','30:30','40:40','6:6'],x:2},
+{c:'Fantasy',q:'Kas yra „Gandalfas“ J. R. R. Tolkieno pasaulyje?',a:['Elfas','Burtininkas','Nykštukas','Žmogus karalius'],x:1},
+{c:'Fantasy',q:'Koks ginklas siejamas su Aragornu „Žiedų valdove“?',a:['Sting','Andúril','Glamdring','Orcrist'],x:1},
+{c:'Sci-Fi',q:'Kas parašė romaną „Dune“?',a:['Isaac Asimov','Frank Herbert','Arthur C. Clarke','Philip K. Dick'],x:1},
+{c:'Sci-Fi',q:'Filme „The Matrix“ Neo pasirenka kurią tabletę?',a:['Mėlyną','Raudoną','Žalią','Baltą'],x:1},
+{c:'Siaubas',q:'Kas parašė romaną „The Shining“?',a:['Stephen King','Dean Koontz','Clive Barker','Shirley Jackson'],x:0},
+{c:'Siaubas',q:'Kuriame filme veikia padaras Xenomorph?',a:['Predator','Alien','The Thing','Event Horizon'],x:1},
+{c:'Klasika',q:'Kas parašė „1984“?',a:['George Orwell','Aldous Huxley','Ray Bradbury','H. G. Wells'],x:0},
+{c:'Klasika',q:'Kas parašė „Frankenstein“?',a:['Bram Stoker','Mary Shelley','Edgar Allan Poe','Oscar Wilde'],x:1},
+{c:'Filmai',q:'Kas režisavo filmą „Jaws“?',a:['George Lucas','Steven Spielberg','Ridley Scott','James Cameron'],x:1},
+{c:'Filmai',q:'Kuriame filme veikė veikėjas Maximus Decimus Meridius?',a:['Troy','Gladiator','Braveheart','Kingdom of Heaven'],x:1},
+{c:'Krepšinis',q:'Kiek taškų vertas metimas iš už tritaškio linijos?',a:['1','2','3','4'],x:2},
+{c:'EuroLeague',q:'Kiek kėlinių žaidžiama Eurolygos rungtynėse be pratęsimo?',a:['2','3','4','5'],x:2},
+{c:'Fantasy',q:'Kuri rasė Tolkieno pasaulyje garsėja gyvenimu Morijoje ir meistryste kalvystėje?',a:['Elfai','Nykštukai','Hobitai','Entai'],x:1},
+{c:'Sci-Fi',q:'Kas yra HAL 9000?',a:['Robotų armija','Kosminio laivo AI','Planeta','Androidas detektyvas'],x:1},
+{c:'Klasika',q:'Kuris autorius sukūrė Drakulą?',a:['Mary Shelley','Bram Stoker','H. P. Lovecraft','Robert Louis Stevenson'],x:1}
 ];
 const quizDate=new Date().toISOString().slice(0,10);
 function seededPick(arr,count,seed){let s=0;for(const ch of seed)s=(s*31+ch.charCodeAt(0))>>>0;const copy=[...arr];const out=[];while(copy.length&&out.length<count){s=(1664525*s+1013904223)>>>0;out.push(copy.splice(s%copy.length,1)[0])}return out}
