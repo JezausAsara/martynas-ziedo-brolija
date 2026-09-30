@@ -4,7 +4,31 @@
 .quizTop{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;margin-bottom:18px}.quizStats{display:flex;gap:10px;flex-wrap:wrap}.quizStat{min-width:105px;padding:10px 12px;border:1px solid #4d3d23;border-radius:10px;background:#0d1518;text-align:center}.quizStat b{display:block;color:#f1c968;font-size:20px}.quizProgress{height:8px;border-radius:999px;background:#172126;overflow:hidden;margin:10px 0 18px}.quizProgress>span{display:block;height:100%;background:linear-gradient(90deg,#8a641c,#e2b957);width:0}.quizCard{border:1px solid #465158;border-radius:14px;background:linear-gradient(180deg,#10191d,#081014);padding:18px}.quizCat{color:#d6b86f;font-size:12px;text-transform:uppercase;letter-spacing:.08em}.quizQ{font-size:22px;line-height:1.35;margin:8px 0 16px}.quizAnswers{display:grid;gap:9px}.quizAnswer{padding:12px 14px;border:1px solid #35444b;border-radius:10px;background:#0b1418;color:#eee;text-align:left;font:inherit;cursor:pointer}.quizAnswer:hover{border-color:#8c6b2c}.quizAnswer.correct{border-color:#4b9b5d;background:#102417}.quizAnswer.wrong{border-color:#a2473a;background:#26110e}.quizExplain{margin-top:14px;padding:12px;border-left:3px solid #a47b2d;background:#0a1114;color:#cfd5d7;line-height:1.5}.quizNext{margin-top:14px;padding:10px 16px;border:1px solid #82642a;background:#6d5017;color:#ffe29a;border-radius:9px;font:inherit;cursor:pointer}.quizHistory{margin-top:20px}.quizHistoryRow{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid #253238;font-family:Arial,sans-serif}.quizResult{text-align:center;padding:26px 10px}.quizResult strong{display:block;font-size:48px;color:#f3c96e;margin:8px 0}.quizBadge{display:inline-block;padding:7px 12px;border:1px solid #755823;border-radius:999px;color:#f0c66f}
 
 @media(max-width:800px){.stats{grid-template-columns:1fr;margin-top:12px}.layout{grid-template-columns:1fr}.nav{display:flex;overflow:auto}.nav button{min-width:max-content}.hero{min-height:0}th:nth-child(4),td:nth-child(4){display:none}}
-</style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
+</style>
+<style>
+.rpgSheetHead{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:18px}
+.rpgSheetHead p{margin:4px 0;color:#b9c0c3;line-height:1.5;max-width:800px}
+.rpgGate{padding:34px 20px;text-align:center;border:1px solid #58411f;border-radius:16px;background:linear-gradient(180deg,#14120f,#091014)}
+.rpgGate h4{margin:0 0 8px;color:#f0c66f;font-size:22px}.rpgGate p{color:#aaa}.rpgGate button{margin-top:10px;padding:11px 18px;border:1px solid #88672c;border-radius:10px;background:#6d5017;color:#ffe29a;font:700 14px Georgia,serif;cursor:pointer}
+.rpgSheet{display:none}.rpgSheet.show{display:block}
+.rpgTabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}.rpgTabs button{padding:9px 13px;border:1px solid #3d3426;border-radius:999px;background:#0d1518;color:#cfd4d6;cursor:pointer;font:inherit}.rpgTabs button.active{background:#6d5017;color:#ffe29a;border-color:#8b692b}
+.rpgPanel{display:none}.rpgPanel.active{display:block}
+.rpgCharacterGrid{display:grid;grid-template-columns:230px 1fr;gap:18px}
+.rpgPortraitCard{padding:18px;border:1px solid #58411f;border-radius:16px;background:linear-gradient(180deg,#17130e,#091014);text-align:center}
+.rpgPortrait{width:180px;height:180px;border-radius:18px;margin:0 auto 13px;border:2px solid #9a7330;box-shadow:0 10px 35px #0009;background-image:url('hero-top.png');background-repeat:no-repeat;background-size:968.33% 233.33%}
+.rpgCharName{font-size:22px;color:#f2cd78;font-weight:700}.rpgCharOwner{margin-top:4px;color:#9fa7ab;font:12px Arial,sans-serif}
+.rpgProgressLine{margin-top:14px;padding-top:12px;border-top:1px solid #342b20;color:#c9c1ac;font:12px Arial,sans-serif;line-height:1.6}
+.rpgStatGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.rpgStatCard{position:relative;padding:16px;border:1px solid #3b474d;border-radius:14px;background:linear-gradient(180deg,#101a1e,#091114)}
+.rpgStatCard h4{margin:0;color:#e2bd65;font-size:15px}.rpgStatValue{display:flex;align-items:end;gap:8px;margin:8px 0 2px}.rpgStatValue strong{font-size:34px;color:#f4da98}.rpgStatValue span{color:#aeb6ba;margin-bottom:5px}.rpgStatCard small{color:#899297}.rpgBuyStat{width:100%;margin-top:12px;padding:9px 10px;border-radius:9px;border:1px solid #735824;background:#5a4318;color:#ffe29a;font-weight:800;cursor:pointer}.rpgBuyStat:disabled{opacity:.4;cursor:not-allowed}
+.rpgVitals{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:12px}.rpgVital{padding:13px;border:1px solid #374248;border-radius:12px;background:#0b1418}.rpgVital small{display:block;color:#849097;font-size:10px;text-transform:uppercase}.rpgVital strong{display:block;margin-top:5px;color:#eee;font-size:21px}
+.rpgNotice{margin-top:13px;padding:11px 13px;border-left:3px solid #9b752e;background:#0b1215;color:#c9d0d3;font-size:12px;line-height:1.5}
+.rpgEquipGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.rpgSlot{min-height:118px;padding:14px;border:1px dashed #4e4432;border-radius:13px;background:#0b1215}.rpgSlot b{display:block;color:#d7bd7d;margin-bottom:7px}.rpgSlot span{color:#7e888e;font-size:12px}.rpgInventoryList{margin-top:18px;border-top:1px solid #28343a;padding-top:15px}.rpgInventoryItem{display:flex;justify-content:space-between;gap:12px;padding:11px;border-bottom:1px solid #263137;font:13px Arial,sans-serif}
+.rpgRulesGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rpgRuleCard{padding:15px;border:1px solid #374248;border-radius:13px;background:#0b1317;line-height:1.55;color:#cbd1d4}.rpgRuleCard b{color:#e8c873}
+.rpgSheetMsg{min-height:18px;margin-top:10px;color:#d7a485;font-size:12px}
+@media(max-width:820px){.rpgCharacterGrid{grid-template-columns:1fr}.rpgStatGrid,.rpgEquipGrid,.rpgVitals,.rpgRulesGrid{grid-template-columns:1fr}.rpgPortrait{width:155px;height:155px}}
+</style>
+</head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
 <section id='funds' class='section'><h3>Fondas</h3><table><thead><tr><th>Valdytojas</th><th>100+ atvejai</th><th>Įnašas</th></tr></thead><tbody id='fundRows'></tbody></table><p id='finalFund'></p></section>
@@ -12,6 +36,85 @@
 <section id='progress' class='section'><h3>Progresas</h3><p>Kai turėsime bent 2 turus, čia rodysime pozicijų ir bendrų FPTS pokytį per sezoną.</p></section>
 <section id='journey' class='section'><div class='journeyIntro'><div><h3>Kelionė į Mordorą</h3><p>38 turai – viena Žiedo brolijos kelionė. Kiekvienas turas pastumia visą ekspediciją pirmyn, o dalyvių vieta kelyje priklauso nuo bendros lygos lentelės ir FPTS skirtumo. Kronikoje pozicijų pokyčiai virsta mažais kelionės nutikimais, o ne sausa statistika.</p></div><div class='journeyMeta'><small>SEZONO KELIAS</small><strong id='journeyRound'>1 / 38</strong><span id='journeyPct'>3%</span></div></div><div class='journeyMap' id='journeyMap'><div class='mordorShade'></div><div class='road'></div><div class='roadFill' id='roadFill'></div><div class='landmark' style='left:5%'><b>Žiedo brolijos susitikimas</b>1 turas</div><div class='landmark' style='left:28%'><b>Kalnų perėja</b>10 turas</div><div class='landmark' style='left:50%'><b>Balrogo urvas</b>19 turas · MID SEASON</div><div class='landmark' style='left:76%'><b>Mordoro prieigos</b>29 turas</div><div class='landmark' style='left:95%'><b>Mordoras</b>38 turas</div><div id='travelers'></div></div><h3>Kelionės kronika</h3><div class='chronicle' id='chronicle'></div></section>
 <section id='quiz' class='section'><div class='quizTop'><div><h3>Dienos kvizas</h3><p>Kasdien 10 klausimų: sportas, fantasy, sci-fi, siaubas, klasikinės knygos ir filmai. Rezultatai ir serija saugomi šiame įrenginyje.</p></div><div class='quizStats'><div class='quizStat'><small>Geriausias</small><b id='quizBest'>0/10</b></div><div class='quizStat'><small>Serija</small><b id='quizStreak'>0 d.</b></div><div class='quizStat'><small>Iš viso</small><b id='quizPlayed'>0</b></div></div></div><div class='quizProgress'><span id='quizBar'></span></div><div id='quizArea'></div><div class='quizHistory'><h3 style='font-size:20px'>Istorija</h3><div id='quizHistory'></div></div></section>
+
+<section id='rpg' class='section'>
+  <div class='rpgSheetHead'>
+    <div><h3>Mano personažas</h3><p>Čia gyvena tavo sezono RPG personažas: statistika, FPTS valiuta, inventorius, įranga ir kampanijos progresas.</p></div>
+    <span class='pill'>38 priešų kampanija</span>
+  </div>
+
+  <div id='rpgSheetGate' class='rpgGate'>
+    <h4>Personažas užrakintas</h4>
+    <p>Prisijunk savo komandos vardu ir 4 skaitmenų PIN.</p>
+    <button id='rpgSheetLoginBtn' type='button'>🧙 Prisijungti</button>
+  </div>
+
+  <div id='rpgSheet' class='rpgSheet'>
+    <div class='rpgTabs'>
+      <button class='active' data-rpg-panel='character'>🧙 Personažas</button>
+      <button data-rpg-panel='inventory'>🎒 Inventorius</button>
+      <button data-rpg-panel='rpgRules'>📜 Žaidimo taisyklės</button>
+    </div>
+
+    <div id='rpgPanel-character' class='rpgPanel active'>
+      <div class='rpgCharacterGrid'>
+        <aside class='rpgPortraitCard'>
+          <div id='rpgSheetPortrait' class='rpgPortrait'></div>
+          <div id='rpgSheetTeam' class='rpgCharName'>—</div>
+          <div id='rpgSheetOwner' class='rpgCharOwner'>—</div>
+          <div id='rpgSheetProgress' class='rpgProgressLine'>Įveikta 0 / 38</div>
+        </aside>
+
+        <div>
+          <div class='rpgStatGrid'>
+            <div class='rpgStatCard'><h4>STR · Jėga</h4><div class='rpgStatValue'><strong id='sheetStr'>10</strong><span id='sheetStrMod'>+0</span></div><small>Melee attack ir damage</small><button class='rpgBuyStat' data-stat='str'>+1 STR · 80 FPTS</button></div>
+            <div class='rpgStatCard'><h4>DEX · Vikrumas</h4><div class='rpgStatValue'><strong id='sheetDex'>10</strong><span id='sheetDexMod'>+0</span></div><small>Initiative, AC ir DEX ginklai</small><button class='rpgBuyStat' data-stat='dex'>+1 DEX · 80 FPTS</button></div>
+            <div class='rpgStatCard'><h4>CON · Ištvermė</h4><div class='rpgStatValue'><strong id='sheetCon'>10</strong><span id='sheetConMod'>+0</span></div><small>HP ir CON saving throws</small><button class='rpgBuyStat' data-stat='con'>+1 CON · 80 FPTS</button></div>
+          </div>
+
+          <div class='rpgVitals'>
+            <div class='rpgVital'><small>Max HP</small><strong id='sheetHp'>0</strong></div>
+            <div class='rpgVital'><small>Career FPTS</small><strong id='sheetCareer'>0</strong></div>
+            <div class='rpgVital'><small>Available FPTS</small><strong id='sheetAvailable'>0</strong></div>
+            <div class='rpgVital'><small>STAT kaina</small><strong>80</strong></div>
+          </div>
+          <div class='rpgNotice'>Career FPTS niekada nemažėja. Available FPTS yra tavo RPG valiuta. Nupirktas +1 STAT kainuoja 80 FPTS, o atributų riba šiuo metu yra 20.</div>
+          <div id='rpgSheetMsg' class='rpgSheetMsg'></div>
+        </div>
+      </div>
+    </div>
+
+    <div id='rpgPanel-inventory' class='rpgPanel'>
+      <h3 style='font-size:21px'>Įranga</h3>
+      <div class='rpgEquipGrid'>
+        <div class='rpgSlot' data-slot='weapon'><b>⚔️ Ginklas</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='armor'><b>🛡️ Šarvai</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='helmet'><b>⛑️ Šalmas</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='ring'><b>💍 Žiedas</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='artifact'><b>🔮 Artefaktas</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='spell'><b>✨ Burtas</b><span>Tuščia</span></div>
+      </div>
+      <div id='rpgShopLock' class='rpgNotice'>🔒 Item Shop užrakintas. Jis atsirakins nugalėjus Enemy #1.</div>
+      <div class='rpgInventoryList'><h3 style='font-size:19px'>Kuprinė</h3><div id='rpgInventoryItems'><p style='color:#8e989d'>Inventorius kol kas tuščias.</p></div></div>
+    </div>
+
+    <div id='rpgPanel-rpgRules' class='rpgPanel'>
+      <div class='rpgRulesGrid'>
+        <div class='rpgRuleCard'><b>FPTS progresas</b><br>Fantasy turo FPTS pridedami ir prie Career FPTS, ir prie Available FPTS. Išleidus valiutą Career FPTS nemažėja.</div>
+        <div class='rpgRuleCard'><b>Statistika</b><br>Pradžia: STR 10 / DEX 10 / CON 10. +1 STAT kainuoja 80 FPTS. Modifikatorius = floor((STAT − 10) / 2).</div>
+        <div class='rpgRuleCard'><b>Attack roll</b><br>d20 + Ability MOD + Item Bonus ≥ priešo AC. Proficiency bonus šiame žaidime nenaudojamas.</div>
+        <div class='rpgRuleCard'><b>Damage</b><br>Weapon Dice + Ability MOD + Item Bonus. Natural 20 visada pataiko ir dvigubina tik damage dice.</div>
+        <div class='rpgRuleCard'><b>Natural 1</b><br>Natural 1 visada yra MISS, nepriklausomai nuo bendro attack rezultato.</div>
+        <div class='rpgRuleCard'><b>Initiative ir Saves</b><br>Initiative = d20 + DEX MOD. Saving throw = d20 + atitinkamas Ability MOD + galimas item bonus.</div>
+        <div class='rpgRuleCard'><b>HP</b><br>Max HP = 60 + Career FPTS × 0.05 + CON MOD × 12.</div>
+        <div class='rpgRuleCard'><b>Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės, jų praleisti negalima. Pralaimėjus FPTS ir daiktai neprarandami.</div>
+        <div class='rpgRuleCard'><b>Item Shop</b><br>Prieš pirmą kovą galima pirkti tik STAT. Item Shop atsirakina tik nugalėjus Enemy #1, o daiktų kainos bus progresuojančios.</div>
+        <div class='rpgRuleCard'><b>Fantasy pranašumas</b><br>Priešai visiems vienodi ir nesiscale'ina pagal žaidėją. Didesnis realus Fantasy FPTS rezultatas suteikia tikrą RPG pranašumą.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id='people' class='section'><h3>Dalyviai</h3><div class='participants' id='peopleList'></div></section>
 <section id='rules' class='section'><h3>Taisyklės</h3><div class='rules'><p><b>100+ taisyklė.</b> Kiekvienas komandos žaidėjas, surinkęs 100 ar daugiau FPTS per turą, savo komandos valdytojui kainuoja 5 € į bendrą fondą.</p><p><b>Finalinis prizas.</b> Sezono pabaigoje #6 ir #7 vietose likę lygos dalyviai lygiomis dalimis įneša papildomą sumą, lygią tuo metu sukauptam fondui. Taip fondas padvigubinamas ir visas atitenka lygos nugalėtojui.</p><p>Pavyzdys: jei fonde 100 €, #6 ir #7 įneša po 50 €. Galutinis prizas = 200 €.</p></div></section>
 </main></div></div><script>
@@ -174,6 +277,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY, {
     auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:false}
   });
+  window.rpgSupabase = sb;
 
   const overlay=document.getElementById("rpgLoginOverlay");
   const accountBtn=document.getElementById("rpgAccountBtn");
@@ -252,5 +356,98 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 })();
 </script>
 <!-- /RPG ACCOUNT / SUPABASE AUTH -->
+
+
+<script>
+(() => {
+  const gate=document.getElementById("rpgSheetGate");
+  const sheet=document.getElementById("rpgSheet");
+  const loginBtn=document.getElementById("rpgSheetLoginBtn");
+  if(loginBtn) loginBtn.addEventListener("click",()=>document.getElementById("rpgAccountBtn").click());
+
+  document.querySelectorAll(".rpgTabs button").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".rpgTabs button").forEach(x=>x.classList.remove("active"));
+      document.querySelectorAll(".rpgPanel").forEach(x=>x.classList.remove("active"));
+      btn.classList.add("active");
+      document.getElementById("rpgPanel-"+btn.dataset.rpgPanel).classList.add("active");
+    });
+  });
+
+  const modText=n=>n>=0?"+"+n:String(n);
+
+  async function loadInventory(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data}=await sb.from("rpg_inventory").select("item_id,equipped,rpg_items(name,slot,rarity,stat_payload)");
+    document.querySelectorAll(".rpgSlot span").forEach(x=>x.textContent="Tuščia");
+    const list=document.getElementById("rpgInventoryItems");
+    if(!data || !data.length){list.innerHTML="<p style='color:#8e989d'>Inventorius kol kas tuščias.</p>";return;}
+    list.innerHTML=data.map(i=>{
+      const item=i.rpg_items||{};
+      if(i.equipped && item.slot){
+        const slot=document.querySelector(".rpgSlot[data-slot='"+item.slot+"'] span");
+        if(slot) slot.textContent=item.name||i.item_id;
+      }
+      return "<div class='rpgInventoryItem'><span>"+(item.name||i.item_id)+"</span><b>"+(i.equipped?"Uždėta":(item.rarity||""))+"</b></div>";
+    }).join("");
+  }
+
+  async function renderSheet(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){gate.style.display="";sheet.classList.remove("show");return;}
+    const {data,error}=await sb.from("rpg_character_sheet").select("*").single();
+    if(error || !data){gate.style.display="";sheet.classList.remove("show");return;}
+
+    gate.style.display="none";sheet.classList.add("show");
+    const portrait=document.getElementById("rpgSheetPortrait");
+    portrait.className="rpgPortrait av-"+data.avatar_key;
+    document.getElementById("rpgSheetTeam").textContent=data.team_name;
+    document.getElementById("rpgSheetOwner").textContent=data.owner_name+" · "+data.league_role;
+    document.getElementById("rpgSheetProgress").textContent="Įveikta "+data.defeated_enemies+" / 38 · "+(data.item_shop_unlocked?"Item Shop atrakintas":"Item Shop užrakintas");
+    document.getElementById("sheetStr").textContent=data.str;
+    document.getElementById("sheetDex").textContent=data.dex;
+    document.getElementById("sheetCon").textContent=data.con;
+    document.getElementById("sheetStrMod").textContent=modText(data.str_mod);
+    document.getElementById("sheetDexMod").textContent=modText(data.dex_mod);
+    document.getElementById("sheetConMod").textContent=modText(data.con_mod);
+    document.getElementById("sheetHp").textContent=data.max_hp;
+    document.getElementById("sheetCareer").textContent=Number(data.career_fpts).toFixed(2);
+    document.getElementById("sheetAvailable").textContent=Number(data.available_fpts).toFixed(2);
+    document.querySelectorAll(".rpgBuyStat").forEach(b=>{
+      const current=b.dataset.stat==="str"?data.str:b.dataset.stat==="dex"?data.dex:data.con;
+      b.disabled=Number(data.available_fpts)<80 || current>=20;
+      b.textContent=current>=20?"MAX 20":"+1 "+b.dataset.stat.toUpperCase()+" · 80 FPTS";
+    });
+    document.getElementById("rpgShopLock").textContent=data.item_shop_unlocked?"🔓 Item Shop atrakintas.":"🔒 Item Shop užrakintas. Jis atsirakins nugalėjus Enemy #1.";
+    await loadInventory();
+  }
+
+  document.querySelectorAll(".rpgBuyStat").forEach(btn=>{
+    btn.addEventListener("click",async()=>{
+      const sb=window.rpgSupabase;if(!sb)return;
+      const msg=document.getElementById("rpgSheetMsg");
+      const stat=btn.dataset.stat;
+      btn.disabled=true;msg.textContent="Perkama +1 "+stat.toUpperCase()+"…";
+      const {error}=await sb.rpc("buy_stat",{stat_name:stat});
+      if(error){
+        const t=(error.message||"").toLowerCase();
+        msg.textContent=t.includes("not enough")?"Nepakanka Available FPTS.":t.includes("maximum")?"Šis atributas jau pasiekė 20.":"Nepavyko nupirkti STAT.";
+      }else{
+        msg.textContent="+1 "+stat.toUpperCase()+" nupirkta už 80 FPTS.";
+      }
+      await renderSheet();
+    });
+  });
+
+  const wait=setInterval(()=>{
+    if(window.rpgSupabase){
+      clearInterval(wait);
+      renderSheet();
+      window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(renderSheet,0));
+    }
+  },100);
+})();
+</script>
 
 </body></html>
