@@ -745,7 +745,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   let battle=null;
   let busy=false;
 
-  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;","\\"":"&quot;","'":"&#39;"}[m]));
+  const esc=s=>String(s??"").replace(/[&<>"\']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","\'":"&#39;"}[m]));
   const mod=n=>(Number(n)>=0?"+":"")+Number(n);
   const pct=(a,b)=>b?Math.max(0,Math.min(100,(a/b)*100)):0;
 
