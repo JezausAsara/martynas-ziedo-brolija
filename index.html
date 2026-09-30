@@ -86,6 +86,19 @@
 .rpgBattleEndActions{display:none;margin-top:12px;text-align:center}.rpgBattleEndActions.show{display:block}.rpgBattleEndActions button{padding:10px 16px;border:1px solid #7a5b29;border-radius:9px;background:#5f4619;color:#ffe4a0;font-weight:800;cursor:pointer}
 @media(max-width:850px){.rpgBattleFighters{grid-template-columns:1fr}.rpgBattleVersus{order:-1}.rpgBigDie{width:78px;height:78px}.rpgBattleControls{grid-template-columns:1fr}.rpgDiceTray{grid-template-columns:1fr auto}.rpgDiceTray>div{grid-column:1}.rpgDiceTray small{grid-column:1}.rpgDiceTray>b{grid-column:2;grid-row:1/4}.rpgBattleTop{display:block}.rpgBattleRound{display:inline-block;margin-top:9px}}
 </style>
+
+<style id="rpgRoundPerksStyles">
+.rpgRoundPerks{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:10px}
+.rpgRoundPerks span{padding:7px 8px;border:1px solid #3c3730;border-radius:8px;background:#090f12;color:#9eaaae;font:700 10px/1.3 Arial,sans-serif;text-align:center}
+.rpgRoundPerks .top3{border-color:#675228;color:#e6c977;background:#151108}
+.rpgBardicPanel{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;margin-top:14px;padding:12px 13px;border:1px solid #594725;border-radius:11px;background:radial-gradient(circle at 15% 50%,#5a3f182d,transparent 42%),#0a1114}
+.rpgBardicPanel .title{display:block;color:#eccb78;font:700 13px Georgia,serif}.rpgBardicPanel small{display:block;margin-top:3px;color:#839095;font:10px/1.4 Arial,sans-serif}
+.rpgBardicBtn{padding:10px 13px;border:1px solid #8b672d;border-radius:9px;background:linear-gradient(#76521d,#3f2b10);color:#ffe3a0;font:800 11px Georgia,serif;cursor:pointer;white-space:nowrap}
+.rpgBardicBtn.armed{border-color:#5f8a6a;background:linear-gradient(#315d3d,#17311f);color:#c6efca;box-shadow:0 0 18px #5bc26f35}
+.rpgBardicBtn:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+.rpgAttemptBadge{display:inline-block;margin-left:8px;padding:5px 8px;border:1px solid #4b3825;border-radius:7px;color:#b8c0c3;font:700 10px Arial,sans-serif}
+@media(max-width:650px){.rpgRoundPerks{grid-template-columns:1fr}.rpgBardicPanel{grid-template-columns:1fr}.rpgBardicBtn{width:100%}}
+</style>
 </head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>1 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p>1 turas užfiksuotas kaip pilnas: gauti visų 7 komandų rezultatai. Šiame ture 100+ FPTS įvykių nebuvo.</p></section>
@@ -155,6 +168,7 @@
               <span>❤️ 52 HP</span><span>🛡 AC 11</span><span>⚔ +1</span><span>🎲 1d6+1</span>
             </div>
             <div class='rpg2-special'><b>Raudonosios žvaigždės įniršis:</b> žemiau 50% HP kitai atakai +2.</div>
+<div class='rpgRoundPerks'><span id='rpgAttemptStatus'>⚔️ Bandymai: — / 3</span><span id='rpgBardicStatus'>🎵 Bardic Inspiration: tik TOP 3</span></div>
 <div class='rpgBattleLaunch'><button id='rpgStartBattleBtn' type='button'>⚔️ PRADĖTI KOVĄ</button><small id='rpgBattleRequirement'>Prieš pirmą kovą nupirk bent +1 STAT.</small></div>
           </div>
         </aside>
@@ -230,6 +244,8 @@
             <div class='rpg2-ruleShort'><b>Statistika</b><span>STR, DEX ir CON. +1 STAT kainuoja 80 FPTS.</span></div>
             <div class='rpg2-ruleShort'><b>Kova</b><span>d20 + STAT mod + item bonus prieš AC.</span></div>
             <div class='rpg2-ruleShort'><b>FPTS</b><span>Fantasy taškai yra RPG valiuta. Tai nėra tikri pinigai.</span></div>
+            <div class='rpg2-ruleShort'><b>Bandymai</b><span>3 kovos bandymai per Fantasy turą.</span></div>
+            <div class='rpg2-ruleShort'><b>TOP 3 bonusas</b><span>1× Bardic Inspiration (+1d6) per turą.</span></div>
             <button class='rpg2-sideButton' type='button' data-open-rpg-rules>Peržiūrėti pilnas taisykles</button>
           </div>
 
@@ -251,7 +267,7 @@
             <div class='rpg2-kicker'>ENEMY #1 · CRVENA ZVEZDA</div>
             <h3>Kova su Raudonosios Žvaigždės Legionieriumi</h3>
           </div>
-          <div class='rpgBattleRound'>KOVOS RAUNDAS <b id='rpgCombatRound'>1</b></div>
+          <div class='rpgBattleRound'>KOVOS RAUNDAS <b id='rpgCombatRound'>1</b><span id='rpgAttemptBadge' class='rpgAttemptBadge'>BANDYMAS —/3</span></div>
         </div>
 
         <div class='rpgBattleFighters'>
@@ -275,6 +291,11 @@
             <div class='rpgHpBar enemy'><span id='rpgEnemyHpBar'></span></div>
             <small>AC 11 · Attack +1 · Damage 1d6+1</small>
           </div>
+        </div>
+
+        <div id='rpgBardicPanel' class='rpgBardicPanel'>
+          <div><span class='title'>🎵 Bardic Inspiration · TOP 3 bonusas</span><small id='rpgBardicHint'>1 kartą per Fantasy turą. Aktyvavus +1d6 pridedamas prie kito tavo kovos metimo.</small></div>
+          <button id='rpgBardicBtn' class='rpgBardicBtn' type='button'>AKTYVUOTI +1D6</button>
         </div>
 
         <div class='rpgBattleControls'>
@@ -336,6 +357,8 @@
         <div class='rpgRuleCard'><b>🪽 Initiative ir Saves</b><br>Initiative = d20 + DEX MOD. Saving throw = d20 + atitinkamas Ability MOD + galimas item bonus.</div>
         <div class='rpgRuleCard'><b>♥ HP</b><br>Max HP = 60 + Career FPTS × 0.05 + CON MOD × 12.</div>
         <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Jie įveikiami iš eilės ir negali būti praleisti. Pralaimėjus FPTS, STAT ir daiktai neprarandami.</div>
+        <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Bazė – 3 bandymai vienam priešui per užfiksuotą Fantasy turą. Išnaudojus visus 3, nauji bandymai atsiranda tik užfiksavus kitą pilną Fantasy turą.</div>
+        <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Einamojoje lygos lentelėje TOP 3 esantys žaidėjai gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą: papildomas d6 pridedamas prie rezultato. Bonusas sunaudojamas po metimo.</div>
         <div class='rpgRuleCard'><b>🏪 Item Shop</b><br>Prieš pirmą kovą galima pirkti tik STAT. Item Shop atsirakina nugalėjus Enemy #1. Itemų kainos bus progresuojančios.</div>
         <div class='rpgRuleCard'><b>🏀 Fantasy pranašumas</b><br>Priešai visiems vienodi ir neprisitaiko prie konkretaus žaidėjo. Didesnis Fantasy rezultatas suteikia tikrą RPG pranašumą.</div>
       </div>
@@ -738,11 +761,13 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const retryBtn=get("rpgRetryBattleBtn");
   const d20Btn=get("rpgRollD20");
   const damageBtn=get("rpgRollDamage");
+  const bardicBtn=get("rpgBardicBtn");
   const arena=get("rpgBattleArena");
   if(!startBtn || !arena) return;
 
   let profile=null;
   let battle=null;
+  let roundStatus=null;
   let busy=false;
 
   const esc=s=>String(s??"").replace(/[&<>"\']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","\'":"&#39;"}[m]));
@@ -788,16 +813,38 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const req=get("rpgBattleRequirement");
     const hasStat=Number(profile.str)>10 || Number(profile.dex)>10 || Number(profile.con)>10;
     const defeated=Number(profile.defeated_enemies)>=1;
+    const attemptsUsed=Number(roundStatus?.attempts_used||0);
+    const attemptsRemaining=Number(roundStatus?.attempts_remaining ?? 3);
+    const rank=Number(roundStatus?.league_rank||0);
+    const bardicEligible=!!roundStatus?.bardic_eligible;
+    const bardicUsed=!!roundStatus?.bardic_used;
+    const bardicArmed=!!battle?.bardic_armed;
+
+    const attemptStatus=get("rpgAttemptStatus");
+    if(attemptStatus)attemptStatus.textContent="⚔️ Bandymai: "+attemptsUsed+" / 3 · liko "+attemptsRemaining;
+
+    const bardicStatus=get("rpgBardicStatus");
+    if(bardicStatus){
+      bardicStatus.classList.toggle("top3",bardicEligible);
+      bardicStatus.textContent=bardicEligible
+        ? (bardicUsed?"🎵 Bardic Inspiration: panaudota":"🎵 TOP "+rank+" · Bardic Inspiration paruošta")
+        : "🎵 Bardic Inspiration: tik TOP 3";
+    }
 
     if(defeated){
       startBtn.disabled=true; startBtn.textContent="✓ ENEMY #1 ĮVEIKTAS";
       if(req)req.textContent="Item Shop atrakintas.";
     }else if(battle && battle.status==="active"){
       startBtn.disabled=false; startBtn.textContent="⚔️ TĘSTI KOVĄ";
-      if(req)req.textContent="Aktyvi kova išsaugota serveryje.";
+      if(req)req.textContent="Aktyvi kova išsaugota · bandymas "+(battle.attempt_no||"?")+"/3.";
+    }else if(attemptsRemaining<=0){
+      startBtn.disabled=true; startBtn.textContent="⛔ 3 / 3 BANDYMŲ IŠNAUDOTA";
+      if(req)req.textContent="Nauji 3 bandymai atsiras užfiksavus kitą pilną Fantasy turą.";
     }else{
       startBtn.disabled=!hasStat; startBtn.textContent="⚔️ PRADĖTI KOVĄ";
-      if(req)req.textContent=hasStat?"Pasiruošęs: pirmas priešas atrakintas.":"Prieš pirmą kovą nupirk bent +1 STAT už 80 FPTS.";
+      if(req)req.textContent=hasStat
+        ?"Liko "+attemptsRemaining+" iš 3 bandymų šiame Fantasy ture."
+        :"Prieš pirmą kovą nupirk bent +1 STAT už 80 FPTS.";
     }
 
     if(!battle){
@@ -808,6 +855,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     arena.classList.add("show");
     get("rpgBattlePlayerName").textContent=profile.team_name;
     get("rpgCombatRound").textContent=battle.combat_round||1;
+    const attemptBadge=get("rpgAttemptBadge");
+    if(attemptBadge)attemptBadge.textContent="BANDYMAS "+(battle.attempt_no||"?")+"/3";
     get("rpgPlayerHpText").textContent=battle.player_hp+" / "+battle.player_max_hp;
     get("rpgEnemyHpText").textContent=battle.enemy_hp+" / "+battle.enemy_max_hp;
     get("rpgPlayerHpBar").style.width=pct(battle.player_hp,battle.player_max_hp)+"%";
@@ -822,8 +871,35 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("rpgDamageBtnText").textContent=battle.pending_crit?"MESTI 2D8":"MESTI D8";
     get("rpgDamageDieIcon").textContent=battle.pending_crit?"2×8":"8";
 
+    const bardicHint=get("rpgBardicHint");
+    if(bardicBtn){
+      bardicBtn.classList.toggle("armed",bardicArmed);
+      if(!bardicEligible){
+        bardicBtn.disabled=true;
+        bardicBtn.textContent="TIK TOP 3";
+        if(bardicHint)bardicHint.textContent="Šiame Fantasy ture Bardic Inspiration gauna tik lygos TOP 3.";
+      }else if(bardicUsed){
+        bardicBtn.disabled=true;
+        bardicBtn.textContent="✓ PANAUDOTA";
+        if(bardicHint)bardicHint.textContent="Šio Fantasy turo Bardic Inspiration jau panaudota.";
+      }else if(bardicArmed){
+        bardicBtn.disabled=true;
+        bardicBtn.textContent="🎵 AKTYVUOTA · +1D6";
+        if(bardicHint)bardicHint.textContent="Kitas tavo kovos metimas automatiškai gaus papildomą d6.";
+      }else{
+        bardicBtn.disabled=busy || !active;
+        bardicBtn.textContent="AKTYVUOTI +1D6";
+        if(bardicHint)bardicHint.textContent="1 kartą per Fantasy turą. Aktyvavus +1d6 pridedamas prie kito tavo kovos metimo.";
+      }
+    }
+
     const end=get("rpgBattleEndActions");
     end.classList.toggle("show",battle.status==="loss");
+    if(retryBtn){
+      retryBtn.disabled=attemptsRemaining<=0;
+      retryBtn.textContent=attemptsRemaining<=0?"⛔ BANDYMAI IŠNAUDOTI":"↻ BANDYTI DAR KARTĄ";
+    }
+
     renderLog(battle.battle_log);
 
     const last=Array.isArray(battle.last_events)?[...battle.last_events].reverse().find(e=>e.roll||e.roll1):null;
@@ -832,31 +908,39 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       else if(last.roll1)setDie(last.die||"d8",last.roll2?last.roll1+"+"+last.roll2:last.roll1);
     }
   }
-
   async function refresh(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
-    if(!session){profile=null;battle=null;renderBattle();return;}
-    const {data:p}=await sb.from("rpg_character_sheet").select("*").single();
+    if(!session){profile=null;battle=null;roundStatus=null;renderBattle();return;}
+    const [{data:p},{data:s}]=await Promise.all([
+      sb.from("rpg_character_sheet").select("*").single(),
+      sb.rpc("rpg_round_status")
+    ]);
     profile=p||null;
+    roundStatus=s||null;
     if(profile){
-      const {data:b}=await sb.from("rpg_active_battles").select("*").eq("participant_id",profile.participant_id).maybeSingle();
-      battle=b||null;
+      if(roundStatus?.active_battle){
+        battle=roundStatus.active_battle;
+      }else{
+        const {data:b}=await sb.from("rpg_active_battles").select("*").eq("participant_id",profile.participant_id).maybeSingle();
+        battle=b||null;
+      }
     }
     renderBattle();
   }
-
   async function startBattle(){
     if(busy)return;busy=true;startBtn.disabled=true;
     const sb=window.rpgSupabase;
     try{
       const {data,error}=await sb.rpc("start_enemy1_battle");
       if(error)throw error;
-      battle=data; arena.classList.add("show"); renderBattle(); arena.scrollIntoView({behavior:"smooth",block:"start"});
+      battle=data;
+      const {data:s}=await sb.rpc("rpg_round_status"); roundStatus=s||roundStatus;
+      arena.classList.add("show"); renderBattle(); arena.scrollIntoView({behavior:"smooth",block:"start"});
     }catch(e){
       const t=String(e?.message||"").toLowerCase();
       const req=get("rpgBattleRequirement");
-      if(req)req.textContent=t.includes("at least one stat")?"Pirmiausia nupirk bent +1 STR, DEX arba CON.":t.includes("already defeated")?"Enemy #1 jau įveiktas.":"Nepavyko pradėti kovos.";
+      if(req)req.textContent=t.includes("at least one stat")?"Pirmiausia nupirk bent +1 STR, DEX arba CON.":t.includes("already defeated")?"Enemy #1 jau įveiktas.":t.includes("no attempts left")?"Visi 3 šio Fantasy turo bandymai išnaudoti.":"Nepavyko pradėti kovos.";
     }finally{busy=false;renderBattle();}
   }
 
@@ -868,6 +952,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const {data,error}=await sb.rpc("enemy1_roll",{p_kind:kind});
       if(error)throw error;
       battle=data;
+      const {data:s}=await sb.rpc("rpg_round_status"); roundStatus=s||roundStatus;
       if(battle.status==="win"){
         const {data:p}=await sb.from("rpg_character_sheet").select("*").single(); if(p)profile=p;
         if(window.renderRpgSheet)await window.renderRpgSheet();
@@ -880,10 +965,30 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }finally{busy=false;renderBattle();}
   }
 
+
+  async function armBardic(){
+    if(busy || !battle || battle.status!=="active" || !bardicBtn)return;
+    busy=true;renderBattle();
+    const sb=window.rpgSupabase;
+    try{
+      const {data,error}=await sb.rpc("arm_bardic_inspiration");
+      if(error)throw error;
+      battle=data;
+      const {data:s}=await sb.rpc("rpg_round_status"); roundStatus=s||roundStatus;
+    }catch(e){
+      console.error(e);
+      const hint=get("rpgBardicHint");
+      if(hint)hint.textContent=String(e?.message||"").toLowerCase().includes("already used")
+        ?"Šio Fantasy turo Bardic Inspiration jau panaudota."
+        :"Bardic Inspiration dabar negalima aktyvuoti.";
+    }finally{busy=false;renderBattle();}
+  }
+
   startBtn.addEventListener("click",()=>battle&&battle.status==="active"?(arena.classList.add("show"),arena.scrollIntoView({behavior:"smooth",block:"start"})):startBattle());
   retryBtn.addEventListener("click",startBattle);
   d20Btn.addEventListener("click",()=>roll("d20"));
   damageBtn.addEventListener("click",()=>roll("damage"));
+  if(bardicBtn)bardicBtn.addEventListener("click",armBardic);
 
   document.querySelectorAll("[data-free-die]").forEach(btn=>btn.addEventListener("click",()=>{
     const sides=Number(btn.dataset.freeDie);
