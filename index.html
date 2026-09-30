@@ -826,10 +826,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const itemIcon=(slot,id="")=>{
     const special={
       cz_starblade:"🗡️",
-      cz_legion_armor:"🛡️",
-      cz_scout_helmet:"⛑️",
-      cz_blood_ruby_ring:"💍",
-      cz_star_talisman:"🔮"
+      cz_crimson_armor:"🛡️",
+      cz_scout_helm:"⛑️",
+      cz_blood_ring:"💍",
+      cz_star_charm:"🔮"
     };
     return special[id]||({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
   };
