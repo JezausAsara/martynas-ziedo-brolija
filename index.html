@@ -371,21 +371,19 @@
     <div id='rpgPanel-rpgRules' class='rpgPanel'>
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>COMBAT & PROGRESSION</div><h3>Žaidimo taisyklės</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
       <div class='rpgRulesGrid rpg2-rulesGrid'>
-        <div class='rpgRuleCard'><b>✦ FPTS progresas</b><br>Fantasy turo FPTS pridedami prie Career FPTS ir Available FPTS. Išleidus valiutą Career FPTS nemažėja.</div>
-        <div class='rpgRuleCard'><b>💪 Statistika</b><br>Pradžia: STR 10 / DEX 10 / CON 10. +1 STAT kainuoja 80 FPTS. Modifikatorius = floor((STAT − 10) / 2). Dabartinė atributo riba – 20.</div>
-        <div class='rpgRuleCard'><b>🎲 Attack roll</b><br>d20 + Ability MOD + Item Bonus ≥ priešo AC. Proficiency bonus šiame žaidime nenaudojamas.</div>
-        <div class='rpgRuleCard'><b>⚔️ Damage</b><br>Weapon Dice + Ability MOD + Item Bonus. Natural 20 visada pataiko ir dvigubina tik damage dice.</div>
-        <div class='rpgRuleCard'><b>💀 Natural 1</b><br>Natural 1 visada yra MISS, nepriklausomai nuo bendro attack rezultato.</div>
-        <div class='rpgRuleCard'><b>🪽 Initiative ir Saves</b><br>Initiative = d20 + DEX MOD. Saving throw = d20 + atitinkamas Ability MOD + galimas item bonus.</div>
-        <div class='rpgRuleCard'><b>♥ HP</b><br>Max HP = 60 + Career FPTS × 0.05 + CON MOD × 12.</div>
-        <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Jie įveikiami iš eilės ir negali būti praleisti. Pralaimėjus FPTS, STAT ir daiktai neprarandami.</div>
-        <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Bazė – 3 bandymai vienam priešui per užfiksuotą Fantasy turą. Išnaudojus visus 3, nauji bandymai atsiranda tik užfiksavus kitą pilną Fantasy turą.</div>
-        <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Einamojoje lygos lentelėje TOP 3 esantys žaidėjai gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą: papildomas d6 pridedamas prie rezultato. Bonusas sunaudojamas po metimo.</div>
-        <div class='rpgRuleCard'><b>🏪 Item Shop</b><br>Prieš pirmą kovą galima pirkti tik STAT. Item Shop atsirakina nugalėjus Enemy #1. Itemų kainos bus progresuojančios.</div>
-        <div class='rpgRuleCard'><b>🏀 Fantasy pranašumas</b><br>Priešai visiems vienodi ir neprisitaiko prie konkretaus žaidėjo. Didesnis Fantasy rezultatas suteikia tikrą RPG pranašumą.</div>
+        <div class='rpgRuleCard'><b>✦ FPTS ir STAT</b><br>Fantasy FPTS yra RPG valiuta. Career FPTS rodo visą sezono rezultatą, Available FPTS galima išleisti. STR, DEX ir CON prasideda nuo 10; +1 STAT kainuoja 80 FPTS, riba – 20.</div>
+        <div class='rpgRuleCard'><b>🎲 Kova</b><br>D20 naudojamas iniciatyvai, atakai ir saving throw. Pataikius metamas ginklo damage kauliukas. Natural 1 visada MISS, Natural 20 – CRIT. Proficiency bonus nenaudojamas.</div>
+        <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Kiekviename pilnai užfiksuotame Fantasy ture turi 3 bandymus įveikti dabartinį priešą. Išnaudojus visus 3, nauji bandymai atsiranda tik kitame pilname ture. Pralaimėjus FPTS ir daiktai neprarandami.</div>
+        <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Lygos TOP 3 gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą – prie jo pridedamas papildomas d6. Panaudojus bonusas tame ture dingsta.</div>
+        <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės ir visiems žaidėjams yra vienodo stiprumo. Fantasy rezultatai suteikia progresą, tačiau priešai prie žaidėjo nesiscale'ina.</div>
+        <div class='rpgRuleCard'><b>🗡️ Ginklai ir jų grade</b><br>STR ginklams reikia STR, DEX ginklams – DEX; finesse ginklai gali naudoti tinkamesnį iš jų. Normalus ginklas – nuo STAT 10, +1 – nuo 14, +2 – nuo 16, +3 – nuo 18. Aukštesni grade'ai taip pat atsirakina tik vėlesniuose kampanijos etapuose.</div>
+        <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
+        <div class='rpgRuleCard'><b>🏪 Ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Kiekviena shopo kortelė yra vienas realus egzempliorius: kai vienas žaidėjas jį nuperka, tas daiktas dingsta iš shopo visiems. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
+        <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
+        <div class='rpgRuleCard'><b>🤝 Trade</b><br>Žaidėjai gali keistis turimais daiktais per trade pasiūlymą. Daiktas persikelia tik kitam žaidėjui patvirtinus sandorį; panaudoti consumables nebegali būti keičiami.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
-    </div>
+    </div>    </div>
   </div>
 </section>
 <section id='people' class='section'><h3>Dalyviai</h3><div class='participants' id='peopleList'></div></section>
