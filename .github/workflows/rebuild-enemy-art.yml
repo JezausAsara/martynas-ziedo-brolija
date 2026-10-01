@@ -13,13 +13,18 @@ jobs:
       - name: Rebuild high quality WebP assets
         shell: bash
         run: |
-          set -e
-          if [ ! -f assets/rpg/hq-source/enemy2.part1.txt ] || [ ! -f assets/rpg/hq-source/enemy2.part2.txt ] || [ ! -f assets/rpg/hq-source/enemy2.part3.txt ] || [ ! -f assets/rpg/hq-source/enemy3.part1.txt ] || [ ! -f assets/rpg/hq-source/enemy3.part2.txt ]; then
-            echo "Waiting for all source chunks."
+          set -euo pipefail
+          shopt -s nullglob
+          e2=(assets/rpg/hq-source/e2-*.txt)
+          e3=(assets/rpg/hq-source/e3-*.txt)
+          if [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ]; then
+            echo "Waiting for all HQ chunks: e2=${#e2[@]}/17 e3=${#e3[@]}/15"
             exit 0
           fi
-          cat assets/rpg/hq-source/enemy2.part*.txt | tr -d '\n\r' | base64 -d > assets/rpg/enemy2-olympiakos.webp
-          cat assets/rpg/hq-source/enemy3.part*.txt | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
+          cat "${e2[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy2-olympiakos.webp
+          cat "${e3[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
+          echo "Enemy 2 bytes: $(stat -c%s assets/rpg/enemy2-olympiakos.webp)"
+          echo "Enemy 3 bytes: $(stat -c%s assets/rpg/enemy3-paris.webp)"
           file assets/rpg/enemy2-olympiakos.webp
           file assets/rpg/enemy3-paris.webp
           git config user.name "github-actions[bot]"
