@@ -354,6 +354,24 @@
 @media(max-width:1050px){.skillTreeGrid{grid-template-columns:1fr}.skillTreeTop{grid-template-columns:repeat(3,1fr)}.skillResetBtn{grid-column:1/-1}}
 @media(max-width:650px){.skillTreeTop{grid-template-columns:1fr 1fr}.skillPointCard.available,.skillResetBtn{grid-column:1/-1}.skillBranches{grid-template-columns:1fr 1fr;gap:7px}.skillAttr{padding:9px}.skillNode{padding:8px}}
 </style>
+<style id="itemShopStyles">
+.shopTopBar{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.shopMetaCard{padding:12px 14px;border:1px solid #3d474b;border-radius:12px;background:linear-gradient(180deg,#10181b,#091013)}
+.shopMetaCard small{display:block;color:#7e8b90;font:700 9px Arial,sans-serif;letter-spacing:.08em}.shopMetaCard strong{display:block;margin-top:4px;color:#e6c779;font:700 23px Georgia,serif}.shopMetaCard span{display:block;margin-top:3px;color:#899599;font:10px Arial,sans-serif}
+.shopNotice{margin:0 0 12px;padding:11px 13px;border:1px solid #544327;border-radius:10px;background:#0b1215;color:#b8c0c3;font:11px/1.5 Arial,sans-serif}.shopNotice.open{border-color:#315d45;color:#a8cdb2}.shopNotice.locked{border-color:#6d4d29;color:#ceb47c}
+.shopGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.shopItem{position:relative;padding:14px;border:1px solid #3a4449;border-radius:13px;background:linear-gradient(180deg,#11191c,#090f12);min-height:190px;display:flex;flex-direction:column}
+.shopItem.sold{opacity:.52;filter:saturate(.6)}.shopItem.rarity-Uncommon{border-color:#466b54}.shopItem.rarity-Rare{border-color:#72528f}
+.shopItemHead{display:flex;gap:10px;align-items:flex-start}.shopItemIcon{width:44px;height:44px;display:grid;place-items:center;border:1px solid #55472d;border-radius:10px;background:#0b1113;font-size:24px}
+.shopItemInfo{min-width:0}.shopItemInfo strong{display:block;color:#e7cb8e;font:700 15px Georgia,serif}.shopItemInfo em{display:block;margin-top:3px;color:#8d989d;font:9px Arial,sans-serif;font-style:normal;text-transform:uppercase}
+.shopItemDesc{margin:12px 0;color:#aab4b8;font:11px/1.45 Arial,sans-serif;min-height:46px}.shopItemReq{color:#807b6d;font:9px Arial,sans-serif}
+.shopItemBottom{margin-top:auto;display:flex;justify-content:space-between;gap:8px;align-items:end}.shopPrice strong{display:block;color:#f0c76e;font:700 20px Georgia,serif}.shopPrice small{color:#808b90;font:9px Arial,sans-serif}
+.shopBuy{padding:9px 12px;border:1px solid #715528;border-radius:9px;background:#5d4518;color:#ffe19a;font:800 10px Arial,sans-serif;cursor:pointer}.shopBuy:hover:not(:disabled){background:#765821}.shopBuy:disabled{opacity:.38;cursor:not-allowed}
+.shopSoldTag{padding:8px 10px;border:1px solid #5b4540;border-radius:8px;color:#b9938c;font:800 9px Arial,sans-serif}
+.rpg2-lockPanel{flex-wrap:wrap}.rpg2-lockPanel button{margin-left:auto}
+.rpg2-shopStatus #rpgShopLock{cursor:pointer}
+@media(max-width:900px){.shopGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.shopTopBar,.shopGrid{grid-template-columns:1fr}}
+</style>
 </head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>2 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>2 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p></section>
@@ -442,6 +460,7 @@
     <div class='rpgTabs rpg2-tabs'>
       <button class='active' data-rpg-panel='character'>🧙 Personažas</button>
       <button data-rpg-panel='inventory'>🎒 Inventorius</button>
+      <button data-rpg-panel='shop'>🏪 Shop</button>
       <button data-rpg-panel='skills'>🌳 Skill Tree</button>
       <button data-rpg-panel='rpgRules'>📜 Taisyklės</button>
     </div>
@@ -482,7 +501,7 @@
               <button class='rpgBuyStat' data-stat='str'>+1 STR · 80 FPTS</button>
             </div>
             <div class='rpgStatCard rpg2-stat'>
-              <div class='rpg2-statIcon'>🪽</div><h4>DEX · Vikrumas</h4>
+              <div class='rpg2-statIcon'>⚡</div><h4>DEX · Vikrumas</h4>
               <div class='rpgStatValue'><strong id='sheetDex'>10</strong><em id='sheetDexBonus' class='rpgItemStatBonus'>+0</em><span id='sheetDexMod'>MOD +0</span></div>
               <small>Initiative, AC ir DEX ginklai</small>
               <button class='rpgBuyStat' data-stat='dex'>+1 DEX · 80 FPTS</button>
@@ -717,8 +736,24 @@
         <div class='rpgSlot' data-slot='artifact'><b>🔮 Artefaktas</b><span>Tuščia</span></div>
         <div class='rpgSlot' data-slot='spell'><b>✨ Burtas</b><span>Tuščia</span></div>
       </div>
-      <div class='rpg2-lockPanel'><b>🏪 Item Shop</b><span>Prieš Enemy #1 parduotuvė užrakinta. Pirmiausia FPTS gali leisti tik STR / DEX / CON.</span></div>
+      <div class='rpg2-lockPanel'><b>🏪 Item Shop</b><span id='rpgInventoryShopHint'>Shop būsena kraunama…</span><button class='rpg2-backCharacter' type='button' data-open-rpg-shop>ATIDARYTI SHOP</button></div>
       <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div></div>
+    </div>
+
+    <div id='rpgPanel-shop' class='rpgPanel'>
+      <div class='rpg2-subHead'>
+        <div><div class='rpg2-kicker'>BENDRA 7 ŽAIDĖJŲ PARDUOTUVĖ</div><h3>🏪 Item Shop</h3></div>
+        <button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button>
+      </div>
+
+      <div class='shopTopBar'>
+        <div class='shopMetaCard'><small>ROTACIJA</small><strong id='shopRotation'>—</strong><span>1 egzempliorius kiekvieno itemo</span></div>
+        <div class='shopMetaCard'><small>TAVO AVAILABLE FPTS</small><strong id='shopFpts'>0</strong><span>naudojama pirkimams</span></div>
+        <div class='shopMetaCard'><small>SHOP BŪSENA</small><strong id='shopState'>—</strong><span id='shopResetMeta'>—</span></div>
+      </div>
+      <div id='shopNotice' class='shopNotice'>Kraunama…</div>
+      <div id='rpgShopItems' class='shopGrid'><div class='journeyLoading'>Kraunama shop rotacija…</div></div>
+      <div id='rpgShopMsg' class='rpgSheetMsg'></div>
     </div>
 
     <div id='rpgPanel-skills' class='rpgPanel'>
@@ -1037,6 +1072,12 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       cz_blood_ring:"💍",
       cz_star_charm:"🔮",
       olymp_titan_trident:"🔱",
+      shop_greataxe:"🪓",
+      shop_battleaxe_plus1:"🪓",
+      shop_scout_helm:"⛑️",
+      shop_iron_ring:"💍",
+      shop_war_charm:"🔮",
+      shop_buckler:"🛡️",
       paris_phantom_signet:"💠",
       paris_shadow_mask:"🎭",
       paris_lucky_token:"🪙"
@@ -1137,6 +1178,50 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
 
+
+  let shopStateCache=null;
+  function renderShop(state){
+    shopStateCache=state||null;
+    const grid=document.getElementById("rpgShopItems");if(!grid)return;
+    const rotation=document.getElementById("shopRotation"),fpts=document.getElementById("shopFpts"),st=document.getElementById("shopState"),meta=document.getElementById("shopResetMeta"),notice=document.getElementById("shopNotice");
+    const unlocked=!!state?.unlocked, battleLocked=!!state?.battle_locked, items=state?.items||[];
+    if(rotation)rotation.textContent=state?.rotation_no!=null?"R"+state.rotation_no:"—";
+    if(fpts)fpts.textContent=Number(state?.available_fpts||0).toFixed(2);
+    if(st)st.textContent=!unlocked?"UŽRAKINTAS":battleLocked?"KOVA VYKSTA":"ATIDARYTAS";
+    if(meta){
+      const reset=state?.reset||{};
+      meta.textContent=reset?.is_open?"Rotacija aktyvi":reset?.opens_at?("Atsidarys "+new Date(reset.opens_at).toLocaleString("lt-LT")):"Laukiama reset";
+    }
+    if(notice){
+      notice.className="shopNotice "+(unlocked&&!battleLocked?"open":"locked");
+      notice.textContent=!unlocked?"🔒 Item Shop atsirakina nugalėjus Enemy #1.":battleLocked?"🔒 Kovos metu pirkti negalima. Užbaik kovą ir shopas vėl bus aktyvus.":"✓ Bendra parduotuvė aktyvi. Kiekvienas itemas turi tik 1 egzempliorių visiems 7 žaidėjams.";
+    }
+    const hint=document.getElementById("rpgInventoryShopHint");
+    if(hint)hint.textContent=!unlocked?"Užrakintas iki Enemy #1 pergalės.":battleLocked?"Kovos metu užrakintas.":"Atrakintas · bendra ribota rotacija.";
+    const side=document.getElementById("rpgShopLock");
+    if(side){
+      side.textContent=!unlocked?"🔒 Item Shop užrakintas iki Enemy #1 pergalės.":battleLocked?"🔒 Item Shop užrakintas kovos metu.":"🔓 Item Shop atrakintas · spausti čia";
+      side.onclick=()=>document.querySelector("[data-rpg-panel='shop']")?.click();
+    }
+    if(!items.length){
+      grid.innerHTML="<div class='shopNotice locked' style='grid-column:1/-1'>Aktyvios shop rotacijos dar nėra.</div>";
+      return;
+    }
+    grid.innerHTML=items.map(i=>{
+      const p=i.stat_payload||{};
+      const sold=!i.available;
+      const req=p.required_stat&&p.min_stat?("Reikia "+String(p.required_stat).toUpperCase()+" "+p.min_stat):"Be papildomo STAT reikalavimo";
+      const canBuy=unlocked&&!battleLocked&&!sold&&Number(state.available_fpts||0)>=Number(i.cost_fpts||0);
+      return "<article class='shopItem rarity-"+escInv(i.rarity||"Common")+" "+(sold?"sold":"")+"'>"+
+        "<div class='shopItemHead'><div class='shopItemIcon'>"+itemIcon(i.slot,i.item_id)+"</div><div class='shopItemInfo'><strong>"+escInv(i.name)+"</strong><em>"+escInv(i.rarity)+" · "+escInv(i.slot)+"</em></div></div>"+
+        "<div class='shopItemDesc'>"+escInv(p.description||itemStatsText(p))+"</div>"+
+        "<div class='shopItemReq'>"+escInv(req)+"</div>"+
+        "<div class='shopItemBottom'><div class='shopPrice'><strong>"+Number(i.cost_fpts).toFixed(0)+" FPTS</strong><small>vienkartinis pirkimas</small></div>"+
+        (sold?"<span class='shopSoldTag'>PARDUOTA</span>":"<button class='shopBuy' data-shop-item='"+escInv(i.item_id)+"' "+(canBuy?"":"disabled")+">"+(Number(state.available_fpts||0)<Number(i.cost_fpts||0)?"NEPAKANKA FPTS":"PIRKTI")+"</button>")+
+        "</div></article>";
+    }).join("");
+  }
+
   let skillStateCache=null;
   const skillAttrMeta={
     STR:{icon:"💪",label:"STR",branches:["Berserker","Fighter"]},
@@ -1198,13 +1283,14 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const {data:{session}}=await sb.auth.getSession();
     if(!session){gate.style.display="";sheet.classList.remove("show");return;}
 
-    const [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog},{data:skillState}]=await Promise.all([
+    const [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog},{data:skillState},{data:shopState}]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
       sb.rpc("rpg_combat_stats"),
       sb.rpc("rpg_all_combat_ratings"),
       sb.rpc("rpg_round_status"),
       sb.rpc("rpg_enemy_catalog"),
-      sb.rpc("rpg_skill_state")
+      sb.rpc("rpg_skill_state"),
+      sb.rpc("rpg_shop_current")
     ]);
     if(error || !data){gate.style.display="";sheet.classList.remove("show");return;}
 
@@ -1247,7 +1333,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       b.textContent=current>=20?"MAX 20":"+1 "+b.dataset.stat.toUpperCase()+" · 80 FPTS";
     });
 
-    document.getElementById("rpgShopLock").textContent=data.item_shop_unlocked?"🔓 Item Shop atrakintas.":"🔒 Item Shop užrakintas. Jis atsirakins nugalėjus Enemy #1.";
+    renderShop(shopState||{unlocked:data.item_shop_unlocked,available_fpts:data.available_fpts,items:[]});
 
     const ratingsEl=document.getElementById("rpgCombatRatings");
     if(ratingsEl){
@@ -1295,6 +1381,26 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(window.refreshRpgCombat)await window.refreshRpgCombat();
   });
 
+
+
+  document.getElementById("rpgShopItems")?.addEventListener("click",async e=>{
+    const btn=e.target.closest(".shopBuy");if(!btn||btn.disabled)return;
+    const state=shopStateCache;if(!state)return;
+    const item=(state.items||[]).find(x=>x.item_id===btn.dataset.shopItem);if(!item)return;
+    if(!confirm("Pirkti "+item.name+" už "+Number(item.cost_fpts).toFixed(0)+" FPTS?"))return;
+    const sb=window.rpgSupabase;if(!sb)return;
+    const msg=document.getElementById("rpgShopMsg");btn.disabled=true;if(msg)msg.textContent="Perkama…";
+    const {data,error}=await sb.rpc("rpg_shop_purchase",{p_item_id:item.item_id});
+    if(error){
+      const t=String(error.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("already sold")?"Šį itemą ką tik nupirko kitas žaidėjas.":t.includes("not enough")?"Nepakanka Available FPTS.":t.includes("active combat")?"Kovos metu pirkti negalima.":t.includes("already own")?"Šį itemą jau turi.":"Pirkimas nepavyko.";
+    }else{
+      if(msg)msg.textContent="✓ "+(data?.name||item.name)+" nupirkta. Itemas pridėtas į inventorių.";
+    }
+    await renderSheet();
+    if(window.loadRpgMiniProfile)await window.loadRpgMiniProfile();
+    if(window.refreshJourneyDashboard)await window.refreshJourneyDashboard();
+  });
 
   document.getElementById("rpgSkillTree")?.addEventListener("click",async e=>{
     const btn=e.target.closest(".skillChoose");if(!btn||btn.disabled)return;
@@ -1349,6 +1455,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
   document.querySelectorAll("[data-open-rpg-rules]").forEach(b=>b.addEventListener("click",()=>activatePanel("rpgRules")));
   document.querySelectorAll("[data-open-rpg-inventory]").forEach(b=>b.addEventListener("click",()=>activatePanel("inventory")));
+  document.querySelectorAll("[data-open-rpg-shop]").forEach(b=>b.addEventListener("click",()=>activatePanel("shop")));
   document.querySelectorAll("[data-open-rpg-skills]").forEach(b=>b.addEventListener("click",()=>activatePanel("skills")));
   document.querySelectorAll("[data-open-rpg-character]").forEach(b=>b.addEventListener("click",()=>activatePanel("character")));
 
