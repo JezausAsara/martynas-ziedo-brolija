@@ -265,6 +265,23 @@
 .journeyChronicleTitle{margin-top:18px}.journeyLoading{color:#8e999d;font:11px Arial,sans-serif;padding:12px}
 @media(max-width:1100px){.journeyDashboardGrid{grid-template-columns:1fr 1fr}.journeyHeroesPanel{grid-column:1/-1}.journeyHeroStats{grid-template-columns:repeat(4,1fr)}}
 @media(max-width:800px){.journeyRoundRail{overflow-x:auto}.journeyEnemyStage{grid-template-columns:1fr}.journeyEnemyCard.current{order:1;transform:none}.journeyEnemyCard.previous{order:2}.journeyEnemyCard.next{order:3}.journeyEnemyCard,.journeyEnemyCard.current{min-height:0}.journeyEnemyArt,.journeyEnemyCard.current .journeyEnemyArt,.journeyEnemyLocked,.journeyEnemyCard.current .journeyEnemyLocked{height:300px}.journeyDashboardGrid{grid-template-columns:1fr}.journeyHeroesPanel{grid-column:auto}.journeyHeroStats{grid-template-columns:repeat(2,1fr)}.journeyRailLabels{min-width:720px}}
+
+.journeyRoundRail{padding-top:26px}
+.journeyRoundDot{cursor:pointer}
+.journeyRoundDot.future{cursor:not-allowed;opacity:.58}
+.journeyRoundDot.viewing:before{outline:2px solid #76b9d2;outline-offset:3px}
+.journeyRoundDot .journeySkillMark{position:absolute;top:-20px;left:50%;transform:translateX(-50%);color:#79cfe8;font:700 10px Arial,sans-serif;text-shadow:0 0 10px #5ac8ff99;white-space:nowrap}
+.journeyRoundDot .journeySkillMark.double{color:#f3c96e;text-shadow:0 0 10px #f3b64f99}
+.journeySkillLegend{display:flex;gap:14px;flex-wrap:wrap;margin-top:11px;color:#859297;font:9px/1.4 Arial,sans-serif}
+.journeySkillLegend b{color:#79cfe8}.journeySkillLegend .boss{color:#c69b4a}
+.journeyBrowseBar{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;margin:2px 0 13px;padding:9px 10px;border:1px solid #3b3427;border-radius:11px;background:#090e10}
+.journeyBrowseBar button{border:1px solid #67512d;border-radius:9px;background:#111619;color:#d9bd78;padding:9px 12px;font:700 10px Arial,sans-serif;letter-spacing:.04em;cursor:pointer}
+.journeyBrowseBar button:hover:not(:disabled){border-color:#a47c37;background:#171b1d;color:#f2d795}
+.journeyBrowseBar button:disabled{opacity:.35;cursor:not-allowed}
+.journeyBrowseState{text-align:center}.journeyBrowseState small{display:block;color:#6f7b80;font:8px Arial,sans-serif;letter-spacing:.12em}.journeyBrowseState strong{display:block;margin-top:2px;color:#e7c779;font:15px Georgia,serif}
+.journeyBoundaryCard{min-height:330px;display:grid;place-items:center;text-align:center;color:#75684f;background:radial-gradient(circle at 50% 45%,#1f1a12,#080c0e 66%)}
+.journeyBoundaryCard b{display:block;color:#b89b63;font:18px Georgia,serif}.journeyBoundaryCard span{font:10px Arial,sans-serif;color:#7c878b}
+@media(max-width:650px){.journeyBrowseBar{grid-template-columns:1fr 1fr}.journeyBrowseState{grid-column:1/-1;grid-row:1}.journeyBrowseBar button{grid-row:2}}
 </style><style id="campaignDynamicStyles">
 .rpgNextEnemyCard{margin-top:9px}.rpgNextEnemyArt{height:150px;border:1px solid #4b3822;border-radius:10px;overflow:hidden;position:relative;background:radial-gradient(circle at 50% 35%,#392416,#091013 68%);display:grid;place-items:center}.rpgNextEnemyArt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%;z-index:2}.rpgNextEnemySymbol{font-size:55px;filter:drop-shadow(0 0 18px #c6903b66);opacity:.9}.rpgNextEnemyMeta{display:flex;justify-content:space-between;gap:8px;align-items:start;margin-top:9px}.rpgNextEnemyMeta small{color:#879399;font:9px Arial,sans-serif}.rpgNextEnemyMeta b{display:block;color:#efd197;font-size:16px;line-height:1.15}.rpgNextEnemyLock{padding:16px 8px;text-align:center;color:#9aa4a8;font:11px/1.5 Arial,sans-serif}.rpgNextEnemyLock b{display:block;color:#e3c16d;font:16px Georgia,serif;margin-bottom:5px}
 .rpgEnemyPortraitArt{position:relative;overflow:hidden}.rpgEnemyPortraitArt.photo svg{display:none}.rpgEnemyPortraitArt.photo{background-position:center 20%;background-size:cover;background-repeat:no-repeat}.rpgEnemyPortraitArt.photo:before{content:attr(data-symbol);position:absolute;inset:0;display:grid;place-items:center;font-size:48px;background:radial-gradient(circle,#40261a,#0b0e10 70%);z-index:0}.rpgEnemyPortraitArt.photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,#090d0f 100%);z-index:1}
@@ -330,6 +347,15 @@
   <div class='journeyRoundRail'>
     <div class='journeyRailLabels'><span>Žiedo brolijos susitikimas</span><span>Balrogo urvas · R19</span><span>Mordoras · R38</span></div>
     <div id='journeyRoundStrip' class='journeyRoundStrip'></div>
+  </div>
+
+  <div class='journeyBrowseBar'>
+    <button id='journeyPrevEnemy' type='button'>← SENESNIS</button>
+    <div class='journeyBrowseState'>
+      <small>PRIEŠŲ ARCHYVAS</small>
+      <strong id='journeyBrowseLabel'>Priešas #3 · dabartinis</strong>
+    </div>
+    <button id='journeyNextEnemy' type='button'>NAUJESNIS →</button>
   </div>
 
   <div id='journeyEnemyStage' class='journeyEnemyStage'>
@@ -1624,6 +1650,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 <script id="journeyV2Script">
 (() => {
   const activeRound=Math.min(totalRounds,currentRound+1);
+  const bossRounds=[10,19,29,38];
+  const skillPointsAt=(r)=>((r%3===0&&r<=36)?1:0)+(bossRounds.includes(r)?1:0);
+  let selectedRound=activeRound;
+  let campaignCache=[];
+  let catalogCache=[];
   const enemyData={
     1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
     2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp?v=hq512-1",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
@@ -1633,20 +1664,52 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   players.forEach(p=>avatarByTeam[p.team]=p.avatar);
   const initials=(name)=>name==="Ryčis"?"R":name.split(/\s+/).map(x=>x[0]).join("").replace(".","").slice(0,2).toUpperCase();
 
+  function updateBrowseControls(){
+    const prev=document.getElementById("journeyPrevEnemy");
+    const next=document.getElementById("journeyNextEnemy");
+    const label=document.getElementById("journeyBrowseLabel");
+    if(prev)prev.disabled=selectedRound<=1;
+    if(next)next.disabled=selectedRound>=activeRound;
+    if(label)label.textContent="Priešas #"+selectedRound+(selectedRound===activeRound?" · dabartinis":" · istorija");
+  }
+
   function renderStrip(){
     const el=document.getElementById("journeyRoundStrip"); if(!el)return;
     let html="";
     for(let r=1;r<=totalRounds;r++){
+      const sp=skillPointsAt(r);
       const cls=["journeyRoundDot"];
       if(r<activeRound)cls.push("done");
       if(r===activeRound)cls.push("active");
-      if([1,10,19,29,38].includes(r))cls.push("milestone");
-      html+="<span class='"+cls.join(" ")+"' title='"+r+" turas'><b>"+([1,5,10,15,19,20,25,29,30,35,38].includes(r)?r:"")+"</b></span>";
+      if(r===selectedRound)cls.push("viewing");
+      if(r>activeRound)cls.push("future");
+      if([1,...bossRounds].includes(r))cls.push("milestone");
+      let tip=r+" turas";
+      if(sp)tip+=" · po priešo +"+sp+" Skill Point"+(sp>1?"s":"");
+      if(bossRounds.includes(r))tip+=" · BOSAS";
+      const mark=sp?"<i class='journeySkillMark "+(sp>1?"double":"")+"'>✦"+(sp>1?"2":"")+"</i>":"";
+      html+="<span class='"+cls.join(" ")+"' data-round='"+r+"' title='"+tip+"'>"+mark+"<b>"+([1,3,5,6,9,10,12,15,18,19,20,21,24,25,27,29,30,33,35,36,38].includes(r)?r:"")+"</b></span>";
     }
     el.innerHTML=html;
+    el.querySelectorAll(".journeyRoundDot").forEach(dot=>{
+      const r=Number(dot.dataset.round);
+      if(r<=activeRound)dot.addEventListener("click",()=>{
+        selectedRound=r;
+        renderStrip();
+        renderEnemies(campaignCache);
+      });
+    });
+    if(!document.getElementById("journeySkillLegend")){
+      const legend=document.createElement("div");
+      legend.id="journeySkillLegend";
+      legend.className="journeySkillLegend";
+      legend.innerHTML="<span><b>✦</b> +1 Skill Point kas 3 priešus</span><span><b class='boss'>◆</b> +1 Skill Point po boso</span><span>Jei sutampa – gaunami +2 SP</span>";
+      el.parentElement.appendChild(legend);
+    }
     const jr=document.getElementById("journeyRound"), jp=document.getElementById("journeyPct");
     if(jr)jr.textContent=activeRound+" / "+totalRounds;
     if(jp)jp.textContent=Math.round(activeRound/totalRounds*100)+"% kelio";
+    updateBrowseControls();
   }
 
   function defeatRow(enemyNo,campaign){
@@ -1657,10 +1720,37 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }).join("");
   }
 
+  function getEnemy(enemyNo){
+    const raw=(catalogCache||[]).find(e=>Number(e.enemy_no)===Number(enemyNo));
+    if(raw){
+      const mod=Number(raw.damage_modifier||0);
+      const atk=Number(raw.attack_bonus||0);
+      const init=Number(raw.initiative_bonus||0);
+      return {
+        name:raw.name,
+        team:raw.team_name,
+        image:raw.image_path||enemyData[enemyNo]?.image||"",
+        hp:Number(raw.hp),
+        ac:Number(raw.ac),
+        atk:(atk>=0?"+":"")+atk,
+        dmg:String(raw.damage_die||"d8")+(mod===0?"":(mod>0?"+":"")+mod),
+        init:(init>=0?"+":"")+init,
+        special:(raw.special_name?raw.special_name+": ":"")+(raw.special_description||""),
+        drop:raw.drop_description||"—",
+        dropEpic:/EPIC/i.test(String(raw.drop_description||""))||enemyNo===3
+      };
+    }
+    return enemyData[enemyNo]||null;
+  }
+
+  function boundaryCard(){
+    return "<div class='journeyBoundaryCard'><div><b>Žiedo brolijos kelionės pradžia</b><span>Priešo prieš Enemy #1 nėra.</span></div></div>";
+  }
+
   function enemyCard(enemyNo,position,campaign){
-    const d=enemyData[enemyNo];
-    const locked=!d;
-    const tag=position==="current"?"DABARTINIS PRIEŠAS":position==="previous"?"PRAĖJĘS TURAS":"ARTĖJANTIS PRIEŠAS";
+    const d=getEnemy(enemyNo);
+    const locked=enemyNo>activeRound||!d;
+    const tag=enemyNo===activeRound?"DABARTINIS PRIEŠAS":enemyNo<activeRound?"ISTORINIS PRIEŠAS":"ARTĖJANTIS PRIEŠAS";
     const symbol=enemyNo===2?"🔱":enemyNo===3?"🎭":"★";
     const defeated=locked?0:campaign.filter(x=>Number(x.defeated_enemies||0)>=enemyNo).length;
 
@@ -1688,11 +1778,15 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
   function renderEnemies(campaign){
-    const prev=Math.max(1,activeRound-1), cur=activeRound, next=Math.min(totalRounds,activeRound+1);
-    const p=document.getElementById("journeyEnemyPrev"), c=document.getElementById("journeyEnemyCurrent"), n=document.getElementById("journeyEnemyNext");
-    if(p)p.innerHTML=enemyCard(prev,"previous",campaign);
-    if(c)c.innerHTML=enemyCard(cur,"current",campaign);
-    if(n)n.innerHTML=enemyCard(next,"next",campaign);
+    campaignCache=campaign||campaignCache||[];
+    const prev=selectedRound>1?selectedRound-1:null;
+    const cur=selectedRound;
+    const next=selectedRound<totalRounds?selectedRound+1:null;
+    const p=document.getElementById("journeyEnemyPrev"), cc=document.getElementById("journeyEnemyCurrent"), n=document.getElementById("journeyEnemyNext");
+    if(p)p.innerHTML=prev?enemyCard(prev,"previous",campaignCache):boundaryCard();
+    if(cc)cc.innerHTML=enemyCard(cur,"current",campaignCache);
+    if(n)n.innerHTML=next?enemyCard(next,"next",campaignCache):"";
+    updateBrowseControls();
   }
 
   function renderHeroes(ratings){
@@ -1728,15 +1822,24 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   async function loadJourney(){
     const sb=window.rpgSupabase;if(!sb)return;
-    const [campaignRes,ratingsRes,shopRes]=await Promise.all([
+    const [campaignRes,ratingsRes,shopRes,catalogRes]=await Promise.all([
       sb.rpc("rpg_public_campaign_status"),
       sb.rpc("rpg_all_combat_ratings"),
-      sb.rpc("rpg_shop_reset_status")
+      sb.rpc("rpg_shop_reset_status"),
+      sb.rpc("rpg_enemy_catalog")
     ]);
-    renderEnemies(campaignRes.data||[]);
+    campaignCache=campaignRes.data||[];
+    catalogCache=catalogRes.data||catalogCache||[];
+    renderStrip();
+    renderEnemies(campaignCache);
     renderHeroes(ratingsRes.data||[]);
     renderShop(shopRes.data||{});
   }
+
+  const browsePrev=document.getElementById("journeyPrevEnemy");
+  const browseNext=document.getElementById("journeyNextEnemy");
+  if(browsePrev)browsePrev.addEventListener("click",()=>{if(selectedRound>1){selectedRound--;renderStrip();renderEnemies(campaignCache);}});
+  if(browseNext)browseNext.addEventListener("click",()=>{if(selectedRound<activeRound){selectedRound++;renderStrip();renderEnemies(campaignCache);}});
 
   window.refreshJourneyDashboard=loadJourney;
   renderStrip();
