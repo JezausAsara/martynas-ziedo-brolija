@@ -1,0 +1,33 @@
+name: Rebuild enemy artwork
+on:
+  push:
+    paths:
+      - 'assets/rpg/hq-source/**'
+permissions:
+  contents: write
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild high quality WebP assets
+        shell: bash
+        run: |
+          set -e
+          if [ ! -f assets/rpg/hq-source/enemy2.part1.txt ] || [ ! -f assets/rpg/hq-source/enemy2.part2.txt ] || [ ! -f assets/rpg/hq-source/enemy2.part3.txt ] || [ ! -f assets/rpg/hq-source/enemy3.part1.txt ] || [ ! -f assets/rpg/hq-source/enemy3.part2.txt ]; then
+            echo "Waiting for all source chunks."
+            exit 0
+          fi
+          cat assets/rpg/hq-source/enemy2.part*.txt | tr -d '\n\r' | base64 -d > assets/rpg/enemy2-olympiakos.webp
+          cat assets/rpg/hq-source/enemy3.part*.txt | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
+          file assets/rpg/enemy2-olympiakos.webp
+          file assets/rpg/enemy3-paris.webp
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp
+          if git diff --cached --quiet; then
+            echo "No binary changes."
+          else
+            git commit -m "Rebuild high quality enemy artwork"
+            git push
+          fi
