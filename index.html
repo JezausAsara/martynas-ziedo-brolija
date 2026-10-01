@@ -1669,7 +1669,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(!shop?.scheduled){if(timer)timer.textContent="—";if(meta)meta.textContent="Resetas dar nesuplanuotas.";return;}
     if(round)round.textContent="PO "+shop.round_no+" TURO";
     shopSeconds=Number(shop.seconds_remaining||0);
-    if(meta)meta.textContent=shop.is_open?"8 val. reset langas baigtas.":"Senas shopas galioja iki laikmačio pabaigos; tada aktyvuojama nauja rotacija.";
+    if(meta){const opens=shop.opens_at?new Date(shop.opens_at):null;const when=opens&&!isNaN(opens) ? opens.toLocaleString("lt-LT",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}) : "";meta.textContent=shop.is_open?"Nauja shop rotacija jau turėtų būti aktyvi.":("Nauja rotacija atsidarys "+when+". Iki tol galioja senas shopas.");}
     tickShop();
     if(shopInterval)clearInterval(shopInterval);
     shopInterval=setInterval(tickShop,1000);
