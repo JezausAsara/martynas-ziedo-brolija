@@ -742,7 +742,7 @@ function answerQuiz(i){if(qanswered)return;qanswered=true;const q=todayQuiz[qi];
 function finishQuiz(){const hist=qstore.history||[];hist.push({date:quizDate,score:qscore});qstore.history=hist;qstore.best=Math.max(qstore.best||0,qscore);const y=new Date();y.setDate(y.getDate()-1);const yd=y.toISOString().slice(0,10);qstore.streak=(qstore.lastDate===yd?(qstore.streak||0)+1:1);qstore.lastDate=quizDate;saveQuiz();renderQuiz()}
 renderQuiz();updateQuizStats();
 
-document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active')});
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active');if(b.dataset.tab==='journey'&&window.refreshJourneyDashboard)window.refreshJourneyDashboard();});
 </script>
 <!-- RPG ACCOUNT / SUPABASE AUTH -->
 <style>
