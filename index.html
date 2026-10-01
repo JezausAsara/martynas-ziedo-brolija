@@ -332,7 +332,7 @@
       <p>Fantasy rezultatai maitina tavo RPG progresą. Čia stiprini atributus, valdai įrangą ir seki 38 priešų kampaniją.</p>
     </div>
     <div class='rpg2-headActions'>
-      <span class='rpg2-season'>2 / 38 TURŲ</span>
+      <span id='rpgSeasonBadge' class='rpg2-season'>3 TURAS AKTYVUS · 2 BAIGTI</span>
       <button class='rpg2-ruleShortcut' type='button' data-open-rpg-rules>📜 Žaidimo taisyklės</button>
     </div>
   </div>
@@ -1036,6 +1036,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     document.getElementById("rpgSheetProgress").textContent="Įveikta "+data.defeated_enemies+" / 38 · "+(data.item_shop_unlocked?"Item Shop atrakintas":"Item Shop užrakintas");
     window.rpgEnemyCatalog=enemyCatalog||[];
     window.rpgRoundStatus=roundStatus||null;
+    const seasonBadge=document.getElementById("rpgSeasonBadge");
+    if(seasonBadge)seasonBadge.textContent=(roundStatus?.active_period||1)+" TURAS AKTYVUS · "+(roundStatus?.latest_complete_round||0)+" BAIGTI";
     renderNextEnemyCard(data,roundStatus,enemyCatalog);
 
     const stats=cs||{};
