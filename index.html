@@ -240,13 +240,83 @@
  .rpgCombatRatingLine{display:grid;grid-template-columns:auto 1fr}.rpgCombatRatingLine small{text-align:left}
  .rpgSideDie{width:72px!important;height:72px!important}.rpgSideDie b{font-size:31px!important}
 }
+</style><style id="journeyV2Styles">
+.journeyV2{--jgold:#d7ad57;--jred:#a92c1c;--jgreen:#4fa56b}
+.journeyV2Intro{padding:4px 0 8px;border-bottom:1px solid #4b3820}.journeyEyebrow{font:700 10px Arial,sans-serif;letter-spacing:.16em;color:#b98d3d;margin-bottom:5px}
+.journeyRoundRail{margin:14px 0 18px;padding:14px;border:1px solid #5a421f;border-radius:14px;background:radial-gradient(circle at 80% 20%,#641d1055,transparent 32%),#080d10;overflow:hidden}
+.journeyRailLabels{display:flex;justify-content:space-between;color:#cdb77f;font:11px Arial,sans-serif;margin-bottom:11px;gap:10px}.journeyRailLabels span:nth-child(2){text-align:center}.journeyRailLabels span:last-child{text-align:right}
+.journeyRoundStrip{display:grid;grid-template-columns:repeat(38,minmax(18px,1fr));gap:4px;min-width:720px;align-items:center}
+.journeyRoundDot{position:relative;height:26px;display:grid;place-items:center;color:#786a51;font:9px Arial,sans-serif}.journeyRoundDot:before{content:'';width:9px;height:9px;border-radius:50%;border:1px solid #765a2a;background:#080c0e;box-shadow:0 0 0 2px #050708}.journeyRoundDot.done:before{background:#b78a36;box-shadow:0 0 8px #d8a94e88}.journeyRoundDot.active:before{width:13px;height:13px;background:#f3c15d;border-color:#ffe3a1;box-shadow:0 0 15px #ff9b39}.journeyRoundDot.milestone:after{content:'◆';position:absolute;top:-11px;color:#b88d3d;font-size:9px}.journeyRoundDot b{position:absolute;top:20px;font-weight:400}
+.journeyEnemyStage{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.22fr) minmax(0,.9fr);gap:12px;align-items:stretch;margin:12px 0 16px}
+.journeyEnemyCard{position:relative;overflow:hidden;border:1px solid #4b3d2b;border-radius:15px;background:linear-gradient(180deg,#121719,#070b0d);min-height:470px;box-shadow:0 12px 35px #0008}
+.journeyEnemyCard.current{border-color:#a33925;box-shadow:0 0 0 1px #6f2419,0 0 32px #8d221d55,0 14px 38px #0009;transform:translateY(-7px)}
+.journeyEnemyArt{height:285px;position:relative;background:#080c0f center 25%/cover no-repeat}.journeyEnemyCard.current .journeyEnemyArt{height:322px}.journeyEnemyArt:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 48%,#090d0f 96%)}
+.journeyEnemyLocked{height:285px;display:grid;place-items:center;background:radial-gradient(circle,#2d2118,#090c0e 65%);font-size:76px;color:#715d43;text-shadow:0 0 25px #000}.journeyEnemyCard.current .journeyEnemyLocked{height:322px}
+.journeyEnemyBadge{position:absolute;top:10px;left:10px;z-index:2;padding:6px 9px;border:1px solid #75562b;border-radius:999px;background:#070b0ddd;color:#e1bf70;font:700 10px Arial,sans-serif;letter-spacing:.08em}.journeyEnemyCard.current .journeyEnemyBadge{border-color:#a43a29;color:#ffd6a0;background:#41130dcc}
+.journeyEnemyBody{padding:13px 14px 14px}.journeyEnemyBody h4{margin:0;color:#f0d5a2;font-size:20px}.journeyEnemyBody>small{display:block;margin-top:4px;color:#8f999d;font:10px Arial,sans-serif}
+.journeyEnemyStats{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:10px}.journeyEnemyStats span{padding:6px 3px;border:1px solid #333b3f;border-radius:7px;background:#091013;text-align:center;color:#d8dddf;font:9px Arial,sans-serif}.journeyEnemyStats b{display:block;color:#f0c66f;font-size:12px;margin-top:2px}
+.journeyEnemySpecial{margin-top:9px;padding:9px;border-left:2px solid #846329;background:#0b1114;color:#b8c0c3;font:10px/1.45 Arial,sans-serif}.journeyEnemySpecial b{color:#dfbd68}
+.journeyEnemyDrop{margin-top:8px;padding:9px;border:1px solid #5a4628;border-radius:8px;background:#0d1112;color:#aeb6b9;font:10px/1.45 Arial,sans-serif}.journeyEnemyDrop b{display:block;color:#f0c66f;margin-bottom:2px}.journeyEnemyDrop.epic{border-color:#69417d;background:linear-gradient(90deg,#15101c,#0c1113);box-shadow:inset 0 0 18px #6f3a8e22}.journeyEnemyDrop.epic b{color:#d9a6ff}
+.journeyDefeatWrap{margin-top:10px;padding-top:9px;border-top:1px solid #302a20}.journeyDefeatLabel{display:flex;justify-content:space-between;gap:8px;color:#8d979b;font:9px Arial,sans-serif;margin-bottom:6px}.journeyDefeatRow{display:flex;flex-wrap:wrap;gap:5px}.journeyDefeatChip{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;border:1px solid #465158;background:#10171a;color:#7f898d;font:700 9px Arial,sans-serif}.journeyDefeatChip.win{border-color:#3b7d51;background:#10281a;color:#9fe0ad;box-shadow:0 0 10px #42a95b22}.journeyDefeatChip.win:after{content:'✓';position:absolute}.journeyDefeatChip{position:relative}.journeyDefeatChip.win span{opacity:0}
+.journeyDashboardGrid{display:grid;grid-template-columns:1.7fr .72fr .9fr;gap:12px;margin-top:12px}.journeyPanel{border:1px solid #4c3b22;border-radius:13px;background:linear-gradient(180deg,#101619,#080d10);padding:13px}.journeyPanelTitle{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.journeyPanelTitle span{color:#e2bf6b;font-weight:700}.journeyPanelTitle small{color:#778286;font:9px Arial,sans-serif;letter-spacing:.08em}
+.journeyHeroStats{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.journeyHeroCard{min-width:0;padding:9px 6px;border:1px solid #344047;border-radius:9px;background:#0a1114;text-align:center}.journeyHeroCard .avatar{width:43px;height:43px;margin:0 auto 6px;display:block}.journeyHeroCard b{display:block;color:#e7cc91;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.journeyHeroNumbers{display:grid;gap:3px;margin-top:7px;color:#aeb6b9;font:9px Arial,sans-serif}.journeyHeroNumbers span{display:flex;justify-content:space-between;gap:3px}.journeyHeroNumbers strong{color:#eef0f0;font-size:10px}
+.journeyShopTimer{padding:13px 6px;border:1px solid #6d5228;border-radius:10px;background:#120f0b;text-align:center;color:#f2cc75;font:700 26px/1 Georgia,serif;letter-spacing:.04em}.journeyShopMeta{margin-top:8px;text-align:center;color:#98a3a7;font:10px/1.45 Arial,sans-serif}
+.journeyUnlock{padding:9px 0;border-bottom:1px solid #293136}.journeyUnlock:last-child{border-bottom:0}.journeyUnlock b{display:block;color:#e0c373;font-size:12px}.journeyUnlock span{display:block;margin-top:3px;color:#9da7aa;font:10px/1.45 Arial,sans-serif}
+.journeyChronicleTitle{margin-top:18px}.journeyLoading{color:#8e999d;font:11px Arial,sans-serif;padding:12px}
+@media(max-width:1100px){.journeyDashboardGrid{grid-template-columns:1fr 1fr}.journeyHeroesPanel{grid-column:1/-1}.journeyHeroStats{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:800px){.journeyRoundRail{overflow-x:auto}.journeyEnemyStage{grid-template-columns:1fr}.journeyEnemyCard.current{order:1;transform:none}.journeyEnemyCard.previous{order:2}.journeyEnemyCard.next{order:3}.journeyEnemyCard,.journeyEnemyCard.current{min-height:0}.journeyEnemyArt,.journeyEnemyCard.current .journeyEnemyArt,.journeyEnemyLocked,.journeyEnemyCard.current .journeyEnemyLocked{height:300px}.journeyDashboardGrid{grid-template-columns:1fr}.journeyHeroesPanel{grid-column:auto}.journeyHeroStats{grid-template-columns:repeat(2,1fr)}.journeyRailLabels{min-width:720px}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>2 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>2 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p></section>
 <section id='funds' class='section'><h3>Fondas</h3><table><thead><tr><th>Valdytojas</th><th>100+ atvejai</th><th>Įnašas</th></tr></thead><tbody id='fundRows'></tbody></table><p id='finalFund'></p></section>
 <section id='club' class='section'><h3>100+ klubas</h3><p>Už kiekvieną vieno komandos žaidėjo rezultatą ≥100 FPTS komandos valdytojas į fondą perveda 5 €.</p><div id='clubList'></div></section>
 <section id='progress' class='section'><h3>Progresas</h3><table><thead><tr><th>#</th><th>Komanda</th><th>2 turo FPTS</th><th>Bendri FPTS</th><th>Pozicijos pokytis</th></tr></thead><tbody id='progressRows'></tbody></table></section>
-<section id='journey' class='section'><div class='journeyIntro'><div><h3>Kelionė į Mordorą</h3><p>38 turai – viena Žiedo brolijos kelionė. Kiekvienas turas pastumia visą ekspediciją pirmyn, o dalyvių vieta kelyje priklauso nuo bendros lygos lentelės ir FPTS skirtumo. Kronikoje pozicijų pokyčiai virsta mažais kelionės nutikimais, o ne sausa statistika.</p></div><div class='journeyMeta'><small>SEZONO KELIAS</small><strong id='journeyRound'>1 / 38</strong><span id='journeyPct'>3%</span></div></div><div class='journeyMap' id='journeyMap'><div class='mordorShade'></div><div class='road'></div><div class='roadFill' id='roadFill'></div><div class='landmark' style='left:5%'><b>Žiedo brolijos susitikimas</b>1 turas</div><div class='landmark' style='left:28%'><b>Kalnų perėja</b>10 turas</div><div class='landmark' style='left:50%'><b>Balrogo urvas</b>19 turas · MID SEASON</div><div class='landmark' style='left:76%'><b>Mordoro prieigos</b>29 turas</div><div class='landmark' style='left:95%'><b>Mordoras</b>38 turas</div><div id='travelers'></div></div><h3>Kelionės kronika</h3><div class='chronicle' id='chronicle'></div></section>
+<section id='journey' class='section journeyV2'>
+  <div class='journeyIntro journeyV2Intro'>
+    <div>
+      <div class='journeyEyebrow'>ŽIEDO BROLİJA · RPG KAMPANIJA</div>
+      <h3>Kelionė į Mordorą</h3>
+      <p>38 turai – 38 priešai. Centre rodomas aktyvaus Fantasy turo priešas, kairėje – praėjęs, dešinėje – artėjantis. Pergalės žymimos kiekvienam lygos dalyviui atskirai.</p>
+    </div>
+    <div class='journeyMeta'>
+      <small>AKTYVUS TURAS</small>
+      <strong id='journeyRound'>3 / 38</strong>
+      <span id='journeyPct'>8% kelio</span>
+    </div>
+  </div>
+
+  <div class='journeyRoundRail'>
+    <div class='journeyRailLabels'><span>Žiedo brolijos susitikimas</span><span>Balrogo urvas · R19</span><span>Mordoras · R38</span></div>
+    <div id='journeyRoundStrip' class='journeyRoundStrip'></div>
+  </div>
+
+  <div id='journeyEnemyStage' class='journeyEnemyStage'>
+    <article id='journeyEnemyPrev' class='journeyEnemyCard previous'></article>
+    <article id='journeyEnemyCurrent' class='journeyEnemyCard current'></article>
+    <article id='journeyEnemyNext' class='journeyEnemyCard next'></article>
+  </div>
+
+  <div class='journeyDashboardGrid'>
+    <div class='journeyPanel journeyHeroesPanel'>
+      <div class='journeyPanelTitle'><span>⚔️ LYGOS DIDVYRIAI</span><small>LIVE RPG STATS</small></div>
+      <div id='journeyHeroStats' class='journeyHeroStats'><div class='journeyLoading'>Kraunami HP / DPS / DEF…</div></div>
+    </div>
+    <div class='journeyPanel journeyShopPanel'>
+      <div class='journeyPanelTitle'><span>🏪 SHOP RESET</span><small id='journeyShopRound'>PO PILNO TURO</small></div>
+      <div id='journeyShopTimer' class='journeyShopTimer'>--:--:--</div>
+      <div id='journeyShopMeta' class='journeyShopMeta'>Kraunamas serverio laikmatis…</div>
+    </div>
+    <div class='journeyPanel journeyUnlockPanel'>
+      <div class='journeyPanelTitle'><span>🔓 ARTĖJANTYS ATRAKINIMAI</span><small>PO 3 TURO</small></div>
+      <div class='journeyUnlock'><b>🤝 Trade itemais</b><span>Po 3 turo planuojama atrakinti daiktų mainus tarp žaidėjų.</span></div>
+      <div class='journeyUnlock'><b>🌳 Skill Tree</b><span>Po 3 turo planuojama atrakinti skillų pirkimą už FPTS. Detales patvirtinsime atskirai.</span></div>
+    </div>
+  </div>
+
+  <div id='roadFill' hidden></div><div id='travelers' hidden></div>
+  <h3 class='journeyChronicleTitle'>Kelionės kronika</h3>
+  <div class='chronicle' id='chronicle'></div>
+</section>
 <section id='quiz' class='section'><div class='quizTop'><div><h3>Dienos kvizas</h3><p>Kasdien 10 klausimų: sportas, fantasy, sci-fi, siaubas, klasikinės knygos ir filmai. Rezultatai ir serija saugomi šiame įrenginyje.</p></div><div class='quizStats'><div class='quizStat'><small>Geriausias</small><b id='quizBest'>0/10</b></div><div class='quizStat'><small>Serija</small><b id='quizStreak'>0 d.</b></div><div class='quizStat'><small>Iš viso</small><b id='quizPlayed'>0</b></div></div></div><div class='quizProgress'><span id='quizBar'></span></div><div id='quizArea'></div><div class='quizHistory'><h3 style='font-size:20px'>Istorija</h3><div id='quizHistory'></div></div></section>
 
 
@@ -1480,4 +1550,111 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 })();
 </script>
 
-</body></html>
+<script id="journeyV2Script">
+(() => {
+  const activeRound=Math.min(totalRounds,currentRound+1);
+  const enemyData={
+    1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
+    2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
+    3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:true,drop:"EPIC DROP galimybė · mažas šansas. Tikslų itemą ir procentą patvirtinsime vėliau."}
+  };
+  const avatarByTeam={};
+  players.forEach(p=>avatarByTeam[p.team]=p.avatar);
+  const initials=(name)=>name==="Ryčis"?"R":name.split(/\s+/).map(x=>x[0]).join("").replace(".","").slice(0,2).toUpperCase();
+
+  function renderStrip(){
+    const el=document.getElementById("journeyRoundStrip"); if(!el)return;
+    let html="";
+    for(let r=1;r<=totalRounds;r++){
+      const cls=["journeyRoundDot"];
+      if(r<activeRound)cls.push("done");
+      if(r===activeRound)cls.push("active");
+      if([1,10,19,29,38].includes(r))cls.push("milestone");
+      html+="<span class='"+cls.join(" ")+"' title='"+r+" turas'><b>"+([1,5,10,15,19,20,25,29,30,35,38].includes(r)?r:"")+"</b></span>";
+    }
+    el.innerHTML=html;
+    const jr=document.getElementById("journeyRound"), jp=document.getElementById("journeyPct");
+    if(jr)jr.textContent=activeRound+" / "+totalRounds;
+    if(jp)jp.textContent=Math.round(activeRound/totalRounds*100)+"% kelio";
+  }
+
+  function defeatRow(enemyNo,campaign){
+    return players.map(p=>{
+      const row=campaign.find(x=>x.team_name===p.team);
+      const won=Number(row?.defeated_enemies||0)>=enemyNo;
+      return "<span class='journeyDefeatChip "+(won?"win":"")+"' title='"+p.owner+" · "+(won?"įveikė":"dar neįveikė")+"'><span>"+initials(p.owner)+"</span></span>";
+    }).join("");
+  }
+
+  function enemyCard(enemyNo,position,campaign){
+    const d=enemyData[enemyNo];
+    const locked=!d;
+    const tag=position==="current"?"DABARTINIS PRIEŠAS":position==="previous"?"PRAĖJĘS TURAS":"ARTĖJANTIS PRIEŠAS";
+    const art=locked
+      ?"<div class='journeyEnemyLocked'>?</div>"
+      :"<div class='journeyEnemyArt' style=\"background-image:url('"+(d.image||"")+"')\"></div>";
+    const name=locked?"Priešas #"+enemyNo+" · dar neatskleistas":d.name;
+    const team=locked?"UŽRAKINTA":d.team;
+    const stats=locked?"":("<div class='journeyEnemyStats'><span>HP<b>"+d.hp+"</b></span><span>AC<b>"+d.ac+"</b></span><span>ATK<b>"+d.atk+"</b></span><span>DMG<b>"+d.dmg+"</b></span><span>INIT<b>"+d.init+"</b></span></div>");
+    const special=locked?"":("<div class='journeyEnemySpecial'><b>Speciali savybė</b><br>"+d.special+"</div>");
+    const drop=locked?"":("<div class='journeyEnemyDrop "+(d.dropEpic?"epic":"")+"'><b>"+(d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP")+"</b>"+d.drop+"</div>");
+    const status=locked?"<span>Bus atskleista artėjant turui.</span>":"<span>Kas jau įveikė:</span><span>"+campaign.filter(x=>Number(x.defeated_enemies||0)>=enemyNo).length+" / 7</span>";
+    return "<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>"+art+"<div class='journeyEnemyBody'><h4>"+name+"</h4><small>"+team+"</small>"+stats+special+drop+"<div class='journeyDefeatWrap'><div class='journeyDefeatLabel'>"+status+"</div><div class='journeyDefeatRow'>"+(locked?"":defeatRow(enemyNo,campaign))+"</div></div></div>";
+  }
+
+  function renderEnemies(campaign){
+    const prev=Math.max(1,activeRound-1), cur=activeRound, next=Math.min(totalRounds,activeRound+1);
+    const p=document.getElementById("journeyEnemyPrev"), c=document.getElementById("journeyEnemyCurrent"), n=document.getElementById("journeyEnemyNext");
+    if(p)p.innerHTML=enemyCard(prev,"previous",campaign);
+    if(c)c.innerHTML=enemyCard(cur,"current",campaign);
+    if(n)n.innerHTML=enemyCard(next,"next",campaign);
+  }
+
+  function renderHeroes(ratings){
+    const el=document.getElementById("journeyHeroStats"); if(!el)return;
+    const byTeam={}; (ratings||[]).forEach(r=>byTeam[r.team_name]=r);
+    el.innerHTML=players.map(p=>{
+      const r=byTeam[p.team]||{};
+      return "<div class='journeyHeroCard'><span class='avatar av-"+p.avatar+"'></span><b>"+p.owner+"</b><div class='journeyHeroNumbers'><span>❤️ HP <strong>"+(r.max_hp??"—")+"</strong></span><span>⚔ DPS <strong>"+(r.dps_rating!=null?Number(r.dps_rating).toFixed(2):"—")+"</strong></span><span>🛡 DEF <strong>"+(r.defense_rating??"—")+"</strong></span><span>AC <strong>"+(r.ac??"—")+"</strong></span></div></div>";
+    }).join("");
+  }
+
+  let shopSeconds=0, shopInterval=null;
+  function formatTime(sec){
+    sec=Math.max(0,Number(sec)||0);
+    const d=Math.floor(sec/86400),h=Math.floor((sec%86400)/3600),m=Math.floor((sec%3600)/60),s=Math.floor(sec%60);
+    return (d?d+" d. ":"")+String(h).padStart(2,"0")+":"+String(m).padStart(2,"0")+":"+String(s).padStart(2,"0");
+  }
+  function tickShop(){
+    const timer=document.getElementById("journeyShopTimer");
+    if(timer)timer.textContent=formatTime(shopSeconds);
+    if(shopSeconds>0)shopSeconds--; else if(shopInterval){clearInterval(shopInterval);shopInterval=null;}
+  }
+  function renderShop(shop){
+    const timer=document.getElementById("journeyShopTimer"),meta=document.getElementById("journeyShopMeta"),round=document.getElementById("journeyShopRound");
+    if(!shop?.scheduled){if(timer)timer.textContent="—";if(meta)meta.textContent="Resetas dar nesuplanuotas.";return;}
+    if(round)round.textContent="PO "+shop.round_no+" TURO";
+    shopSeconds=Number(shop.seconds_remaining||0);
+    if(meta)meta.textContent=shop.is_open?"8 val. reset langas baigtas.":"Senas shopas galioja iki laikmačio pabaigos; tada aktyvuojama nauja rotacija.";
+    tickShop();
+    if(shopInterval)clearInterval(shopInterval);
+    shopInterval=setInterval(tickShop,1000);
+  }
+
+  async function loadJourney(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const [campaignRes,ratingsRes,shopRes]=await Promise.all([
+      sb.rpc("rpg_public_campaign_status"),
+      sb.rpc("rpg_all_combat_ratings"),
+      sb.rpc("rpg_shop_reset_status")
+    ]);
+    renderEnemies(campaignRes.data||[]);
+    renderHeroes(ratingsRes.data||[]);
+    renderShop(shopRes.data||{});
+  }
+
+  renderStrip();
+  renderEnemies([]);
+  const wait=setInterval(()=>{if(window.rpgSupabase){clearInterval(wait);loadJourney();}},100);
+})();
+</script></body></html>
