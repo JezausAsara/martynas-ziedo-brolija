@@ -1036,7 +1036,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       cz_scout_helm:"⛑️",
       cz_blood_ring:"💍",
       cz_star_charm:"🔮",
-      olymp_titan_trident:"🔱"
+      olymp_titan_trident:"🔱",
+      paris_phantom_signet:"💠",
+      paris_shadow_mask:"🎭",
+      paris_lucky_token:"🪙"
     };
     return special[id]||({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
   };
@@ -1807,7 +1810,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const enemyData={
     1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",image:"assets/rpg/enemy1-legionierius.webp?v=hq768-3",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
     2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp?v=hq512-1",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
-    3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:true,drop:"EPIC DROP galimybė · mažas šansas. Tikslų itemą ir procentą patvirtinsime vėliau."}
+    3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:false,drop:"1 garantuotas dropas: Rare 15% · Fantomo Antspaudas (+1 Attack, +1 Damage, universalus) | Uncommon 35% · Paryžiaus Šešėlių Kaukė (+1 Initiative) | Common 50% · Seinos Laimės Žetonas (+4 Max HP)"}
   };
   const avatarByTeam={};
   players.forEach(p=>avatarByTeam[p.team]=p.avatar);
@@ -1886,7 +1889,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         init:(init>=0?"+":"")+init,
         special:(raw.special_name?raw.special_name+": ":"")+(raw.special_description||""),
         drop:raw.drop_description||"—",
-        dropEpic:/EPIC/i.test(String(raw.drop_description||""))||enemyNo===3
+        dropEpic:/EPIC/i.test(String(raw.drop_description||""))
       };
     }
     return enemyData[enemyNo]||null;
@@ -1916,11 +1919,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       (d.image?"<img class='journeyCardImage' src='"+d.image+"' alt='"+d.name+"' onerror=\"this.parentElement.classList.add('broken');this.remove()\">":"")+
       fallback+"</div>";
 
-    const epic=d.dropEpic?"<div class='journeyCompactDrop epic'><b>✨ EPIC DROP CHANCE</b><span>"+d.drop+"</span></div>":"";
+    const dropPanel=enemyNo===3&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
     return "<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>"+
       art+
       "<div class='journeyCardFooter'>"+
-        epic+
+        dropPanel+
         "<div class='journeyDefeatWrap'><div class='journeyDefeatLabel'><span>Kas jau įveikė</span><span>"+defeated+" / 7</span></div>"+
         "<div class='journeyDefeatRow'>"+defeatRow(enemyNo,campaign)+"</div></div>"+
       "</div>";
