@@ -324,7 +324,37 @@
   .journeyEnemyStage{grid-template-columns:1fr}.journeyEnemyCard.next{grid-column:auto;max-width:none}.journeyEnemyCard.current{order:1}.journeyEnemyCard.previous{order:2}.journeyEnemyCard.next{order:3}
   .journeyV2Intro{display:block}.journeyMeta{text-align:left;margin-top:8px;min-width:0}
 }
-</style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
+</style>
+<style id="skillTreeStyles">
+.skillTreeTop{display:grid;grid-template-columns:repeat(3,minmax(130px,1fr)) auto;gap:10px;align-items:stretch;margin-bottom:12px}
+.skillPointCard{padding:12px 14px;border:1px solid #3b474d;border-radius:12px;background:linear-gradient(180deg,#10191d,#091114)}
+.skillPointCard small{display:block;color:#7f8d92;font:700 9px Arial,sans-serif;letter-spacing:.08em}
+.skillPointCard strong{display:block;margin-top:4px;color:#e8c873;font:700 28px Georgia,serif}
+.skillPointCard span{display:block;margin-top:3px;color:#8d989d;font:10px Arial,sans-serif}.skillPointCard.available{border-color:#6a522b}
+.skillResetBtn{min-width:190px;border:1px solid #725529;border-radius:12px;background:#1a130c;color:#e8c873;padding:12px 15px;font:800 11px Arial,sans-serif;cursor:pointer}
+.skillResetBtn:hover:not(:disabled){background:#6d5017;color:#ffe29a}.skillResetBtn:disabled{opacity:.38;cursor:not-allowed}
+.skillTreeNotice{margin-bottom:12px;padding:11px 13px;border:1px solid #554427;border-radius:10px;background:#0b1215;color:#aeb8bc;font:11px/1.5 Arial,sans-serif}
+.skillTreeNotice.unlocked{border-color:#335d43;color:#a8cdb2}.skillTreeNotice.locked{border-color:#6a4b27;color:#cdb178}
+.skillTreeGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.skillAttr{min-width:0;border:1px solid #413a2d;border-radius:14px;background:linear-gradient(180deg,#0e1518,#070c0e);padding:12px}
+.skillAttrHead{display:flex;align-items:center;justify-content:space-between;gap:10px;padding-bottom:10px;border-bottom:1px solid #302c24}
+.skillAttrHead h4{margin:0;color:#efd08a;font:700 20px Georgia,serif}.skillAttrHead span{color:#78868b;font:9px Arial,sans-serif}
+.skillBranches{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:10px}
+.skillBranch{min-width:0}.skillBranchTitle{text-align:center;color:#c7a862;font:700 10px Arial,sans-serif;letter-spacing:.07em;margin:1px 0 8px}
+.skillNode{position:relative;margin-bottom:17px;padding:10px;border:1px solid #343f44;border-radius:10px;background:#0b1215;min-height:100px}
+.skillNode:not(:last-child):after{content:'↓';position:absolute;left:50%;bottom:-17px;transform:translateX(-50%);color:#655536;font:700 13px Arial,sans-serif}
+.skillNode.owned{border-color:#3e7b54;background:linear-gradient(180deg,#10251a,#0a1510);box-shadow:inset 0 0 18px #3c8d5120}
+.skillNode.available{border-color:#8a682d;background:linear-gradient(180deg,#18150d,#0d1214)}
+.skillNode.blocked{opacity:.58}.skillNode .tier{display:inline-block;margin-bottom:5px;padding:2px 6px;border:1px solid #4c4331;border-radius:999px;color:#9ca6aa;font:700 8px Arial,sans-serif}
+.skillNode strong{display:block;color:#e4cb93;font:700 12px Georgia,serif;line-height:1.25}.skillNode p{margin:5px 0 7px;color:#9ca7ab;font:9px/1.4 Arial,sans-serif}
+.skillNode .prereq{min-height:13px;color:#756f61;font:8px Arial,sans-serif}.skillNode.owned .prereq{color:#7da98a}
+.skillChoose{width:100%;margin-top:7px;padding:7px 6px;border:1px solid #67502b;border-radius:8px;background:#16130d;color:#d7bd7b;font:800 9px Arial,sans-serif;cursor:pointer}
+.skillChoose:hover:not(:disabled){background:#6d5017;color:#ffe29a}.skillChoose:disabled{opacity:.45;cursor:not-allowed}.skillNode.owned .skillChoose{border-color:#386c4a;background:#11231a;color:#9ed0aa}
+.skillTreeLockedOverlay{grid-column:1/-1;padding:28px;text-align:center;border:1px dashed #644b27;border-radius:12px;color:#bda36d;background:#0d1113}
+@media(max-width:1050px){.skillTreeGrid{grid-template-columns:1fr}.skillTreeTop{grid-template-columns:repeat(3,1fr)}.skillResetBtn{grid-column:1/-1}}
+@media(max-width:650px){.skillTreeTop{grid-template-columns:1fr 1fr}.skillPointCard.available,.skillResetBtn{grid-column:1/-1}.skillBranches{grid-template-columns:1fr 1fr;gap:7px}.skillAttr{padding:9px}.skillNode{padding:8px}}
+</style>
+</head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>2 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>2 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p></section>
 <section id='funds' class='section'><h3>Fondas</h3><table><thead><tr><th>Valdytojas</th><th>100+ atvejai</th><th>Įnašas</th></tr></thead><tbody id='fundRows'></tbody></table><p id='finalFund'></p></section>
@@ -412,6 +442,7 @@
     <div class='rpgTabs rpg2-tabs'>
       <button class='active' data-rpg-panel='character'>🧙 Personažas</button>
       <button data-rpg-panel='inventory'>🎒 Inventorius</button>
+      <button data-rpg-panel='skills'>🌳 Skill Tree</button>
       <button data-rpg-panel='rpgRules'>📜 Taisyklės</button>
     </div>
 
@@ -690,6 +721,24 @@
       <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div></div>
     </div>
 
+    <div id='rpgPanel-skills' class='rpgPanel'>
+      <div class='rpg2-subHead'>
+        <div><div class='rpg2-kicker'>BUILD PROGRESSION</div><h3>🌳 Skill Tree</h3></div>
+        <button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button>
+      </div>
+
+      <div class='skillTreeTop'>
+        <div class='skillPointCard'><small>GAUTI SKILL POINTS</small><strong id='skillEarned'>0</strong><span>maks. 16 per sezoną</span></div>
+        <div class='skillPointCard'><small>PANAUDOTA</small><strong id='skillSpent'>0</strong><span>pasirinkti skillai</span></div>
+        <div class='skillPointCard available'><small>LAISVI SKILL POINTS</small><strong id='skillAvailable'>0</strong><span id='skillNextPoint'>Kitas SP po Enemy #3</span></div>
+        <button id='rpgResetSkills' class='skillResetBtn' type='button'>↻ RESET SKILLS · 30 FPTS</button>
+      </div>
+
+      <div id='rpgSkillLockNotice' class='skillTreeNotice'></div>
+      <div id='rpgSkillTree' class='skillTreeGrid'><div class='journeyLoading'>Kraunamas Skill Tree…</div></div>
+      <div id='rpgSkillMsg' class='rpgSheetMsg'></div>
+    </div>
+
     <div id='rpgPanel-rpgRules' class='rpgPanel'>
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>COMBAT & PROGRESSION</div><h3>Žaidimo taisyklės</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
       <div class='rpgRulesGrid rpg2-rulesGrid'>
@@ -698,6 +747,7 @@
         <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Kiekviename pilnai užfiksuotame Fantasy ture turi 3 bandymus įveikti dabartinį priešą. Išnaudojus visus 3, nauji bandymai atsiranda tik kitame pilname ture. Pralaimėjus FPTS ir daiktai neprarandami.</div>
         <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Lygos TOP 3 gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą – prie jo pridedamas papildomas d6. Panaudojus bonusas tame ture dingsta.</div>
         <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės ir visiems žaidėjams yra vienodo stiprumo. Fantasy rezultatai suteikia progresą, tačiau priešai prie žaidėjo nesiscale'ina.</div>
+        <div class='rpgRuleCard'><b>🌳 Skill Tree</b><br>Skill Tree atsirakina įveikus Enemy #3. +1 Skill Point gaunamas kas 3 priešus ir papildomai po bosų #10, #19, #29 ir #38; jei bosas sutampa su x3 – gaunami +2 SP. Skillai nemokami, bet reikia eiti pasirinktos šakos keliu. RESET SKILLS kainuoja 30 Available FPTS ir galimas tik ne kovos metu.</div>
         <div class='rpgRuleCard'><b>🗡️ Ginklai ir jų grade</b><br>STR ginklams reikia STR, DEX ginklams – DEX; finesse ginklai gali naudoti tinkamesnį iš jų. Normalus ginklas – nuo STAT 10, +1 – nuo 14, +2 – nuo 16, +3 – nuo 18. Aukštesni grade'ai taip pat atsirakina tik vėlesniuose kampanijos etapuose.</div>
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
@@ -1083,17 +1133,75 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }).join("");
   }
 
+
+  let skillStateCache=null;
+  const skillAttrMeta={
+    STR:{icon:"💪",label:"STR",branches:["Berserker","Fighter"]},
+    DEX:{icon:"🏹",label:"DEX",branches:["Duelist","Marksman"]},
+    CON:{icon:"❤️",label:"CON",branches:["Guardian","Last Stand"]}
+  };
+  function nextSkillMilestone(defeated){
+    for(let r=Number(defeated||0)+1;r<=38;r++){
+      const pts=((r%3===0&&r<=36)?1:0)+([10,19,29,38].includes(r)?1:0);
+      if(pts)return {round:r,points:pts};
+    }
+    return null;
+  }
+  function renderSkillTree(state){
+    skillStateCache=state||null;
+    const tree=document.getElementById("rpgSkillTree");if(!tree)return;
+    if(!state){tree.innerHTML="<div class='skillTreeLockedOverlay'>Skill Tree duomenys nepasiekiami.</div>";return;}
+    const skills=state.skills||[];
+    const owned=new Set(skills.filter(s=>s.owned).map(s=>s.id));
+    const earned=document.getElementById("skillEarned"),spent=document.getElementById("skillSpent"),avail=document.getElementById("skillAvailable");
+    if(earned)earned.textContent=state.earned_points??0;if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=state.available_points??0;
+    const next=nextSkillMilestone(state.defeated_enemies);
+    const nextEl=document.getElementById("skillNextPoint");if(nextEl)nextEl.textContent=next?("Kitas: Enemy #"+next.round+(next.points>1?" · +2 SP":" · +1 SP")):"Visi SP jau pasiekiami";
+    const notice=document.getElementById("rpgSkillLockNotice");
+    if(notice){
+      notice.className="skillTreeNotice "+(state.unlocked?"unlocked":"locked");
+      notice.textContent=!state.unlocked
+        ?"🔒 Skill Tree atsirakins įveikus Enemy #3. Medį gali peržiūrėti jau dabar."
+        :state.battle_locked
+          ?"🔒 BUILD LOCKED DURING COMBAT · skillų keisti ar resetinti negalima iki kovos pabaigos."
+          :"✓ Buildas laisvas. Skillą galima rinktis turint laisvą Skill Point ir atrakinus ankstesnį tos šakos skillą.";
+    }
+    const reset=document.getElementById("rpgResetSkills");
+    if(reset){
+      reset.disabled=!state.unlocked||state.battle_locked||Number(state.spent_points||0)===0||Number(state.available_fpts||0)<Number(state.reset_cost_fpts||30);
+      reset.textContent="↻ RESET SKILLS · "+Number(state.reset_cost_fpts||30)+" FPTS";
+      reset.title=state.battle_locked?"Kovos metu buildas užrakintas":Number(state.available_fpts||0)<30?"Nepakanka Available FPTS":"Grąžinti visus Skill Points";
+    }
+    const attrHtml=Object.entries(skillAttrMeta).map(([attr,meta])=>{
+      const attrSkills=skills.filter(s=>s.attribute===attr);
+      const branches=meta.branches.map(branch=>{
+        const bs=attrSkills.filter(s=>s.branch===branch).sort((a,b)=>Number(a.tier)-Number(b.tier));
+        return "<div class='skillBranch'><div class='skillBranchTitle'>"+escInv(branch.toUpperCase())+"</div>"+bs.map(s=>{
+          const has=!!s.owned;
+          const prereqOk=!s.prerequisite_id||owned.has(s.prerequisite_id);
+          const can=state.unlocked&&!state.battle_locked&&!has&&Number(state.available_points||0)>0&&prereqOk;
+          const cls=has?"owned":can?"available":"blocked";
+          const prereqName=s.prerequisite_id?(skills.find(x=>x.id===s.prerequisite_id)?.name||s.prerequisite_id):"Šakos pradžia";
+          return "<div class='skillNode "+cls+"'><span class='tier'>TIER "+s.tier+"</span><strong>"+escInv(s.name)+"</strong><p>"+escInv(s.description)+"</p><div class='prereq'>"+(s.prerequisite_id?"Reikia: "+escInv(prereqName):"Pradinis skillas")+"</div><button class='skillChoose' type='button' data-skill-id='"+escInv(s.id)+"' "+(can?"":"disabled")+">"+(has?"✓ ATRAKINTA":can?"ATRAKINTI · 1 SP":!state.unlocked?"UŽRAKINTA":state.battle_locked?"BUILD LOCKED":!prereqOk?"REIKIA ANKSTESNIO":Number(state.available_points||0)<=0?"NĖRA SP":"UŽRAKINTA")+"</button></div>";
+        }).join("")+"</div>";
+      }).join("");
+      return "<section class='skillAttr'><div class='skillAttrHead'><h4>"+meta.icon+" "+meta.label+"</h4><span>"+attrSkills.filter(s=>s.owned).length+" / "+attrSkills.length+"</span></div><div class='skillBranches'>"+branches+"</div></section>";
+    }).join("");
+    tree.innerHTML=attrHtml;
+  }
+
   async function renderSheet(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
     if(!session){gate.style.display="";sheet.classList.remove("show");return;}
 
-    const [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog}]=await Promise.all([
+    const [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog},{data:skillState}]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
       sb.rpc("rpg_combat_stats"),
       sb.rpc("rpg_all_combat_ratings"),
       sb.rpc("rpg_round_status"),
-      sb.rpc("rpg_enemy_catalog")
+      sb.rpc("rpg_enemy_catalog"),
+      sb.rpc("rpg_skill_state")
     ]);
     if(error || !data){gate.style.display="";sheet.classList.remove("show");return;}
 
@@ -1143,6 +1251,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       ratingsEl.innerHTML=(ratings||[]).map(r=>"<div class='rpgRatingRow' title='HP "+r.max_hp+" · AC "+r.ac+"'><b>"+escInv(r.owner_name)+"</b><span>"+Number(r.dps_rating).toFixed(2)+"</span><span>"+Number(r.defense_rating).toFixed(0)+"</span></div>").join("")||"<span>—</span>";
     }
 
+    renderSkillTree(skillState);
     await loadInventory();
   }
   window.renderRpgSheet=renderSheet;
@@ -1183,6 +1292,40 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(window.refreshRpgCombat)await window.refreshRpgCombat();
   });
 
+
+  document.getElementById("rpgSkillTree")?.addEventListener("click",async e=>{
+    const btn=e.target.closest(".skillChoose");if(!btn||btn.disabled)return;
+    const sb=window.rpgSupabase;if(!sb)return;
+    const msg=document.getElementById("rpgSkillMsg");btn.disabled=true;
+    if(msg)msg.textContent="Atrakinamas skillas…";
+    const {error}=await sb.rpc("rpg_select_skill",{p_skill_id:btn.dataset.skillId});
+    if(error){
+      const t=String(error.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("previous skill")?"Pirmiausia atrakink ankstesnį šios šakos skillą.":t.includes("no skill points")?"Nebėra laisvų Skill Points.":t.includes("locked during")?"Kovos metu buildas užrakintas.":t.includes("enemy #3")?"Skill Tree dar užrakintas.":"Nepavyko atrakinti skillo.";
+    }else{
+      if(msg)msg.textContent="✓ Skillas atrakintas.";
+    }
+    await renderSheet();
+    if(window.refreshRpgCombat)await window.refreshRpgCombat();
+  });
+
+  document.getElementById("rpgResetSkills")?.addEventListener("click",async()=>{
+    const state=skillStateCache;if(!state)return;
+    if(!confirm("Resetinti visus pasirinktus skillus už "+Number(state.reset_cost_fpts||30)+" Available FPTS? Visi Skill Points bus grąžinti."))return;
+    const sb=window.rpgSupabase;if(!sb)return;
+    const btn=document.getElementById("rpgResetSkills"),msg=document.getElementById("rpgSkillMsg");if(btn)btn.disabled=true;if(msg)msg.textContent="Resetinamas buildas…";
+    const {error}=await sb.rpc("rpg_reset_skills");
+    if(error){
+      const t=String(error.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("30 available")?"Nepakanka Available FPTS.":t.includes("locked during")?"Kovos metu buildas užrakintas.":"Nepavyko resetinti skillų.";
+    }else{
+      if(msg)msg.textContent="✓ Buildas resetintas. Skill Points grąžinti; nuskaičiuota 30 FPTS.";
+    }
+    await renderSheet();
+    if(window.loadRpgMiniProfile)await window.loadRpgMiniProfile();
+    if(window.refreshRpgCombat)await window.refreshRpgCombat();
+  });
+
   const wait=setInterval(()=>{
     if(window.rpgSupabase){
       clearInterval(wait);
@@ -1203,6 +1346,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
   document.querySelectorAll("[data-open-rpg-rules]").forEach(b=>b.addEventListener("click",()=>activatePanel("rpgRules")));
   document.querySelectorAll("[data-open-rpg-inventory]").forEach(b=>b.addEventListener("click",()=>activatePanel("inventory")));
+  document.querySelectorAll("[data-open-rpg-skills]").forEach(b=>b.addEventListener("click",()=>activatePanel("skills")));
   document.querySelectorAll("[data-open-rpg-character]").forEach(b=>b.addEventListener("click",()=>activatePanel("character")));
 
   async function extraRefresh(){
