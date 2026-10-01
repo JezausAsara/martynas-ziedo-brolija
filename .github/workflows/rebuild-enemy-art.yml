@@ -15,21 +15,25 @@ jobs:
         run: |
           set -euo pipefail
           shopt -s nullglob
+          e1=(assets/rpg/hq-source/e1-*.txt)
           e2=(assets/rpg/hq-source/e2-*.txt)
           e3=(assets/rpg/hq-source/e3-*.txt)
-          if [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ]; then
-            echo "Waiting for all HQ chunks: e2=${#e2[@]}/17 e3=${#e3[@]}/15"
+          if [ "${#e1[@]}" -ne 8 ] || [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ]; then
+            echo "Waiting for all HQ chunks: e1=${#e1[@]}/8 e2=${#e2[@]}/17 e3=${#e3[@]}/15"
             exit 0
           fi
+          cat "${e1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy1-legionierius.webp
           cat "${e2[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy2-olympiakos.webp
           cat "${e3[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
+          echo "Enemy 1 bytes: $(stat -c%s assets/rpg/enemy1-legionierius.webp)"
           echo "Enemy 2 bytes: $(stat -c%s assets/rpg/enemy2-olympiakos.webp)"
           echo "Enemy 3 bytes: $(stat -c%s assets/rpg/enemy3-paris.webp)"
+          file assets/rpg/enemy1-legionierius.webp
           file assets/rpg/enemy2-olympiakos.webp
           file assets/rpg/enemy3-paris.webp
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp
+          git add assets/rpg/enemy1-legionierius.webp assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp
           if git diff --cached --quiet; then
             echo "No binary changes."
           else
