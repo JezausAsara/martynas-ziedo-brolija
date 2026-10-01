@@ -49,7 +49,7 @@
 .rpg2-enemyLine{display:grid;grid-template-columns:58px 1fr;gap:11px;align-items:center;margin-top:10px}.rpg2-enemySigil{width:58px;height:58px;border-radius:10px;border:1px solid #8f2e24;background:radial-gradient(circle,#ec3d2c,#7e100e 60%,#250706);display:grid;place-items:center;color:white;font-size:31px;text-shadow:0 0 8px #fff7}
 .rpg2-enemyLine small{display:block;color:#9da7ab}.rpg2-enemyLine b{display:block;color:#f0d6a1;line-height:1.2;margin:2px 0}.rpg2-enemyLine span{font:11px Arial,sans-serif;color:#899499}
 .rpg2-enemyNumbers{display:grid;grid-template-columns:repeat(2,1fr);gap:5px;margin-top:11px}.rpg2-enemyNumbers span{padding:6px;border:1px solid #352c24;border-radius:7px;background:#0a0e10;font:11px Arial,sans-serif;color:#cdd3d5;text-align:center}
-.rpg2-special{margin-top:9px;padding-top:9px;border-top:1px solid #33291f;color:#aeb6b9;font:11px/1.45 Arial,sans-serif}.rpg2-special b{color:#dcb865}
+.rpg2-special{margin-top:9px;padding-top:9px;border-top:1px solid #33291f;color:#aeb6b9;font:11px/1.45 Arial,sans-serif}.rpg2-special b{color:#dcb865}.rpgEnemyPreview{margin-top:12px;padding:11px;border:1px solid #6e3429;border-radius:11px;background:linear-gradient(180deg,#180d0b,#090e11)}.rpgEnemyPreview img{display:block;width:100%;border-radius:9px;border:1px solid #6b4a2a;margin-bottom:10px}.rpgEnemyPreviewHead{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:7px}.rpgEnemyPreviewHead b{color:#f0c66f;font-size:12px}.rpgEnemyPreviewHead span{font:9px Arial,sans-serif;color:#d77d6d;border:1px solid #6c3027;border-radius:999px;padding:4px 7px}.rpgEnemyPreview h5{margin:3px 0 7px;color:#f0d6a1;font-size:16px}.rpgEnemyDrop{margin-top:9px;padding:9px;border:1px solid #5b4728;border-radius:9px;background:#0a1114}.rpgEnemyDrop b{display:block;color:#e6bf61;font-size:12px}.rpgEnemyDrop span{display:block;margin-top:4px;color:#aeb7ba;font:10px/1.45 Arial,sans-serif}
 .rpg2-center{padding:14px}.rpg2-statGrid{grid-template-columns:repeat(4,1fr);gap:9px;margin-top:10px}.rpg2-stat{padding:13px;text-align:center}.rpg2-statIcon{font-size:25px}.rpg2-stat h4{margin-top:4px}.rpg2-stat .rpgStatValue{justify-content:center}.rpg2-stat .rpgStatValue strong{font-size:31px}
 .rpg2-hpCard{padding:14px;border:1px solid #4a3a25;border-radius:14px;background:radial-gradient(circle at 50% 30%,#57151155,transparent 55%),#0a1114;text-align:center}.rpg2-hpCard small{color:#d6b96e}.rpg2-hpIcon{font-size:34px;color:#e14c3c;margin-top:8px;text-shadow:0 0 15px #d6373188}.rpg2-hpCard strong{display:block;font-size:45px;color:#fff;margin-top:3px}.rpg2-hpCard span{font:10px Arial,sans-serif;color:#899397}
 .rpg2-currencyHeader{display:flex;justify-content:space-between;align-items:end;gap:12px;margin-top:14px;padding-top:14px;border-top:1px solid #4b3820}.rpg2-currencyHeader small{display:block;margin-top:4px;color:#77858a;font:700 9px Arial,sans-serif;letter-spacing:.08em}.rpg2-priceTag{padding:8px 11px;border:1px solid #5d4727;border-radius:9px;background:#0b1114;color:#b9c0c2;font:12px Arial,sans-serif}.rpg2-priceTag b{color:#f0c66f}
@@ -318,6 +318,16 @@
     <div><b>💍 Kraujo rubino žiedas</b><em>15% · +6 Max HP</em></div>
     <div><b>🔮 Žvaigždės talismanas</b><em>15% · +1 Damage</em></div>
   </div>
+</div>
+<div class='rpgEnemyPreview'>
+  <div class='rpgEnemyPreviewHead'><b>🌊 KAMPANIJOS PRIEŠAS #2</b><span>2 TURAS</span></div>
+  <img src='assets/rpg/enemy2-olympiakos.webp' alt='Pirėjo Jūrų Titanas – Olympiacos tematikos antrasis RPG priešas' loading='lazy'>
+  <h5>Pirėjo Jūrų Titanas</h5>
+  <div class='rpg2-enemyNumbers'>
+    <span>❤️ 64 HP</span><span>🛡 AC 12</span><span>⚔ +2</span><span>🎲 1d8+2</span>
+  </div>
+  <div class='rpg2-special'><b>Bangų rūstybė:</b> pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.</div>
+  <div class='rpgEnemyDrop'><b>🎁 ENEMY #2 DROP · Titano Trišakis</b><span>Rare · Ginklas · +1 Attack · reikalauja STR 12 · žalos kauliukas d10.</span></div>
 </div>
 <div class='rpgRoundPerks'><span id='rpgAttemptStatus'>⚔️ Bandymai: — / 3</span><span id='rpgBardicStatus'>🎵 Bardic Inspiration: tik TOP 3</span></div>
 <div class='rpgBattleLaunch'><button id='rpgStartBattleBtn' type='button'>⚔️ PRADĖTI KOVĄ</button><small id='rpgBattleRequirement'>Prieš pirmą kovą nupirk bent +1 STAT.</small></div>
