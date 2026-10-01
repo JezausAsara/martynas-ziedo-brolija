@@ -1738,8 +1738,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     renderShop(shopRes.data||{});
   }
 
+  window.refreshJourneyDashboard=loadJourney;
   renderStrip();
   renderEnemies([]);
   const wait=setInterval(()=>{if(window.rpgSupabase){clearInterval(wait);loadJourney();}},100);
+  setInterval(()=>{const j=document.getElementById("journey");if(j&&j.classList.contains("active"))loadJourney();},15000);
 })();
 </script></body></html>
