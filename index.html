@@ -818,31 +818,19 @@ const seasonPct=currentRound/totalRounds*100;document.querySelector('#journeyRou
 const minFpts=Math.min(...players.map(p=>p.fpts)),maxFpts=Math.max(...players.map(p=>p.fpts));const stage=5+((currentRound-1)/(totalRounds-1))*90;document.querySelector('#travelers').innerHTML=players.map((p,i)=>{const norm=maxFpts===minFpts?0.5:(p.fpts-minFpts)/(maxFpts-minFpts);const spread=(norm-.5)*8;const left=Math.max(2,Math.min(98,stage+spread));const top=188+(i%3)*40;return `<div class='traveler' style='left:${left}%;top:${top}px' title='${i+1} vieta · ${p.fpts.toFixed(2)} FPTS'><span class='avatar av-${p.avatar}'></span><label>#${i+1} ${p.owner}</label></div>`}).join('');
 document.querySelector('#chronicle').innerHTML=chronicleEntries.slice().reverse().map(e=>`<article class='chronicleEntry' data-round='${e.round}'><h4>${e.title}</h4><p>${e.text}</p><span class='chapterTag'>${e.chapter}</span></article>`).join('');
 
-const quizBank=[
-{c:'EuroLeague',q:'Kiek žaidėjų iš vienos komandos vienu metu yra krepšinio aikštėje?',a:['4','5','6','7'],x:1},
-{c:'NBA',q:'Kiek minučių trunka standartinės NBA rungtynės be pratęsimo?',a:['40','44','48','50'],x:2},
-{c:'F1',q:'Ką lenktynėse reiškia juodai balta languota vėliava?',a:['Safety Car','Lenktynių pabaiga','Bauda','Šlapia trasa'],x:1},
-{c:'Futbolas',q:'Kiek minučių trunka pagrindinis futbolo rungtynių laikas?',a:['80','90','100','120'],x:1},
-{c:'Tenisas',q:'Koks rezultatas tenise vadinamas „deuce“?',a:['15:15','30:30','40:40','6:6'],x:2},
-{c:'Fantasy',q:'Kas yra „Gandalfas“ J. R. R. Tolkieno pasaulyje?',a:['Elfas','Burtininkas','Nykštukas','Žmogus karalius'],x:1},
-{c:'Fantasy',q:'Koks ginklas siejamas su Aragornu „Žiedų valdove“?',a:['Sting','Andúril','Glamdring','Orcrist'],x:1},
-{c:'Sci-Fi',q:'Kas parašė romaną „Dune“?',a:['Isaac Asimov','Frank Herbert','Arthur C. Clarke','Philip K. Dick'],x:1},
-{c:'Sci-Fi',q:'Filme „The Matrix“ Neo pasirenka kurią tabletę?',a:['Mėlyną','Raudoną','Žalią','Baltą'],x:1},
-{c:'Siaubas',q:'Kas parašė romaną „The Shining“?',a:['Stephen King','Dean Koontz','Clive Barker','Shirley Jackson'],x:0},
-{c:'Siaubas',q:'Kuriame filme veikia padaras Xenomorph?',a:['Predator','Alien','The Thing','Event Horizon'],x:1},
-{c:'Klasika',q:'Kas parašė „1984“?',a:['George Orwell','Aldous Huxley','Ray Bradbury','H. G. Wells'],x:0},
-{c:'Klasika',q:'Kas parašė „Frankenstein“?',a:['Bram Stoker','Mary Shelley','Edgar Allan Poe','Oscar Wilde'],x:1},
-{c:'Filmai',q:'Kas režisavo filmą „Jaws“?',a:['George Lucas','Steven Spielberg','Ridley Scott','James Cameron'],x:1},
-{c:'Filmai',q:'Kuriame filme veikė veikėjas Maximus Decimus Meridius?',a:['Troy','Gladiator','Braveheart','Kingdom of Heaven'],x:1},
-{c:'Krepšinis',q:'Kiek taškų vertas metimas iš už tritaškio linijos?',a:['1','2','3','4'],x:2},
-{c:'EuroLeague',q:'Kiek kėlinių žaidžiama Eurolygos rungtynėse be pratęsimo?',a:['2','3','4','5'],x:2},
-{c:'Fantasy',q:'Kuri rasė Tolkieno pasaulyje garsėja gyvenimu Morijoje ir meistryste kalvystėje?',a:['Elfai','Nykštukai','Hobitai','Entai'],x:1},
-{c:'Sci-Fi',q:'Kas yra HAL 9000?',a:['Robotų armija','Kosminio laivo AI','Planeta','Androidas detektyvas'],x:1},
-{c:'Klasika',q:'Kuris autorius sukūrė Drakulą?',a:['Mary Shelley','Bram Stoker','H. P. Lovecraft','Robert Louis Stevenson'],x:1}
+const quizDate='2026-10-02';
+const todayQuiz=[
+{c:'EuroLeague',q:'Kuris klubas laimėjo 2000–01 m. Eurolygą – pirmąjį Euroleague Basketball organizuotą sezoną?',a:['Panathinaikos','Kinder Bologna','Maccabi Tel Aviv','Žalgiris'],x:1},
+{c:'Krepšinis',q:'Kas buvo vienintelis dar koledže žaidęs krepšininkas 1992 m. JAV „Dream Team“ sudėtyje?',a:['Grant Hill','Christian Laettner','Shaquille O’Neal','Alonzo Mourning'],x:1},
+{c:'F1',q:'Kuris lenktynininkas yra vienintelis F1 pasaulio čempionas, titulą gavęs po mirties?',a:['Jim Clark','Jochen Rindt','Gilles Villeneuve','Ayrton Senna'],x:1},
+{c:'Tenisas',q:'Kas 1969 m. laimėjo visus keturis „Grand Slam“ vyrų vienetų turnyrus tais pačiais kalendoriniais metais?',a:['Björn Borg','Rod Laver','Ken Rosewall','John Newcombe'],x:1},
+{c:'Futbolas',q:'Kuris klubas laimėjo pirmąjį sezoną, kai Europos čempionų taurė jau vadinosi UEFA Champions League (1992–93)?',a:['AC Milan','Barcelona','Olympique de Marseille','Ajax'],x:2},
+{c:'Fantasy',q:'Kokiu vardu Aragornas vaikystėje buvo vadinamas Rivendeile?',a:['Elessar','Estel','Thorongil','Telcontar'],x:1},
+{c:'Sci-Fi / Fantasy',q:'Iš ko tradiciškai gaminamas fremenų crysknife „Dune“ pasaulyje?',a:['Krištolo','Smėlio kirmėlės danties','Prieskonio kristalo','Titano lydinio'],x:1},
+{c:'Sci-Fi',q:'Kokioje planetoje vyksta Ursulos K. Le Guin romano „The Left Hand of Darkness“ veiksmas?',a:['Gethen','Anarres','Trantor','Terminus'],x:0},
+{c:'Siaubas',q:'Kas parašė apysaką „Who Goes There?“, tapusią vienu pagrindinių filmo „The Thing“ literatūrinių šaltinių?',a:['H. P. Lovecraft','Richard Matheson','John W. Campbell Jr.','Algernon Blackwood'],x:2},
+{c:'Kino klasika',q:'Kuriame klasikiniame nebyliajame filme pasirodo humanoidinis robotas Maschinenmensch?',a:['Nosferatu','Metropolis','The Cabinet of Dr. Caligari','M'],x:1}
 ];
-const quizDate=new Date().toISOString().slice(0,10);
-function seededPick(arr,count,seed){let s=0;for(const ch of seed)s=(s*31+ch.charCodeAt(0))>>>0;const copy=[...arr];const out=[];while(copy.length&&out.length<count){s=(1664525*s+1013904223)>>>0;out.push(copy.splice(s%copy.length,1)[0])}return out}
-const todayQuiz=seededPick(quizBank,10,quizDate);
 let qi=0,qscore=0,qanswered=false;
 let qtimer=null,qtimeLeft=8;
 const QUIZ_SECONDS=8;
