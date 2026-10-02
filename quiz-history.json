@@ -1,0 +1,147 @@
+{
+  "version": 1,
+  "retention_days": 100,
+  "policy": {
+    "exact_and_semantic_dedup": true,
+    "note": "Before publishing a daily quiz, reject both exact repeats and near-paraphrases that test the same fact from the previous 100 days. legacy_blocklist is permanent."
+  },
+  "legacy_blocklist": [
+    {
+      "question": "Kiek žaidėjų iš vienos komandos vienu metu yra krepšinio aikštėje?",
+      "fact_key": "basketball_players_on_court"
+    },
+    {
+      "question": "Kiek minučių trunka standartinės NBA rungtynės be pratęsimo?",
+      "fact_key": "nba_regulation_minutes"
+    },
+    {
+      "question": "Ką lenktynėse reiškia juodai balta languota vėliava?",
+      "fact_key": "f1_checkered_flag_meaning"
+    },
+    {
+      "question": "Kiek minučių trunka pagrindinis futbolo rungtynių laikas?",
+      "fact_key": "football_regulation_minutes"
+    },
+    {
+      "question": "Koks rezultatas tenise vadinamas „deuce“?",
+      "fact_key": "tennis_deuce_score"
+    },
+    {
+      "question": "Kas yra „Gandalfas“ J. R. R. Tolkieno pasaulyje?",
+      "fact_key": "lotr_gandalf_identity"
+    },
+    {
+      "question": "Koks ginklas siejamas su Aragornu „Žiedų valdove“?",
+      "fact_key": "lotr_aragorn_anduril"
+    },
+    {
+      "question": "Kas parašė romaną „Dune“?",
+      "fact_key": "dune_author"
+    },
+    {
+      "question": "Filme „The Matrix“ Neo pasirenka kurią tabletę?",
+      "fact_key": "matrix_red_pill"
+    },
+    {
+      "question": "Kas parašė romaną „The Shining“?",
+      "fact_key": "shining_author"
+    },
+    {
+      "question": "Kuriame filme veikia padaras Xenomorph?",
+      "fact_key": "alien_xenomorph_film"
+    },
+    {
+      "question": "Kas parašė „1984“?",
+      "fact_key": "1984_author"
+    },
+    {
+      "question": "Kas parašė „Frankenstein“?",
+      "fact_key": "frankenstein_author"
+    },
+    {
+      "question": "Kas režisavo filmą „Jaws“?",
+      "fact_key": "jaws_director"
+    },
+    {
+      "question": "Kuriame filme veikė veikėjas Maximus Decimus Meridius?",
+      "fact_key": "gladiator_maximus_film"
+    },
+    {
+      "question": "Kiek taškų vertas metimas iš už tritaškio linijos?",
+      "fact_key": "basketball_three_pointer_value"
+    },
+    {
+      "question": "Kiek kėlinių žaidžiama Eurolygos rungtynėse be pratęsimo?",
+      "fact_key": "euroleague_quarters"
+    },
+    {
+      "question": "Kuri rasė Tolkieno pasaulyje garsėja gyvenimu Morijoje ir meistryste kalvystėje?",
+      "fact_key": "lotr_moria_dwarves"
+    },
+    {
+      "question": "Kas yra HAL 9000?",
+      "fact_key": "2001_hal9000_identity"
+    },
+    {
+      "question": "Kuris autorius sukūrė Drakulą?",
+      "fact_key": "dracula_author"
+    }
+  ],
+  "days": [
+    {
+      "date": "2026-10-02",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2001_champion",
+          "question": "Kuris klubas laimėjo 2000–01 m. Eurolygą – pirmąjį Euroleague Basketball organizuotą sezoną?"
+        },
+        {
+          "category": "Krepšinis",
+          "fact_key": "dream_team_1992_college_player",
+          "question": "Kas buvo vienintelis dar koledže žaidęs krepšininkas 1992 m. JAV „Dream Team“ sudėtyje?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_only_posthumous_world_champion",
+          "question": "Kuris lenktynininkas yra vienintelis F1 pasaulio čempionas, titulą gavęs po mirties?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "mens_calendar_slam_1969",
+          "question": "Kas 1969 m. laimėjo visus keturis „Grand Slam“ vyrų vienetų turnyrus tais pačiais kalendoriniais metais?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "ucl_1992_93_champion",
+          "question": "Kuris klubas laimėjo pirmąjį sezoną, kai Europos čempionų taurė jau vadinosi UEFA Champions League (1992–93)?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "aragorn_childhood_name_estel",
+          "question": "Kokiu vardu Aragornas vaikystėje buvo vadinamas Rivendeile?"
+        },
+        {
+          "category": "Sci-Fi/Fantasy",
+          "fact_key": "dune_crysknife_material",
+          "question": "Iš ko tradiciškai gaminamas fremenų crysknife „Dune“ pasaulyje?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "left_hand_darkness_planet_gethen",
+          "question": "Kokioje planetoje vyksta Ursulos K. Le Guin romano „The Left Hand of Darkness“ veiksmas?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "who_goes_there_author",
+          "question": "Kas parašė apysaką „Who Goes There?“, tapusią vienu pagrindinių filmo „The Thing“ literatūrinių šaltinių?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "metropolis_maschinenmensch",
+          "question": "Kuriame klasikiniame nebyliajame filme pasirodo humanoidinis robotas Maschinenmensch?"
+        }
+      ]
+    }
+  ]
+}
