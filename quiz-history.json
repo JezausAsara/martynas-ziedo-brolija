@@ -142,6 +142,61 @@
           "question": "Kuriame klasikiniame nebyliajame filme pasirodo humanoidinis robotas Maschinenmensch?"
         }
       ]
+    },
+    {
+      "date": "2026-10-03",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "jiri_zidek_ncaa_1995_euroleague_1999",
+          "question": "Kuris 1999 m. Eurolygos čempionas su „Žalgiriu“ prieš tai buvo laimėjęs ir 1995 m. NCAA titulą su UCLA?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_finals_2011_mvp_nowitzki",
+          "question": "Kas buvo pripažintas 2011 m. NBA finalo MVP, kai „Mavericks“ įveikė „Heat“?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_youngest_world_champion_vettel_2010",
+          "question": "Kas 2010 m. tapo jauniausiu F1 pasaulio čempionu istorijoje?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "wimbledon_2010_longest_match_winner_isner",
+          "question": "Kas laimėjo rekordinį 11 val. 5 min. trukusį Isnerio–Mahut mačą 2010 m. Vimbldone?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "ucl_1999_final_man_utd_opponent_bayern",
+          "question": "Kurią komandą „Manchester United“ įveikė 2:1 dramatiškame 1999 m. Čempionų lygos finale?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_three_elven_rings_creator_celebrimbor",
+          "question": "Kuris elfų kalvis Tolkieno pasaulyje sukūrė tris elfų Galios Žiedus?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "blade_runner_source_novel_androids_dream",
+          "question": "Kuris romanas tapo pagrindiniu 1982 m. filmo „Blade Runner“ literatūriniu šaltiniu?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "hill_house_future_heir_luke",
+          "question": "Kuris iš keturių „The Haunting of Hill House“ svečių yra būsimas Hill House paveldėtojas?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "2001_space_odyssey_director_kubrick",
+          "question": "Kas režisavo 1968 m. kino klasiką „2001: A Space Odyssey“?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "lem_his_masters_voice_signal",
+          "question": "Kuriame Stanisławo Lemo romane mokslininkai mėgina iššifruoti galimą nežemiškos kilmės signalą?"
+        }
+      ]
     }
   ]
 }

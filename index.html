@@ -818,18 +818,18 @@ const seasonPct=currentRound/totalRounds*100;document.querySelector('#journeyRou
 const minFpts=Math.min(...players.map(p=>p.fpts)),maxFpts=Math.max(...players.map(p=>p.fpts));const stage=5+((currentRound-1)/(totalRounds-1))*90;document.querySelector('#travelers').innerHTML=players.map((p,i)=>{const norm=maxFpts===minFpts?0.5:(p.fpts-minFpts)/(maxFpts-minFpts);const spread=(norm-.5)*8;const left=Math.max(2,Math.min(98,stage+spread));const top=188+(i%3)*40;return `<div class='traveler' style='left:${left}%;top:${top}px' title='${i+1} vieta · ${p.fpts.toFixed(2)} FPTS'><span class='avatar av-${p.avatar}'></span><label>#${i+1} ${p.owner}</label></div>`}).join('');
 document.querySelector('#chronicle').innerHTML=chronicleEntries.slice().reverse().map(e=>`<article class='chronicleEntry' data-round='${e.round}'><h4>${e.title}</h4><p>${e.text}</p><span class='chapterTag'>${e.chapter}</span></article>`).join('');
 
-const quizDate='2026-10-02';
+const quizDate='2026-10-03';
 const todayQuiz=[
-{c:'EuroLeague',q:'Kuris klubas laimėjo 2000–01 m. Eurolygą – pirmąjį Euroleague Basketball organizuotą sezoną?',a:['Panathinaikos','Kinder Bologna','Maccabi Tel Aviv','Žalgiris'],x:1},
-{c:'Krepšinis',q:'Kas buvo vienintelis dar koledže žaidęs krepšininkas 1992 m. JAV „Dream Team“ sudėtyje?',a:['Grant Hill','Christian Laettner','Shaquille O’Neal','Alonzo Mourning'],x:1},
-{c:'F1',q:'Kuris lenktynininkas yra vienintelis F1 pasaulio čempionas, titulą gavęs po mirties?',a:['Jim Clark','Jochen Rindt','Gilles Villeneuve','Ayrton Senna'],x:1},
-{c:'Tenisas',q:'Kas 1969 m. laimėjo visus keturis „Grand Slam“ vyrų vienetų turnyrus tais pačiais kalendoriniais metais?',a:['Björn Borg','Rod Laver','Ken Rosewall','John Newcombe'],x:1},
-{c:'Futbolas',q:'Kuris klubas laimėjo pirmąjį sezoną, kai Europos čempionų taurė jau vadinosi UEFA Champions League (1992–93)?',a:['AC Milan','Barcelona','Olympique de Marseille','Ajax'],x:2},
-{c:'Fantasy',q:'Kokiu vardu Aragornas vaikystėje buvo vadinamas Rivendeile?',a:['Elessar','Estel','Thorongil','Telcontar'],x:1},
-{c:'Sci-Fi / Fantasy',q:'Iš ko tradiciškai gaminamas fremenų crysknife „Dune“ pasaulyje?',a:['Krištolo','Smėlio kirmėlės danties','Prieskonio kristalo','Titano lydinio'],x:1},
-{c:'Sci-Fi',q:'Kokioje planetoje vyksta Ursulos K. Le Guin romano „The Left Hand of Darkness“ veiksmas?',a:['Gethen','Anarres','Trantor','Terminus'],x:0},
-{c:'Siaubas',q:'Kas parašė apysaką „Who Goes There?“, tapusią vienu pagrindinių filmo „The Thing“ literatūrinių šaltinių?',a:['H. P. Lovecraft','Richard Matheson','John W. Campbell Jr.','Algernon Blackwood'],x:2},
-{c:'Kino klasika',q:'Kuriame klasikiniame nebyliajame filme pasirodo humanoidinis robotas Maschinenmensch?',a:['Nosferatu','Metropolis','The Cabinet of Dr. Caligari','M'],x:1}
+{c:'EuroLeague',q:'Kuris 1999 m. Eurolygos čempionas su „Žalgiriu“ prieš tai buvo laimėjęs ir 1995 m. NCAA titulą su UCLA?',a:['Tyus Edney','Jiri Zidek','Anthony Bowie','Tomas Masiulis'],x:1},
+{c:'NBA',q:'Kas buvo pripažintas 2011 m. NBA finalo MVP, kai „Mavericks“ įveikė „Heat“?',a:['Jason Kidd','Jason Terry','Dirk Nowitzki','Shawn Marion'],x:2},
+{c:'F1',q:'Kas 2010 m. tapo jauniausiu F1 pasaulio čempionu istorijoje?',a:['Lewis Hamilton','Fernando Alonso','Max Verstappen','Sebastian Vettel'],x:3},
+{c:'Tenisas',q:'Kas laimėjo rekordinį 11 val. 5 min. trukusį Isnerio–Mahut mačą 2010 m. Vimbldone?',a:['John Isner','Nicolas Mahut','Andy Roddick','Jo-Wilfried Tsonga'],x:0},
+{c:'Futbolas',q:'Kurią komandą „Manchester United“ įveikė 2:1 dramatiškame 1999 m. Čempionų lygos finale?',a:['Juventus','Barcelona','Bayern München','Real Madrid'],x:2},
+{c:'Fantasy',q:'Kuris elfų kalvis Tolkieno pasaulyje sukūrė tris elfų Galios Žiedus?',a:['Fëanoras','Celebrimboras','Glorfindelis','Eölis'],x:1},
+{c:'Sci-Fi',q:'Kuris romanas tapo pagrindiniu 1982 m. filmo „Blade Runner“ literatūriniu šaltiniu?',a:['Ubik','Neuromancer','Do Androids Dream of Electric Sheep?','The Stars My Destination'],x:2},
+{c:'Siaubas',q:'Kuris iš keturių „The Haunting of Hill House“ svečių yra būsimas Hill House paveldėtojas?',a:['Luke','Dr. Montague','Theodora','Eleanor'],x:0},
+{c:'Kino klasika',q:'Kas režisavo 1968 m. kino klasiką „2001: A Space Odyssey“?',a:['Stanley Kubrick','Ridley Scott','Robert Wise','Andrei Tarkovsky'],x:0},
+{c:'Sci-Fi',q:'Kuriame Stanisławo Lemo romane mokslininkai mėgina iššifruoti galimą nežemiškos kilmės signalą?',a:['The Invincible','Return from the Stars','His Master’s Voice','Memoirs of a Space Traveler'],x:2}
 ];
 let qi=0,qscore=0,qanswered=false;
 let qtimer=null,qtimeLeft=15;
