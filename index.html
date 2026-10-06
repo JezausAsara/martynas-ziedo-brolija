@@ -763,7 +763,7 @@
       </div>
 
       <div class='skillTreeTop'>
-        <div class='skillPointCard'><small>GAUTI SKILL POINTS</small><strong id='skillEarned'>0</strong><span>maks. 16 per sezoną</span></div>
+        <div class='skillPointCard'><small>GAUTI SKILL POINTS</small><strong id='skillEarned'>0</strong><span>16 bazinių + bonus rewardai</span></div>
         <div class='skillPointCard'><small>PANAUDOTA</small><strong id='skillSpent'>0</strong><span>pasirinkti skillai</span></div>
         <div class='skillPointCard available'><small>LAISVI SKILL POINTS</small><strong id='skillAvailable'>0</strong><span id='skillNextPoint'>Kitas SP po Enemy #3</span></div>
         <button id='rpgResetSkills' class='skillResetBtn' type='button'>↻ RESET SKILLS · 30 FPTS</button>
@@ -834,6 +834,7 @@ const todayQuiz=[
 {c:'Sci-Fi',q:'Kuriame Stanisławo Lemo romane mokslininkai mėgina iššifruoti galimą nežemiškos kilmės signalą?',a:['The Invincible','Return from the Stars','His Master’s Voice','Memoirs of a Space Traveler'],x:2}
 ];
 let qi=0,qscore=0,qanswered=false;
+let qanswers=Array(10).fill(-1);
 let qtimer=null,qtimeLeft=15;
 const QUIZ_SECONDS=15;
 const qstore=JSON.parse(localStorage.getItem('fantasyQuizStats')||'{"history":[]}');
@@ -843,9 +844,20 @@ function updateQuizStats(){document.querySelector('#quizBest').textContent=(qsto
 function clearQuizTimer(){if(qtimer){clearInterval(qtimer);qtimer=null}}
 function paintQuizTimer(){const n=document.querySelector('#quizTimerNum'),bar=document.querySelector('#quizTimeFill');if(n){n.textContent=Math.max(0,qtimeLeft).toFixed(1)+' s';n.classList.toggle('danger',qtimeLeft<=3)}if(bar){bar.style.width=Math.max(0,Math.min(100,qtimeLeft/QUIZ_SECONDS*100))+'%';bar.classList.toggle('danger',qtimeLeft<=3)}}
 function startQuizTimer(){if(qanswered||qtimer)return;qtimeLeft=QUIZ_SECONDS;paintQuizTimer();const started=performance.now();qtimer=setInterval(()=>{qtimeLeft=QUIZ_SECONDS-(performance.now()-started)/1000;paintQuizTimer();if(qtimeLeft<=0){clearQuizTimer();qtimeLeft=0;paintQuizTimer();answerQuiz(-1,true)}},100)}
-function renderQuiz(){clearQuizTimer();const done=(qstore.history||[]).find(h=>h.date===quizDate);if(done){document.querySelector('#quizBar').style.width='100%';document.querySelector('#quizArea').innerHTML='<div class="quizCard quizResult"><span>Šios dienos kvizas baigtas</span><strong>'+done.score+'/10</strong><span class="quizBadge">'+quizBadge(done.score)+'</span><p>Rytoj laukia naujas klausimų rinkinys.</p></div>';updateQuizStats();return}const q=todayQuiz[qi];document.querySelector('#quizBar').style.width=(qi/10*100)+'%';document.querySelector('#quizArea').innerHTML='<div class="quizCard"><div class="quizCat"><span>'+q.c+' · '+(qi+1)+'/10</span><span id="quizTimerNum" class="quizTimer">15.0 s</span></div><div class="quizTimeBar"><span id="quizTimeFill"></span></div><div class="quizQ">'+q.q+'</div><div class="quizAnswers">'+q.a.map((a,i)=>'<button class="quizAnswer" data-i="'+i+'">'+a+'</button>').join('')+'</div><div id="quizExplain"></div></div>';document.querySelectorAll('.quizAnswer').forEach(b=>b.onclick=()=>answerQuiz(+b.dataset.i,false));qtimeLeft=QUIZ_SECONDS;paintQuizTimer();const section=document.querySelector('#quiz');if(section&&section.classList.contains('active'))startQuizTimer()}
-function answerQuiz(i,timedOut){if(qanswered)return;qanswered=true;clearQuizTimer();const q=todayQuiz[qi];if(i===q.x)qscore++;document.querySelectorAll('.quizAnswer').forEach((b,j)=>{b.disabled=true;if(j===q.x)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});const msg=timedOut?'⏱️ Laikas baigėsi.':'Atsakymas užfiksuotas.';document.querySelector('#quizExplain').innerHTML='<div class="quizExplain">'+msg+'</div><button class="quizNext">'+(qi===9?'Baigti kvizą':'Kitas klausimas')+'</button>';document.querySelector('.quizNext').onclick=()=>{qi++;qanswered=false;if(qi>=10)finishQuiz();else renderQuiz()}}
-function finishQuiz(){clearQuizTimer();const hist=qstore.history||[];hist.push({date:quizDate,score:qscore});qstore.history=hist;qstore.best=Math.max(qstore.best||0,qscore);const y=new Date();y.setDate(y.getDate()-1);const yd=y.toISOString().slice(0,10);qstore.streak=(qstore.lastDate===yd?(qstore.streak||0)+1:1);qstore.lastDate=quizDate;saveQuiz();renderQuiz()}
+function renderQuiz(){clearQuizTimer();const done=(qstore.history||[]).find(h=>h.date===quizDate);if(done){document.querySelector('#quizBar').style.width='100%';const reward=done.rewardName?'<p class="quizReward">🎁 '+done.rewardRarity+' · <b>'+done.rewardName+'</b></p>':done.score>=8?'<p class="quizReward">🎁 RPG dropas dar neatsiimtas.</p><button id="quizClaimReward" class="quizNext">ATSIIMTI RPG DROPĄ</button>':'<p>RPG dropas skiriamas nuo 8/10.</p>';document.querySelector('#quizArea').innerHTML='<div class="quizCard quizResult"><span>Šios dienos kvizas baigtas</span><strong>'+done.score+'/10</strong><span class="quizBadge">'+quizBadge(done.score)+'</span>'+reward+'<p>Rytoj laukia naujas klausimų rinkinys.</p></div>';const claim=document.querySelector('#quizClaimReward');if(claim)claim.onclick=()=>claimQuizReward(done);updateQuizStats();return}const q=todayQuiz[qi];document.querySelector('#quizBar').style.width=(qi/10*100)+'%';document.querySelector('#quizArea').innerHTML='<div class="quizCard"><div class="quizCat"><span>'+q.c+' · '+(qi+1)+'/10</span><span id="quizTimerNum" class="quizTimer">15.0 s</span></div><div class="quizTimeBar"><span id="quizTimeFill"></span></div><div class="quizQ">'+q.q+'</div><div class="quizAnswers">'+q.a.map((a,i)=>'<button class="quizAnswer" data-i="'+i+'">'+a+'</button>').join('')+'</div><div id="quizExplain"></div></div>';document.querySelectorAll('.quizAnswer').forEach(b=>b.onclick=()=>answerQuiz(+b.dataset.i,false));qtimeLeft=QUIZ_SECONDS;paintQuizTimer();const section=document.querySelector('#quiz');if(section&&section.classList.contains('active'))startQuizTimer()}
+function answerQuiz(i,timedOut){if(qanswered)return;qanswered=true;clearQuizTimer();qanswers[qi]=Number.isInteger(i)?i:-1;const q=todayQuiz[qi];if(i===q.x)qscore++;document.querySelectorAll('.quizAnswer').forEach((b,j)=>{b.disabled=true;if(j===q.x)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});const msg=timedOut?'⏱️ Laikas baigėsi.':'Atsakymas užfiksuotas.';document.querySelector('#quizExplain').innerHTML='<div class="quizExplain">'+msg+'</div><button class="quizNext">'+(qi===9?'Baigti kvizą':'Kitas klausimas')+'</button>';document.querySelector('.quizNext').onclick=()=>{qi++;qanswered=false;if(qi>=10)finishQuiz();else renderQuiz()}}
+async function claimQuizReward(done){
+  const sb=window.rpgSupabase;
+  if(!sb){alert("Prisijunk prie savo RPG personažo ir bandyk dar kartą.");return}
+  if(!Array.isArray(done.answers)||done.answers.length!==10){alert("Šiam senam kvizo rezultatui serverinio rewardo priskirti negalima.");return}
+  const {data,error}=await sb.rpc("rpg_submit_quiz",{p_quiz_date:done.date,p_answers:done.answers});
+  if(error){alert(error.message||"Rewardo atsiimti nepavyko.");return}
+  done.score=Number(data?.score??done.score);
+  if(data?.reward){done.rewardName=data.reward.name;done.rewardRarity=data.reward.rarity}
+  saveQuiz();renderQuiz();
+  if(window.renderRpgSheet)await window.renderRpgSheet();
+}
+async function finishQuiz(){clearQuizTimer();const hist=qstore.history||[];const entry={date:quizDate,score:qscore,answers:[...qanswers]};hist.push(entry);qstore.history=hist;qstore.best=Math.max(qstore.best||0,qscore);const y=new Date();y.setDate(y.getDate()-1);const yd=y.toISOString().slice(0,10);qstore.streak=(qstore.lastDate===yd?(qstore.streak||0)+1:1);qstore.lastDate=quizDate;saveQuiz();if(qscore>=8)await claimQuizReward(entry);else renderQuiz()}
 renderQuiz();updateQuizStats();
 
 document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active');if(b.dataset.tab==='journey'&&window.refreshJourneyDashboard)window.refreshJourneyDashboard();if(b.dataset.tab==='quiz'&&!qanswered&&!qtimer&&!(qstore.history||[]).find(h=>h.date===quizDate))startQuizTimer();});
@@ -1072,7 +1084,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       shop_longbow:"🏹",
       paris_phantom_signet:"💠",
       paris_shadow_mask:"🎭",
-      paris_lucky_token:"🪙"
+      paris_lucky_token:"🪙",
+      barca_palau_reliquary:"🏛️",
+      quiz_8_token:"📘",
+      quiz_9_token:"📜",
+      quiz_10_token:"🧠"
     };
     return special[id]||({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
   };
@@ -1113,7 +1129,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   async function loadInventory(){
     const sb=window.rpgSupabase;if(!sb)return;
-    const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,rpg_items(name,slot,rarity,stat_payload)");
+    const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,quantity,rpg_items(name,slot,rarity,stat_payload)");
     document.querySelectorAll(".rpgSlot span").forEach(x=>x.textContent="Tuščia");
 
     const previewMeta={
@@ -1160,7 +1176,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const req=payload.required_stat&&payload.min_stat ? "Reikia "+String(payload.required_stat).toUpperCase()+" "+payload.min_stat : "";
       return "<div class='rpgInventoryItem "+(i.equipped?"equipped":"")+"'>"+
         "<div class='rpgItemMain'><div class='rpgItemIcon'>"+itemIcon(item.slot,i.item_id)+"</div><div class='rpgItemInfo'>"+
-        "<strong>"+escInv(item.name||i.item_id)+"</strong>"+
+        "<strong>"+escInv(item.name||i.item_id)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</strong>"+
         (desc?"<small>"+escInv(desc)+"</small>":"")+
         "<em>"+escInv(item.rarity||"")+" · "+escInv(item.slot||"item")+(req?" · "+escInv(req):"")+"</em>"+
         "</div></div>"+
@@ -1234,7 +1250,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const skills=state.skills||[];
     const owned=new Set(skills.filter(s=>s.owned).map(s=>s.id));
     const earned=document.getElementById("skillEarned"),spent=document.getElementById("skillSpent"),avail=document.getElementById("skillAvailable");
-    if(earned)earned.textContent=state.earned_points??0;if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=state.available_points??0;
+    if(earned)earned.textContent=(state.earned_points??0)+(Number(state.bonus_points||0)>0?" ("+state.bonus_points+" bonus)":"");if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=state.available_points??0;
     const next=nextSkillMilestone(state.defeated_enemies);
     const nextEl=document.getElementById("skillNextPoint");if(nextEl)nextEl.textContent=next?("Kitas: Enemy #"+next.round+(next.points>1?" · +2 SP":" · +1 SP")):"Visi SP jau pasiekiami";
     const notice=document.getElementById("rpgSkillLockNotice");
@@ -1902,14 +1918,15 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 (() => {
   const activeRound=Math.min(totalRounds,currentRound+1);
   const bossRounds=[10,19,29,38];
-  const skillPointsAt=(r)=>((r%3===0&&r<=36)?1:0)+(bossRounds.includes(r)?1:0);
+  const skillPointsAt=(r)=>((r%3===0&&r<=36)?1:0)+(bossRounds.includes(r)?1:0)+(r===4?1:0);
   let selectedRound=activeRound;
   let campaignCache=[];
   let catalogCache=[];
   const enemyData={
     1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",image:"assets/rpg/enemy1-legionierius.webp?v=hq768-3",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
     2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp?v=hq512-1",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
-    3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:false,drop:"1 garantuotas dropas: Rare 15% · Fantomo Antspaudas (+1 Attack, +1 Damage, universalus) | Uncommon 35% · Paryžiaus Šešėlių Kaukė (+1 Initiative) | Common 50% · Seinos Laimės Žetonas (+4 Max HP)"}
+    3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:false,drop:"1 garantuotas dropas: Rare 15% · Fantomo Antspaudas (+1 Attack, +1 Damage, universalus) | Uncommon 35% · Paryžiaus Šešėlių Kaukė (+1 Initiative) | Common 50% · Seinos Laimės Žetonas (+4 Max HP)"},
+    4:{name:"Els Blaugrana",team:"FC Barcelona",image:"",hp:75,ac:12,atk:"+2",dmg:"1d8",init:"+2",special:"Katedros Apsauga: pirmus 2 kovos ratus AC +3. Blaugranos Vienybė: žemiau 50% HP vieną kartą atstato 20% HP ir 2 ėjimams gauna +2 Damage. Palau Dvasia: kas 3 ratą smūgis gauna +1d4. Ilga Tradicija: kas 3 ratus Attack auga +1.",dropEpic:true,drop:"LEGENDARY · Auksinis Palau Relikvijorius · +1 AC · +1 Initiative · papildomai +1 Skill Point · FPTS reward nėra."}
   };
   const avatarByTeam={};
   players.forEach(p=>avatarByTeam[p.team]=p.avatar);
@@ -1936,7 +1953,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       if(r>activeRound)cls.push("future");
       if([1,...bossRounds].includes(r))cls.push("milestone");
       let tip=r+" turas";
-      if(sp)tip+=" · po priešo +"+sp+" Skill Point"+(sp>1?"s":"");
+      if(sp)tip+=" · po priešo +"+sp+" Skill Point"+(sp>1?"s":"")+(r===4?" · Barça bonus reward":"");
       if(bossRounds.includes(r))tip+=" · BOSAS";
       const mark=sp?"<i class='journeySkillMark "+(sp>1?"double":"")+"'>✦"+(sp>1?"2":"")+"</i>":"";
       html+="<span class='"+cls.join(" ")+"' data-round='"+r+"' title='"+tip+"'>"+mark+"<b>"+([1,3,5,6,9,10,12,15,18,19,20,21,24,25,27,29,30,33,35,36,38].includes(r)?r:"")+"</b></span>";
@@ -1954,7 +1971,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const legend=document.createElement("div");
       legend.id="journeySkillLegend";
       legend.className="journeySkillLegend";
-      legend.innerHTML="<span><b>✦</b> +1 Skill Point kas 3 priešus</span><span><b class='boss'>◆</b> +1 Skill Point po boso</span><span>Jei sutampa – gaunami +2 SP</span>";
+      legend.innerHTML="<span><b>✦</b> +1 Skill Point kas 3 priešus</span><span><b class='boss'>◆</b> +1 Skill Point po boso</span><span>🔵🔴 Enemy #4 bonusas: +1 SP</span><span>Jei sutampa – taškai sumuojasi</span>";
       el.parentElement.appendChild(legend);
     }
     const jr=document.getElementById("journeyRound"), jp=document.getElementById("journeyPct");
@@ -2002,7 +2019,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const d=getEnemy(enemyNo);
     const locked=enemyNo>activeRound||!d;
     const tag=enemyNo===activeRound?"DABARTINIS PRIEŠAS":enemyNo<activeRound?"ISTORINIS PRIEŠAS":"ARTĖJANTIS PRIEŠAS";
-    const symbol=enemyNo===2?"🔱":enemyNo===3?"🎭":"★";
+    const symbol=enemyNo===2?"🔱":enemyNo===3?"🎭":enemyNo===4?"🏰":"★";
     const defeated=locked?0:campaign.filter(x=>Number(x.defeated_enemies||0)>=enemyNo).length;
 
     if(locked){
@@ -2018,7 +2035,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       (d.image?"<img class='journeyCardImage' src='"+d.image+"' alt='"+d.name+"' onerror=\"this.parentElement.classList.add('broken');this.remove()\">":"")+
       fallback+"</div>";
 
-    const dropPanel=enemyNo===3&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
+    const dropPanel=(enemyNo===3||enemyNo===4)&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(enemyNo===4?"👑 LEGENDARY REWARD":d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
     return "<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>"+
       art+
       "<div class='journeyCardFooter'>"+
