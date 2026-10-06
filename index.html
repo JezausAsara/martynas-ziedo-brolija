@@ -377,11 +377,15 @@
 .quizRewardLegend>span{padding:10px 12px;border:1px solid #3b474d;border-radius:10px;background:#0b1317;color:#b9c3c7;font:11px/1.35 Arial,sans-serif}
 .quizRewardLegend>span b{color:#efd080;margin-right:4px}.quizRewardLegend>small{grid-column:1/-1;color:#758187;font:9px Arial,sans-serif;text-align:center}
 .quizReward{margin:12px auto 3px;padding:9px 12px;max-width:420px;border:1px solid #45604a;border-radius:10px;background:#0d1a12;color:#abd0b3}
-.journeyEnemyHtmlInfo{padding:10px 11px 0;background:#081013;border-top:1px solid #313b3f}
-.journeyEnemyHtmlStats{display:grid;grid-template-columns:repeat(5,1fr);gap:5px}
+.journeyEnemyHtmlInfo{padding:10px 11px 12px;background:#081013;border-top:1px solid #313b3f}
+.journeyEnemy4Title{padding:9px 4px 10px;text-align:center;border-bottom:1px solid #332b21}
+.journeyEnemy4Title strong{display:block;color:#f0cf83;font:700 17px/1.15 Georgia,serif}.journeyEnemy4Title small{display:block;margin-top:3px;color:#879398;font:9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.08em}
+.journeyEnemyHtmlStats{display:grid;grid-template-columns:repeat(5,1fr);gap:5px;margin-top:10px}
 .journeyEnemyHtmlStats span{padding:7px 3px;border:1px solid #354147;border-radius:7px;text-align:center;color:#7e8b90;font:7px Arial,sans-serif}
 .journeyEnemyHtmlStats b{display:block;margin-top:2px;color:#e9c879;font:700 13px Georgia,serif}
-.journeyEnemyHtmlInfo p{margin:8px 1px 0;color:#9da8ac;font:9px/1.45 Arial,sans-serif}.journeyEnemyHtmlInfo p b{color:#d8b96e}
+.journeyEnemy4Abilities{display:grid;gap:6px;margin-top:9px}.journeyEnemy4Ability{display:grid;grid-template-columns:25px 1fr;gap:7px;padding:7px 8px;border:1px solid #2c383d;border-radius:7px;background:#0a1215}
+.journeyEnemy4Ability i{font-style:normal;font-size:17px;line-height:1.2}.journeyEnemy4Ability b{display:block;color:#d9bd7d;font:700 9px Arial,sans-serif}.journeyEnemy4Ability span{display:block;margin-top:2px;color:#9ca8ac;font:8px/1.35 Arial,sans-serif}
+.journeyCardImage-e4{aspect-ratio:4/5;object-position:center top}
 @media(max-width:650px){.quizRewardLegend{grid-template-columns:1fr}.quizRewardLegend>small{grid-column:1}.journeyEnemyHtmlStats{grid-template-columns:repeat(5,1fr)}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>3 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
@@ -1937,7 +1941,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",image:"assets/rpg/enemy1-legionierius.webp?v=hq768-3",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
     2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp?v=hq512-1",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
     3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:false,drop:"1 garantuotas dropas: Rare 15% · Fantomo Antspaudas (+1 Attack, +1 Damage, universalus) | Uncommon 35% · Paryžiaus Šešėlių Kaukė (+1 Initiative) | Common 50% · Seinos Laimės Žetonas (+4 Max HP)"},
-    4:{name:"Els Blaugrana",team:"FC Barcelona",image:"assets/rpg/enemy4-barcelona.webp?v=hq512-1",hp:75,ac:12,atk:"+2",dmg:"1d8",init:"+2",special:"Katedros Apsauga: pirmus 2 kovos ratus AC +3. Blaugranos Vienybė: žemiau 50% HP vieną kartą atstato 20% HP ir 2 ėjimams gauna +2 Damage. Palau Dvasia: kas 3 ratą smūgis gauna +1d4. Ilga Tradicija: kas 3 ratus Attack auga +1.",dropEpic:true,drop:"LEGENDARY · Auksinis Palau Relikvijorius · +1 AC · +1 Initiative · papildomai +1 Skill Point · FPTS reward nėra."}
+    4:{name:"Palau Blaugranos Katedros Sargas",team:"FC Barcelona",image:"assets/rpg/enemy4-barcelona.webp?v=hq512-1",hp:75,ac:12,atk:"+2",dmg:"1d8",init:"+2",special:"Katedros Apsauga: pirmus 2 kovos ratus AC +3. Blaugranos Vienybė: žemiau 50% HP vieną kartą atstato 20% HP ir 2 ėjimams gauna +2 Damage. Palau Dvasia: kas 3 ratą pataikęs smūgis gauna +1d4 Damage. Ilga Tradicija: kas 3 kovos ratus Attack padidėja +1.",dropEpic:true,drop:"LEGENDARY · Auksinis Palau Relikvijorius · +1 AC · +1 Initiative · papildomai +1 Skill Point · FPTS nesuteikiami."}
   };
   const avatarByTeam={};
   players.forEach(p=>avatarByTeam[p.team]=p.avatar);
@@ -2043,11 +2047,21 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       "<div class='journeyEnemyStats'><span>HP<b>"+d.hp+"</b></span><span>AC<b>"+d.ac+"</b></span><span>ATK<b>"+d.atk+"</b></span><span>DMG<b>"+d.dmg+"</b></span><span>INIT<b>"+d.init+"</b></span></div></div>";
 
     const art="<div class='journeyCardVisual'>"+
-      (d.image?"<img class='journeyCardImage' src='"+d.image+"' alt='"+d.name+"' onerror=\"this.parentElement.classList.add('broken');this.remove()\">":"")+
+      (d.image?"<img class='journeyCardImage "+(enemyNo===4?"journeyCardImage-e4":"")+"' src='"+d.image+"' alt='"+d.name+"' onerror=\"this.parentElement.classList.add('broken');this.remove()\">":"")+
       fallback+"</div>";
 
-    const combatSummary=enemyNo===4?"<div class='journeyEnemyHtmlInfo'><div class='journeyEnemyHtmlStats'><span>HP<b>"+d.hp+"</b></span><span>AC<b>"+d.ac+"</b></span><span>ATK<b>"+d.atk+"</b></span><span>DMG<b>"+d.dmg+"</b></span><span>INIT<b>"+d.init+"</b></span></div><p><b>⚜ PASYVAI</b> "+d.special+"</p></div>":"";
-    const dropPanel=(enemyNo===3||enemyNo===4)&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(enemyNo===4?"👑 LEGENDARY REWARD":d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
+    const combatSummary=enemyNo===4?
+      "<div class='journeyEnemyHtmlInfo'>"+
+        "<div class='journeyEnemy4Title'><strong>"+d.name+"</strong><small>FC Barcelona · Priešas #4</small></div>"+
+        "<div class='journeyEnemyHtmlStats'><span>HP<b>"+d.hp+"</b></span><span>AC<b>"+d.ac+"</b></span><span>ATK<b>"+d.atk+"</b></span><span>DMG<b>"+d.dmg+"</b></span><span>INIT<b>"+d.init+"</b></span></div>"+
+        "<div class='journeyEnemy4Abilities'>"+
+          "<div class='journeyEnemy4Ability'><i>🛡️</i><div><b>KATEDROS APSAUGA</b><span>Pirmus 2 kovos ratus AC padidėja +3.</span></div></div>"+
+          "<div class='journeyEnemy4Ability'><i>🔵</i><div><b>BLAUGRANOS VIENYBĖ</b><span>Pirmą kartą nukritęs žemiau 50% HP atstato 20% HP ir 2 savo ėjimams gauna +2 Damage.</span></div></div>"+
+          "<div class='journeyEnemy4Ability'><i>🔔</i><div><b>PALAU DVASIA</b><span>Kas 3 kovos ratą pataikęs smūgis gauna papildomą +1d4 Damage.</span></div></div>"+
+          "<div class='journeyEnemy4Ability'><i>👑</i><div><b>ILGA TRADICIJA</b><span>Kas 3 kovos ratus jo Attack padidėja +1 ir kaupiasi iki kovos pabaigos.</span></div></div>"+
+        "</div>"+
+      "</div>":"";
+    const dropPanel=(enemyNo===3||enemyNo===4)&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(enemyNo===4?"👑 LEGENDARY DROP + SKILL POINT":d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
     return "<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>"+
       art+
       combatSummary+
