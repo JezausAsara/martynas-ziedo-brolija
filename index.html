@@ -640,6 +640,7 @@
       <button class='active' data-rpg-panel='character'>🧙 Personažas</button>
       <button data-rpg-panel='inventory'>🎒 Inventorius</button>
       <button data-rpg-panel='shop'>🏪 Shop</button>
+      <button data-rpg-panel='farm'>🌾 Farm</button>
       <button data-rpg-panel='skills'>🌳 Skill Tree</button>
       <button data-rpg-panel='rpgRules'>📜 Taisyklės</button>
     </div>
@@ -933,6 +934,41 @@
       <div id='shopNotice' class='shopNotice'>Kraunama…</div>
       <div id='rpgShopItems' class='shopGrid'><div class='journeyLoading'>Kraunama shop rotacija…</div></div>
       <div id='rpgShopMsg' class='rpgSheetMsg'></div>
+    </div>
+
+    
+    <div id='rpgPanel-farm' class='rpgPanel'>
+      <div class='rpgFarmWrap'>
+        <div class='rpgFarmHero'>
+          <div class='rpgFarmArtFrame'><img id='rpgFarmArt' alt='Žaliasis Jesteris' src='data:image/webp;base64,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'></div>
+          <div class='rpgFarmHeroText'>
+            <div class='rpgFarmKicker'>FARM ENEMY #01 · 4 TURAS</div>
+            <h4>Žaliasis Jesteris</h4>
+            <p>Satyrinis arenos juokdarys. Farminimo kova nekeičia pagrindinės kampanijos progreso ir niekada neduoda FPTS.</p>
+            <div class='rpgFarmStats'>
+              <span><small>HP</small><b id='farmHp'>80</b></span>
+              <span><small>AC</small><b id='farmAc'>10</b></span>
+              <span><small>ATTACK</small><b id='farmAtk'>+2</b></span>
+              <span><small>DAMAGE</small><b id='farmDmg'>1d4+1</b></span>
+              <span><small>INIT</small><b id='farmInit'>+1</b></span>
+            </div>
+            <div class='rpgFarmSkill'><b>🤡 Kreivas balnas</b><span>Jei Jesterio Attack roll yra natural 1–3, jis pats gauna 1d4 damage.</span></div>
+            <div class='rpgFarmLimit'><b id='farmAttempts'>Šiandien: — / 3</b><span>Reset 00:00 Lietuvos laiku · aktyvus iki 4 Fantasy turo pabaigos.</span></div>
+            <button id='rpgFarmStart' class='rpgFarmPrimary' type='button'>🌾 PRADĖTI FARM KOVĄ</button>
+            <div id='rpgFarmMsg' class='rpgFarmMsg'></div>
+          </div>
+        </div>
+        <div class='rpgFarmRewards'>
+          <div class='rpg2-blockTitle'>FARM REWARD POOL · JOKIŲ FPTS</div>
+          <div class='rpgFarmRewardGrid'>
+            <div><b>🔔 Jesterio varpelis</b><span>Common · +1 Initiative</span><em>50%</em></div>
+            <div><b>💍 Kreiva Jesterio riešinė</b><span>Common · +1 Attack</span><em>30%</em></div>
+            <div><b>🛡️ Balno sagtis</b><span>Common · +1 AC</span><em>20%</em></div>
+          </div>
+          <small class='rpgFarmFine'>Vienodas itemas gali iškristi dar kartą, bet jo STAT bonusas nuo quantity nesistackina.</small>
+        </div>
+        <div id='rpgFarmBattle' class='rpgFarmBattle'></div>
+      </div>
     </div>
 
     <div id='rpgPanel-skills' class='rpgPanel'>
@@ -2328,4 +2364,99 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const wait=setInterval(()=>{if(window.rpgSupabase){clearInterval(wait);loadJourney();}},100);
   setInterval(()=>{const j=document.getElementById("journey");if(j&&j.classList.contains("active"))loadJourney();},15000);
 })();
-</script></body></html>
+</script>
+<style id="rpgFarmV1Styles">
+.rpgFarmWrap{display:grid;gap:14px}.rpgFarmHero{display:grid;grid-template-columns:minmax(210px,310px) 1fr;gap:18px;padding:16px;border:1px solid #38533f;border-radius:15px;background:radial-gradient(circle at 12% 15%,#17422455,transparent 38%),linear-gradient(180deg,#101914,#08100d);box-shadow:inset 0 0 28px #0008}
+.rpgFarmArtFrame{min-height:390px;border:1px solid #4d6d52;border-radius:13px;overflow:hidden;background:#07100a;box-shadow:0 10px 30px #0009}.rpgFarmArtFrame img{width:100%;height:100%;object-fit:cover;display:block;image-rendering:auto}.rpgFarmKicker{color:#69b87b;font:800 10px Arial,sans-serif;letter-spacing:.14em}.rpgFarmHeroText h4{margin:5px 0 8px;color:#e5d58c;font:800 27px Georgia,serif}.rpgFarmHeroText>p{margin:0 0 13px;color:#aeb9b1;line-height:1.5;font-size:12px}
+.rpgFarmStats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.rpgFarmStats span{padding:10px 7px;border:1px solid #304337;border-radius:9px;background:#09120d;text-align:center}.rpgFarmStats small{display:block;color:#6f8976;font:700 9px Arial,sans-serif}.rpgFarmStats b{display:block;margin-top:4px;color:#e8ddb4;font:800 16px Georgia,serif}
+.rpgFarmSkill,.rpgFarmLimit{display:grid;gap:4px;margin-top:11px;padding:11px 12px;border:1px solid #344d3b;border-radius:10px;background:#0a120d}.rpgFarmSkill b{color:#d7bd73}.rpgFarmSkill span,.rpgFarmLimit span{color:#8f9c93;font:11px/1.45 Arial,sans-serif}.rpgFarmLimit b{color:#8cd198}
+.rpgFarmPrimary{width:100%;margin-top:12px;padding:12px;border:1px solid #5f8d69;border-radius:10px;background:linear-gradient(#315d3c,#17301f);color:#d8f2dc;font:800 12px Georgia,serif;letter-spacing:.06em;cursor:pointer}.rpgFarmPrimary:disabled{opacity:.4;cursor:not-allowed}.rpgFarmMsg{min-height:18px;margin-top:8px;color:#d7a485;font:11px Arial,sans-serif}
+.rpgFarmRewards,.rpgFarmBattle{padding:14px;border:1px solid #303c34;border-radius:13px;background:#0a1110}.rpgFarmRewardGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.rpgFarmRewardGrid>div{display:grid;gap:4px;padding:11px;border:1px solid #3b463d;border-radius:9px;background:#0c1510;position:relative}.rpgFarmRewardGrid b{color:#ddce93;font-size:12px}.rpgFarmRewardGrid span{color:#92a096;font:10px Arial,sans-serif}.rpgFarmRewardGrid em{position:absolute;right:8px;top:8px;color:#74bd83;font:800 11px Arial,sans-serif}.rpgFarmFine{display:block;margin-top:8px;color:#6f7c73}
+.rpgFarmBattle:empty{display:none}.rpgFarmBattleHead{display:flex;justify-content:space-between;gap:10px;align-items:center}.rpgFarmBattleHead b{color:#e5d58c}.rpgFarmBattleHead span{color:#80b98a;font:800 11px Arial,sans-serif}.rpgFarmBars{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:11px 0}.rpgFarmBar label{display:flex;justify-content:space-between;color:#aab4ad;font:10px Arial,sans-serif;margin-bottom:4px}.rpgFarmTrack{height:8px;border-radius:999px;background:#202a23;overflow:hidden}.rpgFarmTrack i{display:block;height:100%;background:linear-gradient(90deg,#3e8150,#78bd80);transition:.2s}.rpgFarmTrack.enemy i{background:linear-gradient(90deg,#7d302e,#c05a4e)}
+.rpgFarmAction{width:100%;padding:11px;border:1px solid #7a5b29;border-radius:9px;background:#5f4619;color:#ffe4a0;font-weight:800;cursor:pointer}.rpgFarmAction:disabled{opacity:.45}.rpgFarmLog{display:grid;gap:4px;margin-top:10px;max-height:230px;overflow:auto}.rpgFarmLog div{padding:7px 9px;border-radius:7px;background:#080e0b;color:#9da8a0;font:10px/1.4 Arial,sans-serif}.rpgFarmLog .loot{color:#e7cc79}.rpgFarmLog .win{color:#8ed49b}.rpgFarmLog .loss{color:#df8b7e}
+@media(max-width:780px){.rpgFarmHero{grid-template-columns:1fr}.rpgFarmArtFrame{min-height:0;max-height:430px;aspect-ratio:3/4}.rpgFarmStats{grid-template-columns:repeat(3,1fr)}.rpgFarmRewardGrid{grid-template-columns:1fr}.rpgFarmBars{grid-template-columns:1fr}}
+</style>
+<script>
+(() => {
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  let farmState=null,farmBusy=false;
+  const byId=id=>document.getElementById(id);
+  const pct=(v,m)=>Math.max(0,Math.min(100,m?Math.round(v/m*100):0));
+  function setFarmMsg(t){const e=byId("rpgFarmMsg");if(e)e.textContent=t||""}
+  function battleActionLabel(p){return p==="initiative"?"🎲 MESTI D20 INICIATYVAI":p==="player_attack"?"⚔️ MESTI D20 ATAKAI":p==="player_damage"?"💥 MESTI DAMAGE":"KOVA BAIGTA"}
+  function eventClass(x){return x?.type==="loot"?"loot":x?.type==="win"?"win":x?.type==="loss"?"loss":""}
+  function renderFarmBattle(b){
+    const el=byId("rpgFarmBattle"); if(!el)return;
+    if(!b){el.innerHTML="";return}
+    const events=(Array.isArray(b.battle_log)?b.battle_log:[]).slice(-10);
+    const finished=b.status!=="active";
+    const reward=b.reward;
+    el.innerHTML=
+      "<div class='rpgFarmBattleHead'><b>⚔️ FARM KOVA · #"+esc(b.attempt_no)+"/3</b><span>"+esc((b.status||"").toUpperCase())+"</span></div>"+
+      "<div class='rpgFarmBars'><div class='rpgFarmBar'><label><span>TAVO HP</span><b>"+esc(b.player_hp)+" / "+esc(b.player_max_hp)+"</b></label><div class='rpgFarmTrack'><i style='width:"+pct(Number(b.player_hp),Number(b.player_max_hp))+"%'></i></div></div>"+
+      "<div class='rpgFarmBar'><label><span>JESTERIO HP</span><b>"+esc(b.enemy_hp)+" / "+esc(b.enemy_max_hp)+"</b></label><div class='rpgFarmTrack enemy'><i style='width:"+pct(Number(b.enemy_hp),Number(b.enemy_max_hp))+"%'></i></div></div></div>"+
+      (finished?(reward?"<div class='rpgNotice'>🎁 <b>"+esc(reward.name)+"</b> · "+esc(reward.stat_payload?.description||"Common itemas")+"</div>":"<div class='rpgNotice'>Kova baigta.</div>"):
+      "<button id='rpgFarmRoll' class='rpgFarmAction' type='button'>"+battleActionLabel(b.phase)+"</button>")+
+      "<div class='rpgFarmLog'>"+events.map(x=>"<div class='"+eventClass(x)+"'>"+esc(x.text||x.type||"")+"</div>").join("")+"</div>";
+    const roll=byId("rpgFarmRoll"); if(roll)roll.onclick=rollFarm;
+  }
+  function renderFarm(s){
+    farmState=s;
+    const e=s?.enemy||{};
+    if(byId("farmHp"))byId("farmHp").textContent=e.hp??80;
+    if(byId("farmAc"))byId("farmAc").textContent=e.ac??10;
+    if(byId("farmAtk"))byId("farmAtk").textContent=(Number(e.attack_bonus)>=0?"+":"")+(e.attack_bonus??2);
+    if(byId("farmDmg"))byId("farmDmg").textContent=(e.damage_die||"d4")+(Number(e.damage_modifier)?(Number(e.damage_modifier)>0?"+":"")+e.damage_modifier:"");
+    if(byId("farmInit"))byId("farmInit").textContent=(Number(e.initiative_bonus)>=0?"+":"")+(e.initiative_bonus??1);
+    if(byId("farmAttempts"))byId("farmAttempts").textContent="Šiandien: "+(s?.attempts_used??0)+" / "+(s?.max_attempts_per_day??3)+" kovos";
+    const b=s?.active_battle;
+    renderFarmBattle(b);
+    const btn=byId("rpgFarmStart");
+    if(btn){
+      const active=b?.status==="active";
+      btn.textContent=active?"⚔️ TĘSTI FARM KOVĄ":"🌾 PRADĖTI FARM KOVĄ";
+      btn.disabled=farmBusy||(!active&&(!s?.available||Number(s?.attempts_remaining||0)<=0));
+      btn.onclick=active?()=>renderFarmBattle(b):startFarm;
+    }
+    if(!s?.available)setFarmMsg("Žaliasis Jesteris aktyvus tik 4 Fantasy ture. Naujos kovos užrakintos.");
+    else if(Number(s?.attempts_remaining||0)<=0 && b?.status!=="active")setFarmMsg("Šiandienos 3 farm kovos išnaudotos. Limitas atsinaujins 00:00 Lietuvos laiku.");
+    else setFarmMsg("Liko šiandien: "+(s?.attempts_remaining??3)+" iš 3.");
+  }
+  async function loadFarm(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){farmState=null;renderFarmBattle(null);setFarmMsg("Prisijunk prie RPG personažo, kad galėtum farminti.");const b=byId("rpgFarmStart");if(b)b.disabled=true;return}
+    const {data,error}=await sb.rpc("rpg_farm_status");
+    if(error){setFarmMsg(error.message||"Farm statuso gauti nepavyko.");return}
+    renderFarm(data);
+  }
+  async function startFarm(){
+    if(farmBusy)return;farmBusy=true;setFarmMsg("Kova pradedama…");
+    const sb=window.rpgSupabase;
+    const {error}=await sb.rpc("start_rpg_farm_battle");
+    farmBusy=false;
+    if(error){setFarmMsg(error.message||"Kovos pradėti nepavyko.");return}
+    await loadFarm();
+  }
+  async function rollFarm(){
+    const b=farmState?.active_battle;if(!b||b.status!=="active"||farmBusy)return;
+    farmBusy=true;const btn=byId("rpgFarmRoll");if(btn)btn.disabled=true;
+    const kind=b.phase==="player_damage"?"damage":"d20";
+    const {data,error}=await window.rpgSupabase.rpc("rpg_farm_roll",{p_kind:kind});
+    farmBusy=false;
+    if(error){setFarmMsg(error.message||"Metimas nepavyko.");if(btn)btn.disabled=false;return}
+    farmState.active_battle=data;renderFarmBattle(data);
+    if(data?.status!=="active"){
+      await loadFarm();
+      if(window.renderRpgSheet)await window.renderRpgSheet();
+    }
+  }
+  window.loadRpgFarm=loadFarm;
+  const farmTab=document.querySelector(".rpgTabs button[data-rpg-panel='farm']");
+  if(farmTab)farmTab.addEventListener("click",()=>setTimeout(loadFarm,0));
+  const boot=()=>{if(window.rpgSupabase){window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(loadFarm,0));loadFarm()}else setTimeout(boot,150)};
+  boot();
+})();
+</script>
+
+</body></html>
