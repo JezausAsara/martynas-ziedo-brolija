@@ -197,6 +197,116 @@
           "question": "Kuriame Stanisławo Lemo romane mokslininkai mėgina iššifruoti galimą nežemiškos kilmės signalą?"
         }
       ]
+    },
+    {
+      "date": "2026-10-06",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2010_barcelona_champion",
+          "question": "Kuris klubas laimėjo 2010 m. Eurolygos finalą Paryžiuje, finale įveikęs „Olympiacos“?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_first_unanimous_mvp_curry_2016",
+          "question": "Kas 2015–16 m. tapo pirmuoju vienbalsiai išrinktu NBA reguliariojo sezono MVP?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_2007_champion_raikkonen",
+          "question": "Kas tapo 2007 m. Formulės 1 pasaulio čempionu, titulą iškovojęs paskutinėse sezono lenktynėse?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_1988_golden_slam_graf",
+          "question": "Kas 1988 m. laimėjo vienintelį teniso „Golden Slam“ – visus keturis „Grand Slam“ ir olimpinį auksą tais pačiais metais?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "ucl_2005_final_liverpool_milan",
+          "question": "Kurią komandą „Liverpool“ įveikė po baudinių legendiniame 2005 m. Čempionų lygos finale Stambule?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_sauron_master_morgoth",
+          "question": "Kuris Tolkieno veikėjas buvo Saurono valdovas ir pirmasis Tamsos Valdovas?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "foundation_author_asimov",
+          "question": "Kas parašė originaliąją „Foundation“ („Fondo“) romanų seriją?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "rosemarys_baby_director_polanski",
+          "question": "Kas režisavo 1968 m. siaubo klasiką „Rosemary's Baby“?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "name_of_the_rose_author_eco",
+          "question": "Kas parašė romaną „The Name of the Rose“ („Rožės vardas“)?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "seven_samurai_director_kurosawa",
+          "question": "Kas režisavo 1954 m. filmą „Seven Samurai“?"
+        }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2017_fenerbahce_first_title",
+          "question": "Kuris klubas 2017 m. pirmą kartą istorijoje tapo Eurolygos čempionu, finale Stambule įveikęs „Olympiacos“?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_kobe_drafted_charlotte_1996",
+          "question": "Kuri komanda 1996 m. NBA naujokų biržoje pasirinko Kobe Bryantą prieš iškeisdama jį į „Lakers“?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_first_finnish_champion_keke_rosberg_1982",
+          "question": "Kas 1982 m. tapo pirmuoju Suomijos Formulės 1 pasaulio čempionu?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "wimbledon_youngest_mens_champion_becker_1985",
+          "question": "Kas 1985 m., būdamas 17 metų, tapo jauniausiu Vimbldono vyrų vienetų čempionu?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "world_cup_1998_final_france_brazil",
+          "question": "Kurią rinktinę Prancūzija įveikė 3:0 1998 m. pasaulio čempionato finale?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "one_ring_inscription_black_speech",
+          "question": "Kokia kalba užrašytas užrašas ant Vieno Žiedo Tolkieno pasaulyje?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "neuromancer_author_william_gibson",
+          "question": "Kas parašė kiberpanko klasiką „Neuromancer“?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "psycho_1960_director_hitchcock",
+          "question": "Kas režisavo 1960 m. filmą „Psycho“?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "the_road_author_cormac_mccarthy",
+          "question": "Kas parašė postapokaliptinį romaną „The Road“?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "12_angry_men_director_sidney_lumet",
+          "question": "Kas režisavo 1957 m. filmą „12 Angry Men“?"
+        }
+      ]
     }
   ]
 }
