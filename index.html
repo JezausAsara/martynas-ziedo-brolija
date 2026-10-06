@@ -782,7 +782,7 @@
         <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Kiekviename pilnai užfiksuotame Fantasy ture turi 3 bandymus įveikti dabartinį priešą. Išnaudojus visus 3, nauji bandymai atsiranda tik kitame pilname ture. Pralaimėjus FPTS ir daiktai neprarandami.</div>
         <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Lygos TOP 3 gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą – prie jo pridedamas papildomas d6. Panaudojus bonusas tame ture dingsta.</div>
         <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės ir visiems žaidėjams yra vienodo stiprumo. Fantasy rezultatai suteikia progresą, tačiau priešai prie žaidėjo nesiscale'ina.</div>
-        <div class='rpgRuleCard'><b>🌳 Skill Tree</b><br>Skill Tree atsirakina įveikus Enemy #3. +1 Skill Point gaunamas kas 3 priešus ir papildomai po bosų #10, #19, #29 ir #38; jei bosas sutampa su x3 – gaunami +2 SP. Skillai nemokami, bet reikia eiti pasirinktos šakos keliu. RESET SKILLS kainuoja 30 Available FPTS ir galimas tik ne kovos metu.</div>
+        <div class='rpgRuleCard'><b>🌳 Skill Tree</b><br>Skill Tree atsirakina įveikus Enemy #3. +1 Skill Point gaunamas kas 3 priešus ir papildomai po bosų #10, #19, #29 ir #38; jei keli SP šaltiniai sutampa, taškai sumuojasi. Specialūs kampanijos rewardai taip pat gali suteikti bonus SP – Enemy #4 duoda +1 SP. Skillai nemokami, bet reikia eiti pasirinktos šakos keliu. RESET SKILLS kainuoja 30 Available FPTS ir galimas tik ne kovos metu.</div>
         <div class='rpgRuleCard'><b>🗡️ Ginklai ir jų grade</b><br>STR ginklams reikia STR, DEX ginklams – DEX; finesse ginklai gali naudoti tinkamesnį iš jų. Normalus ginklas – nuo STAT 10, +1 – nuo 14, +2 – nuo 16, +3 – nuo 18. Aukštesni grade'ai taip pat atsirakina tik vėlesniuose kampanijos etapuose.</div>
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
@@ -1238,7 +1238,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   };
   function nextSkillMilestone(defeated){
     for(let r=Number(defeated||0)+1;r<=38;r++){
-      const pts=((r%3===0&&r<=36)?1:0)+([10,19,29,38].includes(r)?1:0);
+      const pts=((r%3===0&&r<=36)?1:0)+([10,19,29,38].includes(r)?1:0)+(r===4?1:0);
       if(pts)return {round:r,points:pts};
     }
     return null;
