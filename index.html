@@ -389,7 +389,7 @@
 @media(max-width:650px){.quizRewardLegend{grid-template-columns:1fr}.quizRewardLegend>small{grid-column:1}.journeyEnemyHtmlStats{grid-template-columns:repeat(5,1fr)}}
 </style>
 <style id="enemy4ParisTemplate">
-/* Enemy #4 follows the Enemy #3 master-card footprint: one 2:3 card + reward footer. */
+/* Enemy #4 = Enemy #3 master-card layout. Only artwork/content differ. */
 .journeyCardVisual-e4{
   aspect-ratio:2/3;
   display:grid;
@@ -473,45 +473,93 @@
   letter-spacing:.07em;
   text-transform:uppercase;
 }
+
+/* EXACT Enemy #3-style stat row: five equal ornamental squares */
 .journeyE4Stats{
   display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:4px;
-  padding:7px 8px;
-  background:#070a0c;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:5px;
+  padding:6px 8px;
+  align-items:center;
+  background:
+    linear-gradient(90deg,#050708,#0a0d10 50%,#050708);
+  border-top:1px solid #181d20;
   border-bottom:1px solid #4b4232;
 }
 .journeyE4Stat{
+  position:relative;
   min-width:0;
+  width:100%;
+  aspect-ratio:1/1;
   display:grid;
+  grid-template-rows:auto 1fr auto;
   place-items:center;
   align-content:center;
-  border:1px solid #394146;
-  border-radius:5px;
-  background:linear-gradient(180deg,#101518,#080b0d);
-  box-shadow:inset 0 0 10px #0009;
+  padding:5px 2px 4px;
+  border:1px solid #665b4c;
+  border-radius:3px;
+  background:
+    radial-gradient(circle at 50% 48%,#182027 0,#0b1014 56%,#050709 100%);
+  box-shadow:
+    inset 0 0 0 2px #0d1114,
+    inset 0 0 0 3px #2d3336,
+    inset 0 0 18px #000,
+    0 1px 0 #8c7a6033;
   text-align:center;
+  overflow:hidden;
+}
+.journeyE4Stat:before{
+  content:'';
+  position:absolute;
+  inset:4px;
+  pointer-events:none;
+  border:1px solid #3e4446;
+  clip-path:polygon(0 10%,10% 0,90% 0,100% 10%,100% 90%,90% 100%,10% 100%,0 90%);
+}
+.journeyE4Stat:after{
+  content:'✦';
+  position:absolute;
+  left:50%;
+  bottom:-5px;
+  transform:translateX(-50%);
+  color:#8a7657;
+  font-size:8px;
+  text-shadow:0 0 4px #000;
 }
 .journeyE4Stat small{
-  color:#d5d7d5;
-  font:700 7px Arial,sans-serif;
-  letter-spacing:.03em;
+  position:relative;
+  z-index:1;
+  color:#ece7dd;
+  font:700 7px/1 Arial,sans-serif;
+  letter-spacing:.025em;
+  text-transform:none;
 }
 .journeyE4Stat i{
-  display:block;
-  margin:1px 0 0;
-  color:#d3c6a4;
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  margin:1px 0;
+  min-height:14px;
+  color:#d7d2c8;
   font-style:normal;
-  font-size:12px;
+  font-size:13px;
   line-height:1;
+  filter:drop-shadow(0 0 3px #000);
 }
-.journeyE4Stat.hp i{color:#e34845}.journeyE4Stat.dmg i{color:#f06b3f}.journeyE4Stat.ac i{color:#b9d0dc}
+.journeyE4Stat.hp i{color:#e94b49;text-shadow:0 0 6px #a31d1d}
+.journeyE4Stat.ac i{color:#d3dde3}
+.journeyE4Stat.dmg i{color:#ff7048;text-shadow:0 0 6px #bd321e}
 .journeyE4Stat b{
+  position:relative;
+  z-index:1;
   display:block;
-  margin-top:1px;
-  color:#f0eee8;
-  font:700 13px/1 Georgia,"Times New Roman",serif;
+  color:#f5f0e8;
+  font:700 14px/.95 Georgia,"Times New Roman",serif;
+  text-shadow:0 1px 2px #000;
+  white-space:nowrap;
 }
+
 .journeyE4Skills{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -529,6 +577,7 @@
   border-radius:5px;
   background:linear-gradient(180deg,#0d1215,#080b0d);
   overflow:hidden;
+  box-shadow:inset 0 0 0 1px #11181b,inset 0 0 12px #0008;
 }
 .journeyE4Skill b{
   display:block;
@@ -545,10 +594,15 @@
   font:7px/1.15 Arial,sans-serif;
 }
 .journeyE4Skill .ico{margin-right:3px;font-style:normal}
+
 @media(max-width:650px){
   .journeyE4Title strong{font-size:17px}
-  .journeyE4Stat small{font-size:7.5px}.journeyE4Stat b{font-size:14px}
-  .journeyE4Skill b{font-size:8px}.journeyE4Skill span{font-size:7.5px}
+  .journeyE4Stats{gap:4px;padding:6px 7px}
+  .journeyE4Stat small{font-size:7px}
+  .journeyE4Stat i{font-size:13px}
+  .journeyE4Stat b{font-size:14px}
+  .journeyE4Skill b{font-size:8px}
+  .journeyE4Skill span{font-size:7.5px}
 }
 </style>
 </head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
