@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "timezone": "Europe/Vilnius",
+  "note": "Svetainė aktyvų kvizą parenka pagal Lietuvos kalendorinę datą. Kitos dienos įrašas paruošiamas iš anksto.",
+  "days": [
+    {
+      "date": "2026-10-06",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas laimėjo 2010 m. Eurolygos finalą Paryžiuje, finale įveikęs „Olympiacos“?",
+          "a": [
+            "Barcelona",
+            "CSKA Moscow",
+            "Panathinaikos",
+            "Maccabi Tel Aviv"
+          ],
+          "x": 0
+        },
+        {
+          "c": "NBA",
+          "q": "Kas 2015–16 m. tapo pirmuoju vienbalsiai išrinktu NBA reguliariojo sezono MVP?",
+          "a": [
+            "LeBron James",
+            "Stephen Curry",
+            "Kevin Durant",
+            "Kawhi Leonard"
+          ],
+          "x": 1
+        },
+        {
+          "c": "F1",
+          "q": "Kas tapo 2007 m. Formulės 1 pasaulio čempionu, titulą iškovojęs paskutinėse sezono lenktynėse?",
+          "a": [
+            "Fernando Alonso",
+            "Lewis Hamilton",
+            "Kimi Räikkönen",
+            "Felipe Massa"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 1988 m. laimėjo vienintelį teniso „Golden Slam“ – visus keturis „Grand Slam“ ir olimpinį auksą tais pačiais metais?",
+          "a": [
+            "Martina Navratilova",
+            "Steffi Graf",
+            "Chris Evert",
+            "Monica Seles"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kurią komandą „Liverpool“ įveikė po baudinių legendiniame 2005 m. Čempionų lygos finale Stambule?",
+          "a": [
+            "Juventus",
+            "Chelsea",
+            "AC Milan",
+            "Real Madrid"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kuris Tolkieno veikėjas buvo Saurono valdovas ir pirmasis Tamsos Valdovas?",
+          "a": [
+            "Sarumanas",
+            "Morgothas",
+            "Ungoliantė",
+            "Gothmogas"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė originaliąją „Foundation“ („Fondo“) romanų seriją?",
+          "a": [
+            "Arthur C. Clarke",
+            "Isaac Asimov",
+            "Philip K. Dick",
+            "Robert A. Heinlein"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas režisavo 1968 m. siaubo klasiką „Rosemary's Baby“?",
+          "a": [
+            "George A. Romero",
+            "Roman Polanski",
+            "William Friedkin",
+            "John Carpenter"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „The Name of the Rose“ („Rožės vardas“)?",
+          "a": [
+            "Italo Calvino",
+            "Umberto Eco",
+            "Milan Kundera",
+            "Jorge Luis Borges"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1954 m. filmą „Seven Samurai“?",
+          "a": [
+            "Yasujirō Ozu",
+            "Kenji Mizoguchi",
+            "Akira Kurosawa",
+            "Masaki Kobayashi"
+          ],
+          "x": 2
+        }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas 2017 m. pirmą kartą istorijoje tapo Eurolygos čempionu, finale Stambule įveikęs „Olympiacos“?",
+          "a": [
+            "Fenerbahçe",
+            "Anadolu Efes",
+            "Real Madrid",
+            "CSKA Moscow"
+          ],
+          "x": 0
+        },
+        {
+          "c": "NBA",
+          "q": "Kuri komanda 1996 m. NBA naujokų biržoje pasirinko Kobe Bryantą prieš iškeisdama jį į „Lakers“?",
+          "a": [
+            "Philadelphia 76ers",
+            "Charlotte Hornets",
+            "Boston Celtics",
+            "Phoenix Suns"
+          ],
+          "x": 1
+        },
+        {
+          "c": "F1",
+          "q": "Kas 1982 m. tapo pirmuoju Suomijos Formulės 1 pasaulio čempionu?",
+          "a": [
+            "Mika Häkkinen",
+            "Kimi Räikkönen",
+            "Keke Rosberg",
+            "Heikki Kovalainen"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 1985 m., būdamas 17 metų, tapo jauniausiu Vimbldono vyrų vienetų čempionu?",
+          "a": [
+            "Boris Becker",
+            "Björn Borg",
+            "Pete Sampras",
+            "Stefan Edberg"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kurią rinktinę Prancūzija įveikė 3:0 1998 m. pasaulio čempionato finale?",
+          "a": [
+            "Italiją",
+            "Braziliją",
+            "Vokietiją",
+            "Nyderlandus"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kokia kalba užrašytas užrašas ant Vieno Žiedo Tolkieno pasaulyje?",
+          "a": [
+            "Sindarinų",
+            "Quenya",
+            "Juodąja Mordoro kalba",
+            "Khuzdul"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė kiberpanko klasiką „Neuromancer“?",
+          "a": [
+            "Neal Stephenson",
+            "William Gibson",
+            "Bruce Sterling",
+            "Iain M. Banks"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas režisavo 1960 m. filmą „Psycho“?",
+          "a": [
+            "Alfred Hitchcock",
+            "Stanley Kubrick",
+            "Brian De Palma",
+            "Robert Wise"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė postapokaliptinį romaną „The Road“?",
+          "a": [
+            "Cormac McCarthy",
+            "Don DeLillo",
+            "Kazuo Ishiguro",
+            "John Steinbeck"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1957 m. filmą „12 Angry Men“?",
+          "a": [
+            "Billy Wilder",
+            "Elia Kazan",
+            "Sidney Lumet",
+            "Otto Preminger"
+          ],
+          "x": 2
+        }
+      ]
+    }
+  ]
+}
