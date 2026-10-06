@@ -2105,7 +2105,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     1:{name:"Raudonosios Žvaigždės Legionierius",team:"Crvena Zvezda",image:"assets/rpg/enemy1-legionierius.webp?v=hq768-3",hp:52,ac:11,atk:"+1",dmg:"1d6+1",init:"+0",special:"Raudonosios žvaigždės įniršis: žemiau 50% HP kitai atakai +2.",drop:"1 garantuotas random Enemy #1 itemas."},
     2:{name:"Pirėjo Jūrų Titanas",team:"Olympiacos",image:"assets/rpg/enemy2-olympiakos.webp?v=hq512-1",hp:64,ac:12,atk:"+2",dmg:"1d8+2",init:"+1",special:"Bangų rūstybė: pirmą kartą nukritęs žemiau 50% HP, kitam smūgiui prideda +1d6 žalos.",drop:"Titano Trišakis · Rare · +1 Attack · STR 12 · d10 žalos kauliukas."},
     3:{name:"Paryžiaus Krepšinio Fantomas",team:"Paris Basketball",image:"assets/rpg/enemy3-paris.webp?v=hq512-1",hp:72,ac:13,atk:"+3",dmg:"1d10+2",init:"+2",special:"Šešėlių šuolis: kartą per kovą išvengia vieno smūgio.",dropEpic:false,drop:"1 garantuotas dropas: Rare 15% · Fantomo Antspaudas (+1 Attack, +1 Damage, universalus) | Uncommon 35% · Paryžiaus Šešėlių Kaukė (+1 Initiative) | Common 50% · Seinos Laimės Žetonas (+4 Max HP)"},
-    4:{name:"Palau Blaugranos Katedros Sargas",team:"FC Barcelona",image:"assets/rpg/enemy4-barcelona.webp?v=hq512-1",hp:75,ac:12,atk:"+2",dmg:"1d8",init:"+2",special:"Katedros Apsauga: pirmus 2 kovos ratus AC +3. Blaugranos Vienybė: žemiau 50% HP vieną kartą atstato 20% HP ir 2 ėjimams gauna +2 Damage. Palau Dvasia: kas 3 ratą pataikęs smūgis gauna +1d4 Damage. Ilga Tradicija: kas 3 kovos ratus Attack padidėja +1.",dropEpic:true,drop:"LEGENDARY · Auksinis Palau Relikvijorius · +1 AC · +1 Initiative · papildomai +1 Skill Point · FPTS nesuteikiami."}
+    4:{name:"Els Blaugrana",subtitle:"Katalonijos pasididžiavimas",team:"FC Barcelona",image:"assets/rpg/enemy4-barcelona.webp?v=els-blaugrana-v1",hp:75,ac:12,atk:"+2",dmg:"1d8",init:"+2",special:"Katedros Apsauga: pirmus 2 kovos ratus AC +3. Blaugranos Vienybė: žemiau 50% HP vieną kartą atstato 20% HP ir 2 ėjimams gauna +2 Damage. Palau Dvasia: kas 3 ratą pataikęs smūgis gauna +1d4 Damage. Ilga Tradicija: kas 3 kovos ratus Attack padidėja +1.",dropEpic:true,drop:"LEGENDARY · Auksinis Palau Relikvijorius · +1 AC · +1 Initiative · papildomai +1 Skill Point · FPTS nesuteikiami."}
   };
   const avatarByTeam={};
   players.forEach(p=>avatarByTeam[p.team]=p.avatar);
@@ -2174,17 +2174,18 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const atk=Number(raw.attack_bonus||0);
       const init=Number(raw.initiative_bonus||0);
       return {
-        name:raw.name,
+        name:enemyNo===4?enemyData[4].name:raw.name,
+        subtitle:enemyNo===4?enemyData[4].subtitle:"",
         team:raw.team_name,
-        image:raw.image_path||enemyData[enemyNo]?.image||"",
+        image:enemyNo===4?enemyData[4].image:(raw.image_path||enemyData[enemyNo]?.image||""),
         hp:Number(raw.hp),
         ac:Number(raw.ac),
         atk:(atk>=0?"+":"")+atk,
         dmg:String(raw.damage_die||"d8")+(mod===0?"":(mod>0?"+":"")+mod),
         init:(init>=0?"+":"")+init,
         special:(raw.special_name?raw.special_name+": ":"")+(raw.special_description||""),
-        drop:raw.drop_description||"—",
-        dropEpic:/EPIC|LEGENDARY/i.test(String(raw.drop_description||""))
+        drop:enemyNo===4?enemyData[4].drop:(raw.drop_description||"—"),
+        dropEpic:enemyNo===4?true:/EPIC|LEGENDARY/i.test(String(raw.drop_description||""))
       };
     }
     return enemyData[enemyNo]||null;
@@ -2213,7 +2214,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const art=(enemyNo===4&&d.image)?
       "<div class='journeyCardVisual journeyCardVisual-e4'>"+
         "<div class='journeyE4Art'><img src='"+d.image+"' alt='"+d.name+"' onerror=\"this.closest('.journeyCardVisual').classList.add('broken');this.remove()\"></div>"+
-        "<div class='journeyE4Title'><strong>"+d.name+"</strong><span>Priešas #4</span></div>"+
+        "<div class='journeyE4Title'><strong>"+d.name+"</strong><span>"+(d.subtitle||"Katalonijos pasididžiavimas")+" · Priešas #4</span></div>"+
         "<div class='journeyE4Stats'>"+
           "<span class='journeyE4Stat hp'><small>HP</small><i>♥</i><b>"+d.hp+"</b></span>"+
           "<span class='journeyE4Stat ac'><small>AC</small><i>⬟</i><b>"+d.ac+"</b></span>"+
@@ -2234,7 +2235,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       "</div>";
 
     const combatSummary="";
-    const dropPanel=(enemyNo===3||enemyNo===4)&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(enemyNo===4?"👑 LEGENDARY REWARD":d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
+    const dropPanel=(enemyNo===3||enemyNo===4)&&d.drop?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(enemyNo===4?"👑 LEGENDARY REWARD · +1 SKILL POINT":d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
     return "<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>"+
       art+
       combatSummary+
