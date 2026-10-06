@@ -999,19 +999,31 @@ const seasonPct=currentRound/totalRounds*100;document.querySelector('#journeyRou
 const minFpts=Math.min(...players.map(p=>p.fpts)),maxFpts=Math.max(...players.map(p=>p.fpts));const stage=5+((currentRound-1)/(totalRounds-1))*90;document.querySelector('#travelers').innerHTML=players.map((p,i)=>{const norm=maxFpts===minFpts?0.5:(p.fpts-minFpts)/(maxFpts-minFpts);const spread=(norm-.5)*8;const left=Math.max(2,Math.min(98,stage+spread));const top=188+(i%3)*40;return `<div class='traveler' style='left:${left}%;top:${top}px' title='${i+1} vieta · ${p.fpts.toFixed(2)} FPTS'><span class='avatar av-${p.avatar}'></span><label>#${i+1} ${p.owner}</label></div>`}).join('');
 document.querySelector('#chronicle').innerHTML=chronicleEntries.slice().reverse().map(e=>`<article class='chronicleEntry' data-round='${e.round}'><h4>${e.title}</h4><p>${e.text}</p><span class='chapterTag'>${e.chapter}</span></article>`).join('');
 
-const quizDate='2026-10-03';
-const todayQuiz=[
-{c:'EuroLeague',q:'Kuris 1999 m. Eurolygos čempionas su „Žalgiriu“ prieš tai buvo laimėjęs ir 1995 m. NCAA titulą su UCLA?',a:['Tyus Edney','Jiri Zidek','Anthony Bowie','Tomas Masiulis'],x:1},
-{c:'NBA',q:'Kas buvo pripažintas 2011 m. NBA finalo MVP, kai „Mavericks“ įveikė „Heat“?',a:['Jason Kidd','Jason Terry','Dirk Nowitzki','Shawn Marion'],x:2},
-{c:'F1',q:'Kas 2010 m. tapo jauniausiu F1 pasaulio čempionu istorijoje?',a:['Lewis Hamilton','Fernando Alonso','Max Verstappen','Sebastian Vettel'],x:3},
-{c:'Tenisas',q:'Kas laimėjo rekordinį 11 val. 5 min. trukusį Isnerio–Mahut mačą 2010 m. Vimbldone?',a:['John Isner','Nicolas Mahut','Andy Roddick','Jo-Wilfried Tsonga'],x:0},
-{c:'Futbolas',q:'Kurią komandą „Manchester United“ įveikė 2:1 dramatiškame 1999 m. Čempionų lygos finale?',a:['Juventus','Barcelona','Bayern München','Real Madrid'],x:2},
-{c:'Fantasy',q:'Kuris elfų kalvis Tolkieno pasaulyje sukūrė tris elfų Galios Žiedus?',a:['Fëanoras','Celebrimboras','Glorfindelis','Eölis'],x:1},
-{c:'Sci-Fi',q:'Kuris romanas tapo pagrindiniu 1982 m. filmo „Blade Runner“ literatūriniu šaltiniu?',a:['Ubik','Neuromancer','Do Androids Dream of Electric Sheep?','The Stars My Destination'],x:2},
-{c:'Siaubas',q:'Kuris iš keturių „The Haunting of Hill House“ svečių yra būsimas Hill House paveldėtojas?',a:['Luke','Dr. Montague','Theodora','Eleanor'],x:0},
-{c:'Kino klasika',q:'Kas režisavo 1968 m. kino klasiką „2001: A Space Odyssey“?',a:['Stanley Kubrick','Ridley Scott','Robert Wise','Andrei Tarkovsky'],x:0},
-{c:'Sci-Fi',q:'Kuriame Stanisławo Lemo romane mokslininkai mėgina iššifruoti galimą nežemiškos kilmės signalą?',a:['The Invincible','Return from the Stars','His Master’s Voice','Memoirs of a Space Traveler'],x:2}
-];
+const QUIZ_TZ='Europe/Vilnius';
+let quizDate='';
+let todayQuiz=[];
+function lithuaniaDateKey(d=new Date()){
+  const parts=new Intl.DateTimeFormat('en-GB',{timeZone:QUIZ_TZ,year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d);
+  const get=t=>parts.find(p=>p.type===t)?.value||'';
+  return get('year')+'-'+get('month')+'-'+get('day');
+}
+async function loadDailyQuiz(){
+  quizDate=lithuaniaDateKey();
+  try{
+    const res=await fetch('quiz-daily.json?v='+encodeURIComponent(quizDate),{cache:'no-store'});
+    if(!res.ok)throw new Error('HTTP '+res.status);
+    const payload=await res.json();
+    const day=(payload.days||[]).find(d=>d.date===quizDate);
+    if(!day||!Array.isArray(day.questions)||day.questions.length!==10)throw new Error('Šios dienos kvizas dar neparuoštas');
+    todayQuiz=day.questions;
+    qanswers=Array(10).fill(-1);
+    return true;
+  }catch(err){
+    console.error('Daily quiz load failed',err);
+    todayQuiz=[];
+    return false;
+  }
+}
 let qi=0,qscore=0,qanswered=false;
 let qanswers=Array(10).fill(-1);
 let qtimer=null,qtimeLeft=15;
@@ -1027,7 +1039,7 @@ function renderQuiz(){clearQuizTimer();const done=(qstore.history||[]).find(h=>h
 function answerQuiz(i,timedOut){if(qanswered)return;qanswered=true;clearQuizTimer();qanswers[qi]=Number.isInteger(i)?i:-1;const q=todayQuiz[qi];if(i===q.x)qscore++;document.querySelectorAll('.quizAnswer').forEach((b,j)=>{b.disabled=true;if(j===q.x)b.classList.add('correct');else if(j===i)b.classList.add('wrong')});const msg=timedOut?'⏱️ Laikas baigėsi.':'Atsakymas užfiksuotas.';document.querySelector('#quizExplain').innerHTML='<div class="quizExplain">'+msg+'</div><button class="quizNext">'+(qi===9?'Baigti kvizą':'Kitas klausimas')+'</button>';document.querySelector('.quizNext').onclick=()=>{qi++;qanswered=false;if(qi>=10)finishQuiz();else renderQuiz()}}
 async function claimQuizReward(done){
   const sb=window.rpgSupabase;
-  if(!sb){alert("Prisijunk prie savo RPG personažo ir bandyk dar kartą.");return}
+  if(!sb){renderQuiz();return}
   if(!Array.isArray(done.answers)||done.answers.length!==10){alert("Šiam senam kvizo rezultatui serverinio rewardo priskirti negalima.");return}
   const {data,error}=await sb.rpc("rpg_submit_quiz",{p_quiz_date:done.date,p_answers:done.answers});
   if(error){alert(error.message||"Rewardo atsiimti nepavyko.");return}
@@ -1037,9 +1049,9 @@ async function claimQuizReward(done){
   if(window.renderRpgSheet)await window.renderRpgSheet();
 }
 async function finishQuiz(){clearQuizTimer();const hist=qstore.history||[];const entry={date:quizDate,score:qscore,answers:[...qanswers]};hist.push(entry);qstore.history=hist;qstore.best=Math.max(qstore.best||0,qscore);const y=new Date();y.setDate(y.getDate()-1);const yd=y.toISOString().slice(0,10);qstore.streak=(qstore.lastDate===yd?(qstore.streak||0)+1:1);qstore.lastDate=quizDate;saveQuiz();if(qscore>=8)await claimQuizReward(entry);else renderQuiz()}
-renderQuiz();updateQuizStats();
+async function bootDailyQuiz(){updateQuizStats();const ok=await loadDailyQuiz();if(ok){renderQuiz()}else{document.querySelector('#quizBar').style.width='0%';document.querySelector('#quizArea').innerHTML='<div class="quizCard quizResult"><span>Dienos kvizas</span><strong>—</strong><p>Šios dienos kvizas dar ruošiamas. Pabandyk perkrauti puslapį po kelių minučių.</p></div>'}}bootDailyQuiz();setInterval(()=>{if(quizDate&&lithuaniaDateKey()!==quizDate)location.reload()},30000);
 
-document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active');if(b.dataset.tab==='journey'&&window.refreshJourneyDashboard)window.refreshJourneyDashboard();if(b.dataset.tab==='quiz'&&!qanswered&&!qtimer&&!(qstore.history||[]).find(h=>h.date===quizDate))startQuizTimer();});
+document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button').forEach(x=>x.classList.remove('active'));b.classList.add('active');document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));document.querySelector('#'+b.dataset.tab).classList.add('active');if(b.dataset.tab==='journey'&&window.refreshJourneyDashboard)window.refreshJourneyDashboard();if(b.dataset.tab==='quiz'&&todayQuiz.length===10&&!qanswered&&!qtimer&&!(qstore.history||[]).find(h=>h.date===quizDate))startQuizTimer();});
 </script>
 <!-- RPG ACCOUNT / SUPABASE AUTH -->
 <style>
