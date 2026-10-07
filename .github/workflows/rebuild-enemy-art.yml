@@ -20,8 +20,8 @@ jobs:
           e3=(assets/rpg/hq-source/e3-*.txt)
           e4=(assets/rpg/hq-source/e4-*.txt)
           f1=(assets/rpg/hq-source/f1-*.txt)
-          if [ "${#e1[@]}" -ne 14 ] || [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ] || [ "${#e4[@]}" -ne 14 ] || [ "${#f1[@]}" -ne 4 ]; then
-            echo "Waiting for all HQ chunks: e1=${#e1[@]}/14 e2=${#e2[@]}/17 e3=${#e3[@]}/15 e4=${#e4[@]}/14 f1=${#f1[@]}/4"
+          if [ "${#e1[@]}" -ne 14 ] || [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ] || [ "${#e4[@]}" -ne 14 ] || [ "${#f1[@]}" -ne 1 ]; then
+            echo "Waiting for all HQ chunks: e1=${#e1[@]}/14 e2=${#e2[@]}/17 e3=${#e3[@]}/15 e4=${#e4[@]}/14 f1=${#f1[@]}/1"
             exit 0
           fi
           cat "${e1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy1-legionierius.webp
