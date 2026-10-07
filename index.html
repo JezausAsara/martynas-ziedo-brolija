@@ -389,22 +389,48 @@
 @media(max-width:650px){.quizRewardLegend{grid-template-columns:1fr}.quizRewardLegend>small{grid-column:1}.journeyEnemyHtmlStats{grid-template-columns:repeat(5,1fr)}}
 </style>
 <style id="enemy4ParisTemplate">
-/* Enemy #4 = Enemy #3 master-card layout. Only artwork/content differ. */
+/* Enemy #4 uses Enemy #3 as the locked MASTER TEMPLATE.
+   Same 2:3 card, same title band, same 5 square stats, same single special-skill panel.
+   Only artwork, values, skills and reward differ. */
 .journeyCardVisual-e4{
   aspect-ratio:2/3;
   display:grid;
-  grid-template-rows:54% 12% 14% 20%;
-  background:
-    radial-gradient(circle at 50% 18%,#223038 0,transparent 38%),
-    linear-gradient(180deg,#0b0f12,#050708);
-  border-bottom:1px solid #393127;
-  box-shadow:inset 0 0 0 1px #171d20,inset 0 0 28px #000;
+  grid-template-rows:62% 10% 14% 14%;
+  background:#050708;
+  border:1px solid #655a4b;
+  box-shadow:
+    inset 0 0 0 2px #0a0e11,
+    inset 0 0 0 4px #2d3132,
+    inset 0 0 28px #000,
+    0 5px 22px #0008;
+  overflow:hidden;
+  position:relative;
+}
+.journeyCardVisual-e4:before{
+  content:'';
+  position:absolute;
+  inset:5px;
+  z-index:20;
+  pointer-events:none;
+  border:1px solid #756852aa;
+  clip-path:polygon(0 18px,18px 0,calc(100% - 18px) 0,100% 18px,100% calc(100% - 18px),calc(100% - 18px) 100%,18px 100%,0 calc(100% - 18px));
+}
+.journeyCardVisual-e4:after{
+  content:'✦';
+  position:absolute;
+  z-index:21;
+  left:50%;
+  bottom:-7px;
+  transform:translateX(-50%);
+  color:#a58c65;
+  font-size:16px;
+  text-shadow:0 0 8px #000;
 }
 .journeyE4Art{
   position:relative;
   overflow:hidden;
   background:#080b0d;
-  border-bottom:1px solid #766039;
+  border-bottom:2px solid #6c5b42;
 }
 .journeyE4Art img{
   display:block;
@@ -412,17 +438,15 @@
   height:100%;
   object-fit:cover;
   object-position:center top;
-  transform:scale(1.01);
 }
 .journeyE4Art:before{
   content:'';
   position:absolute;
-  inset:6px;
+  inset:7px;
   z-index:2;
   pointer-events:none;
-  border:1px solid #76684e;
-  border-radius:3px;
-  box-shadow:inset 0 0 0 1px #11191d,0 0 18px #0009;
+  border:1px solid #82745d;
+  box-shadow:inset 0 0 0 2px #101518,0 0 15px #000b;
 }
 .journeyE4Art:after{
   content:'';
@@ -431,60 +455,68 @@
   z-index:1;
   pointer-events:none;
   background:
-    linear-gradient(180deg,transparent 64%,#050708 100%),
-    linear-gradient(90deg,#02030466,transparent 13%,transparent 87%,#02030466);
+    linear-gradient(180deg,transparent 66%,#050708 100%),
+    linear-gradient(90deg,#02030488,transparent 10%,transparent 90%,#02030488);
 }
 .journeyE4Title{
   position:relative;
   display:grid;
   place-items:center;
   align-content:center;
-  padding:5px 12px;
+  padding:4px 32px;
   text-align:center;
-  background:linear-gradient(180deg,#0e1113,#07090b);
-  border-top:1px solid #222b2f;
-  border-bottom:1px solid #5f5037;
-  box-shadow:inset 0 0 20px #000a;
+  background:
+    linear-gradient(90deg,#06080a,#111417 18%,#0b0d10 50%,#111417 82%,#06080a);
+  border-top:1px solid #211f1b;
+  border-bottom:2px solid #6a5941;
+  box-shadow:inset 0 0 22px #000b;
 }
 .journeyE4Title:before,.journeyE4Title:after{
-  content:'✦';
+  content:'◆';
   position:absolute;
   top:50%;
   transform:translateY(-50%);
-  color:#917448;
-  font-size:10px;
+  color:#967d59;
+  font-size:12px;
 }
-.journeyE4Title:before{left:7px}.journeyE4Title:after{right:7px}
+.journeyE4Title:before{left:12px}.journeyE4Title:after{right:12px}
 .journeyE4Title strong{
-  color:#f0eee7;
-  font:700 16px/1.03 Georgia,"Times New Roman",serif;
-  text-shadow:0 1px 2px #000,0 0 8px #d7c9a322;
-  max-width:94%;
+  display:block;
+  color:#f3efe5;
+  font:700 clamp(21px,3.2vw,31px)/1 Georgia,"Times New Roman",serif;
+  text-shadow:0 2px 3px #000,0 0 8px #d9c99b22;
+  white-space:nowrap;
 }
-.journeyE4Title span{
+.journeyE4Title .journeyE4Subtitle{
+  display:block;
+  margin-top:3px;
+  color:#b7aa8d;
+  font:italic 8px/1 Georgia,"Times New Roman",serif;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.journeyE4Title .journeyE4EnemyNo{
   display:inline-block;
   margin-top:4px;
-  padding:2px 10px;
-  border:1px solid #6d2f29;
+  padding:2px 12px 2px;
+  border:1px solid #69342f;
   border-radius:999px;
-  color:#d8d5cc;
-  background:#100b0b;
-  font:700 8px Arial,sans-serif;
-  letter-spacing:.07em;
+  color:#ddd6c8;
+  background:#100b0c;
+  font:700 8px/1 Arial,sans-serif;
+  letter-spacing:.06em;
   text-transform:uppercase;
 }
 
-/* EXACT Enemy #3-style stat row: five equal ornamental squares */
+/* 1:1 with Enemy #3 logic: five equal ornamental SQUARES */
 .journeyE4Stats{
   display:grid;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:5px;
-  padding:6px 8px;
+  padding:7px 8px;
   align-items:center;
-  background:
-    linear-gradient(90deg,#050708,#0a0d10 50%,#050708);
-  border-top:1px solid #181d20;
-  border-bottom:1px solid #4b4232;
+  background:#05080a;
+  border-bottom:1px solid #675a44;
 }
 .journeyE4Stat{
   position:relative;
@@ -495,94 +527,134 @@
   grid-template-rows:auto 1fr auto;
   place-items:center;
   align-content:center;
-  padding:5px 2px 4px;
-  border:1px solid #665b4c;
-  border-radius:3px;
+  padding:5px 2px 5px;
+  border:1px solid #6f6251;
+  border-radius:2px;
   background:
-    radial-gradient(circle at 50% 48%,#182027 0,#0b1014 56%,#050709 100%);
+    radial-gradient(circle at 50% 48%,#182027 0,#0b1014 58%,#040608 100%);
   box-shadow:
-    inset 0 0 0 2px #0d1114,
-    inset 0 0 0 3px #2d3336,
-    inset 0 0 18px #000,
-    0 1px 0 #8c7a6033;
-  text-align:center;
+    inset 0 0 0 2px #090d10,
+    inset 0 0 0 4px #2f3436,
+    inset 0 0 17px #000,
+    0 1px 0 #8b7a6238;
   overflow:hidden;
 }
 .journeyE4Stat:before{
   content:'';
   position:absolute;
-  inset:4px;
+  inset:5px;
+  border:1px solid #444a4c;
+  clip-path:polygon(0 9%,9% 0,91% 0,100% 9%,100% 91%,91% 100%,9% 100%,0 91%);
   pointer-events:none;
-  border:1px solid #3e4446;
-  clip-path:polygon(0 10%,10% 0,90% 0,100% 10%,100% 90%,90% 100%,10% 100%,0 90%);
 }
 .journeyE4Stat:after{
-  content:'✦';
+  content:'◆';
   position:absolute;
   left:50%;
-  bottom:-5px;
-  transform:translateX(-50%);
-  color:#8a7657;
+  top:-5px;
+  transform:translateX(-50%) scaleX(.7);
+  color:#78694f;
   font-size:8px;
-  text-shadow:0 0 4px #000;
 }
 .journeyE4Stat small{
   position:relative;
   z-index:1;
-  color:#ece7dd;
-  font:700 7px/1 Arial,sans-serif;
-  letter-spacing:.025em;
-  text-transform:none;
+  color:#e2dfd8;
+  font:700 8px/1 Arial,sans-serif;
 }
 .journeyE4Stat i{
   position:relative;
   z-index:1;
   display:grid;
   place-items:center;
-  margin:1px 0;
-  min-height:14px;
-  color:#d7d2c8;
+  min-height:19px;
+  margin:2px 0 1px;
+  color:#d8d3c9;
   font-style:normal;
-  font-size:13px;
+  font-size:18px;
   line-height:1;
   filter:drop-shadow(0 0 3px #000);
 }
-.journeyE4Stat.hp i{color:#e94b49;text-shadow:0 0 6px #a31d1d}
-.journeyE4Stat.ac i{color:#d3dde3}
-.journeyE4Stat.dmg i{color:#ff7048;text-shadow:0 0 6px #bd321e}
+.journeyE4Stat.hp i{color:#ed4a48;text-shadow:0 0 7px #af1f1f}
+.journeyE4Stat.ac i{color:#dbe4e9}
+.journeyE4Stat.dmg i{color:#ff6840;text-shadow:0 0 7px #b9311b}
 .journeyE4Stat b{
   position:relative;
   z-index:1;
   display:block;
-  color:#f5f0e8;
-  font:700 14px/.95 Georgia,"Times New Roman",serif;
+  color:#f5f0e7;
+  font:700 clamp(15px,2.7vw,22px)/.95 Georgia,"Times New Roman",serif;
   text-shadow:0 1px 2px #000;
   white-space:nowrap;
 }
 
+/* Same ONE special panel as Enemy #3. Enemy #4's four skills live inside it. */
+.journeyE4SpecialPanel{
+  margin:7px 9px 9px;
+  min-height:0;
+  display:grid;
+  grid-template-columns:72px 1fr;
+  gap:8px;
+  align-items:stretch;
+  padding:7px 9px;
+  border:1px solid #675b49;
+  background:
+    linear-gradient(90deg,#090d10,#0e1418 30%,#090d10);
+  box-shadow:
+    inset 0 0 0 2px #080b0d,
+    inset 0 0 16px #000;
+  position:relative;
+}
+.journeyE4SpecialPanel:before,.journeyE4SpecialPanel:after{
+  content:'✦';
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  color:#887452;
+  font-size:10px;
+}
+.journeyE4SpecialPanel:before{left:-5px}.journeyE4SpecialPanel:after{right:-5px}
+.journeyE4SpecialIcon{
+  min-width:0;
+  display:grid;
+  place-items:center;
+  align-content:center;
+  border:1px solid #4c4640;
+  background:
+    radial-gradient(circle at 50% 45%,#233a55 0,#101925 55%,#070a0d 100%);
+  box-shadow:inset 0 0 15px #000;
+  color:#e3c56f;
+}
+.journeyE4SpecialIcon b{
+  font:700 16px/1 Georgia,serif;
+  letter-spacing:.02em;
+}
+.journeyE4SpecialIcon small{
+  margin-top:3px;
+  color:#8fa1aa;
+  font:700 7px/1 Arial,sans-serif;
+}
 .journeyE4Skills{
   display:grid;
   grid-template-columns:1fr 1fr;
   grid-template-rows:1fr 1fr;
-  gap:4px;
-  padding:6px 8px 8px;
-  background:
-    radial-gradient(circle at 50% 100%,#24303a22,transparent 56%),
-    #070a0c;
+  gap:4px 8px;
+  align-content:center;
+  min-width:0;
 }
 .journeyE4Skill{
   min-width:0;
-  padding:5px 6px;
-  border:1px solid #343d42;
-  border-radius:5px;
-  background:linear-gradient(180deg,#0d1215,#080b0d);
+  padding:2px 0;
+  border:0;
+  border-bottom:1px solid #252d31;
+  background:transparent;
   overflow:hidden;
-  box-shadow:inset 0 0 0 1px #11181b,inset 0 0 12px #0008;
 }
+.journeyE4Skill:nth-child(3),.journeyE4Skill:nth-child(4){border-bottom:0}
 .journeyE4Skill b{
   display:block;
-  color:#ded7c7;
-  font:700 7.5px/1.1 Arial,sans-serif;
+  color:#d9c89f;
+  font:700 7.5px/1.08 Arial,sans-serif;
   white-space:nowrap;
   overflow:hidden;
   text-overflow:ellipsis;
@@ -590,19 +662,22 @@
 .journeyE4Skill span{
   display:block;
   margin-top:2px;
-  color:#9fa9ad;
+  color:#a8b0b4;
   font:7px/1.15 Arial,sans-serif;
 }
 .journeyE4Skill .ico{margin-right:3px;font-style:normal}
 
 @media(max-width:650px){
-  .journeyE4Title strong{font-size:17px}
+  .journeyE4Title strong{font-size:22px}
+  .journeyE4Title .journeyE4Subtitle{font-size:7px}
   .journeyE4Stats{gap:4px;padding:6px 7px}
   .journeyE4Stat small{font-size:7px}
-  .journeyE4Stat i{font-size:13px}
-  .journeyE4Stat b{font-size:14px}
-  .journeyE4Skill b{font-size:8px}
-  .journeyE4Skill span{font-size:7.5px}
+  .journeyE4Stat i{font-size:16px;min-height:17px}
+  .journeyE4Stat b{font-size:17px}
+  .journeyE4SpecialPanel{grid-template-columns:62px 1fr;gap:7px;padding:6px 7px}
+  .journeyE4SpecialIcon b{font-size:14px}
+  .journeyE4Skill b{font-size:7px}
+  .journeyE4Skill span{font-size:6.5px}
 }
 </style>
 </head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
@@ -2435,7 +2510,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const art=(enemyNo===4&&d.image)?
       "<div class='journeyCardVisual journeyCardVisual-e4'>"+
         "<div class='journeyE4Art'><img src='"+d.image+"' alt='"+d.name+"' onerror=\"this.closest('.journeyCardVisual').classList.add('broken');this.remove()\"></div>"+
-        "<div class='journeyE4Title'><strong>"+d.name+"</strong><span>"+(d.subtitle||"Katalonijos pasididžiavimas")+" · Priešas #4</span></div>"+
+        "<div class='journeyE4Title'>"+
+          "<strong>"+d.name+"</strong>"+
+          "<span class='journeyE4Subtitle'>"+(d.subtitle||"Katalonijos pasididžiavimas")+"</span>"+
+          "<span class='journeyE4EnemyNo'>Priešas #4</span>"+
+        "</div>"+
         "<div class='journeyE4Stats'>"+
           "<span class='journeyE4Stat hp'><small>HP</small><i>♥</i><b>"+d.hp+"</b></span>"+
           "<span class='journeyE4Stat ac'><small>AC</small><i>⬟</i><b>"+d.ac+"</b></span>"+
@@ -2443,11 +2522,14 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
           "<span class='journeyE4Stat dmg'><small>Damage</small><i>✹</i><b>"+d.dmg+"</b></span>"+
           "<span class='journeyE4Stat'><small>Initiative</small><i>➶</i><b>"+d.init+"</b></span>"+
         "</div>"+
-        "<div class='journeyE4Skills'>"+
-          "<div class='journeyE4Skill'><b><i class='ico'>🛡</i>KATEDROS APSAUGA</b><span>1–2 ratai: AC +3.</span></div>"+
-          "<div class='journeyE4Skill'><b><i class='ico'>🔵</i>BLAUGRANOS VIENYBĖ</b><span>&lt;50% HP: +20% HP ir +2 Damage (2 ėj.).</span></div>"+
-          "<div class='journeyE4Skill'><b><i class='ico'>🔔</i>PALAU DVASIA</b><span>Kas 3 ratą: +1d4 Damage.</span></div>"+
-          "<div class='journeyE4Skill'><b><i class='ico'>👑</i>ILGA TRADICIJA</b><span>Kas 3 ratus: Attack +1 (kaupiasi).</span></div>"+
+        "<div class='journeyE4SpecialPanel'>"+
+          "<div class='journeyE4SpecialIcon'><b>FCB</b><small>SKILLS</small></div>"+
+          "<div class='journeyE4Skills'>"+
+            "<div class='journeyE4Skill'><b><i class='ico'>🛡</i>KATEDROS APSAUGA</b><span>1–2 ratai: AC +3.</span></div>"+
+            "<div class='journeyE4Skill'><b><i class='ico'>🔵</i>BLAUGRANOS VIENYBĖ</b><span>&lt;50% HP: +20% HP ir +2 Damage (2 ėj.).</span></div>"+
+            "<div class='journeyE4Skill'><b><i class='ico'>🔔</i>PALAU DVASIA</b><span>Kas 3 ratą: +1d4 Damage.</span></div>"+
+            "<div class='journeyE4Skill'><b><i class='ico'>👑</i>ILGA TRADICIJA</b><span>Kas 3 ratus: Attack +1 (kaupiasi).</span></div>"+
+          "</div>"+
         "</div>"+
       "</div>":
       "<div class='journeyCardVisual'>"+
