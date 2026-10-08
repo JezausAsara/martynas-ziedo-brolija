@@ -2052,7 +2052,6 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     setHp("enemy",battle.enemy_hp,battle.enemy_max_hp);
 
     const cs=combatStats||{};
-    get("rpgPlayerAc").textContent=totalAc;
     get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas";
     get("rpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
     const potionState=battle?.skill_state||{};
@@ -2066,6 +2065,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const initTotal=Number(cs.dex_mod ?? profile.dex_mod ?? 0)+Number(cs.initiative_bonus||0);
     const armorBonus=Number(cs.ac_bonus||0);
     const totalAc=Number(cs.ac ?? (10+Number(profile.dex_mod||0)))+potionAc;
+    get("rpgPlayerAc").textContent=totalAc;
     const weaponDie=String(cs.weapon_die||"d8").toUpperCase();
     get("rpgCombatDmgDie").textContent=weaponDie;
     get("rpgCombatAttack").textContent=mod(atkTotal);
@@ -2076,8 +2076,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("rpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
     const potionStatus=get("rpgPotionStatus");
     if(potionStatus){
-      potionStatus.classList.toggle("active",potionRounds>0);
-      potionStatus.textContent=potionRounds>0?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
+      const potionActive=battle?.status==="active"&&potionRounds>0;
+      potionStatus.classList.toggle("active",potionActive);
+      potionStatus.textContent=potionActive?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
     }
 
     const active=battle.status==="active";
@@ -2153,7 +2154,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       if(e.type==="attack"){
         const who=e.actor==="enemy"?"enemy":"player";
         setTurn(who,who==="enemy"?"PRIEŠININKAS ATAKUOJA":"TU ATAKUOJI","Metamas D20");
-        const targetAc=who==="enemy"?(combatStats?.ac ?? (10+Number(profile.dex_mod||0))):Number(enemyMeta?.ac||11);
+        const targetAc=Number(e.target_ac??(who==="enemy"?(combatStats?.ac ?? (10+Number(profile.dex_mod||0))):Number(enemyMeta?.ac||11)));
         await animateDie(who,"d20",e.roll,"D20 "+e.roll+" → bendras <b>"+e.total+"</b> · reikia AC "+targetAc);
 
         if(e.hit){
@@ -2700,8 +2701,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("farmRpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
     const potionStatus=get("farmRpgPotionStatus");
     if(potionStatus){
-      potionStatus.classList.toggle("active",potionRounds>0);
-      potionStatus.textContent=potionRounds>0?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
+      const potionActive=battle?.status==="active"&&potionRounds>0;
+      potionStatus.classList.toggle("active",potionActive);
+      potionStatus.textContent=potionActive?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
     }
 
     const locked=busy||playing;
