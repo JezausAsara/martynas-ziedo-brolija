@@ -2364,6 +2364,13 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const fallback="<div class='journeyArtworkFallback'><div class='journeyArtworkSymbol'>"+symbol+"</div><h4>"+d.name+"</h4><small>"+d.team+"</small>"+
       "<div class='journeyEnemyStats'><span>HP<b>"+d.hp+"</b></span><span>AC<b>"+d.ac+"</b></span><span>ATK<b>"+d.atk+"</b></span><span>DMG<b>"+d.dmg+"</b></span><span>INIT<b>"+d.init+"</b></span></div></div>";
 
+    const e4Icon={
+      hp:"<svg viewBox='0 0 64 64' aria-hidden='true'><path d='M32 57S6 42 6 20C6 8 21 4 32 16 43 4 58 8 58 20c0 22-26 37-26 37z' fill='#ef4543' stroke='#7e1718' stroke-width='3'/></svg>",
+      ac:"<svg viewBox='0 0 64 64' aria-hidden='true'><path d='M32 5 52 12v17c0 14-8 24-20 30C20 53 12 43 12 29V12z' fill='#d8e0e5' stroke='#707a80' stroke-width='3'/><path d='M32 10v43' stroke='#879197' stroke-width='2' opacity='.8'/></svg>",
+      atk:"<svg viewBox='0 0 64 64' aria-hidden='true'><g fill='none' stroke='#ddd8ce' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'><path d='M14 10l40 40'/><path d='M50 10 10 50'/><path d='M9 14l5-5 8 8-5 5z'/><path d='M42 42l9 9'/><path d='M42 22l9-9'/></g></svg>",
+      dmg:"<svg viewBox='0 0 64 64' aria-hidden='true'><g stroke='#ff6842' stroke-width='3' stroke-linecap='round'><path d='M32 5v11M32 48v11M5 32h11M48 32h11M13 13l8 8M43 43l8 8M51 13l-8 8M21 43l-8 8'/></g><circle cx='32' cy='32' r='10' fill='#ff5a35' stroke='#8f2518' stroke-width='3'/></svg>",
+      init:"<svg viewBox='0 0 64 64' aria-hidden='true'><g fill='none' stroke='#d7d3ca' stroke-width='3' stroke-linecap='round'><path d='M49 9C31 12 18 23 13 42c12-3 23-10 31-21'/><path d='M44 15 21 46M37 20l-15 3M32 27l-14 5M27 34l-11 7'/></g></svg>"
+    };
     const art=(enemyNo===4&&d.image)?
       "<div class='journeyCardVisual journeyCardVisual-e4'>"+
         "<div class='journeyE4Art'><img src='"+d.image+"' alt='"+d.name+"' onerror=\"this.closest('.journeyCardVisual').classList.add('broken');this.remove()\"></div>"+
@@ -2372,11 +2379,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
           "<span class='journeyE4EnemyNo'>Priešas #4</span>"+
         "</div>"+
         "<div class='journeyE4Stats'>"+
-          "<span class='journeyE4Stat hp'><small>HP</small><i>♥</i><b>"+d.hp+"</b></span>"+
-          "<span class='journeyE4Stat ac'><small>AC</small><i>⬟</i><b>"+d.ac+"</b></span>"+
-          "<span class='journeyE4Stat'><small>Attack</small><i>⚔</i><b>"+d.atk+"</b></span>"+
-          "<span class='journeyE4Stat dmg'><small>Damage</small><i>✹</i><b>"+d.dmg+"</b></span>"+
-          "<span class='journeyE4Stat'><small>Initiative</small><i>➶</i><b>"+d.init+"</b></span>"+
+          "<span class='journeyE4Stat hp'><small>HP</small><i>"+e4Icon.hp+"</i><b>"+d.hp+"</b></span>"+
+          "<span class='journeyE4Stat ac'><small>AC</small><i>"+e4Icon.ac+"</i><b>"+d.ac+"</b></span>"+
+          "<span class='journeyE4Stat'><small>Attack</small><i>"+e4Icon.atk+"</i><b>"+d.atk+"</b></span>"+
+          "<span class='journeyE4Stat dmg'><small>Damage</small><i>"+e4Icon.dmg+"</i><b>"+d.dmg+"</b></span>"+
+          "<span class='journeyE4Stat'><small>Initiative</small><i>"+e4Icon.init+"</i><b>"+d.init+"</b></span>"+
         "</div>"+
         "<div class='journeyE4SpecialPanel'>"+
           "<div class='journeyE4SpecialIcon'><b>FCB</b><small>SKILLS</small></div>"+
@@ -2770,3 +2777,134 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 </script>
 
 </body></html>
+<style id="enemyCardsExactGeometry">
+@media(min-width:901px){
+  .journeyEnemyStage{align-items:stretch!important}
+  .journeyEnemyCard{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+  }
+  .journeyEnemyCard.current{
+    transform:none!important;
+  }
+  .journeyEnemyCard .journeyCardFooter{
+    margin-top:auto;
+  }
+  .journeyEnemyCard.current .journeyCardFooter{
+    min-height:158px;
+  }
+}
+</style>
+<style id="enemy4ExactMasterFinal">
+/* Final visual lock: Enemy #3 is the master card. */
+.journeyCardVisual-e4{
+  aspect-ratio:2/3!important;
+  grid-template-rows:60.5% 10.5% 14.5% 14.5%!important;
+  border-color:#786a55!important;
+}
+.journeyE4Art:before{
+  inset:5px!important;
+  border:2px solid #6f6557!important;
+  box-shadow:
+    inset 0 0 0 2px #111517,
+    inset 0 0 0 3px #242a2c,
+    0 0 15px #000c!important;
+}
+.journeyE4Title{
+  border-top:2px solid #554b3e!important;
+  border-bottom:2px solid #76654c!important;
+  background:linear-gradient(180deg,#111416,#050708)!important;
+}
+.journeyE4Title strong{
+  font-size:clamp(23px,2.45vw,32px)!important;
+  letter-spacing:-.02em;
+}
+.journeyE4Title .journeyE4EnemyNo{
+  border-color:#6f3832!important;
+  background:#110b0c!important;
+  padding:2px 14px!important;
+}
+.journeyE4Stats{
+  gap:4px!important;
+  padding:6px 7px!important;
+  background:#06090b!important;
+}
+.journeyE4Stat{
+  border:2px solid #5f584e!important;
+  border-radius:1px!important;
+  background:
+    radial-gradient(circle at 50% 48%,#182027 0,#0a0f12 58%,#030506 100%)!important;
+  box-shadow:
+    inset 0 0 0 2px #050708,
+    inset 0 0 0 4px #242b2e,
+    inset 0 0 0 5px #111719,
+    inset 0 0 18px #000!important;
+}
+.journeyE4Stat:before{
+  inset:5px!important;
+  border-color:#6d685e!important;
+}
+.journeyE4Stat small{
+  font:700 8px/1 Georgia,"Times New Roman",serif!important;
+  color:#e8e2d7!important;
+}
+.journeyE4Stat i{
+  width:24px!important;
+  height:24px!important;
+  min-height:24px!important;
+  margin:1px 0 0!important;
+}
+.journeyE4Stat i svg{
+  width:23px;
+  height:23px;
+  display:block;
+  overflow:visible;
+  filter:drop-shadow(0 1px 1px #000);
+}
+.journeyE4Stat b{
+  font-size:clamp(17px,2vw,23px)!important;
+  line-height:1!important;
+  margin-top:0!important;
+}
+.journeyE4SpecialPanel{
+  grid-template-columns:78px 1fr!important;
+  margin:6px 8px 8px!important;
+  padding:6px 8px!important;
+  border:2px solid #5c554b!important;
+  background:linear-gradient(90deg,#070a0d,#0e1519 35%,#070a0d)!important;
+}
+.journeyE4SpecialIcon{
+  border:2px solid #514a42!important;
+  background:
+    radial-gradient(circle at 48% 45%,#20344c,#0b131c 60%,#050708)!important;
+}
+.journeyE4SpecialIcon b{
+  font-size:18px!important;
+}
+.journeyE4SpecialIcon small{
+  font-size:7px!important;
+}
+.journeyE4Skills{
+  gap:4px 9px!important;
+}
+.journeyE4Skill{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.journeyE4Skill b{
+  color:#e2d3aa!important;
+  font-size:8px!important;
+  line-height:1.05!important;
+}
+.journeyE4Skill span{
+  color:#b0b6b8!important;
+  font-size:7px!important;
+  line-height:1.12!important;
+}
+@media(max-width:650px){
+  .journeyE4SpecialPanel{grid-template-columns:64px 1fr!important}
+  .journeyE4Stat i,.journeyE4Stat i svg{width:21px!important;height:21px!important}
+}
+</style>
