@@ -29,7 +29,7 @@ jobs:
           cat "${e2[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy2-olympiakos.webp
           cat "${e3[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
           cat "${e4[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy4-barcelona.webp
-          cat "${f1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm1-zaliasis-jesteris.webp assets/rpg/farm2-taures-karalius.webp
+          cat "${f1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm1-zaliasis-jesteris.webp
           cat "${f2[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm2-taures-karalius.webp
           echo "Enemy 1 bytes: $(stat -c%s assets/rpg/enemy1-legionierius.webp)"
           echo "Enemy 2 bytes: $(stat -c%s assets/rpg/enemy2-olympiakos.webp)"
@@ -45,7 +45,7 @@ jobs:
           file assets/rpg/farm2-taures-karalius.webp
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/rpg/enemy1-legionierius.webp assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp assets/rpg/enemy4-barcelona.webp assets/rpg/farm1-zaliasis-jesteris.webp
+          git add assets/rpg/enemy1-legionierius.webp assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp assets/rpg/enemy4-barcelona.webp assets/rpg/farm1-zaliasis-jesteris.webp assets/rpg/farm2-taures-karalius.webp
           if git diff --cached --quiet; then
             echo "No binary changes."
           else
