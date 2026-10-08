@@ -232,6 +232,121 @@
           "x": 2
         }
       ]
+    },
+    {
+      "date": "2026-10-08",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas laimėjo 2014 m. Eurolygos finalą Milane, po pratęsimo įveikęs Madrido „Real“?",
+          "a": [
+            "Real Madrid",
+            "Maccabi Tel Aviv",
+            "CSKA Moscow",
+            "Barcelona"
+          ],
+          "x": 1
+        },
+        {
+          "c": "NBA",
+          "q": "Kas buvo pripažintas 2004 m. NBA finalo MVP, kai Detroito „Pistons“ įveikė Los Andželo „Lakers“?",
+          "a": [
+            "Ben Wallace",
+            "Richard Hamilton",
+            "Chauncey Billups",
+            "Rasheed Wallace"
+          ],
+          "x": 2
+        },
+        {
+          "c": "F1",
+          "q": "Kas tapo 1996 m. Formulės 1 pasaulio čempionu?",
+          "a": [
+            "Damon Hill",
+            "Michael Schumacher",
+            "Jacques Villeneuve",
+            "Mika Häkkinen"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 2001 m. laimėjo Vimbldono vyrų vienetų titulą, į turnyrą patekęs su „wild card“?",
+          "a": [
+            "Patrick Rafter",
+            "Tim Henman",
+            "Andre Agassi",
+            "Goran Ivanišević"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kuri rinktinė sensacingai laimėjo 2004 m. Europos futbolo čempionatą?",
+          "a": [
+            "Portugalija",
+            "Čekija",
+            "Graikija",
+            "Nyderlandai"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kaip Tolkieno pasaulyje vadinamas Balrogas, su kuriuo Gandalfas kovojo Morijoje?",
+          "a": [
+            "Glaurungas",
+            "Durino Pražūtis",
+            "Ancalagonas",
+            "Azogas"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė mokslinės fantastikos romaną „Hyperion“?",
+          "a": [
+            "Dan Simmons",
+            "Iain M. Banks",
+            "Alastair Reynolds",
+            "Peter F. Hamilton"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas parašė romaną „The Exorcist“, pagal kurį sukurtas garsusis 1973 m. filmas?",
+          "a": [
+            "Ira Levin",
+            "Peter Straub",
+            "Clive Barker",
+            "William Peter Blatty"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Šimtas metų vienatvės“ („One Hundred Years of Solitude“)?",
+          "a": [
+            "Mario Vargas Llosa",
+            "Jorge Luis Borges",
+            "Gabriel García Márquez",
+            "Julio Cortázar"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1942 m. kino klasiką „Casablanca“?",
+          "a": [
+            "John Huston",
+            "Michael Curtiz",
+            "Billy Wilder",
+            "Howard Hawks"
+          ],
+          "x": 1
+        }
+      ]
     }
   ]
 }
