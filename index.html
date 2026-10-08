@@ -943,12 +943,16 @@
     
     <div id='rpgPanel-farm' class='rpgPanel'>
       <div class='rpgFarmWrap'>
+        <div class='rpgFarmSelector'>
+          <button type='button' class='rpgFarmEnemyPick active' data-farm-enemy='green-jester'><b>#01 · Žaliasis Jesteris</b><span>80 HP · 10% +0.5 SP</span></button>
+          <button type='button' class='rpgFarmEnemyPick' data-farm-enemy='cup-king'><b>#02 · Taurės Karalius</b><span>96 HP · 15% +0.5 SP</span></button>
+        </div>
         <div class='rpgFarmHero'>
           <div class='rpgFarmArtFrame'><img id='rpgFarmArt' alt='Žaliasis Jesteris' src='assets/rpg/farm1-zaliasis-jesteris.webp?v=85e0fa99'></div>
           <div class='rpgFarmHeroText'>
-            <div class='rpgFarmKicker'>FARM ENEMY #01 · 4 TURAS</div>
-            <h4>Žaliasis Jesteris</h4>
-            <p>Satyrinis arenos juokdarys. Farminimo kova nekeičia pagrindinės kampanijos progreso ir niekada neduoda FPTS.</p>
+            <div id='farmKicker' class='rpgFarmKicker'>FARM ENEMY #01 · 4 TURAS</div>
+            <h4 id='farmName'>Žaliasis Jesteris</h4>
+            <p id='farmDesc'>Satyrinis arenos juokdarys. Farminimo kova nekeičia pagrindinės kampanijos progreso ir niekada neduoda FPTS.</p>
             <div class='rpgFarmStats'>
               <span><small>HP</small><b id='farmHp'>80</b></span>
               <span><small>AC</small><b id='farmAc'>10</b></span>
@@ -956,28 +960,29 @@
               <span><small>DAMAGE</small><b id='farmDmg'>1d4+1</b></span>
               <span><small>INIT</small><b id='farmInit'>+1</b></span>
             </div>
-            <div class='rpgFarmSkill'><b>🤡 Kreivas balnas</b><span>Jei Jesterio Attack roll yra natural 1–3, jis pats gauna 1d4 damage.</span></div>
+            <div id='farmSkill1' class='rpgFarmSkill'><b>🤡 Kreivas balnas</b><span>Jei Jesterio Attack roll yra natural 1–3, jis pats gauna 1d4 damage.</span></div>
+            <div id='farmSkill2' class='rpgFarmSkill' style='display:none'></div>
             <div class='rpgFarmLimit'><b id='farmAttempts'>Šiandien: — / 3</b><span>Reset 00:00 Lietuvos laiku · aktyvus iki 4 Fantasy turo pabaigos.</span></div>
             <button id='rpgFarmStart' class='rpgFarmPrimary' type='button'>🌾 PRADĖTI FARM KOVĄ</button>
             <div id='rpgFarmMsg' class='rpgFarmMsg'></div>
           </div>
         </div>
         <div class='rpgFarmRewards'>
-          <div class='rpg2-blockTitle'>FARM REWARD POOL · ITEMAS + 10% SKILL POINT ŠANSAS · JOKIŲ FPTS</div>
-          <div class='rpgFarmRewardGrid'>
+          <div id='farmRewardTitle' class='rpg2-blockTitle'>FARM REWARD POOL · ITEMAS + 10% SKILL POINT ŠANSAS · JOKIŲ FPTS</div>
+          <div id='farmRewardGrid' class='rpgFarmRewardGrid'>
             <div><b>🔔 Jesterio varpelis</b><span>Common · +1 Initiative</span><em>50%</em></div>
             <div><b>💍 Kreiva Jesterio riešinė</b><span>Common · +1 Attack</span><em>30%</em></div>
             <div><b>🛡️ Balno sagtis</b><span>Common · +1 AC</span><em>20%</em></div>
             <div class='skillFrag'><b>✨ Skill Point fragmentas</b><span>+0.5 SP · nepriklausomas bonus roll</span><em>10%</em></div>
           </div>
-          <small class='rpgFarmFine'>Common itemas iškrenta visada. Papildomai po pergalės atliekamas atskiras 10% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP. Vienodo itemo STAT bonusas nuo quantity nesistackina.</small>
+          <small id='farmRewardFine' class='rpgFarmFine'>Common itemas iškrenta visada. Papildomai po pergalės atliekamas atskiras 10% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP. Vienodo itemo STAT bonusas nuo quantity nesistackina.</small>
         </div>
         
         <div id='farmRpgBattleArena' class='rpgBattleArena rpgFarmBattleArena'>
           <div class='rpgBattleTop'>
             <div>
-              <div class='rpg2-kicker'>FARM ENEMY · ŽALIASIS JESTERIS</div>
-              <h3>Kova su Žaliuoju Jesteriu</h3>
+              <div id='farmBattleKicker' class='rpg2-kicker'>FARM ENEMY · ŽALIASIS JESTERIS</div>
+              <h3 id='farmBattleTitle'>Kova su Žaliuoju Jesteriu</h3>
             </div>
             <div class='rpgBattleRound'>KOVOS RAUNDAS <b id='farmRpgCombatRound'>1</b><span id='farmRpgAttemptBadge' class='rpgAttemptBadge'>BANDYMAS —/3</span></div>
           </div>
@@ -1047,10 +1052,10 @@
 
             <article id='farmRpgEnemyCombatCard' class='rpgCombatCard enemy'>
               <div class='rpgCombatCardTop'>
-                <div id='farmRpgEnemyPortraitArt' class='rpgEnemyPortraitArt photo' aria-label='Žaliasis Jesteris'></div>
+                <div id='farmRpgEnemyPortraitArt' class='rpgEnemyPortraitArt photo' aria-label='Farm priešas'></div>
                 <div class='rpgCombatIdentity'>
                   <small>FARM PRIEŠAS</small>
-                  <strong>Žaliasis Jesteris</strong>
+                  <strong id='farmRpgEnemyName'>Žaliasis Jesteris</strong>
                   <div class='rpgCombatPrimary'>
                     <div class='rpgVital hp'><small>GYVYBĖS</small><b id='farmRpgEnemyHpText'>80 / 80</b></div>
                     <div class='rpgVital ac'><small>ARMOR CLASS</small><b id='farmRpgEnemyAc'>10</b></div>
@@ -1063,7 +1068,7 @@
                 <span>DAMAGE<b id='farmRpgEnemyDamage'>1d4+1</b></span>
                 <span>INIT<b id='farmRpgEnemyInit'>+1</b></span>
               </div>
-              <div class='rpgCombatGear'><span>🤡 <b>Kreivas balnas</b></span><span>Natural 1–3: Jesteris pats gauna 1d4 damage.</span></div>
+              <div id='farmRpgEnemySkills' class='rpgCombatGear'><span>🤡 <b>Kreivas balnas</b></span><span>Natural 1–3: Jesteris pats gauna 1d4 damage.</span></div>
               <div class='rpgRollBox'>
                 <small>PRIEŠININKO KAULIUKAS</small>
                 <div id='farmRpgEnemyDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
@@ -1125,7 +1130,7 @@
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
-        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Žaliąjį Jesterį galima kovoti daugiausia 3 kartus per dieną iki 4 Fantasy turo pabaigos. Dienos limitas atsinaujina 00:00 Lietuvos laiku. Kiekviena pergalė duoda Common item dropą ir papildomai turi nepriklausomą 10% šansą gauti +0.5 Skill Point.</div>
+        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Kiekvieną aktyvų Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Common-tier itemas iškrenta po kiekvienos pergalės.</div>
         <div class='rpgRuleCard'><b>🤝 Trade</b><br>Žaidėjai gali keistis turimais daiktais per trade pasiūlymą. Daiktas persikelia tik kitam žaidėjui patvirtinus sandorį; panaudoti consumables nebegali būti keičiami.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
@@ -2475,14 +2480,14 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 })();
 </script>
 <style id="rpgFarmV2Styles">
-.rpgFarmWrap{display:grid;gap:14px}.rpgFarmHero{display:grid;grid-template-columns:minmax(210px,310px) 1fr;gap:18px;padding:16px;border:1px solid #38533f;border-radius:15px;background:radial-gradient(circle at 12% 15%,#17422455,transparent 38%),linear-gradient(180deg,#101914,#08100d);box-shadow:inset 0 0 28px #0008}
+.rpgFarmWrap{display:grid;gap:14px}.rpgFarmSelector{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.rpgFarmEnemyPick{display:grid;gap:3px;text-align:left;padding:11px 12px;border:1px solid #33453a;border-radius:10px;background:#09110d;color:#9daa9f;cursor:pointer}.rpgFarmEnemyPick b{color:#dccb91}.rpgFarmEnemyPick span{font:10px Arial,sans-serif}.rpgFarmEnemyPick.active{border-color:#6d9c74;background:#112319;box-shadow:inset 0 0 18px #24472d55}.rpgFarmEnemyPick:disabled{opacity:.5;cursor:not-allowed}.rpgFarmHero{display:grid;grid-template-columns:minmax(210px,310px) 1fr;gap:18px;padding:16px;border:1px solid #38533f;border-radius:15px;background:radial-gradient(circle at 12% 15%,#17422455,transparent 38%),linear-gradient(180deg,#101914,#08100d);box-shadow:inset 0 0 28px #0008}
 .rpgFarmArtFrame{min-height:390px;border:1px solid #4d6d52;border-radius:13px;overflow:hidden;background:#07100a;box-shadow:0 10px 30px #0009}.rpgFarmArtFrame img{width:100%;height:100%;object-fit:cover;display:block}.rpgFarmKicker{color:#69b87b;font:800 10px Arial,sans-serif;letter-spacing:.14em}.rpgFarmHeroText h4{margin:5px 0 8px;color:#e5d58c;font:800 27px Georgia,serif}.rpgFarmHeroText>p{margin:0 0 13px;color:#aeb9b1;line-height:1.5;font-size:12px}
 .rpgFarmStats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.rpgFarmStats span{padding:10px 7px;border:1px solid #304337;border-radius:9px;background:#09120d;text-align:center}.rpgFarmStats small{display:block;color:#6f8976;font:700 9px Arial,sans-serif}.rpgFarmStats b{display:block;margin-top:4px;color:#e8ddb4;font:800 16px Georgia,serif}
 .rpgFarmSkill,.rpgFarmLimit{display:grid;gap:4px;margin-top:11px;padding:11px 12px;border:1px solid #344d3b;border-radius:10px;background:#0a120d}.rpgFarmSkill b{color:#d7bd73}.rpgFarmSkill span,.rpgFarmLimit span{color:#8f9c93;font:11px/1.45 Arial,sans-serif}.rpgFarmLimit b{color:#8cd198}
 .rpgFarmPrimary{width:100%;margin-top:12px;padding:12px;border:1px solid #5f8d69;border-radius:10px;background:linear-gradient(#315d3c,#17301f);color:#d8f2dc;font:800 12px Georgia,serif;letter-spacing:.06em;cursor:pointer}.rpgFarmPrimary:disabled{opacity:.4;cursor:not-allowed}.rpgFarmMsg{min-height:18px;margin-top:8px;color:#d7a485;font:11px Arial,sans-serif}
 .rpgFarmRewards{padding:14px;border:1px solid #303c34;border-radius:13px;background:#0a1110}.rpgFarmRewardGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.rpgFarmRewardGrid>div{display:grid;gap:4px;padding:11px;border:1px solid #3b463d;border-radius:9px;background:#0c1510;position:relative}.rpgFarmRewardGrid b{color:#ddce93;font-size:12px}.rpgFarmRewardGrid span{color:#92a096;font:10px Arial,sans-serif}.rpgFarmRewardGrid em{position:absolute;right:8px;top:8px;color:#74bd83;font:800 11px Arial,sans-serif}.rpgFarmFine{display:block;margin-top:8px;color:#6f7c73}
 .rpgFarmBattleArena{margin-top:2px}.rpgFarmBattleArena .rpgEnemyPortraitArt.photo{background-position:center 18%;background-size:cover}.rpgFarmBattleArena .rpgBattleTop{border-color:#38533f}.rpgFarmBattleArena.show{display:block}
-@media(max-width:780px){.rpgFarmHero{grid-template-columns:1fr}.rpgFarmArtFrame{min-height:0;max-height:430px;aspect-ratio:3/4}.rpgFarmStats{grid-template-columns:repeat(3,1fr)}.rpgFarmRewardGrid{grid-template-columns:1fr}}
+@media(max-width:780px){.rpgFarmSelector{grid-template-columns:1fr}.rpgFarmHero{grid-template-columns:1fr}.rpgFarmArtFrame{min-height:0;max-height:430px;aspect-ratio:3/4}.rpgFarmStats{grid-template-columns:repeat(3,1fr)}.rpgFarmRewardGrid{grid-template-columns:1fr}}
 </style>
 <script id="rpgFarmCombatEngine">
 (() => {
@@ -2492,12 +2497,36 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   if(!startBtn||!arena)return;
 
   let profile=null,combatStats=null,farmState=null,battle=null,enemyMeta=null,busy=false,playing=false;
+  let selectedEnemyId="green-jester";
+  const enemyUi={
+    "green-jester":{
+      no:"01",desc:"Satyrinis arenos juokdarys. Lengviausias Farm priešas.",
+      image:"assets/rpg/farm1-zaliasis-jesteris.webp?v=85e0fa99",
+      rewards:[
+        ["🔔 Jesterio varpelis","Common · +1 Initiative","50%"],
+        ["💍 Kreiva Jesterio riešinė","Common · +1 Attack","30%"],
+        ["🛡️ Balno sagtis","Common · +1 AC","20%"],
+        ["✨ Skill Point fragmentas","+0.5 SP · nepriklausomas bonus roll","10%"]
+      ]
+    },
+    "cup-king":{
+      no:"02",desc:"Susikūprinęs LKL valdovas, godžiai saugantis Karaliaus Mindaugo Taurę. Apie 20% stipresnis už Jesterį.",
+      image:"assets/rpg/farm2-taures-karalius.webp",
+      rewards:[
+        ["❤️ Karaliaus gyvybės medalionas","Common · +4 Max HP","40%"],
+        ["⌚ Karaliaus laikrodis","Common · +1 Initiative","30%"],
+        ["🏆 Taurės žiedas","Common · +1 Attack","30%"],
+        ["✨ Skill Point fragmentas","+0.5 SP · nepriklausomas bonus roll","15%"]
+      ]
+    }
+  };
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
   const mod=n=>(Number(n)>=0?"+":"")+Number(n||0);
   const pct=(a,b)=>b?Math.max(0,Math.min(100,(Number(a)/Number(b))*100)):0;
   const sleep=ms=>new Promise(r=>setTimeout(r,ms));
   const playerDamageDie=()=>String(combatStats?.weapon_die||"d8").toUpperCase();
   const setMsg=t=>{const e=get("rpgFarmMsg");if(e)e.textContent=t||""};
+  const prettyChance=()=>Math.round(Number(enemyMeta?.skill_point_chance||0)*100);
 
   function phaseText(b){
     if(!b)return "Pasiruošk kovai";
@@ -2508,7 +2537,6 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(b.phase==="player_damage")return "Mesk "+(b.pending_crit?"2×":"")+playerDamageDie()+" žalai";
     return "Kova baigta";
   }
-
   function setTurn(actor,title,detail){
     const banner=get("farmRpgTurnBanner"),owner=get("farmRpgTurnOwner"),instruction=get("farmRpgTurnInstruction");
     if(!banner)return;
@@ -2530,9 +2558,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(text)text.textContent=Math.max(0,Number(current||0))+" / "+Number(max||0);
     if(bar)bar.style.width=pct(current,max)+"%";
   }
-  function sidesFromDie(label){
-    const m=String(label||"d20").match(/d(\d+)/i);return m?Number(m[1]):20;
-  }
+  function sidesFromDie(label){const m=String(label||"d20").match(/d(\d+)/i);return m?Number(m[1]):20}
   async function animateDie(actor,label,finalValue,totalText){
     const die=get(actor==="enemy"?"farmRpgEnemyDie":"farmRpgPlayerDie");
     const total=get(actor==="enemy"?"farmRpgEnemyRollTotal":"farmRpgPlayerRollTotal");
@@ -2566,36 +2592,55 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }).join(""):"<div class='rpgBattleLogLine system'>Kova dar nepradėta.</div>";
     el.scrollTop=el.scrollHeight;
   }
+  function renderEnemyPicker(){
+    document.querySelectorAll(".rpgFarmEnemyPick").forEach(btn=>{
+      btn.classList.toggle("active",btn.dataset.farmEnemy===selectedEnemyId);
+      btn.disabled=!!(battle?.status==="active"&&battle.farm_enemy_id!==btn.dataset.farmEnemy);
+    });
+  }
   function fillMeta(){
-    const e=enemyMeta||{};
-    get("farmHp").textContent=e.hp??80;get("farmAc").textContent=e.ac??10;
-    get("farmAtk").textContent=mod(e.attack_bonus??2);
-    get("farmDmg").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??1);
-    get("farmInit").textContent=mod(e.initiative_bonus??1);
+    const e=enemyMeta||{},ui=enemyUi[e.id||selectedEnemyId]||enemyUi["green-jester"];
+    get("farmKicker").textContent="FARM ENEMY #"+ui.no+" · 4 TURAS";
+    get("farmName").textContent=e.name||"Farm priešas";
+    get("farmDesc").textContent=ui.desc;
+    const art=get("rpgFarmArt");if(art){art.src=ui.image;art.alt=e.name||"Farm priešas"}
+    get("farmHp").textContent=e.hp??"—";get("farmAc").textContent=e.ac??"—";
+    get("farmAtk").textContent=mod(e.attack_bonus??0);
+    get("farmDmg").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??0);
+    get("farmInit").textContent=mod(e.initiative_bonus??0);
+    get("farmSkill1").innerHTML="<b>⚔️ "+esc(e.special_name||"Special")+"</b><span>"+esc(e.special_description||"")+"</span>";
+    const sk2=get("farmSkill2");
+    if(sk2){sk2.style.display=e.special2_name?"grid":"none";sk2.innerHTML=e.special2_name?"<b>👑 "+esc(e.special2_name)+"</b><span>"+esc(e.special2_description||"")+"</span>":""}
+    get("farmRewardTitle").textContent="FARM REWARD POOL · ITEMAS + "+prettyChance()+"% SKILL POINT ŠANSAS · JOKIŲ FPTS";
+    get("farmRewardGrid").innerHTML=ui.rewards.map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span><em>"+r[2]+"</em></div>").join("");
+    get("farmRewardFine").textContent="Common itemas iškrenta visada. Papildomai po pergalės atliekamas atskiras "+prettyChance()+"% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP. Vienodo itemo STAT bonusas nuo quantity nesistackina.";
+    get("farmBattleKicker").textContent="FARM ENEMY · "+String(e.name||"").toUpperCase();
+    get("farmBattleTitle").textContent="Kova su "+(e.name||"Farm priešu");
+    get("farmRpgEnemyName").textContent=e.name||"Farm priešas";
     get("farmRpgEnemyAc").textContent=e.ac??10;
-    get("farmRpgEnemyAttack").textContent=mod(e.attack_bonus??2);
-    get("farmRpgEnemyDamage").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??1);
-    get("farmRpgEnemyInit").textContent=mod(e.initiative_bonus??1);
-    const art=get("rpgFarmArt"),portrait=get("farmRpgEnemyPortraitArt");
-    if(art&&portrait)portrait.style.backgroundImage="linear-gradient(180deg,transparent 65%,#071014 100%),url('"+art.src+"')";
+    get("farmRpgEnemyAttack").textContent=mod(e.attack_bonus??0);
+    get("farmRpgEnemyDamage").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??0);
+    get("farmRpgEnemyInit").textContent=mod(e.initiative_bonus??0);
+    get("farmRpgEnemySkills").innerHTML="<span>⚔️ <b>"+esc(e.special_name||"Special")+"</b></span><span>"+esc(e.special_description||"")+"</span>"+(e.special2_name?"<span>👑 <b>"+esc(e.special2_name)+"</b></span><span>"+esc(e.special2_description||"")+"</span>":"");
+    const portrait=get("farmRpgEnemyPortraitArt");
+    if(portrait)portrait.style.backgroundImage="linear-gradient(180deg,transparent 65%,#071014 100%),url('"+ui.image+"')";
   }
   function render(){
-    fillMeta();
+    fillMeta();renderEnemyPicker();
     const used=Number(farmState?.attempts_used||0),remain=Number(farmState?.attempts_remaining??3);
     get("farmAttempts").textContent="Šiandien: "+used+" / "+Number(farmState?.max_attempts_per_day??3)+" kovos";
     const active=battle?.status==="active";
     startBtn.textContent=active?"⚔️ TĘSTI FARM KOVĄ":"🌾 PRADĖTI FARM KOVĄ";
     startBtn.disabled=busy||playing||(!active&&(!farmState?.available||remain<=0));
-    if(!farmState?.available)setMsg("Žaliasis Jesteris aktyvus tik 4 Fantasy ture. Naujos kovos užrakintos.");
-    else if(remain<=0&&!active)setMsg("Šiandienos 3 farm kovos išnaudotos. Limitas atsinaujins 00:00 Lietuvos laiku.");
-    else setMsg("Liko šiandien: "+remain+" iš 3.");
+    if(!farmState?.available)setMsg((enemyMeta?.name||"Farm priešas")+" šiame Fantasy ture nebeaktyvus.");
+    else if(remain<=0&&!active)setMsg("Šiandienos 3 šio priešo farm kovos išnaudotos. Limitas atsinaujins 00:00 Lietuvos laiku.");
+    else setMsg("Liko šiandien: "+remain+" iš 3 kovų su "+(enemyMeta?.name||"šiuo priešu")+".");
 
     if(!battle){arena.classList.remove("show");return}
     arena.classList.add("show");
     get("farmRpgCombatRound").textContent=battle.combat_round||1;
     get("farmRpgAttemptBadge").textContent="BANDYMAS "+(battle.attempt_no||"?")+"/3";
     setHp("player",battle.player_hp,battle.player_max_hp);setHp("enemy",battle.enemy_hp,battle.enemy_max_hp);
-
     if(profile){
       get("farmRpgBattlePlayerName").textContent=profile.team_name||"—";
       get("farmRpgPlayerBattlePortrait").style.backgroundImage="linear-gradient(180deg,transparent 62%,#071014 100%),url('assets/rpg/"+profile.avatar_key+".webp')";
@@ -2622,60 +2667,57 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const wd=playerDamageDie(),sides=(wd.match(/\d+/)||["8"])[0];
     get("farmRpgDamageBtnText").textContent=battle.pending_crit?"MESTI 2×"+wd:"MESTI "+wd;
     get("farmRpgDamageDieIcon").textContent=battle.pending_crit?"2×"+sides:sides;
-
     const end=get("farmRpgBattleEndActions");
     end.classList.toggle("show",battle.status==="loss");
     retryBtn.disabled=remain<=0;
     retryBtn.textContent=remain<=0?"⛔ BANDYMAI IŠNAUDOTI":"↻ BANDYTI DAR KARTĄ";
     if(!playing){
       if(active){setTurn("player","TAVO ĖJIMAS",phaseText(battle));setAction("LAUKIAMA TAVO METIMO",battle.phase==="player_damage"?"Pataikei. Dabar išmesk žalą.":"Pasirink aktyvų kauliuko mygtuką.","")}
-      else if(battle.status==="win"){setTurn("result","PERGALĖ","Žaliasis Jesteris įveiktas.");setAction("FARM PERGALĖ","Rewardas įrašytas į inventorių.","crit")}
+      else if(battle.status==="win"){setTurn("result","PERGALĖ",(enemyMeta?.name||"Farm priešas")+" įveiktas.");setAction("FARM PERGALĖ","Rewardas įrašytas į inventorių.","crit")}
       else{setTurn("result","PRALAIMĖJIMAS","Šis farm bandymas baigtas.");setAction("BANDYMAS BAIGTAS","Gali pradėti kitą bandymą, jei dar liko dienos limitas.","enemyHit")}
     }
     renderLog(battle.battle_log);
   }
-
   async function playEvents(events,before,after){
     playing=true;render();
     let php=Number(before?.player_hp??after.player_hp),ehp=Number(before?.enemy_hp??after.enemy_hp);
     const pmax=Number(after.player_max_hp),emax=Number(after.enemy_max_hp);
     for(const e of (Array.isArray(events)?events:[])){
       if(e.type==="turn"){
-        const enemy=e.actor==="enemy"||String(e.text||"").includes("Jesteris")||/pradeda kovą/i.test(e.text||"");
+        const enemy=e.actor==="enemy"||/pradeda kovą/i.test(e.text||"");
         setTurn(enemy?"enemy":"player",enemy?"PRIEŠININKO ĖJIMAS":"TAVO ĖJIMAS",e.text||"");
-        setAction(enemy?"PRIEŠININKAS RUOŠIASI ATAKUOTI":"TAVO EILĖ",esc(e.text||""),enemy?"enemyHit":"");
-        await sleep(650);continue;
+        setAction(enemy?"PRIEŠININKAS RUOŠIASI ATAKUOTI":"TAVO EILĖ",esc(e.text||""),enemy?"enemyHit":"");await sleep(650);continue;
       }
       if(e.type==="initiative"){
         const who=e.actor==="enemy"?"enemy":"player";
         setTurn(who,who==="enemy"?"PRIEŠININKAS META INICIATYVĄ":"TU METI INICIATYVĄ","D20 iniciatyvos metimas");
         await animateDie(who,"d20",e.roll,"D20 "+e.roll+" → bendras <b>"+e.total+"</b>");
-        setAction("INICIATYVA · "+e.total,who==="enemy"?"Jesterio rezultatas":"Tavo rezultatas",who==="enemy"?"enemyHit":"");
-        await sleep(500);continue;
+        setAction("INICIATYVA · "+e.total,who==="enemy"?(enemyMeta?.name||"Priešo")+" rezultatas":"Tavo rezultatas",who==="enemy"?"enemyHit":"");await sleep(500);continue;
       }
-      if(e.type==="skill"){
-        setTurn("player","TAVO SKILLAS","Suveikia personažo gebėjimas");
-        setAction("⚡ SKILL",esc(e.text||""),"crit");await sleep(800);continue;
-      }
+      if(e.type==="skill"){setTurn("player","TAVO SKILLAS","Suveikia personažo gebėjimas");setAction("⚡ SKILL",esc(e.text||""),"crit");await sleep(800);continue}
       if(e.type==="special"){
-        setTurn("enemy","PRIEŠININKO ĖJIMAS","Suveikia Kreivas balnas");
-        if(Number(e.roll)>0)await animateDie("enemy","d20",e.roll,"D20 <b>"+e.roll+"</b> · Kreivas balnas!");
+        setTurn("enemy","PRIEŠININKO SKILLAS",e.text||"");
         if(Number(e.self_damage)>0){
-          await sleep(250);
+          if(Number(e.roll)>0)await animateDie("enemy","d20",e.roll,"D20 <b>"+e.roll+"</b>");
           await animateDie("enemy","d4",e.self_damage,"D4 = <b>"+e.self_damage+" žalos sau</b>");
           ehp=Math.max(0,ehp-Number(e.self_damage));setHp("enemy",ehp,emax);
-          setAction("🤡 KREIVAS BALNAS · −"+e.self_damage+" HP","Jesteris pats susižeidė.","enemyHit");
-          await impact("enemy",e.self_damage,"damage");
-        }else{setAction("🤡 KREIVAS BALNAS",esc(e.text||""),"enemyHit");await sleep(900)}
+          setAction("🤡 KREIVAS BALNAS · −"+e.self_damage+" HP",esc(e.text||""),"enemyHit");await impact("enemy",e.self_damage,"damage");
+        }else if(Number(e.heal_amount)>0){
+          await animateDie("enemy","d6",e.heal_amount,"D6 = <b>+"+e.heal_amount+" HP</b>");
+          ehp=Number(e.enemy_hp_after??Math.min(emax,ehp+Number(e.heal_amount)));setHp("enemy",ehp,emax);
+          setAction("🏆 TAURĖ · +"+e.heal_amount+" HP",esc(e.text||""),"crit");await sleep(850);
+        }else{
+          setAction("👑 SPECIAL",esc(e.text||""),"enemyHit");await sleep(900);
+        }
         continue;
       }
       if(e.type==="attack"){
         const who=e.actor==="enemy"?"enemy":"player";
         setTurn(who,who==="enemy"?"PRIEŠININKAS ATAKUOJA":"TU ATAKUOJI","Metamas D20");
-        const targetAc=who==="enemy"?Number(combatStats?.ac||10):Number(enemyMeta?.ac||10);
+        const targetAc=Number(e.target_ac??(who==="enemy"?combatStats?.ac:enemyMeta?.ac)??10);
         await animateDie(who,"d20",e.roll,"D20 "+e.roll+" → bendras <b>"+e.total+"</b> · reikia AC "+targetAc);
         if(e.hit){
-          setAction(e.crit?"CRITICAL HIT!":"PATAIKĖ!",who==="enemy"?"Jesteris prasimušė pro tavo AC.":"Ataka pataikė. Dabar metama žala.",e.crit?"crit":who==="enemy"?"enemyHit":"hit");
+          setAction(e.crit?"CRITICAL HIT!":"PATAIKĖ!",who==="enemy"?(enemyMeta?.name||"Priešas")+" prasimušė pro tavo AC.":"Ataka pataikė. Dabar metama žala.",e.crit?"crit":who==="enemy"?"enemyHit":"hit");
           if(who==="enemy"&&Number(e.damage)>0){
             await sleep(450);
             const raw=Number(e.damage_roll2)>0?e.damage_roll1+" + "+e.damage_roll2:e.damage_roll1;
@@ -2683,11 +2725,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
             const dm=Number(e.damage_modifier||0);
             await animateDie("enemy",e.damage_die||"d4",raw,(e.damage_die||"d4").toUpperCase()+" "+raw+(dm?(dm>0?" +":" ")+dm:"")+" = <b>"+e.damage+" žalos</b>");
             php=Number(e.player_hp_after??Math.max(0,php-Number(e.damage)));setHp("player",php,pmax);
-            setAction("JESTERIS PATAIKO · −"+e.damage+" HP","Tavo gyvybės: <span class='rpgDamageNotice'>"+php+" / "+pmax+"</span>","enemyHit");
+            setAction((enemyMeta?.name||"PRIEŠAS").toUpperCase()+" PATAIKO · −"+e.damage+" HP","Tavo gyvybės: <span class='rpgDamageNotice'>"+php+" / "+pmax+"</span>","enemyHit");
             await impact("player",e.damage,e.crit?"crit":"damage");
           }
         }else{
-          setAction("MISS",who==="enemy"?"Jesterio ataka nepataikė į tavo AC.":"Tavo ataka nepataikė į AC "+Number(enemyMeta?.ac||10)+".","miss");
+          setAction("MISS",who==="enemy"?(enemyMeta?.name||"Priešas")+" nepataikė į tavo AC.":"Tavo ataka nepataikė į AC "+targetAc+".","miss");
           await impact(who==="enemy"?"player":"enemy",0,"miss");
         }
         await sleep(400);continue;
@@ -2697,38 +2739,47 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         const raw=Number(e.roll2)>0?e.roll1+" + "+e.roll2:e.roll1;
         await animateDie("player",e.die||"d8",raw,(e.die||"d8").toUpperCase()+" "+raw+" → <b>"+e.damage+" žalos</b>");
         ehp=Number(e.enemy_hp_after??Math.max(0,ehp-Number(e.damage)));setHp("enemy",ehp,emax);
-        setAction((e.roll2?"CRIT · ":"")+"−"+e.damage+" HP PRIEŠUI","Jesterio gyvybės: <span class='rpgDamageNotice'>"+ehp+" / "+emax+"</span>",e.roll2?"crit":"hit");
+        setAction((e.roll2?"CRIT · ":"")+"−"+e.damage+" HP PRIEŠUI",(enemyMeta?.name||"Priešo")+" gyvybės: <span class='rpgDamageNotice'>"+ehp+" / "+emax+"</span>",e.roll2?"crit":"hit");
         await impact("enemy",e.damage,e.roll2?"crit":"damage");await sleep(400);continue;
       }
-      if(e.type==="win"){setTurn("result","PERGALĖ","Žaliasis Jesteris įveiktas");setAction("⚔️ FARM PERGALĖ!",esc(e.text||""),"crit");await sleep(1000);continue}
+      if(e.type==="win"){setTurn("result","PERGALĖ",(enemyMeta?.name||"Farm priešas")+" įveiktas");setAction("⚔️ FARM PERGALĖ!",esc(e.text||""),"crit");await sleep(1000);continue}
       if(e.type==="loss"){setTurn("result","PRALAIMĖJIMAS","Šis farm bandymas baigtas");setAction("💀 PRALAIMĖJAI",esc(e.text||""),"enemyHit");await sleep(1000);continue}
       if(e.type==="loot"){const sp=Number(e.item?.skill_points_bonus||0);setTurn("result","LOOT DROP",sp>0?"Common itemas + Skill Point fragmentas":"Gautas Farm itemas");setAction("🎁 "+(e.item?.name||"COMMON DROP")+(sp>0?" + ✨ "+sp.toFixed(1)+" SP":""),esc(e.item?.stat_payload?.description||e.text||"")+(sp>0?"<br><b>✨ BONUS: +"+sp.toFixed(1)+" Skill Point</b>":""),"crit");await sleep(sp>0?1800:1300);continue}
     }
-    setHp("player",after.player_hp,after.player_max_hp);setHp("enemy",after.enemy_hp,after.enemy_max_hp);
-    playing=false;
+    setHp("player",after.player_hp,after.player_max_hp);setHp("enemy",after.enemy_hp,after.enemy_max_hp);playing=false;
   }
-
   async function refresh(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
     if(!session){profile=null;combatStats=null;farmState=null;battle=null;startBtn.disabled=true;arena.classList.remove("show");setMsg("Prisijunk prie RPG personažo, kad galėtum farminti.");return}
-    const [{data:p},{data:s},{data:cs}]=await Promise.all([
+    let [{data:p},{data:s},{data:cs}]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
-      sb.rpc("rpg_farm_status"),
+      sb.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId}),
       sb.rpc("rpg_combat_stats")
     ]);
-    profile=p||null;farmState=s||null;combatStats=cs||null;enemyMeta=farmState?.enemy||null;battle=farmState?.active_battle||null;
-    render();
+    if(s?.active_battle?.status==="active" && s.active_battle.farm_enemy_id!==selectedEnemyId){
+      selectedEnemyId=s.active_battle.farm_enemy_id;
+      const again=await sb.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId});s=again.data;
+    }
+    profile=p||null;farmState=s||null;combatStats=cs||null;enemyMeta=farmState?.enemy||null;battle=farmState?.active_battle||null;render();
+  }
+  async function selectEnemy(id){
+    if(battle?.status==="active")return;
+    selectedEnemyId=id;await refresh();
   }
   async function startBattle(){
     if(busy||playing)return;
     if(battle?.status==="active"){arena.classList.add("show");arena.scrollIntoView({behavior:"smooth",block:"start"});return}
     busy=true;render();
     try{
-      const {data,error}=await window.rpgSupabase.rpc("start_rpg_farm_battle");if(error)throw error;
-      battle=data;const [{data:s},{data:cs}]=await Promise.all([window.rpgSupabase.rpc("rpg_farm_status"),window.rpgSupabase.rpc("rpg_combat_stats")]);
-      farmState=s||farmState;combatStats=cs||combatStats;enemyMeta=farmState?.enemy||enemyMeta;
-      render();arena.scrollIntoView({behavior:"smooth",block:"start"});
+      const {data,error}=await window.rpgSupabase.rpc("start_rpg_farm_battle_for",{p_farm_enemy_id:selectedEnemyId});if(error)throw error;
+      battle=data;
+      if(battle?.farm_enemy_id&&battle.farm_enemy_id!==selectedEnemyId)selectedEnemyId=battle.farm_enemy_id;
+      const [{data:s},{data:cs}]=await Promise.all([
+        window.rpgSupabase.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId}),
+        window.rpgSupabase.rpc("rpg_combat_stats")
+      ]);
+      farmState=s||farmState;combatStats=cs||combatStats;enemyMeta=farmState?.enemy||enemyMeta;render();arena.scrollIntoView({behavior:"smooth",block:"start"});
     }catch(e){setMsg(e?.message||"Farm kovos pradėti nepavyko.")}
     finally{busy=false;render()}
   }
@@ -2744,7 +2795,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       busy=false;await playEvents(data.last_events,before,data);battle=data;
       if(battle.status!=="active"){
         const [{data:s},{data:p},{data:cs}]=await Promise.all([
-          window.rpgSupabase.rpc("rpg_farm_status"),
+          window.rpgSupabase.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId}),
           window.rpgSupabase.from("rpg_character_sheet").select("*").single(),
           window.rpgSupabase.rpc("rpg_combat_stats")
         ]);
@@ -2754,11 +2805,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }catch(e){console.error(e);setTurn("result","METIMAS NEPAVYKO","Pabandyk dar kartą.");setAction("TECHNINĖ KLAIDA","Kovos būsena nepakeista.","enemyHit")}
     finally{busy=false;playing=false;render()}
   }
-
-  startBtn.addEventListener("click",startBattle);
-  retryBtn.addEventListener("click",startBattle);
-  d20Btn.addEventListener("click",()=>roll("d20"));
-  damageBtn.addEventListener("click",()=>roll("damage"));
+  document.querySelectorAll(".rpgFarmEnemyPick").forEach(btn=>btn.addEventListener("click",()=>selectEnemy(btn.dataset.farmEnemy)));
+  startBtn.addEventListener("click",startBattle);retryBtn.addEventListener("click",startBattle);
+  d20Btn.addEventListener("click",()=>roll("d20"));damageBtn.addEventListener("click",()=>roll("damage"));
   const tab=document.querySelector(".rpgTabs button[data-rpg-panel='farm']");
   if(tab)tab.addEventListener("click",()=>setTimeout(refresh,0));
   window.loadRpgFarm=refresh;
