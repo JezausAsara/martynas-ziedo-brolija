@@ -193,7 +193,8 @@
 .rpgItemInfo{min-width:0}.rpgItemInfo strong{display:block;color:#e4d8b9;font:700 12px/1.2 Georgia,serif}.rpgItemInfo small{display:block;margin-top:3px;color:#7f8c91;font:10px/1.35 Arial,sans-serif}
 .rpgItemInfo em{display:inline-block;margin-top:4px;color:#c7a861;font:700 9px Arial,sans-serif;font-style:normal}
 .rpgItemAction{min-width:92px;padding:8px 9px;border:1px solid #705628;border-radius:8px;background:#503b16;color:#f5d98b;font:800 10px Arial,sans-serif;cursor:pointer}
-.rpgItemAction.unequip{border-color:#4e5f65;background:#182328;color:#c4d0d4}.rpgItemAction:disabled{opacity:.45;cursor:not-allowed}
+.rpgItemAction.unequip{border-color:#4e5f65;background:#182328;color:#c4d0d4}.rpgItemAction.use{border-color:#6a3d72;background:#3b1e42;color:#e8baf3}.rpgItemAction:disabled{opacity:.45;cursor:not-allowed}
+.rpgPotionStatus{margin:6px 0;padding:7px 9px;border:1px dashed #4c3e55;border-radius:8px;background:#100c13;color:#9b8ca0;font:800 9px/1.3 Arial,sans-serif}.rpgPotionStatus.active{border-style:solid;border-color:#76567e;background:#1c1120;color:#e1b9e8}
 .rpgRatings{display:grid;gap:6px;margin-top:8px}.rpgRatingRow{display:grid;grid-template-columns:minmax(0,1fr) 50px 50px;gap:6px;align-items:center;padding:7px 8px;border:1px solid #2f393d;border-radius:8px;background:#091014}
 .rpgRatingRow b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d7dcde;font:700 10px Arial,sans-serif}.rpgRatingRow span{text-align:center;font:800 11px Arial,sans-serif;color:#e2c26f}.rpgRatingRow span:last-child{color:#86c99a}
 .rpgRatingLegend{display:grid;grid-template-columns:1fr 50px 50px;gap:6px;color:#6f7c81;font:800 8px Arial,sans-serif;letter-spacing:.05em}.rpgRatingLegend span{text-align:center}
@@ -835,6 +836,7 @@
               <span>⚔️ DPS <b id='rpgCombatDps'>0.00</b></span>
               <small>Vidutinė žala per atakos ėjimą</small>
             </div>
+            <div id='rpgPotionStatus' class='rpgPotionStatus'>🧪 Aktyvaus potion efekto nėra</div>
             <div class='rpgRollBox'>
               <small>TAVO KAULIUKAS</small>
               <div id='rpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
@@ -921,7 +923,7 @@
         <div class='rpgSlot' data-slot='spell'><b>✨ Burtas</b><span>Tuščia</span></div>
       </div>
       <div class='rpg2-lockPanel'><b>🏪 Item Shop</b><span id='rpgInventoryShopHint'>Shop būsena kraunama…</span><button class='rpg2-backCharacter' type='button' data-open-rpg-shop>ATIDARYTI SHOP</button></div>
-      <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div></div>
+      <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div><div id='rpgInventoryMsg' class='rpgSheetMsg'></div></div>
     </div>
 
     <div id='rpgPanel-shop' class='rpgPanel'>
@@ -1036,6 +1038,7 @@
                 <span>⚔️ DPS <b id='farmRpgCombatDps'>0.00</b></span>
                 <small>Vidutinė žala per atakos ėjimą</small>
               </div>
+              <div id='farmRpgPotionStatus' class='rpgPotionStatus'>🧪 Aktyvaus potion efekto nėra</div>
               <div class='rpgRollBox'>
                 <small>TAVO KAULIUKAS</small>
                 <div id='farmRpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
@@ -1130,7 +1133,7 @@
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
-        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Kiekvieną aktyvų Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Common-tier itemas iškrenta po kiekvienos pergalės.</div>
+        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Kiekvieną aktyvų Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
         <div class='rpgRuleCard'><b>🤝 Trade</b><br>Žaidėjai gali keistis turimais daiktais per trade pasiūlymą. Daiktas persikelia tik kitam žaidėjui patvirtinus sandorį; panaudoti consumables nebegali būti keičiami.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
@@ -1444,7 +1447,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       barca_palau_reliquary:"🏛️",
       quiz_8_token:"📘",
       quiz_9_token:"📜",
-      quiz_10_token:"🧠"
+      quiz_10_token:"🧠",
+      farm_king_hp_medallion:"❤️",
+      farm_king_watch:"🛡️",
+      farm_king_trophy_ring:"⚔️"
     };
     return special[id]||({weapon:"⚔️",armor:"🛡️",helmet:"⛑️",ring:"💍",artifact:"🔮",spell:"✨",consumable:"🧪"}[slot]||"🎒");
   };
@@ -1536,8 +1542,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         (desc?"<small>"+escInv(desc)+"</small>":"")+
         "<em>"+escInv(item.rarity||"")+" · "+escInv(item.slot||"item")+(req?" · "+escInv(req):"")+"</em>"+
         "</div></div>"+
-        "<button class='rpgItemAction "+(i.equipped?"unequip":"")+"' data-item-id='"+escInv(i.item_id)+"' data-item-action='"+(i.equipped?"unequip":"equip")+"'>"+
-        (i.equipped?"NUSIIMTI":"UŽSIDĖTI")+"</button></div>";
+        (payload.consumable||item.slot==="consumable"
+          ?"<button class='rpgItemAction use' data-item-id='"+escInv(i.item_id)+"' data-item-action='use'>PANAUDOTI</button>"
+          :"<button class='rpgItemAction "+(i.equipped?"unequip":"")+"' data-item-id='"+escInv(i.item_id)+"' data-item-action='"+(i.equipped?"unequip":"equip")+"'>"+(i.equipped?"NUSIIMTI":"UŽSIDĖTI")+"</button>")+
+        "</div>";
     }).join("");
   }
 
@@ -1729,18 +1737,33 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   document.getElementById("rpgInventoryItems")?.addEventListener("click",async e=>{
     const btn=e.target.closest(".rpgItemAction");if(!btn)return;
     const sb=window.rpgSupabase;if(!sb)return;
-    const msg=document.getElementById("rpgSheetMsg");
+    const msg=document.getElementById("rpgInventoryMsg")||document.getElementById("rpgSheetMsg");
     const itemId=btn.dataset.itemId, action=btn.dataset.itemAction;
-    btn.disabled=true;msg.textContent=action==="equip"?"Užsidedamas daiktas…":"Nusiimamas daiktas…";
-    const {error}=await sb.rpc(action==="equip"?"equip_rpg_item":"unequip_rpg_item",{p_item_id:itemId});
-    if(error){
-      const t=String(error.message||"");
-      msg.textContent=t.toLowerCase().includes("active battle")?"Kovos metu įrangos keisti negalima.":t.startsWith("Requires ")?"Negali užsidėti: "+t.replace("Requires ","reikia ")+".":"Nepavyko pakeisti įrangos.";
+    btn.disabled=true;
+    if(action==="use"){
+      msg.textContent="Potion naudojamas…";
+      const {data,error}=await sb.rpc("use_rpg_potion",{p_item_id:itemId});
+      if(error){
+        const t=String(error.message||"").toLowerCase();
+        msg.textContent=t.includes("only be used during active combat")?"Potioną galima naudoti tik aktyvios kovos metu.":t.includes("already full")?"HP jau pilnas.":t.includes("only before your attack")?"AC/Attack potioną naudok savo atakos fazėje, prieš mesdamas D20.":t.includes("already active")?"Jau veikia kitas combat potionas. Pirma turi pasibaigti jo 2 raundai.":"Potiono panaudoti nepavyko.";
+      }else if(data?.potion_type==="heal"){
+        msg.textContent="❤️ 2d6 = "+data.roll1+" + "+data.roll2+" → atstatyta "+data.heal+" HP.";
+      }else{
+        msg.textContent="🧪 "+data.name+" aktyvuotas: +"+data.bonus+" "+(data.potion_type==="ac"?"AC":"Attack")+" · "+data.rounds+" raundams.";
+      }
     }else{
-      msg.textContent=action==="equip"?"Daiktas uždėtas. Bonusai aktyvūs.":"Daiktas nuimtas.";
+      msg.textContent=action==="equip"?"Užsidedamas daiktas…":"Nusiimamas daiktas…";
+      const {error}=await sb.rpc(action==="equip"?"equip_rpg_item":"unequip_rpg_item",{p_item_id:itemId});
+      if(error){
+        const t=String(error.message||"");
+        msg.textContent=t.toLowerCase().includes("active battle")?"Kovos metu įrangos keisti negalima.":t.startsWith("Requires ")?"Negali užsidėti: "+t.replace("Requires ","reikia ")+".":"Nepavyko pakeisti įrangos.";
+      }else{
+        msg.textContent=action==="equip"?"Daiktas uždėtas. Bonusai aktyvūs.":"Daiktas nuimtas.";
+      }
     }
     await renderSheet();
     if(window.refreshRpgCombat)await window.refreshRpgCombat();
+    if(window.loadRpgFarm)await window.loadRpgFarm();
   });
 
 
@@ -2029,14 +2052,20 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     setHp("enemy",battle.enemy_hp,battle.enemy_max_hp);
 
     const cs=combatStats||{};
-    get("rpgPlayerAc").textContent=cs.ac ?? (10+Number(profile.dex_mod||0));
+    get("rpgPlayerAc").textContent=totalAc;
     get("rpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas";
     get("rpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
-    const atkTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.attack_bonus||0);
-    const dmgTotal=Number(cs.str_mod ?? profile.str_mod ?? 0)+Number(cs.damage_bonus||0);
+    const potionState=battle?.skill_state||{};
+    const potionRounds=Number(potionState.potion_rounds_left||0);
+    const potionBuff=String(potionState.potion_buff||"");
+    const potionAtk=potionRounds>0&&potionBuff==="attack"?2:0;
+    const potionAc=potionRounds>0&&potionBuff==="ac"?2:0;
+    const attackAbility=String(cs.attack_stat||"STR").toUpperCase()==="DEX"?Number(cs.dex_mod ?? profile.dex_mod ?? 0):Number(cs.str_mod ?? profile.str_mod ?? 0);
+    const atkTotal=attackAbility+Number(cs.attack_bonus||0)+potionAtk;
+    const dmgTotal=attackAbility+Number(cs.damage_bonus||0);
     const initTotal=Number(cs.dex_mod ?? profile.dex_mod ?? 0)+Number(cs.initiative_bonus||0);
     const armorBonus=Number(cs.ac_bonus||0);
-    const totalAc=Number(cs.ac ?? (10+Number(profile.dex_mod||0)));
+    const totalAc=Number(cs.ac ?? (10+Number(profile.dex_mod||0)))+potionAc;
     const weaponDie=String(cs.weapon_die||"d8").toUpperCase();
     get("rpgCombatDmgDie").textContent=weaponDie;
     get("rpgCombatAttack").textContent=mod(atkTotal);
@@ -2045,6 +2074,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("rpgCombatTotalAc").textContent=totalAc;
     get("rpgCombatInit").textContent=mod(initTotal);
     get("rpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
+    const potionStatus=get("rpgPotionStatus");
+    if(potionStatus){
+      potionStatus.classList.toggle("active",potionRounds>0);
+      potionStatus.textContent=potionRounds>0?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
+    }
 
     const active=battle.status==="active";
     const locked=busy||playing;
@@ -2513,9 +2547,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       no:"02",desc:"Susikūprinęs LKL valdovas, godžiai saugantis Karaliaus Mindaugo Taurę. Apie 20% stipresnis už Jesterį.",
       image:"assets/rpg/farm2-taures-karalius.webp",
       rewards:[
-        ["❤️ Karaliaus gyvybės medalionas","Common · +4 Max HP","40%"],
-        ["⌚ Karaliaus laikrodis","Common · +1 Initiative","30%"],
-        ["🏆 Taurės žiedas","Common · +1 Attack","30%"],
+        ["❤️ Karališkas Healing Potion","Common · 2d6 HP","40%"],
+        ["🛡️ Akmeninės nugaros Potion","Common · +2 AC · 2 raundai","30%"],
+        ["⚔️ Karališko įniršio Potion","Common · +2 Attack · 2 raundai","30%"],
         ["✨ Skill Point fragmentas","+0.5 SP · nepriklausomas bonus roll","15%"]
       ]
     }
@@ -2611,9 +2645,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("farmSkill1").innerHTML="<b>⚔️ "+esc(e.special_name||"Special")+"</b><span>"+esc(e.special_description||"")+"</span>";
     const sk2=get("farmSkill2");
     if(sk2){sk2.style.display=e.special2_name?"grid":"none";sk2.innerHTML=e.special2_name?"<b>👑 "+esc(e.special2_name)+"</b><span>"+esc(e.special2_description||"")+"</span>":""}
-    get("farmRewardTitle").textContent="FARM REWARD POOL · ITEMAS + "+prettyChance()+"% SKILL POINT ŠANSAS · JOKIŲ FPTS";
+    get("farmRewardTitle").textContent="FARM REWARD POOL · "+(e.id==="cup-king"?"POTIONAS":"ITEMAS")+" + "+prettyChance()+"% SKILL POINT ŠANSAS · JOKIŲ FPTS";
     get("farmRewardGrid").innerHTML=ui.rewards.map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span><em>"+r[2]+"</em></div>").join("");
-    get("farmRewardFine").textContent="Common itemas iškrenta visada. Papildomai po pergalės atliekamas atskiras "+prettyChance()+"% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP. Vienodo itemo STAT bonusas nuo quantity nesistackina.";
+    get("farmRewardFine").textContent=(e.id==="cup-king"?"Common potionas iškrenta visada. Healing meta 2d6 HP; AC/Attack potionai veikia po 2 raundus ir vienu metu gali veikti tik vienas combat buffas.":"Common itemas iškrenta visada. Vienodo itemo STAT bonusas nuo quantity nesistackina.")+" Papildomai atliekamas atskiras "+prettyChance()+"% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP.";
     get("farmBattleKicker").textContent="FARM ENEMY · "+String(e.name||"").toUpperCase();
     get("farmBattleTitle").textContent="Kova su "+(e.name||"Farm priešu");
     get("farmRpgEnemyName").textContent=e.name||"Farm priešas";
@@ -2647,18 +2681,28 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }
     const cs=combatStats||{};
     const atkAbility=String(cs.attack_stat||"STR").toUpperCase()==="DEX"?Number(cs.dex_mod||0):Number(cs.str_mod||0);
-    const atkTotal=atkAbility+Number(cs.attack_bonus||0),dmgTotal=atkAbility+Number(cs.damage_bonus||0);
+    const potionState=battle?.skill_state||{};
+    const potionRounds=Number(potionState.potion_rounds_left||0);
+    const potionBuff=String(potionState.potion_buff||"");
+    const potionAtk=potionRounds>0&&potionBuff==="attack"?2:0;
+    const potionAc=potionRounds>0&&potionBuff==="ac"?2:0;
+    const atkTotal=atkAbility+Number(cs.attack_bonus||0)+potionAtk,dmgTotal=atkAbility+Number(cs.damage_bonus||0);
     const initTotal=Number(cs.dex_mod||0)+Number(cs.initiative_bonus||0);
-    get("farmRpgPlayerAc").textContent=cs.ac??10;
+    get("farmRpgPlayerAc").textContent=Number(cs.ac??10)+potionAc;
     get("farmRpgCombatWeapon").textContent=cs.weapon_name||"Pradinis ginklas";
     get("farmRpgCombatArmor").textContent=cs.armor_name||"Be šarvų";
     get("farmRpgCombatDmgDie").textContent=playerDamageDie();
     get("farmRpgCombatAttack").textContent=mod(atkTotal);
     get("farmRpgCombatDamage").textContent=mod(dmgTotal);
     get("farmRpgCombatArmorBonus").textContent=mod(cs.ac_bonus||0);
-    get("farmRpgCombatTotalAc").textContent=cs.ac??10;
+    get("farmRpgCombatTotalAc").textContent=Number(cs.ac??10)+potionAc;
     get("farmRpgCombatInit").textContent=mod(initTotal);
     get("farmRpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
+    const potionStatus=get("farmRpgPotionStatus");
+    if(potionStatus){
+      potionStatus.classList.toggle("active",potionRounds>0);
+      potionStatus.textContent=potionRounds>0?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
+    }
 
     const locked=busy||playing;
     d20Btn.disabled=locked||!active||!["initiative","player_attack"].includes(battle.phase);
