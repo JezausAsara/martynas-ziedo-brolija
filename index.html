@@ -588,9 +588,9 @@
       <div id='journeyShopMeta' class='journeyShopMeta'>Kraunamas serverio laikmatis…</div>
     </div>
     <div class='journeyPanel journeyUnlockPanel'>
-      <div class='journeyPanelTitle'><span>🔓 ARTĖJANTYS ATRAKINIMAI</span><small>PO 3 TURO</small></div>
+      <div class='journeyPanelTitle'><span>🔓 RPG ATRAKINIMAI</span><small>AKTYVU</small></div>
       <div class='journeyUnlock'><b>🤝 Trade itemais</b><span>Po 3 turo planuojama atrakinti daiktų mainus tarp žaidėjų.</span></div>
-      <div class='journeyUnlock'><b>🌳 Skill Tree</b><span>Po 3 turo planuojama atrakinti skillų pirkimą už FPTS. Detales patvirtinsime atskirai.</span></div>
+      <div class='journeyUnlock'><b>🌳 Skill Tree</b><span>Atrakintas jau dabar. Skillai perkami už pilnus Skill Points; Farm gali duoti +0.5 SP fragmentą.</span></div>
     </div>
   </div>
 
@@ -945,13 +945,14 @@
           </div>
         </div>
         <div class='rpgFarmRewards'>
-          <div class='rpg2-blockTitle'>FARM REWARD POOL · JOKIŲ FPTS</div>
+          <div class='rpg2-blockTitle'>FARM REWARD POOL · ITEMAS + 10% SKILL POINT ŠANSAS · JOKIŲ FPTS</div>
           <div class='rpgFarmRewardGrid'>
             <div><b>🔔 Jesterio varpelis</b><span>Common · +1 Initiative</span><em>50%</em></div>
             <div><b>💍 Kreiva Jesterio riešinė</b><span>Common · +1 Attack</span><em>30%</em></div>
             <div><b>🛡️ Balno sagtis</b><span>Common · +1 AC</span><em>20%</em></div>
+            <div class='skillFrag'><b>✨ Skill Point fragmentas</b><span>+0.5 SP · nepriklausomas bonus roll</span><em>10%</em></div>
           </div>
-          <small class='rpgFarmFine'>Vienodas itemas gali iškristi dar kartą, bet jo STAT bonusas nuo quantity nesistackina.</small>
+          <small class='rpgFarmFine'>Common itemas iškrenta visada. Papildomai po pergalės atliekamas atskiras 10% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP. Vienodo itemo STAT bonusas nuo quantity nesistackina.</small>
         </div>
         
         <div id='farmRpgBattleArena' class='rpgBattleArena rpgFarmBattleArena'>
@@ -1082,9 +1083,9 @@
       </div>
 
       <div class='skillTreeTop'>
-        <div class='skillPointCard'><small>GAUTI SKILL POINTS</small><strong id='skillEarned'>0</strong><span>16 bazinių + bonus rewardai</span></div>
+        <div class='skillPointCard'><small>SUKAUPTA SKILL POINTS</small><strong id='skillEarned'>0</strong><span>bazinis progresas + 0.5 SP Farm fragmentai</span></div>
         <div class='skillPointCard'><small>PANAUDOTA</small><strong id='skillSpent'>0</strong><span>pasirinkti skillai</span></div>
-        <div class='skillPointCard available'><small>LAISVI SKILL POINTS</small><strong id='skillAvailable'>0</strong><span id='skillNextPoint'>Kitas SP po Enemy #3</span></div>
+        <div class='skillPointCard available'><small>LAISVI SKILL POINTS</small><strong id='skillAvailable'>0</strong><span id='skillNextPoint'>Skillui reikia pilno 1.0 SP</span></div>
         <button id='rpgResetSkills' class='skillResetBtn' type='button'>↻ RESET SKILLS · 30 FPTS</button>
       </div>
 
@@ -1101,12 +1102,12 @@
         <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Kiekviename pilnai užfiksuotame Fantasy ture turi 3 bandymus įveikti dabartinį priešą. Išnaudojus visus 3, nauji bandymai atsiranda tik kitame pilname ture. Pralaimėjus FPTS ir daiktai neprarandami.</div>
         <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Lygos TOP 3 gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą – prie jo pridedamas papildomas d6. Panaudojus bonusas tame ture dingsta.</div>
         <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės ir visiems žaidėjams yra vienodo stiprumo. Fantasy rezultatai suteikia progresą, tačiau priešai prie žaidėjo nesiscale'ina.</div>
-        <div class='rpgRuleCard'><b>🌳 Skill Tree</b><br>Skill Tree atsirakina įveikus Enemy #3. +1 Skill Point gaunamas kas 3 priešus ir papildomai po bosų #10, #19, #29 ir #38; jei keli SP šaltiniai sutampa, taškai sumuojasi. Specialūs kampanijos rewardai taip pat gali suteikti bonus SP – Enemy #4 duoda +1 SP. Skillai nemokami, bet reikia eiti pasirinktos šakos keliu. RESET SKILLS kainuoja 30 Available FPTS ir galimas tik ne kovos metu.</div>
+        <div class='rpgRuleCard'><b>🌳 Skill Tree</b><br>Skill Tree atrakintas jau dabar. Vienam skillui reikia 1 pilno Skill Point. +1 SP gaunamas kas 3 įveiktus kampanijos priešus ir papildomai po bosų #10, #19, #29 ir #38; specialūs kampanijos rewardai taip pat gali duoti bonus SP. Farm pergalė turi nepriklausomą 10% šansą duoti +0.5 SP – du fragmentai sudaro 1.0 SP. Skillai nemokami, bet reikia eiti pasirinktos šakos keliu. RESET SKILLS kainuoja 30 Available FPTS ir galimas tik ne kovos metu.</div>
         <div class='rpgRuleCard'><b>🗡️ Ginklai ir jų grade</b><br>STR ginklams reikia STR, DEX ginklams – DEX; finesse ginklai gali naudoti tinkamesnį iš jų. Normalus ginklas – nuo STAT 10, +1 – nuo 14, +2 – nuo 16, +3 – nuo 18. Aukštesni grade'ai taip pat atsirakina tik vėlesniuose kampanijos etapuose.</div>
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
-        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Žaliąjį Jesterį galima kovoti daugiausia 3 kartus per dieną iki 4 Fantasy turo pabaigos. Dienos limitas atsinaujina 00:00 Lietuvos laiku; rewardai yra tik maži Common itemai / pagalbiniai bonusai.</div>
+        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Žaliąjį Jesterį galima kovoti daugiausia 3 kartus per dieną iki 4 Fantasy turo pabaigos. Dienos limitas atsinaujina 00:00 Lietuvos laiku. Kiekviena pergalė duoda Common item dropą ir papildomai turi nepriklausomą 10% šansą gauti +0.5 Skill Point.</div>
         <div class='rpgRuleCard'><b>🤝 Trade</b><br>Žaidėjai gali keistis turimais daiktais per trade pasiūlymą. Daiktas persikelia tik kitam žaidėjui patvirtinus sandorį; panaudoti consumables nebegali būti keičiami.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
@@ -1582,21 +1583,19 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const skills=state.skills||[];
     const owned=new Set(skills.filter(s=>s.owned).map(s=>s.id));
     const earned=document.getElementById("skillEarned"),spent=document.getElementById("skillSpent"),avail=document.getElementById("skillAvailable");
-    if(earned)earned.textContent=(state.earned_points??0)+(Number(state.bonus_points||0)>0?" ("+state.bonus_points+" bonus)":"");if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=state.available_points??0;
+    if(earned)earned.textContent=Number(state.earned_points??0).toFixed(1).replace(".0","")+(Number(state.bonus_points||0)>0?" ("+Number(state.bonus_points).toFixed(1).replace(".0","")+" bonus)":"");if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=Number(state.available_points??0).toFixed(1).replace(".0","");
     const next=nextSkillMilestone(state.defeated_enemies);
-    const nextEl=document.getElementById("skillNextPoint");if(nextEl)nextEl.textContent=next?("Kitas: Enemy #"+next.round+(next.points>1?" · +2 SP":" · +1 SP")):"Visi SP jau pasiekiami";
+    const nextEl=document.getElementById("skillNextPoint");if(nextEl)nextEl.textContent=Number(state.available_points||0)>=1?"Galima atrakinti skillą · kaina 1 SP":Number(state.available_points||0)>0?"Turi "+Number(state.available_points).toFixed(1)+" SP · reikia 1.0 SP":"Farm: 10% šansas gauti +0.5 SP"+(next?" · kampanijoje kitas +SP ties Enemy #"+next.round:"");
     const notice=document.getElementById("rpgSkillLockNotice");
     if(notice){
-      notice.className="skillTreeNotice "+(state.unlocked?"unlocked":"locked");
-      notice.textContent=!state.unlocked
-        ?"🔒 Skill Tree atsirakins įveikus Enemy #3. Medį gali peržiūrėti jau dabar."
-        :state.battle_locked
+      notice.className="skillTreeNotice "+(state.battle_locked?"locked":"unlocked");
+      notice.textContent=state.battle_locked
           ?"🔒 BUILD LOCKED DURING COMBAT · skillų keisti ar resetinti negalima iki kovos pabaigos."
-          :"✓ Buildas laisvas. Skillą galima rinktis turint laisvą Skill Point ir atrakinus ankstesnį tos šakos skillą.";
+          :"✓ Skill Tree atrakintas. Vienam skillui reikia 1.0 SP; Farm +0.5 SP fragmentai kaupiasi iki pilno taško.";
     }
     const reset=document.getElementById("rpgResetSkills");
     if(reset){
-      reset.disabled=!state.unlocked||state.battle_locked||Number(state.spent_points||0)===0||Number(state.available_fpts||0)<Number(state.reset_cost_fpts||30);
+      reset.disabled=state.battle_locked||Number(state.spent_points||0)===0||Number(state.available_fpts||0)<Number(state.reset_cost_fpts||30);
       reset.textContent="↻ RESET SKILLS · "+Number(state.reset_cost_fpts||30)+" FPTS";
       reset.title=state.battle_locked?"Kovos metu buildas užrakintas":Number(state.available_fpts||0)<30?"Nepakanka Available FPTS":"Grąžinti visus Skill Points";
     }
@@ -1607,10 +1606,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         return "<div class='skillBranch'><div class='skillBranchTitle'>"+escInv(branch.toUpperCase())+"</div>"+bs.map(s=>{
           const has=!!s.owned;
           const prereqOk=!s.prerequisite_id||owned.has(s.prerequisite_id);
-          const can=state.unlocked&&!state.battle_locked&&!has&&Number(state.available_points||0)>0&&prereqOk;
+          const can=state.unlocked&&!state.battle_locked&&!has&&Number(state.available_points||0)>=1&&prereqOk;
           const cls=has?"owned":can?"available":"blocked";
           const prereqName=s.prerequisite_id?(skills.find(x=>x.id===s.prerequisite_id)?.name||s.prerequisite_id):"Šakos pradžia";
-          return "<div class='skillNode "+cls+"'><span class='tier'>TIER "+s.tier+"</span><strong>"+escInv(s.name)+"</strong><p>"+escInv(s.description)+"</p><div class='prereq'>"+(s.prerequisite_id?"Reikia: "+escInv(prereqName):"Pradinis skillas")+"</div><button class='skillChoose' type='button' data-skill-id='"+escInv(s.id)+"' "+(can?"":"disabled")+">"+(has?"✓ ATRAKINTA":can?"ATRAKINTI · 1 SP":!state.unlocked?"UŽRAKINTA":state.battle_locked?"BUILD LOCKED":!prereqOk?"REIKIA ANKSTESNIO":Number(state.available_points||0)<=0?"NĖRA SP":"UŽRAKINTA")+"</button></div>";
+          return "<div class='skillNode "+cls+"'><span class='tier'>TIER "+s.tier+"</span><strong>"+escInv(s.name)+"</strong><p>"+escInv(s.description)+"</p><div class='prereq'>"+(s.prerequisite_id?"Reikia: "+escInv(prereqName):"Pradinis skillas")+"</div><button class='skillChoose' type='button' data-skill-id='"+escInv(s.id)+"' "+(can?"":"disabled")+">"+(has?"✓ ATRAKINTA":can?"ATRAKINTI · 1 SP":!state.unlocked?"UŽRAKINTA":state.battle_locked?"BUILD LOCKED":!prereqOk?"REIKIA ANKSTESNIO":Number(state.available_points||0)<1?"REIKIA 1.0 SP":"UŽRAKINTA")+"</button></div>";
         }).join("")+"</div>";
       }).join("");
       return "<section class='skillAttr'><div class='skillAttrHead'><h4>"+meta.icon+" "+meta.label+"</h4><span>"+attrSkills.filter(s=>s.owned).length+" / "+attrSkills.length+"</span></div><div class='skillBranches'>"+branches+"</div></section>";
@@ -1750,7 +1749,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const {error}=await sb.rpc("rpg_select_skill",{p_skill_id:btn.dataset.skillId});
     if(error){
       const t=String(error.message||"").toLowerCase();
-      if(msg)msg.textContent=t.includes("previous skill")?"Pirmiausia atrakink ankstesnį šios šakos skillą.":t.includes("no skill points")?"Nebėra laisvų Skill Points.":t.includes("locked during")?"Kovos metu buildas užrakintas.":t.includes("enemy #3")?"Skill Tree dar užrakintas.":"Nepavyko atrakinti skillo.";
+      if(msg)msg.textContent=t.includes("previous skill")?"Pirmiausia atrakink ankstesnį šios šakos skillą.":(t.includes("no skill points")||t.includes("no full skill point"))?"Reikia pilno 1.0 Skill Point.":t.includes("locked during")?"Kovos metu buildas užrakintas.":"Nepavyko atrakinti skillo.";
     }else{
       if(msg)msg.textContent="✓ Skillas atrakintas.";
     }
@@ -2489,7 +2488,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 .rpgFarmStats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.rpgFarmStats span{padding:10px 7px;border:1px solid #304337;border-radius:9px;background:#09120d;text-align:center}.rpgFarmStats small{display:block;color:#6f8976;font:700 9px Arial,sans-serif}.rpgFarmStats b{display:block;margin-top:4px;color:#e8ddb4;font:800 16px Georgia,serif}
 .rpgFarmSkill,.rpgFarmLimit{display:grid;gap:4px;margin-top:11px;padding:11px 12px;border:1px solid #344d3b;border-radius:10px;background:#0a120d}.rpgFarmSkill b{color:#d7bd73}.rpgFarmSkill span,.rpgFarmLimit span{color:#8f9c93;font:11px/1.45 Arial,sans-serif}.rpgFarmLimit b{color:#8cd198}
 .rpgFarmPrimary{width:100%;margin-top:12px;padding:12px;border:1px solid #5f8d69;border-radius:10px;background:linear-gradient(#315d3c,#17301f);color:#d8f2dc;font:800 12px Georgia,serif;letter-spacing:.06em;cursor:pointer}.rpgFarmPrimary:disabled{opacity:.4;cursor:not-allowed}.rpgFarmMsg{min-height:18px;margin-top:8px;color:#d7a485;font:11px Arial,sans-serif}
-.rpgFarmRewards{padding:14px;border:1px solid #303c34;border-radius:13px;background:#0a1110}.rpgFarmRewardGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}.rpgFarmRewardGrid>div{display:grid;gap:4px;padding:11px;border:1px solid #3b463d;border-radius:9px;background:#0c1510;position:relative}.rpgFarmRewardGrid b{color:#ddce93;font-size:12px}.rpgFarmRewardGrid span{color:#92a096;font:10px Arial,sans-serif}.rpgFarmRewardGrid em{position:absolute;right:8px;top:8px;color:#74bd83;font:800 11px Arial,sans-serif}.rpgFarmFine{display:block;margin-top:8px;color:#6f7c73}
+.rpgFarmRewards{padding:14px;border:1px solid #303c34;border-radius:13px;background:#0a1110}.rpgFarmRewardGrid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px}.rpgFarmRewardGrid>div{display:grid;gap:4px;padding:11px;border:1px solid #3b463d;border-radius:9px;background:#0c1510;position:relative}.rpgFarmRewardGrid b{color:#ddce93;font-size:12px}.rpgFarmRewardGrid span{color:#92a096;font:10px Arial,sans-serif}.rpgFarmRewardGrid em{position:absolute;right:8px;top:8px;color:#74bd83;font:800 11px Arial,sans-serif}.rpgFarmFine{display:block;margin-top:8px;color:#6f7c73}
 .rpgFarmBattleArena{margin-top:2px}.rpgFarmBattleArena .rpgEnemyPortraitArt.photo{background-position:center 18%;background-size:cover}.rpgFarmBattleArena .rpgBattleTop{border-color:#38533f}.rpgFarmBattleArena.show{display:block}
 @media(max-width:780px){.rpgFarmHero{grid-template-columns:1fr}.rpgFarmArtFrame{min-height:0;max-height:430px;aspect-ratio:3/4}.rpgFarmStats{grid-template-columns:repeat(3,1fr)}.rpgFarmRewardGrid{grid-template-columns:1fr}}
 </style>
@@ -2711,7 +2710,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       }
       if(e.type==="win"){setTurn("result","PERGALĖ","Žaliasis Jesteris įveiktas");setAction("⚔️ FARM PERGALĖ!",esc(e.text||""),"crit");await sleep(1000);continue}
       if(e.type==="loss"){setTurn("result","PRALAIMĖJIMAS","Šis farm bandymas baigtas");setAction("💀 PRALAIMĖJAI",esc(e.text||""),"enemyHit");await sleep(1000);continue}
-      if(e.type==="loot"){setTurn("result","LOOT DROP","Gautas Farm itemas");setAction("🎁 "+(e.item?.name||"COMMON DROP"),esc(e.item?.stat_payload?.description||e.text||""),"crit");await sleep(1300);continue}
+      if(e.type==="loot"){const sp=Number(e.item?.skill_points_bonus||0);setTurn("result","LOOT DROP",sp>0?"Common itemas + Skill Point fragmentas":"Gautas Farm itemas");setAction("🎁 "+(e.item?.name||"COMMON DROP")+(sp>0?" + ✨ "+sp.toFixed(1)+" SP":""),esc(e.item?.stat_payload?.description||e.text||"")+(sp>0?"<br><b>✨ BONUS: +"+sp.toFixed(1)+" Skill Point</b>":""),"crit");await sleep(sp>0?1800:1300);continue}
     }
     setHp("player",after.player_hp,after.player_max_hp);setHp("enemy",after.enemy_hp,after.enemy_max_hp);
     playing=false;
