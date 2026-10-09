@@ -27,6 +27,7 @@
 .rpgRulesGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.rpgRuleCard{padding:15px;border:1px solid #374248;border-radius:13px;background:#0b1317;line-height:1.55;color:#cbd1d4}.rpgRuleCard b{color:#e8c873}
 .rpgSheetMsg{min-height:18px;margin-top:10px;color:#d7a485;font-size:12px}
 @media(max-width:820px){.rpgCharacterGrid{grid-template-columns:1fr}.rpgStatGrid,.rpgEquipGrid,.rpgVitals,.rpgRulesGrid{grid-template-columns:1fr}.rpgPortrait{width:155px;height:155px}}
+.rpgTabs button:disabled{opacity:.45;cursor:not-allowed;filter:grayscale(.35)}
 </style>
 
 <style id="rpg2Styles">
@@ -634,6 +635,7 @@
       <div class='journeyPanelTitle'><span>🔓 RPG ATRAKINIMAI</span><small>AKTYVU</small></div>
       <div class='journeyUnlock'><b>🤝 Trade & ♻ Sell</b><span>Aktyvu: 1 ↔ 1 itemų mainai tarp žaidėjų ir nereikalingų itemų pardavimas į Skill Point fragmentus.</span></div>
       <div class='journeyUnlock'><b>🌳 Skill Tree</b><span>Atrakintas jau dabar. Skillai perkami už pilnus Skill Points; Farm gali duoti +0.5 SP fragmentą.</span></div>
+      <div class='journeyUnlock'><b>🔮 Spell sistema</b><span>Paruošta, bet dar neaktyvi. Numatyta atrakinti individualiai įveikus Enemy #4.</span></div>
     </div>
   </div>
 
@@ -671,6 +673,7 @@
       <button data-rpg-panel='shop'>🏪 Shop</button>
       <button data-rpg-panel='farm'>🌾 Farm</button>
       <button data-rpg-panel='skills'>🌳 Skill Tree</button>
+      <button data-rpg-panel='spells' disabled title='Spell sistema paruošta, bet dar neaktyvuota'>🔒 Spells</button>
       <button data-rpg-panel='rpgRules'>📜 Taisyklės</button>
     </div>
 
@@ -1172,6 +1175,24 @@
       <div id='rpgSkillMsg' class='rpgSheetMsg'></div>
     </div>
 
+    <div id='rpgPanel-spells' class='rpgPanel'>
+      <div class='rpg2-subHead'><div><div class='rpg2-kicker'>MAGIC SYSTEM</div><h3>🔮 Spell sistema</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
+      <div class='rpg2-lockPanel'>
+        <b>🔒 SPELL SISTEMA PARUOŠTA, BET NEAKTYVI</b>
+        <span>Atrakinimo sąlyga: įveiktas Enemy #4. Startas: 3 atsitiktiniai Common spellai → pasirenkami 2. Pradžioje 2 Spell Slotai.</span>
+      </div>
+      <div class='rpgRulesGrid rpg2-rulesGrid' style='margin-top:12px'>
+        <div class='rpgRuleCard'><b>🔥 Ember Strike</b><br>+2 Attack vienam smūgiui.</div>
+        <div class='rpgRuleCard'><b>🛡️ Arcane Shield</b><br>+2 AC iki kito savo ėjimo.</div>
+        <div class='rpgRuleCard'><b>❤️ Minor Mend</b><br>Atstato 1d6 HP.</div>
+        <div class='rpgRuleCard'><b>⚡ Quickstep</b><br>+3 kitam Initiative patikrinimui.</div>
+        <div class='rpgRuleCard'><b>🌑 Hex</b><br>Kita priešo ataka gauna −2 Attack.</div>
+        <div class='rpgRuleCard'><b>✨ True Aim</b><br>Leidžia permesti vieną nepavykusį Attack roll.</div>
+        <div class='rpgRuleCard'><b>🩸 Blood Pact</b><br>−1d4 HP sau, +1d6 kitam Damage roll.</div>
+        <div class='rpgRuleCard'><b>🌀 Blink</b><br>Kartą ignoruoja vieną sėkmingą priešo hitą.</div>
+      </div>
+    </div>
+
     <div id='rpgPanel-rpgRules' class='rpgPanel'>
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>COMBAT & PROGRESSION</div><h3>Žaidimo taisyklės</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
       <div class='rpgRulesGrid rpg2-rulesGrid'>
@@ -1185,6 +1206,7 @@
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
+        <div class='rpgRuleCard'><b>🔮 Spell sistema</b><br>Sistema techniškai paruošta, tačiau kol kas globaliai išjungta. Numatyta atrakinti įveikus Enemy #4. Atrakinus žaidėjui pateikiami 3 atsitiktiniai Common spellai ir pasirenkami 2 starteriai; pradžioje turimi 2 Spell Slotai. Vienas spellas naudojamas daugiausia 1 kartą per kovą, o vienoje kovoje galima panaudoti daugiausia 2 skirtingus spellus. Spellai yra atskiri nuo Skill Tree ir itemų.</div>
         <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Kiekvieną aktyvų Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
         <div class='rpgRuleCard'><b>🤝 Trade & ♻ Sell</b><br>Trade vyksta 1 itemas ↔ 1 itemas: pasiūlymą siunčiantis žaidėjas pasirenka savo itemą, kitą žaidėją ir norimą jo itemą; apsikeitimas įvyksta tik gavėjui patvirtinus. Užsidėtų itemų ir kovos metu keisti negalima. SELL negrįžtamas: Common = +0.1 SP, Uncommon = +0.2 SP, Rare = +0.3 SP, Epic = +0.5 SP, Legendary = +1.0 SP. Jei turi kelis vienodus itemus, parduodamas arba keičiamas po 1 vienetą.</div>
       </div>
