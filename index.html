@@ -195,6 +195,10 @@
 .rpgItemAction{min-width:92px;padding:8px 9px;border:1px solid #705628;border-radius:8px;background:#503b16;color:#f5d98b;font:800 10px Arial,sans-serif;cursor:pointer}
 .rpgItemAction.unequip{border-color:#4e5f65;background:#182328;color:#c4d0d4}.rpgItemAction.use{border-color:#6a3d72;background:#3b1e42;color:#e8baf3}.rpgItemAction:disabled{opacity:.45;cursor:not-allowed}
 .rpgPotionStatus{margin:6px 0;padding:7px 9px;border:1px dashed #4c3e55;border-radius:8px;background:#100c13;color:#9b8ca0;font:800 9px/1.3 Arial,sans-serif}.rpgPotionStatus.active{border-style:solid;border-color:#76567e;background:#1c1120;color:#e1b9e8}
+.rpgCombatItemsPanel{margin:12px 0;padding:11px;border:1px solid #44394a;border-radius:11px;background:linear-gradient(135deg,#100c13,#080d10)}
+.rpgCombatItemsHead{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:8px}.rpgCombatItemsHead b{display:block;color:#e0c4e6;font:800 10px Arial,sans-serif;letter-spacing:.08em}.rpgCombatItemsHead small{display:block;margin-top:3px;color:#817386;font:9px/1.3 Arial,sans-serif}.rpgCombatItemsHead>span{color:#a28aa8;font:800 8px/1.3 Arial,sans-serif;text-align:right}
+.rpgCombatItemsGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.rpgCombatItemBtn{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:7px;align-items:center;min-width:0;padding:8px;border:1px solid #55415c;border-radius:9px;background:#17101b;color:#d9c8dc;text-align:left;cursor:pointer}.rpgCombatItemBtn:hover{border-color:#856493;background:#211528}.rpgCombatItemBtn:disabled{opacity:.48;cursor:not-allowed}.rpgCombatItemIcon{font-size:20px;text-align:center}.rpgCombatItemText{min-width:0}.rpgCombatItemText b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#eadcf0;font:700 9px/1.2 Arial,sans-serif}.rpgCombatItemText small{display:block;margin-top:3px;color:#a793ad;font:8px/1.25 Arial,sans-serif}.rpgCombatItemQty{display:grid;gap:3px;text-align:center}.rpgCombatItemQty strong{color:#f1d575;font:800 12px Arial,sans-serif}.rpgCombatItemQty em{color:#806d85;font:700 7px Arial,sans-serif;font-style:normal}.rpgCombatItemsEmpty{grid-column:1/-1;padding:9px;text-align:center;color:#776b7a;font:9px Arial,sans-serif}.rpgCombatItemsMsg{min-height:14px;margin-top:7px;color:#d9bd7a;font:800 9px/1.3 Arial,sans-serif}
+@media(max-width:700px){.rpgCombatItemsGrid{grid-template-columns:1fr}.rpgCombatItemsHead{display:grid}.rpgCombatItemsHead>span{text-align:left}.rpgCombatItemBtn{min-height:48px}}
 .rpgRatings{display:grid;gap:6px;margin-top:8px}.rpgRatingRow{display:grid;grid-template-columns:minmax(0,1fr) 50px 50px;gap:6px;align-items:center;padding:7px 8px;border:1px solid #2f393d;border-radius:8px;background:#091014}
 .rpgRatingRow b{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d7dcde;font:700 10px Arial,sans-serif}.rpgRatingRow span{text-align:center;font:800 11px Arial,sans-serif;color:#e2c26f}.rpgRatingRow span:last-child{color:#86c99a}
 .rpgRatingLegend{display:grid;grid-template-columns:1fr 50px 50px;gap:6px;color:#6f7c81;font:800 8px Arial,sans-serif;letter-spacing:.05em}.rpgRatingLegend span{text-align:center}
@@ -892,6 +896,15 @@
           <button id='rpgBardicBtn' class='rpgBardicBtn' type='button'>AKTYVUOTI +1D6</button>
         </div>
 
+        <div id='rpgCombatItemsPanel' class='rpgCombatItemsPanel'>
+          <div class='rpgCombatItemsHead'>
+            <div><b>🧪 KOVOS ITEMAI</b><small>Naudok potionus neišeidamas iš kovos.</small></div>
+            <span id='rpgCombatItemsHint'>Kraunami potionai…</span>
+          </div>
+          <div id='rpgCombatItems' class='rpgCombatItemsGrid'><div class='rpgCombatItemsEmpty'>Kraunama…</div></div>
+          <div id='rpgCombatItemsMsg' class='rpgCombatItemsMsg'></div>
+        </div>
+
         <div class='rpgBattleControls'>
           <button id='rpgRollD20' class='rpgCombatDieBtn d20' type='button'>
             <span class='dieIcon'>20</span><b>MESTI D20</b><small id='rpgD20Hint'>Iniciatyvai / atakai</small>
@@ -1081,6 +1094,15 @@
             </article>
           </div>
 
+          <div id='farmRpgCombatItemsPanel' class='rpgCombatItemsPanel'>
+            <div class='rpgCombatItemsHead'>
+              <div><b>🧪 KOVOS ITEMAI</b><small>Naudok potionus neišeidamas iš Farm kovos.</small></div>
+              <span id='farmRpgCombatItemsHint'>Kraunami potionai…</span>
+            </div>
+            <div id='farmRpgCombatItems' class='rpgCombatItemsGrid'><div class='rpgCombatItemsEmpty'>Kraunama…</div></div>
+            <div id='farmRpgCombatItemsMsg' class='rpgCombatItemsMsg'></div>
+          </div>
+
           <div class='rpgBattleControls'>
             <button id='farmRpgRollD20' class='rpgCombatDieBtn d20' type='button'>
               <span class='dieIcon'>20</span><b>MESTI D20</b><small id='farmRpgD20Hint'>Iniciatyvai / atakai</small>
@@ -1124,7 +1146,7 @@
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>COMBAT & PROGRESSION</div><h3>Žaidimo taisyklės</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
       <div class='rpgRulesGrid rpg2-rulesGrid'>
         <div class='rpgRuleCard'><b>✦ FPTS ir STAT</b><br>Fantasy FPTS yra RPG valiuta. Career FPTS rodo visą sezono rezultatą, Available FPTS galima išleisti. STR, DEX ir CON prasideda nuo 10; +1 STAT kainuoja 80 FPTS, riba – 20.</div>
-        <div class='rpgRuleCard'><b>🎲 Kova</b><br>D20 naudojamas iniciatyvai, atakai ir saving throw. Pataikius metamas ginklo damage kauliukas. Natural 1 visada MISS, Natural 20 – CRIT. Proficiency bonus nenaudojamas.</div>
+        <div class='rpgRuleCard'><b>🎲 Kova</b><br>D20 naudojamas iniciatyvai, atakai ir saving throw. Pataikius metamas ginklo damage kauliukas. Natural 1 visada MISS, Natural 20 – CRIT. Proficiency bonus nenaudojamas. Kovos metu tiesiai kovos lange pasiekiami turimi consumable potionai: Healing meta 2d6 HP, o AC/Attack potionai aktyvuojami prieš tavo D20 ataką ir galioja 2 raundus.</div>
         <div class='rpgRuleCard'><b>⚔️ Kovos bandymai</b><br>Kiekviename pilnai užfiksuotame Fantasy ture turi 3 bandymus įveikti dabartinį priešą. Išnaudojus visus 3, nauji bandymai atsiranda tik kitame pilname ture. Pralaimėjus FPTS ir daiktai neprarandami.</div>
         <div class='rpgRuleCard'><b>🎵 TOP 3 · Bardic Inspiration</b><br>Lygos TOP 3 gauna po 1 Bardic Inspiration per Fantasy turą. Aktyvuok prieš pasirinktą savo kovos metimą – prie jo pridedamas papildomas d6. Panaudojus bonusas tame ture dingsta.</div>
         <div class='rpgRuleCard'><b>🗺️ Kampanija</b><br>38 Fantasy turai = 38 priešai. Priešai įveikiami iš eilės ir visiems žaidėjams yra vienodo stiprumo. Fantasy rezultatai suteikia progresą, tačiau priešai prie žaidėjo nesiscale'ina.</div>
@@ -1890,7 +1912,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const arena=get("rpgBattleArena"), controls=document.querySelector("#rpgBattleArena .rpgBattleControls");
   if(!startBtn || !arena) return;
 
-  let profile=null, battle=null, roundStatus=null, combatStats=null, enemyCatalog=[], enemyMeta=null;
+  let profile=null, battle=null, roundStatus=null, combatStats=null, enemyCatalog=[], enemyMeta=null, combatItems=[];
   let busy=false, playing=false;
 
   const esc=s=>String(s??"").replace(/[&<>"\']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","\'":"&#39;"}[m]));
@@ -1999,6 +2021,84 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     el.scrollTop=el.scrollHeight;
   }
 
+  async function fetchCombatItems(){
+    const sb=window.rpgSupabase;if(!sb)return [];
+    const {data,error}=await sb.from("rpg_inventory").select("item_id,quantity,rpg_items(name,slot,rarity,stat_payload)");
+    if(error)return [];
+    return (data||[]).filter(x=>{
+      const p=x.rpg_items?.stat_payload||{};
+      return x.rpg_items?.slot==="consumable"&&p.consumable&&p.potion_type&&Number(x.quantity||0)>0;
+    });
+  }
+
+  function combatPotionIcon(type){return type==="heal"?"❤️":type==="ac"?"🛡️":type==="attack"?"⚔️":"🧪"}
+  function combatPotionEffect(p){
+    const t=String(p?.potion_type||"");
+    if(t==="heal")return "2d6 HP";
+    if(t==="ac")return "+2 AC · 2 raundai";
+    if(t==="attack")return "+2 Attack · 2 raundai";
+    return "Consumable";
+  }
+  function combatPotionBlockReason(item){
+    if(!battle||battle.status!=="active")return "KOVA BAIGTA";
+    if(busy||playing)return "PALAUK";
+    const p=item?.rpg_items?.stat_payload||{},t=String(p.potion_type||"");
+    const state=battle.skill_state||{},rounds=Number(state.potion_rounds_left||0);
+    if(t==="heal"&&Number(battle.player_hp)>=Number(battle.player_max_hp))return "HP PILNAS";
+    if((t==="ac"||t==="attack")&&rounds>0)return "BUFF AKTYVUS";
+    if((t==="ac"||t==="attack")&&battle.phase!=="player_attack")return "PRIEŠ ATAKĄ";
+    return "";
+  }
+  function renderCombatItems(){
+    const box=get("rpgCombatItems"),hint=get("rpgCombatItemsHint");if(!box)return;
+    const active=!!(battle&&battle.status==="active");
+    if(hint)hint.textContent=!active?"Tik aktyvioje kovoje":battle.phase==="player_attack"?"Healing bet kada · AC/Attack dabar galima":"Healing galima · AC/Attack tik prieš D20 ataką";
+    if(!combatItems.length){
+      box.innerHTML="<div class='rpgCombatItemsEmpty'>Potionų inventoriuje nėra.</div>";
+      return;
+    }
+    box.innerHTML=combatItems.map(i=>{
+      const item=i.rpg_items||{},p=item.stat_payload||{},reason=combatPotionBlockReason(i);
+      return "<button type='button' class='rpgCombatItemBtn' data-combat-item='"+esc(i.item_id)+"' "+(reason?"disabled":"")+">"+
+        "<span class='rpgCombatItemIcon'>"+combatPotionIcon(p.potion_type)+"</span>"+
+        "<span class='rpgCombatItemText'><b>"+esc(item.name||i.item_id)+"</b><small>"+combatPotionEffect(p)+(reason?" · "+reason:" · PANAUDOTI")+"</small></span>"+
+        "<span class='rpgCombatItemQty'><strong>×"+Number(i.quantity||0)+"</strong><em>LIKĘ</em></span></button>";
+    }).join("");
+  }
+  async function useCombatItem(itemId){
+    if(busy||playing||!battle||battle.status!=="active")return;
+    const item=combatItems.find(x=>x.item_id===itemId);if(!item)return;
+    const msg=get("rpgCombatItemsMsg");let result=null;
+    busy=true;renderBattle();if(msg)msg.textContent="Potion naudojamas…";
+    try{
+      const {data,error}=await window.rpgSupabase.rpc("use_rpg_potion",{p_item_id:itemId});
+      if(error)throw error;
+      result=data;
+      if(data?.potion_type==="heal"){
+        setTurn("player","NAUDOJI HEALING POTION","Metami 2d6");
+        await animateDie("player","d6",data.roll1,"Pirmas d6 = <b>"+data.roll1+"</b>");
+        await animateDie("player","d6",data.roll2,"Antras d6 = <b>"+data.roll2+"</b>");
+      }
+      await refresh();
+      if(window.renderRpgSheet)await window.renderRpgSheet();
+    }catch(e){
+      const t=String(e?.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("already full")?"HP jau pilnas.":t.includes("only before your attack")?"AC/Attack potioną galima aktyvuoti savo atakos fazėje prieš D20.":t.includes("already active")?"Jau veikia kitas combat potionas.":t.includes("active combat")?"Potioną galima naudoti tik aktyvioje kovoje.":"Potiono panaudoti nepavyko.";
+    }finally{
+      busy=false;renderBattle();
+    }
+    if(result){
+      if(result.potion_type==="heal"){
+        if(msg)msg.textContent="❤️ 2d6 = "+result.roll1+" + "+result.roll2+" → atstatyta "+result.heal+" HP.";
+        setAction("❤️ +"+result.heal+" HP","Healing Potion · 2d6 = "+result.roll1+" + "+result.roll2,"crit");
+      }else{
+        const stat=result.potion_type==="ac"?"AC":"Attack";
+        if(msg)msg.textContent="🧪 +"+result.bonus+" "+stat+" aktyvuota "+result.rounds+" raundams.";
+        setAction("🧪 +"+result.bonus+" "+stat+" · "+result.rounds+" RAUNDAI","Potionas sunaudotas iš inventoriaus.","crit");
+      }
+    }
+  }
+
   function renderBattle(){
     if(!profile){
       arena.classList.remove("show"); startBtn.disabled=true; return;
@@ -2080,6 +2180,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       potionStatus.classList.toggle("active",potionActive);
       potionStatus.textContent=potionActive?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
     }
+    renderCombatItems();
 
     const active=battle.status==="active";
     const locked=busy||playing;
@@ -2207,14 +2308,15 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   async function refresh(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
-    if(!session){profile=null;battle=null;roundStatus=null;combatStats=null;renderBattle();return;}
-    const [{data:p},{data:s},{data:cs},{data:cat}]=await Promise.all([
+    if(!session){profile=null;battle=null;roundStatus=null;combatStats=null;combatItems=[];renderBattle();return;}
+    const [{data:p},{data:s},{data:cs},{data:cat},items]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
       sb.rpc("rpg_round_status"),
       sb.rpc("rpg_combat_stats"),
-      sb.rpc("rpg_enemy_catalog")
+      sb.rpc("rpg_enemy_catalog"),
+      fetchCombatItems()
     ]);
-    profile=p||null;roundStatus=s||null;combatStats=cs||null;enemyCatalog=cat||window.rpgEnemyCatalog||[];
+    profile=p||null;roundStatus=s||null;combatStats=cs||null;enemyCatalog=cat||window.rpgEnemyCatalog||[];combatItems=items||[];
     if(profile){
       battle=roundStatus?.active_battle||null;
       if(!battle){
@@ -2292,6 +2394,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   d20Btn.addEventListener("click",()=>roll("d20"));
   damageBtn.addEventListener("click",()=>roll("damage"));
   if(bardicBtn)bardicBtn.addEventListener("click",armBardic);
+  get("rpgCombatItems")?.addEventListener("click",e=>{
+    const btn=e.target.closest("[data-combat-item]");if(btn&&!btn.disabled)useCombatItem(btn.dataset.combatItem);
+  });
 
   const wait=setInterval(()=>{
     if(window.rpgSupabase){
@@ -2531,7 +2636,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const d20Btn=get("farmRpgRollD20"),damageBtn=get("farmRpgRollDamage"),retryBtn=get("farmRpgRetryBattleBtn");
   if(!startBtn||!arena)return;
 
-  let profile=null,combatStats=null,farmState=null,battle=null,enemyMeta=null,busy=false,playing=false;
+  let profile=null,combatStats=null,farmState=null,battle=null,enemyMeta=null,combatItems=[],busy=false,playing=false;
   let selectedEnemyId="green-jester";
   const enemyUi={
     "green-jester":{
@@ -2660,6 +2765,77 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const portrait=get("farmRpgEnemyPortraitArt");
     if(portrait)portrait.style.backgroundImage="linear-gradient(180deg,transparent 65%,#071014 100%),url('"+ui.image+"')";
   }
+  async function fetchCombatItems(){
+    const sb=window.rpgSupabase;if(!sb)return [];
+    const {data,error}=await sb.from("rpg_inventory").select("item_id,quantity,rpg_items(name,slot,rarity,stat_payload)");
+    if(error)return [];
+    return (data||[]).filter(x=>{
+      const p=x.rpg_items?.stat_payload||{};
+      return x.rpg_items?.slot==="consumable"&&p.consumable&&p.potion_type&&Number(x.quantity||0)>0;
+    });
+  }
+  function combatPotionIcon(type){return type==="heal"?"❤️":type==="ac"?"🛡️":type==="attack"?"⚔️":"🧪"}
+  function combatPotionEffect(p){
+    const t=String(p?.potion_type||"");
+    if(t==="heal")return "2d6 HP";
+    if(t==="ac")return "+2 AC · 2 raundai";
+    if(t==="attack")return "+2 Attack · 2 raundai";
+    return "Consumable";
+  }
+  function combatPotionBlockReason(item){
+    if(!battle||battle.status!=="active")return "KOVA BAIGTA";
+    if(busy||playing)return "PALAUK";
+    const p=item?.rpg_items?.stat_payload||{},t=String(p.potion_type||"");
+    const state=battle.skill_state||{},rounds=Number(state.potion_rounds_left||0);
+    if(t==="heal"&&Number(battle.player_hp)>=Number(battle.player_max_hp))return "HP PILNAS";
+    if((t==="ac"||t==="attack")&&rounds>0)return "BUFF AKTYVUS";
+    if((t==="ac"||t==="attack")&&battle.phase!=="player_attack")return "PRIEŠ ATAKĄ";
+    return "";
+  }
+  function renderCombatItems(){
+    const box=get("farmRpgCombatItems"),hint=get("farmRpgCombatItemsHint");if(!box)return;
+    const active=!!(battle&&battle.status==="active");
+    if(hint)hint.textContent=!active?"Tik aktyvioje kovoje":battle.phase==="player_attack"?"Healing bet kada · AC/Attack dabar galima":"Healing galima · AC/Attack tik prieš D20 ataką";
+    if(!combatItems.length){box.innerHTML="<div class='rpgCombatItemsEmpty'>Potionų inventoriuje nėra.</div>";return}
+    box.innerHTML=combatItems.map(i=>{
+      const item=i.rpg_items||{},p=item.stat_payload||{},reason=combatPotionBlockReason(i);
+      return "<button type='button' class='rpgCombatItemBtn' data-farm-combat-item='"+esc(i.item_id)+"' "+(reason?"disabled":"")+">"+
+        "<span class='rpgCombatItemIcon'>"+combatPotionIcon(p.potion_type)+"</span>"+
+        "<span class='rpgCombatItemText'><b>"+esc(item.name||i.item_id)+"</b><small>"+combatPotionEffect(p)+(reason?" · "+reason:" · PANAUDOTI")+"</small></span>"+
+        "<span class='rpgCombatItemQty'><strong>×"+Number(i.quantity||0)+"</strong><em>LIKĘ</em></span></button>";
+    }).join("");
+  }
+  async function useCombatItem(itemId){
+    if(busy||playing||!battle||battle.status!=="active")return;
+    const item=combatItems.find(x=>x.item_id===itemId);if(!item)return;
+    const msg=get("farmRpgCombatItemsMsg");let result=null;
+    busy=true;render();if(msg)msg.textContent="Potion naudojamas…";
+    try{
+      const {data,error}=await window.rpgSupabase.rpc("use_rpg_potion",{p_item_id:itemId});if(error)throw error;
+      result=data;
+      if(data?.potion_type==="heal"){
+        setTurn("player","NAUDOJI HEALING POTION","Metami 2d6");
+        await animateDie("player","d6",data.roll1,"Pirmas d6 = <b>"+data.roll1+"</b>");
+        await animateDie("player","d6",data.roll2,"Antras d6 = <b>"+data.roll2+"</b>");
+      }
+      await refresh();
+      if(window.renderRpgSheet)await window.renderRpgSheet();
+    }catch(e){
+      const t=String(e?.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("already full")?"HP jau pilnas.":t.includes("only before your attack")?"AC/Attack potioną galima aktyvuoti savo atakos fazėje prieš D20.":t.includes("already active")?"Jau veikia kitas combat potionas.":t.includes("active combat")?"Potioną galima naudoti tik aktyvioje kovoje.":"Potiono panaudoti nepavyko.";
+    }finally{busy=false;render()}
+    if(result){
+      if(result.potion_type==="heal"){
+        if(msg)msg.textContent="❤️ 2d6 = "+result.roll1+" + "+result.roll2+" → atstatyta "+result.heal+" HP.";
+        setAction("❤️ +"+result.heal+" HP","Healing Potion · 2d6 = "+result.roll1+" + "+result.roll2,"crit");
+      }else{
+        const stat=result.potion_type==="ac"?"AC":"Attack";
+        if(msg)msg.textContent="🧪 +"+result.bonus+" "+stat+" aktyvuota "+result.rounds+" raundams.";
+        setAction("🧪 +"+result.bonus+" "+stat+" · "+result.rounds+" RAUNDAI","Potionas sunaudotas iš inventoriaus.","crit");
+      }
+    }
+  }
+
   function render(){
     fillMeta();renderEnemyPicker();
     const used=Number(farmState?.attempts_used||0),remain=Number(farmState?.attempts_remaining??3);
@@ -2705,6 +2881,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       potionStatus.classList.toggle("active",potionActive);
       potionStatus.textContent=potionActive?"🧪 "+(potionBuff==="ac"?"+2 AC":"+2 Attack")+" · liko "+potionRounds+" raund.":"🧪 Aktyvaus potion efekto nėra";
     }
+    renderCombatItems();
 
     const locked=busy||playing;
     d20Btn.disabled=locked||!active||!["initiative","player_attack"].includes(battle.phase);
@@ -2797,12 +2974,14 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   async function refresh(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
-    if(!session){profile=null;combatStats=null;farmState=null;battle=null;startBtn.disabled=true;arena.classList.remove("show");setMsg("Prisijunk prie RPG personažo, kad galėtum farminti.");return}
-    let [{data:p},{data:s},{data:cs}]=await Promise.all([
+    if(!session){profile=null;combatStats=null;farmState=null;battle=null;combatItems=[];startBtn.disabled=true;arena.classList.remove("show");setMsg("Prisijunk prie RPG personažo, kad galėtum farminti.");return}
+    let [{data:p},{data:s},{data:cs},items]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
       sb.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId}),
-      sb.rpc("rpg_combat_stats")
+      sb.rpc("rpg_combat_stats"),
+      fetchCombatItems()
     ]);
+    combatItems=items||[];
     if(s?.active_battle?.status==="active" && s.active_battle.farm_enemy_id!==selectedEnemyId){
       selectedEnemyId=s.active_battle.farm_enemy_id;
       const again=await sb.rpc("rpg_farm_enemy_status",{p_farm_enemy_id:selectedEnemyId});s=again.data;
@@ -2854,6 +3033,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   document.querySelectorAll(".rpgFarmEnemyPick").forEach(btn=>btn.addEventListener("click",()=>selectEnemy(btn.dataset.farmEnemy)));
   startBtn.addEventListener("click",startBattle);retryBtn.addEventListener("click",startBattle);
   d20Btn.addEventListener("click",()=>roll("d20"));damageBtn.addEventListener("click",()=>roll("damage"));
+  get("farmRpgCombatItems")?.addEventListener("click",e=>{
+    const btn=e.target.closest("[data-farm-combat-item]");if(btn&&!btn.disabled)useCombatItem(btn.dataset.farmCombatItem);
+  });
   const tab=document.querySelector(".rpgTabs button[data-rpg-panel='farm']");
   if(tab)tab.addEventListener("click",()=>setTimeout(refresh,0));
   window.loadRpgFarm=refresh;
