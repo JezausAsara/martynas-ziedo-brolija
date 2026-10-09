@@ -362,6 +362,61 @@
           "question": "Kas režisavo 1942 m. kino klasiką „Casablanca“?"
         }
       ]
+    },
+    {
+      "date": "2026-10-09",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2009_panathinaikos_cska_final",
+          "question": "Kuris klubas laimėjo 2009 m. Eurolygos finalą Berlyne, finale įveikęs Maskvos CSKA?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_finals_2014_mvp_kawhi_leonard",
+          "question": "Kas buvo pripažintas 2014 m. NBA finalo MVP, kai San Antonijaus „Spurs“ įveikė Majamio „Heat“?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_1997_world_champion_jacques_villeneuve",
+          "question": "Kas tapo 1997 m. Formulės 1 pasaulio čempionu?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "roland_garros_2009_federer_career_grand_slam",
+          "question": "Kas 2009 m. laimėjo „Roland Garros“ vyrų vienetų titulą ir taip užbaigė karjeros „Grand Slam“?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "euro_2012_spain_champion_italy_final",
+          "question": "Kuri rinktinė laimėjo 2012 m. Europos futbolo čempionatą, finale 4:0 įveikusi Italiją?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_sting_bilbo_frodo_sword",
+          "question": "Kaip vadinamas trumpasis elfų kardas, kurį Bilbas perdavė Frodui?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "snow_crash_author_neal_stephenson",
+          "question": "Kas parašė kiberpanko romaną „Snow Crash“?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "haunting_of_hill_house_author_shirley_jackson",
+          "question": "Kas parašė romaną „The Haunting of Hill House“?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "master_and_margarita_author_bulgakov",
+          "question": "Kas parašė romaną „Meistras ir Margarita“?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "bicycle_thieves_1948_director_de_sica",
+          "question": "Kas režisavo 1948 m. italų neorealizmo klasiką „Bicycle Thieves“?"
+        }
+      ]
     }
   ]
 }
