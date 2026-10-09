@@ -560,6 +560,26 @@
 .journeyEnemyCard.current .journeyFullCardVisual{
   background:#050708;
 }
+</style><style id="rpgTradeSellStyles">
+.rpgItemActions{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.rpgItemAction.sell{border-color:#6e5730;background:#21190d;color:#e8c878}
+.rpgItemAction.trade{border-color:#34586a;background:#0d1b22;color:#a9d8e8}
+.rpgItemAction.sell:hover:not(:disabled),.rpgItemAction.trade:hover:not(:disabled){filter:brightness(1.15)}
+.rpgItemAction:disabled{opacity:.36;cursor:not-allowed}
+.rpgTradeSellPanel{margin-top:18px;padding-top:16px;border-top:1px solid #354047}
+.rpgTradeSellHead{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;margin-bottom:12px}
+.rpgTradeSellHead h3{margin:0;color:#e6c36d;font-size:20px}.rpgTradeSellHead p{margin:4px 0 0;color:#89969b;font:11px/1.45 Arial,sans-serif}
+.rpgSellScale{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0 14px}.rpgSellScale span{padding:6px 8px;border:1px solid #3d474c;border-radius:999px;background:#0a1114;color:#b8c1c4;font:10px Arial,sans-serif}.rpgSellScale b{color:#efd078}
+.rpgTradeComposer{padding:13px;border:1px solid #4a3d28;border-radius:11px;background:#0b1215;margin-bottom:13px}
+.rpgTradeComposer.empty{color:#7f8b90;font:11px Arial,sans-serif}
+.rpgTradeComposerTitle{color:#e4c16d;font:700 12px Georgia,serif;margin-bottom:9px}
+.rpgTradeComposerGrid{display:grid;grid-template-columns:1fr 1fr auto;gap:8px;align-items:end}
+.rpgTradeComposer label{display:block;color:#899499;font:9px Arial,sans-serif;text-transform:uppercase;letter-spacing:.06em}
+.rpgTradeComposer select{width:100%;margin-top:4px;padding:9px;border:1px solid #3a474d;border-radius:8px;background:#091014;color:#dce2e4}
+.rpgTradeComposer button,.rpgTradeOffer button{padding:9px 11px;border:1px solid #67502a;border-radius:8px;background:#5b4318;color:#ffe1a0;font-weight:800;cursor:pointer}
+.rpgTradeColumns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rpgTradeColumn{padding:12px;border:1px solid #303c42;border-radius:11px;background:#091114}.rpgTradeColumn h4{margin:0 0 9px;color:#d7bd78}
+.rpgTradeOffer{padding:10px 0;border-bottom:1px solid #263137}.rpgTradeOffer:last-child{border-bottom:0}.rpgTradeOffer b{display:block;color:#e3e8e9;font-size:12px}.rpgTradeOffer span{display:block;margin:4px 0 7px;color:#8e9a9f;font:10px/1.4 Arial,sans-serif}.rpgTradeOfferActions{display:flex;gap:6px}.rpgTradeOffer button.reject{background:#20100d;border-color:#64372f;color:#e0a79b}.rpgTradeOffer button.cancel{background:#11181b;border-color:#3b4a51;color:#aebdc3}
+@media(max-width:760px){.rpgTradeComposerGrid,.rpgTradeColumns{grid-template-columns:1fr}.rpgItemActions{justify-content:flex-start}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>3 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -937,6 +957,16 @@
       </div>
       <div class='rpg2-lockPanel'><b>🏪 Item Shop</b><span id='rpgInventoryShopHint'>Shop būsena kraunama…</span><button class='rpg2-backCharacter' type='button' data-open-rpg-shop>ATIDARYTI SHOP</button></div>
       <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div><div id='rpgInventoryMsg' class='rpgSheetMsg'></div></div>
+      <div id='rpgTradeSellPanel' class='rpgTradeSellPanel'>
+        <div class='rpgTradeSellHead'><div><h3>♻ SELL & 🔄 TRADE</h3><p>Parduok nereikalingą itemą į Skill Point fragmentus arba apsikeisk 1 ↔ 1 su kitu žaidėju.</p></div></div>
+        <div class='rpgSellScale'><span>Common <b>+0.1 SP</b></span><span>Uncommon <b>+0.2 SP</b></span><span>Rare <b>+0.3 SP</b></span><span>Epic <b>+0.5 SP</b></span><span>Legendary <b>+1.0 SP</b></span></div>
+        <div id='rpgTradeComposer' class='rpgTradeComposer empty'>Paspausk TRADE prie itemo, kurį nori pasiūlyti.</div>
+        <div class='rpgTradeColumns'>
+          <div class='rpgTradeColumn'><h4>📥 Gauti pasiūlymai</h4><div id='rpgTradeIncoming'><span>—</span></div></div>
+          <div class='rpgTradeColumn'><h4>📤 Išsiųsti pasiūlymai</h4><div id='rpgTradeOutgoing'><span>—</span></div></div>
+        </div>
+        <div id='rpgTradeMsg' class='rpgSheetMsg'></div>
+      </div>
     </div>
 
     <div id='rpgPanel-shop' class='rpgPanel'>
@@ -1511,6 +1541,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     el.innerHTML="<div class='rpgNextEnemyCard'><div class='rpgNextEnemyArt'>"+img+"<div class='rpgNextEnemySymbol'>"+enemySymbol(no)+"</div></div><div class='rpgNextEnemyMeta'><div><small>ENEMY #"+no+" · "+escInv(e.team_name)+"</small><b>"+escInv(e.name)+"</b></div><small>AKTYVUS IKI #"+max+"</small></div><div class='rpg2-enemyNumbers'><span>❤️ "+e.hp+" HP</span><span>🛡 AC "+e.ac+"</span><span>⚔ "+(Number(e.attack_bonus)>=0?"+":"")+e.attack_bonus+"</span><span>🎲 "+escInv(e.damage_die)+(Number(e.damage_modifier)>=0?"+":"")+e.damage_modifier+"</span></div><div class='rpg2-special'><b>"+escInv(e.special_name||"Speciali savybė")+":</b> "+escInv(e.special_description||"—")+"</div>"+drop+"</div>";
   }
 
+  let rpgInventoryCache=[];
+  let rpgTradeStateCache=null;
+  let rpgTradeOfferedItemId=null;
+  let rpgTradeTargetId=null;
+
   async function loadInventory(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,quantity,rpg_items(name,slot,rarity,stat_payload)");
@@ -1534,7 +1569,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     });
 
     const list=document.getElementById("rpgInventoryItems");
-    if(error){list.innerHTML="<p style='color:#a97b72'>Nepavyko užkrauti inventoriaus.</p>";return;}
+    if(error){rpgInventoryCache=[];list.innerHTML="<p style='color:#a97b72'>Nepavyko užkrauti inventoriaus.</p>";return;}
+    rpgInventoryCache=data||[];
     if(!data || !data.length){list.innerHTML="<p style='color:#8e989d'>Inventorius kol kas tuščias.</p>";return;}
 
     (data||[]).filter(i=>i.equipped&&i.rpg_items?.slot).forEach(i=>{
@@ -1564,11 +1600,62 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         (desc?"<small>"+escInv(desc)+"</small>":"")+
         "<em>"+escInv(item.rarity||"")+" · "+escInv(item.slot||"item")+(req?" · "+escInv(req):"")+"</em>"+
         "</div></div>"+
+        "<div class='rpgItemActions'>"+
         (payload.consumable||item.slot==="consumable"
           ?"<button class='rpgItemAction use' data-item-id='"+escInv(i.item_id)+"' data-item-action='use'>PANAUDOTI</button>"
           :"<button class='rpgItemAction "+(i.equipped?"unequip":"")+"' data-item-id='"+escInv(i.item_id)+"' data-item-action='"+(i.equipped?"unequip":"equip")+"'>"+(i.equipped?"NUSIIMTI":"UŽSIDĖTI")+"</button>")+
-        "</div>";
+        "<button class='rpgItemAction sell' data-item-id='"+escInv(i.item_id)+"' data-item-action='sell' "+(i.equipped?"disabled":"")+">SELL</button>"+
+        "<button class='rpgItemAction trade' data-item-id='"+escInv(i.item_id)+"' data-item-action='trade' "+(i.equipped?"disabled":"")+">TRADE</button>"+
+        "</div></div>";
     }).join("");
+  }
+
+
+  function sellFragmentForRarity(rarity){
+    return ({common:0.1,uncommon:0.2,rare:0.3,epic:0.5,legendary:1.0}[String(rarity||"").toLowerCase()]||0.1);
+  }
+
+  function renderTradePanel(state){
+    rpgTradeStateCache=state||{players:[],incoming:[],outgoing:[]};
+    const composer=document.getElementById("rpgTradeComposer");
+    const incoming=document.getElementById("rpgTradeIncoming");
+    const outgoing=document.getElementById("rpgTradeOutgoing");
+    const players=state?.players||[];
+
+    if(composer){
+      const own=rpgInventoryCache.find(x=>x.item_id===rpgTradeOfferedItemId && !x.equipped);
+      if(!own){
+        composer.className="rpgTradeComposer empty";
+        composer.innerHTML="Paspausk <b>TRADE</b> prie itemo, kurį nori pasiūlyti.";
+      }else{
+        if(!rpgTradeTargetId || !players.some(p=>p.participant_id===rpgTradeTargetId))rpgTradeTargetId=players[0]?.participant_id||null;
+        const target=players.find(p=>p.participant_id===rpgTradeTargetId)||players[0]||null;
+        const targetItems=(target?.items||[]).filter(x=>x.item_id!==rpgTradeOfferedItemId);
+        composer.className="rpgTradeComposer";
+        composer.innerHTML="<div class='rpgTradeComposerTitle'>Siūlai: "+escInv(own.rpg_items?.name||own.item_id)+"</div>"+
+          "<div class='rpgTradeComposerGrid'>"+
+          "<label>Žaidėjas<select id='rpgTradeTarget'>"+players.map(p=>"<option value='"+escInv(p.participant_id)+"' "+(p.participant_id===rpgTradeTargetId?"selected":"")+">"+escInv(p.owner_name)+" · "+escInv(p.team_name)+"</option>").join("")+"</select></label>"+
+          "<label>Nori gauti<select id='rpgTradeRequested'>"+targetItems.map(i=>"<option value='"+escInv(i.item_id)+"'>"+escInv(i.name)+" · "+escInv(i.rarity)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</option>").join("")+"</select></label>"+
+          "<button id='rpgTradeSend' type='button' "+(!target||!targetItems.length?"disabled":"")+">SIŲSTI TRADE</button>"+
+          "</div>";
+      }
+    }
+
+    if(incoming){
+      const rows=state?.incoming||[];
+      incoming.innerHTML=rows.length?rows.map(o=>"<div class='rpgTradeOffer'><b>"+escInv(o.from_owner)+" siūlo "+escInv(o.offered_name)+"</b><span>Už tavo: "+escInv(o.requested_name)+"</span><div class='rpgTradeOfferActions'><button data-trade-action='accept' data-trade-id='"+escInv(o.id)+"'>PRIIMTI</button><button class='reject' data-trade-action='decline' data-trade-id='"+escInv(o.id)+"'>ATMESTI</button></div></div>").join(""):"<span style='color:#748086'>Pasiūlymų nėra.</span>";
+    }
+    if(outgoing){
+      const rows=state?.outgoing||[];
+      outgoing.innerHTML=rows.length?rows.map(o=>"<div class='rpgTradeOffer'><b>"+escInv(o.offered_name)+" → "+escInv(o.to_owner)+"</b><span>Prašai: "+escInv(o.requested_name)+"</span><div class='rpgTradeOfferActions'><button class='cancel' data-trade-action='cancel' data-trade-id='"+escInv(o.id)+"'>ATŠAUKTI</button></div></div>").join(""):"<span style='color:#748086'>Aktyvių pasiūlymų nėra.</span>";
+    }
+  }
+
+  async function loadTradeState(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data,error}=await sb.rpc("rpg_trade_state");
+    if(error){const el=document.getElementById("rpgTradeMsg");if(el)el.textContent="Trade sistemos užkrauti nepavyko.";return;}
+    renderTradePanel(data);
   }
 
 
@@ -1734,6 +1821,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     renderSkillTree(skillState);
     await loadInventory();
+    await loadTradeState();
   }
   window.renderRpgSheet=renderSheet;
 
@@ -1762,7 +1850,28 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const msg=document.getElementById("rpgInventoryMsg")||document.getElementById("rpgSheetMsg");
     const itemId=btn.dataset.itemId, action=btn.dataset.itemAction;
     btn.disabled=true;
-    if(action==="use"){
+    if(action==="sell"){
+      const own=rpgInventoryCache.find(x=>x.item_id===itemId);
+      const item=own?.rpg_items||{};
+      const fragment=sellFragmentForRarity(item.rarity);
+      if(!confirm("Parduoti "+(item.name||itemId)+" už +"+fragment.toFixed(1)+" Skill Point fragmento?")){btn.disabled=false;return;}
+      msg.textContent="Itemas parduodamas…";
+      const {data,error}=await sb.rpc("rpg_sell_item",{p_item_id:itemId});
+      if(error){
+        const t=String(error.message||"").toLowerCase();
+        msg.textContent=t.includes("unequip")?"Pirma nusiimk itemą.":t.includes("active combat")?"Kovos metu itemų parduoti negalima.":"Parduoti itemo nepavyko.";
+      }else{
+        msg.textContent="♻ "+(data?.name||item.name||itemId)+" parduotas · +"+Number(data?.fragment||fragment).toFixed(1)+" SP.";
+        if(rpgTradeOfferedItemId===itemId)rpgTradeOfferedItemId=null;
+      }
+    }else if(action==="trade"){
+      rpgTradeOfferedItemId=itemId;
+      msg.textContent="Pasirink žaidėją ir jo itemą TRADE skiltyje žemiau.";
+      await loadTradeState();
+      document.getElementById("rpgTradeSellPanel")?.scrollIntoView({behavior:"smooth",block:"start"});
+      btn.disabled=false;
+      return;
+    }else if(action==="use"){
       msg.textContent="Potion naudojamas…";
       const {data,error}=await sb.rpc("use_rpg_potion",{p_item_id:itemId});
       if(error){
@@ -1782,6 +1891,52 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       }else{
         msg.textContent=action==="equip"?"Daiktas uždėtas. Bonusai aktyvūs.":"Daiktas nuimtas.";
       }
+    }
+    await renderSheet();
+    if(window.refreshRpgCombat)await window.refreshRpgCombat();
+    if(window.loadRpgFarm)await window.loadRpgFarm();
+  });
+
+
+  document.getElementById("rpgTradeSellPanel")?.addEventListener("change",async e=>{
+    if(e.target?.id==="rpgTradeTarget"){
+      rpgTradeTargetId=e.target.value||null;
+      renderTradePanel(rpgTradeStateCache);
+    }
+  });
+
+  document.getElementById("rpgTradeSellPanel")?.addEventListener("click",async e=>{
+    const sb=window.rpgSupabase;if(!sb)return;
+    const msg=document.getElementById("rpgTradeMsg");
+    if(e.target?.id==="rpgTradeSend"){
+      const target=document.getElementById("rpgTradeTarget")?.value;
+      const requested=document.getElementById("rpgTradeRequested")?.value;
+      if(!rpgTradeOfferedItemId||!target||!requested)return;
+      e.target.disabled=true;if(msg)msg.textContent="Trade pasiūlymas siunčiamas…";
+      const {error}=await sb.rpc("rpg_trade_create",{p_to_participant_id:target,p_offered_item_id:rpgTradeOfferedItemId,p_requested_item_id:requested});
+      if(error){
+        const t=String(error.message||"").toLowerCase();
+        if(msg)msg.textContent=t.includes("equipped")?"Vienas iš itemų šiuo metu užsidėtas.":t.includes("combat")?"Kovos metu trade negalimas.":t.includes("no longer available")?"Pasirinktas itemas jau nebeprieinamas.":"Trade pasiūlymo išsiųsti nepavyko.";
+      }else{
+        if(msg)msg.textContent="✓ Trade pasiūlymas išsiųstas.";
+        rpgTradeOfferedItemId=null;
+      }
+      await loadTradeState();
+      return;
+    }
+
+    const btn=e.target.closest("[data-trade-action]");if(!btn)return;
+    const id=btn.dataset.tradeId,action=btn.dataset.tradeAction;
+    btn.disabled=true;if(msg)msg.textContent=action==="accept"?"Trade vykdomas…":action==="decline"?"Pasiūlymas atmetamas…":"Pasiūlymas atšaukiamas…";
+    const fn=action==="accept"?"rpg_trade_accept":action==="decline"?"rpg_trade_decline":"rpg_trade_cancel";
+    const {data,error}=await sb.rpc(fn,{p_offer_id:id});
+    if(error){
+      const t=String(error.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("combat")?"Trade negalima užbaigti, kol vienas iš žaidėjų kovoja.":t.includes("no longer")?"Pasiūlymas nebegalioja arba itemas nebeprieinamas.":"Trade veiksmas nepavyko.";
+    }else if(action==="accept"){
+      if(msg)msg.textContent="✓ Trade baigtas: gavai "+(data?.offered_name||"itemą")+" · atidavei "+(data?.requested_name||"itemą")+".";
+    }else{
+      if(msg)msg.textContent=action==="decline"?"Pasiūlymas atmestas.":"Pasiūlymas atšauktas.";
     }
     await renderSheet();
     if(window.refreshRpgCombat)await window.refreshRpgCombat();
