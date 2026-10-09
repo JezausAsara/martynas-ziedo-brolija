@@ -347,6 +347,121 @@
           "x": 1
         }
       ]
+    },
+    {
+      "date": "2026-10-09",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas laimėjo 2009 m. Eurolygos finalą Berlyne, finale įveikęs Maskvos CSKA?",
+          "a": [
+            "Panathinaikos",
+            "Olympiacos",
+            "Barcelona",
+            "Maccabi Tel Aviv"
+          ],
+          "x": 0
+        },
+        {
+          "c": "NBA",
+          "q": "Kas buvo pripažintas 2014 m. NBA finalo MVP, kai San Antonijaus „Spurs“ įveikė Majamio „Heat“?",
+          "a": [
+            "Tim Duncan",
+            "Tony Parker",
+            "Kawhi Leonard",
+            "Manu Ginóbili"
+          ],
+          "x": 2
+        },
+        {
+          "c": "F1",
+          "q": "Kas tapo 1997 m. Formulės 1 pasaulio čempionu?",
+          "a": [
+            "Michael Schumacher",
+            "Jacques Villeneuve",
+            "Damon Hill",
+            "Mika Häkkinen"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 2009 m. laimėjo „Roland Garros“ vyrų vienetų titulą ir taip užbaigė karjeros „Grand Slam“?",
+          "a": [
+            "Rafael Nadal",
+            "Novak Djokovic",
+            "Roger Federer",
+            "Andy Murray"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kuri rinktinė laimėjo 2012 m. Europos futbolo čempionatą, finale 4:0 įveikusi Italiją?",
+          "a": [
+            "Vokietija",
+            "Ispanija",
+            "Portugalija",
+            "Nyderlandai"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kaip vadinamas trumpasis elfų kardas, kurį Bilbas perdavė Frodui?",
+          "a": [
+            "Glamdring",
+            "Orcrist",
+            "Sting",
+            "Narsil"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė kiberpanko romaną „Snow Crash“?",
+          "a": [
+            "Neal Stephenson",
+            "William Gibson",
+            "Philip K. Dick",
+            "Vernor Vinge"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas parašė romaną „The Haunting of Hill House“?",
+          "a": [
+            "Shirley Jackson",
+            "Susan Hill",
+            "Anne Rice",
+            "Daphne du Maurier"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Meistras ir Margarita“?",
+          "a": [
+            "Fiodoras Dostojevskis",
+            "Michailas Bulgakovas",
+            "Borisas Pasternakas",
+            "Aleksandras Solženicynas"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1948 m. italų neorealizmo klasiką „Bicycle Thieves“?",
+          "a": [
+            "Federico Fellini",
+            "Roberto Rossellini",
+            "Luchino Visconti",
+            "Vittorio De Sica"
+          ],
+          "x": 3
+        }
+      ]
     }
   ]
 }
