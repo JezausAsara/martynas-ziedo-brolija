@@ -582,6 +582,13 @@
 .rpgTradeOffer{padding:10px 0;border-bottom:1px solid #263137}.rpgTradeOffer:last-child{border-bottom:0}.rpgTradeOffer b{display:block;color:#e3e8e9;font-size:12px}.rpgTradeOffer span{display:block;margin:4px 0 7px;color:#8e9a9f;font:10px/1.4 Arial,sans-serif}.rpgTradeOfferActions{display:flex;gap:6px}.rpgTradeOffer button.reject{background:#20100d;border-color:#64372f;color:#e0a79b}.rpgTradeOffer button.cancel{background:#11181b;border-color:#3b4a51;color:#aebdc3}
 @media(max-width:760px){.rpgTradeComposerGrid,.rpgTradeColumns{grid-template-columns:1fr}.rpgItemActions{justify-content:flex-start}}
 </style><style id="combatActionHubStyles">
+.rpgCombatAbilityStrip{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0;padding:9px;border:1px solid #465158;border-radius:12px;background:linear-gradient(180deg,#0b1215,#070b0d);box-shadow:inset 0 0 20px #0006}
+.rpgCombatAbilityBlock{min-width:0;padding:9px;border:1px solid #35523e;border-radius:10px;background:#0a1510}
+.rpgCombatAbilityBlock.spellBlock{border-color:#51406d;background:#130e19}
+.rpgCombatAbilityStrip .rpgCombatChoiceGrid{grid-template-columns:1fr}
+.rpgCombatAbilityStrip .rpgCombatChoiceHead{margin-bottom:7px}
+@media(max-width:760px){.rpgCombatAbilityStrip{grid-template-columns:1fr}}
+
 .rpgCombatActionHub{margin:14px 0 12px}
 .rpgCombatActionTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:5px;border:1px solid #384349;border-radius:11px;background:#070c0f}
 .rpgCombatActionTab{min-width:0;padding:10px 7px;border:1px solid transparent;border-radius:8px;background:#0b1215;color:#859399;font:800 10px/1 Arial,sans-serif;cursor:pointer}
@@ -957,6 +964,19 @@
           <button id='rpgBardicBtn' class='rpgBardicBtn' type='button'>AKTYVUOTI +1D6</button>
         </div>
 
+        <div class='rpgCombatActionHub rpgCombatAbilityStrip' data-kind='campaign'>
+          <div class='rpgCombatAbilityBlock'>
+            <div class='rpgCombatChoiceHead'><b>🌳 SKILLS</b><span>aktyvūs ir automatiniai tavo skillai</span></div>
+            <div id='rpgCombatSkills' class='rpgCombatChoiceGrid'><div class='rpgCombatLocked'><b>Kraunami skillai…</b></div></div>
+            <div id='rpgCombatSkillsMsg' class='rpgCombatActionMsg'></div>
+          </div>
+          <div class='rpgCombatAbilityBlock spellBlock'>
+            <div class='rpgCombatChoiceHead'><b>🔮 SPELLS</b><span>paruošti spell slotai</span></div>
+            <div id='rpgCombatSpells' class='rpgCombatChoiceGrid'><div class='rpgCombatLocked'><b>🔒 Spell sistema tikrinama…</b></div></div>
+            <div id='rpgCombatSpellsMsg' class='rpgCombatActionMsg'></div>
+          </div>
+        </div>
+
         <div id='rpgCombatItemsPanel' class='rpgCombatItemsPanel'>
           <div class='rpgCombatItemsHead'>
             <div><b>🧪 KOVOS ITEMAI</b><small>Naudok potionus neišeidamas iš kovos.</small></div>
@@ -1164,6 +1184,19 @@
               </div>
               <div id='farmRpgEnemyImpact' class='rpgImpact damage'>−0 HP</div>
             </article>
+          </div>
+
+          <div class='rpgCombatActionHub rpgCombatAbilityStrip' data-kind='farm'>
+            <div class='rpgCombatAbilityBlock'>
+              <div class='rpgCombatChoiceHead'><b>🌳 SKILLS</b><span>aktyvūs ir automatiniai tavo skillai</span></div>
+              <div id='farmRpgCombatSkills' class='rpgCombatChoiceGrid'><div class='rpgCombatLocked'><b>Kraunami skillai…</b></div></div>
+              <div id='farmRpgCombatSkillsMsg' class='rpgCombatActionMsg'></div>
+            </div>
+            <div class='rpgCombatAbilityBlock spellBlock'>
+              <div class='rpgCombatChoiceHead'><b>🔮 SPELLS</b><span>paruošti spell slotai</span></div>
+              <div id='farmRpgCombatSpells' class='rpgCombatChoiceGrid'><div class='rpgCombatLocked'><b>🔒 Spell sistema tikrinama…</b></div></div>
+              <div id='farmRpgCombatSpellsMsg' class='rpgCombatActionMsg'></div>
+            </div>
           </div>
 
           <div id='farmRpgCombatItemsPanel' class='rpgCombatItemsPanel'>
@@ -3416,16 +3449,30 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   async function refreshHub(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();if(!session)return;
-    const [sk,sp,cb,fb]=await Promise.all([
+    const [sk,sp,combat]=await Promise.all([
       sb.rpc("rpg_skill_state"),
       sb.rpc("rpg_spell_state"),
-      sb.from("rpg_active_battles").select("*").maybeSingle(),
-      sb.from("rpg_active_farm_battles").select("*").maybeSingle()
+      sb.rpc("rpg_active_combat_state")
     ]);
-    skillState=sk.data||null;spellState=sp.data||null;campaignBattle=cb.data||null;farmBattle=fb.data||null;
+    skillState=sk.data||null;spellState=sp.data||null;campaignBattle=combat.data?.campaign||null;farmBattle=combat.data?.farm||null;
     renderSkills("campaign");renderSpells("campaign");renderSkills("farm");renderSpells("farm");
   }
   window.refreshCombatActionHub=refreshHub;
+
+  document.addEventListener("click",e=>{
+    const sk=e.target.closest("[data-use-combat-skill]");
+    if(sk&&!sk.disabled){
+      sk.setAttribute("data-use-combat-skill-static","1");
+      const kind=sk.closest("#farmRpgBattleArena")?"farm":"campaign";
+      useSkill(kind,sk.dataset.useCombatSkill);
+      return;
+    }
+    const sp=e.target.closest("[data-cast-combat-spell]");
+    if(sp&&!sp.disabled){
+      const kind=sp.closest("#farmRpgBattleArena")?"farm":"campaign";
+      castSpell(kind,sp.dataset.castCombatSpell);
+    }
+  });
 
   setup("campaign");setup("farm");
   const wait=setInterval(()=>{
