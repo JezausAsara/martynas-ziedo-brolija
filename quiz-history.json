@@ -472,6 +472,61 @@
           "question": "Kas režisavo 1949 m. film noir klasiką „The Third Man“?"
         }
       ]
+    },
+    {
+      "date": "2026-10-11",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2024_hayes_davis_50_point_game_record",
+          "question": "Kas 2024 m. kovo 29 d. pelnė 50 taškų ir pagerino vienų Eurolygos rungtynių rezultatyvumo rekordą?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_1994_olajuwon_mvp_dpoy_fmvp_triple",
+          "question": "Kuris krepšininkas 1993–94 m. sezone laimėjo NBA MVP, geriausiai besiginančio žaidėjo ir finalo MVP apdovanojimus?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_1976_six_wheel_p34_team_tyrrell",
+          "question": "Kuri F1 komanda 1976 m. lenktynėse naudojo neįprastą šešiaratį P34 bolidą?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "roland_garros_2004_mens_final_gaudio_comeback_coria",
+          "question": "Kas 2004 m. „Roland Garros“ finale atsitiesė pralaimėdamas 0:2 setais ir nugalėjo Guillermo Corią?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "world_cup_2022_first_african_semifinalist_morocco",
+          "question": "Kuri rinktinė 2022 m. tapo pirmąja Afrikos atstove vyrų futbolo pasaulio čempionato pusfinalyje?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "lies_of_locke_lamora_author_scott_lynch",
+          "question": "Kas parašė fantastinį romaną „The Lies of Locke Lamora“?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "rendezvous_with_rama_author_arthur_c_clarke",
+          "question": "Kas parašė mokslinės fantastikos romaną „Rendezvous with Rama“?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "hellraiser_1987_film_director_clive_barker",
+          "question": "Kas režisavo 1987 m. siaubo filmą „Hellraiser“?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "count_of_monte_cristo_author_alexandre_dumas",
+          "question": "Kas parašė romaną „Grafas Montekristas“ („The Count of Monte Cristo“)?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "the_conversation_1974_director_coppola",
+          "question": "Kas režisavo 1974 m. filmą „The Conversation“ su Gene Hackmanu?"
+        }
+      ]
     }
   ]
 }

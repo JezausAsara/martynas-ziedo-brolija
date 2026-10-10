@@ -577,6 +577,121 @@
           "x": 1
         }
       ]
+    },
+    {
+      "date": "2026-10-11",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kas 2024 m. kovo 29 d. pelnė 50 taškų ir pagerino vienų Eurolygos rungtynių rezultatyvumo rekordą?",
+          "a": [
+            "Shane Larkin",
+            "Mike James",
+            "Nigel Hayes-Davis",
+            "Vasilije Micić"
+          ],
+          "x": 2
+        },
+        {
+          "c": "NBA",
+          "q": "Kuris krepšininkas 1993–94 m. sezone laimėjo NBA MVP, geriausiai besiginančio žaidėjo ir finalo MVP apdovanojimus?",
+          "a": [
+            "David Robinson",
+            "Hakeem Olajuwon",
+            "Patrick Ewing",
+            "Karl Malone"
+          ],
+          "x": 1
+        },
+        {
+          "c": "F1",
+          "q": "Kuri F1 komanda 1976 m. lenktynėse naudojo neįprastą šešiaratį P34 bolidą?",
+          "a": [
+            "March",
+            "Lotus",
+            "Williams",
+            "Tyrrell"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 2004 m. „Roland Garros“ finale atsitiesė pralaimėdamas 0:2 setais ir nugalėjo Guillermo Corią?",
+          "a": [
+            "Gastón Gaudio",
+            "Juan Carlos Ferrero",
+            "David Nalbandian",
+            "Carlos Moyá"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kuri rinktinė 2022 m. tapo pirmąja Afrikos atstove vyrų futbolo pasaulio čempionato pusfinalyje?",
+          "a": [
+            "Kamerūnas",
+            "Gana",
+            "Marokas",
+            "Senegalas"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kas parašė fantastinį romaną „The Lies of Locke Lamora“?",
+          "a": [
+            "Joe Abercrombie",
+            "Scott Lynch",
+            "Patrick Rothfuss",
+            "Steven Erikson"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė mokslinės fantastikos romaną „Rendezvous with Rama“?",
+          "a": [
+            "Robert A. Heinlein",
+            "Larry Niven",
+            "Arthur C. Clarke",
+            "Frederik Pohl"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas režisavo 1987 m. siaubo filmą „Hellraiser“?",
+          "a": [
+            "Wes Craven",
+            "John Carpenter",
+            "David Cronenberg",
+            "Clive Barker"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Grafas Montekristas“ („The Count of Monte Cristo“)?",
+          "a": [
+            "Aleksandras Diuma",
+            "Viktoras Hugo",
+            "Onorė de Balzakas",
+            "Stendalis"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1974 m. filmą „The Conversation“ su Gene Hackmanu?",
+          "a": [
+            "Alan J. Pakula",
+            "Sidney Lumet",
+            "Francis Ford Coppola",
+            "Martin Scorsese"
+          ],
+          "x": 2
+        }
+      ]
     }
   ]
 }
