@@ -1032,6 +1032,7 @@
         <div class='rpgFarmSelector'>
           <button type='button' class='rpgFarmEnemyPick active' data-farm-enemy='green-jester'><b>#01 · Žaliasis Jesteris</b><span>80 HP · 10% +0.5 SP</span></button>
           <button type='button' class='rpgFarmEnemyPick' data-farm-enemy='cup-king'><b>#02 · Taurės Karalius</b><span>96 HP · 15% +0.5 SP</span></button>
+          <button type='button' class='rpgFarmEnemyPick' data-farm-enemy='igno-apple-pile'><b>#03 · Igno obouliu kurwa</b><span>10 HP · AC 14 · 3% +0.5 SP</span></button>
         </div>
         <div class='rpgFarmHero'>
           <div class='rpgFarmArtFrame'><img id='rpgFarmArt' alt='Žaliasis Jesteris' src='assets/rpg/farm1-zaliasis-jesteris.webp?v=85e0fa99'></div>
@@ -1245,7 +1246,7 @@
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
         <div class='rpgRuleCard'><b>🔮 Spell sistema</b><br>Sistema techniškai paruošta, tačiau kol kas globaliai išjungta. Numatyta atrakinti įveikus Enemy #4. Atrakinus pateikiami 3 atsitiktiniai Common spellai ir pasirenkami 2 starteriai; pradžioje turimi 2 Spell Slotai. Po Enemy #8 atsirakina 3-ias slotas, po #12 – Rare spellai, po #20 – 4-as slotas, po #28 – Epic spellai. Kiekvieną konkretų spellą galima panaudoti tik 1 kartą per kovą, o vienoje kovoje daugiausia 2 skirtingus spellus. Spellai yra atskiri nuo Skill Tree ir itemų.</div>
-        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Atrakinti Farm priešai lieka aktyvūs visam laikui ir nepriklauso nuo Fantasy turo. Kiekvieną Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
+        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Atrakinti Farm priešai lieka aktyvūs visam laikui ir nepriklauso nuo Fantasy turo. Kiekvieną Farm priešą galima kovoti daugiausia 3 kartus per dieną; Igno obouliu kurwa neatakuoja, bet NAT 1 tavo Attack roll iškart reiškia pralaimėjimą; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
         <div class='rpgRuleCard'><b>🤝 Trade & ♻ Sell</b><br>Trade vyksta 1 itemas ↔ 1 itemas: pasiūlymą siunčiantis žaidėjas pasirenka savo itemą, kitą žaidėją ir norimą jo itemą; apsikeitimas įvyksta tik gavėjui patvirtinus. Užsidėtų itemų ir kovos metu keisti negalima. SELL negrįžtamas: Common = +0.1 SP, Uncommon = +0.2 SP, Rare = +0.3 SP, Epic = +0.5 SP, Legendary = +1.0 SP. Jei turi kelis vienodus itemus, parduodamas arba keičiamas po 1 vienetą.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
@@ -2874,6 +2875,15 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         ["⚔️ Karališko įniršio Potion","Common · +2 Attack · 2 raundai","30%"],
         ["✨ Skill Point fragmentas","+0.5 SP · nepriklausomas bonus roll","15%"]
       ]
+    },
+    "igno-apple-pile":{
+      no:"03",desc:"",
+      image:"assets/rpg/farm3-igno-obouliu-kurwa.webp",
+      rewards:[
+        ["🧃 Obuolių sultys","Tik jei nužudai iš 1 hit","1-HIT"],
+        ["🍎 Purvini obuoliai","Jei pergalei prireikia daugiau nei 1 hit","KITU ATVEJU"],
+        ["✨ Skill Shard","+0.5 SP · nepriklausomas bonus roll","3%"]
+      ]
     }
   };
   const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
@@ -2958,24 +2968,29 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const e=enemyMeta||{},ui=enemyUi[e.id||selectedEnemyId]||enemyUi["green-jester"];
     get("farmKicker").textContent="FARM ENEMY #"+ui.no+" · VISADA AKTYVUS";
     get("farmName").textContent=e.name||"Farm priešas";
-    get("farmDesc").textContent=ui.desc;
+    const desc=get("farmDesc");
+    if(desc){desc.textContent=ui.desc||"";desc.style.display=ui.desc?"":"none";}
     const art=get("rpgFarmArt");if(art){art.src=ui.image;art.alt=e.name||"Farm priešas"}
     get("farmHp").textContent=e.hp??"—";get("farmAc").textContent=e.ac??"—";
-    get("farmAtk").textContent=mod(e.attack_bonus??0);
-    get("farmDmg").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??0);
+    get("farmAtk").textContent=e.id==="igno-apple-pile"?"—":mod(e.attack_bonus??0);
+    get("farmDmg").textContent=e.id==="igno-apple-pile"?"—":String(e.damage_die||"d4")+mod(e.damage_modifier??0);
     get("farmInit").textContent=mod(e.initiative_bonus??0);
     get("farmSkill1").innerHTML="<b>⚔️ "+esc(e.special_name||"Special")+"</b><span>"+esc(e.special_description||"")+"</span>";
     const sk2=get("farmSkill2");
     if(sk2){sk2.style.display=e.special2_name?"grid":"none";sk2.innerHTML=e.special2_name?"<b>👑 "+esc(e.special2_name)+"</b><span>"+esc(e.special2_description||"")+"</span>":""}
-    get("farmRewardTitle").textContent="FARM REWARD POOL · "+(e.id==="cup-king"?"POTIONAS":"ITEMAS")+" + "+prettyChance()+"% SKILL POINT ŠANSAS · JOKIŲ FPTS";
+    get("farmRewardTitle").textContent=e.id==="igno-apple-pile"
+      ?"FARM REWARD · 1-HIT SISTEMA · 3% SKILL SHARD · JOKIŲ FPTS"
+      :"FARM REWARD POOL · "+(e.id==="cup-king"?"POTIONAS":"ITEMAS")+" + "+prettyChance()+"% SKILL POINT ŠANSAS · JOKIŲ FPTS";
     get("farmRewardGrid").innerHTML=ui.rewards.map(r=>"<div><b>"+r[0]+"</b><span>"+r[1]+"</span><em>"+r[2]+"</em></div>").join("");
-    get("farmRewardFine").textContent=(e.id==="cup-king"?"Common potionas iškrenta visada. Healing meta 2d6 HP; AC/Attack potionai veikia po 2 raundus ir vienu metu gali veikti tik vienas combat buffas.":"Common itemas iškrenta visada. Vienodo itemo STAT bonusas nuo quantity nesistackina.")+" Papildomai atliekamas atskiras "+prettyChance()+"% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP.";
+    get("farmRewardFine").textContent=e.id==="igno-apple-pile"
+      ?"1-hit kill → Obuolių sultys. Kitu atveju → Purvini obuoliai. Papildomai 3% šansas gauti +0.5 Skill Shard."
+      :(e.id==="cup-king"?"Common potionas iškrenta visada. Healing meta 2d6 HP; AC/Attack potionai veikia po 2 raundus ir vienu metu gali veikti tik vienas combat buffas.":"Common itemas iškrenta visada. Vienodo itemo STAT bonusas nuo quantity nesistackina.")+" Papildomai atliekamas atskiras "+prettyChance()+"% SP rollas: +0.5 SP. Du fragmentai = 1.0 SP.";
     get("farmBattleKicker").textContent="FARM ENEMY · "+String(e.name||"").toUpperCase();
     get("farmBattleTitle").textContent="Kova su "+(e.name||"Farm priešu");
     get("farmRpgEnemyName").textContent=e.name||"Farm priešas";
     get("farmRpgEnemyAc").textContent=e.ac??10;
-    get("farmRpgEnemyAttack").textContent=mod(e.attack_bonus??0);
-    get("farmRpgEnemyDamage").textContent=String(e.damage_die||"d4")+mod(e.damage_modifier??0);
+    get("farmRpgEnemyAttack").textContent=e.id==="igno-apple-pile"?"—":mod(e.attack_bonus??0);
+    get("farmRpgEnemyDamage").textContent=e.id==="igno-apple-pile"?"—":String(e.damage_die||"d4")+mod(e.damage_modifier??0);
     get("farmRpgEnemyInit").textContent=mod(e.initiative_bonus??0);
     get("farmRpgEnemySkills").innerHTML="<span>⚔️ <b>"+esc(e.special_name||"Special")+"</b></span><span>"+esc(e.special_description||"")+"</span>"+(e.special2_name?"<span>👑 <b>"+esc(e.special2_name)+"</b></span><span>"+esc(e.special2_description||"")+"</span>":"");
     const portrait=get("farmRpgEnemyPortraitArt");
