@@ -417,6 +417,61 @@
           "question": "Kas režisavo 1948 m. italų neorealizmo klasiką „Bicycle Thieves“?"
         }
       ]
+    },
+    {
+      "date": "2026-10-10",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2011_panathinaikos_maccabi_final",
+          "question": "Kuris klubas laimėjo 2011 m. Eurolygos finalą Barselonoje, finale įveikęs Tel Avivo „Maccabi“?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_finals_2008_mvp_paul_pierce",
+          "question": "Kas buvo pripažintas 2008 m. NBA finalo MVP, kai Bostono „Celtics“ įveikė Los Andželo „Lakers“?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_1998_world_champion_mika_hakkinen",
+          "question": "Kas tapo 1998 m. Formulės 1 pasaulio čempionu?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "roland_garros_1999_agassi_career_grand_slam",
+          "question": "Kas 1999 m. laimėjo „Roland Garros“ vyrų vienetų titulą ir užbaigė karjeros „Grand Slam“?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "euro_2008_spain_germany_final",
+          "question": "Kurią rinktinę Ispanija įveikė 1:0 2008 m. Europos čempionato finale?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_silmarils_forged_by_feanor",
+          "question": "Kas Tolkieno pasaulyje nukalė tris Silmarilus?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "forever_war_author_joe_haldeman",
+          "question": "Kas parašė karinį mokslinės fantastikos romaną „The Forever War“?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "ring_novel_author_koji_suzuki",
+          "question": "Kas parašė japonų siaubo romaną „Ring“, tapusį filmų „Ringu“ ir „The Ring“ pagrindu?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "crime_and_punishment_author_dostoevsky",
+          "question": "Kas parašė romaną „Nusikaltimas ir bausmė“?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "third_man_1949_director_carol_reed",
+          "question": "Kas režisavo 1949 m. film noir klasiką „The Third Man“?"
+        }
+      ]
     }
   ]
 }
