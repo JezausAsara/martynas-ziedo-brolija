@@ -462,6 +462,121 @@
           "x": 3
         }
       ]
+    },
+    {
+      "date": "2026-10-10",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas laimėjo 2011 m. Eurolygos finalą Barselonoje, finale įveikęs Tel Avivo „Maccabi“?",
+          "a": [
+            "Panathinaikos",
+            "Barcelona",
+            "Olympiacos",
+            "CSKA Moscow"
+          ],
+          "x": 0
+        },
+        {
+          "c": "NBA",
+          "q": "Kas buvo pripažintas 2008 m. NBA finalo MVP, kai Bostono „Celtics“ įveikė Los Andželo „Lakers“?",
+          "a": [
+            "Kevin Garnett",
+            "Ray Allen",
+            "Paul Pierce",
+            "Rajon Rondo"
+          ],
+          "x": 2
+        },
+        {
+          "c": "F1",
+          "q": "Kas tapo 1998 m. Formulės 1 pasaulio čempionu?",
+          "a": [
+            "Michael Schumacher",
+            "Mika Häkkinen",
+            "David Coulthard",
+            "Jacques Villeneuve"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 1999 m. laimėjo „Roland Garros“ vyrų vienetų titulą ir užbaigė karjeros „Grand Slam“?",
+          "a": [
+            "Pete Sampras",
+            "Andre Agassi",
+            "Patrick Rafter",
+            "Gustavo Kuerten"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kurią rinktinę Ispanija įveikė 1:0 2008 m. Europos čempionato finale?",
+          "a": [
+            "Italiją",
+            "Prancūziją",
+            "Vokietiją",
+            "Portugaliją"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kas Tolkieno pasaulyje nukalė tris Silmarilus?",
+          "a": [
+            "Celebrimboras",
+            "Fëanoras",
+            "Thingolas",
+            "Turgonas"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė karinį mokslinės fantastikos romaną „The Forever War“?",
+          "a": [
+            "Joe Haldeman",
+            "Robert A. Heinlein",
+            "Larry Niven",
+            "Frederik Pohl"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas parašė japonų siaubo romaną „Ring“, tapusį filmų „Ringu“ ir „The Ring“ pagrindu?",
+          "a": [
+            "Koji Suzuki",
+            "Kenzaburō Ōe",
+            "Haruki Murakami",
+            "Ryu Murakami"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Nusikaltimas ir bausmė“?",
+          "a": [
+            "Levas Tolstojus",
+            "Ivanas Turgenevas",
+            "Fiodoras Dostojevskis",
+            "Nikolajus Gogolis"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1949 m. film noir klasiką „The Third Man“?",
+          "a": [
+            "Orson Welles",
+            "Carol Reed",
+            "John Huston",
+            "Alfred Hitchcock"
+          ],
+          "x": 1
+        }
+      ]
     }
   ]
 }
