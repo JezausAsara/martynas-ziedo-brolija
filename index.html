@@ -998,7 +998,7 @@
         <div class='rpgFarmHero'>
           <div class='rpgFarmArtFrame'><img id='rpgFarmArt' alt='Žaliasis Jesteris' src='assets/rpg/farm1-zaliasis-jesteris.webp?v=85e0fa99'></div>
           <div class='rpgFarmHeroText'>
-            <div id='farmKicker' class='rpgFarmKicker'>FARM ENEMY #01 · 4 TURAS</div>
+            <div id='farmKicker' class='rpgFarmKicker'>FARM ENEMY #01 · VISADA AKTYVUS</div>
             <h4 id='farmName'>Žaliasis Jesteris</h4>
             <p id='farmDesc'>Satyrinis arenos juokdarys. Farminimo kova nekeičia pagrindinės kampanijos progreso ir niekada neduoda FPTS.</p>
             <div class='rpgFarmStats'>
@@ -1010,7 +1010,7 @@
             </div>
             <div id='farmSkill1' class='rpgFarmSkill'><b>🤡 Kreivas balnas</b><span>Jei Jesterio Attack roll yra natural 1–3, jis pats gauna 1d4 damage.</span></div>
             <div id='farmSkill2' class='rpgFarmSkill' style='display:none'></div>
-            <div class='rpgFarmLimit'><b id='farmAttempts'>Šiandien: — / 3</b><span>Reset 00:00 Lietuvos laiku · aktyvus iki 4 Fantasy turo pabaigos.</span></div>
+            <div class='rpgFarmLimit'><b id='farmAttempts'>Šiandien: — / 3</b><span>Reset 00:00 Lietuvos laiku · Farm priešas visada aktyvus.</span></div>
             <button id='rpgFarmStart' class='rpgFarmPrimary' type='button'>🌾 PRADĖTI FARM KOVĄ</button>
             <div id='rpgFarmMsg' class='rpgFarmMsg'></div>
           </div>
@@ -1207,7 +1207,7 @@
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
         <div class='rpgRuleCard'><b>🔮 Spell sistema</b><br>Sistema techniškai paruošta, tačiau kol kas globaliai išjungta. Numatyta atrakinti įveikus Enemy #4. Atrakinus pateikiami 3 atsitiktiniai Common spellai ir pasirenkami 2 starteriai; pradžioje turimi 2 Spell Slotai. Po Enemy #8 atsirakina 3-ias slotas, po #12 – Rare spellai, po #20 – 4-as slotas, po #28 – Epic spellai. Kiekvieną konkretų spellą galima panaudoti tik 1 kartą per kovą, o vienoje kovoje daugiausia 2 skirtingus spellus. Spellai yra atskiri nuo Skill Tree ir itemų.</div>
-        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Kiekvieną aktyvų Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
+        <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Atrakinti Farm priešai lieka aktyvūs visam laikui ir nepriklauso nuo Fantasy turo. Kiekvieną Farm priešą galima kovoti daugiausia 3 kartus per dieną; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
         <div class='rpgRuleCard'><b>🤝 Trade & ♻ Sell</b><br>Trade vyksta 1 itemas ↔ 1 itemas: pasiūlymą siunčiantis žaidėjas pasirenka savo itemą, kitą žaidėją ir norimą jo itemą; apsikeitimas įvyksta tik gavėjui patvirtinus. Užsidėtų itemų ir kovos metu keisti negalima. SELL negrįžtamas: Common = +0.1 SP, Uncommon = +0.2 SP, Rare = +0.3 SP, Epic = +0.5 SP, Legendary = +1.0 SP. Jei turi kelis vienodus itemus, parduodamas arba keičiamas po 1 vienetą.</div>
       </div>
       <div class='rpg2-fptsWarning'><span>✦</span><div><b>FPTS = tik žaidimo valiuta.</b><br>Ji neturi jokio ryšio su „Ereboro lobyno“ € fondu ir negali būti keičiama į pinigus.</div></div>
@@ -2918,7 +2918,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
   function fillMeta(){
     const e=enemyMeta||{},ui=enemyUi[e.id||selectedEnemyId]||enemyUi["green-jester"];
-    get("farmKicker").textContent="FARM ENEMY #"+ui.no+" · 4 TURAS";
+    get("farmKicker").textContent="FARM ENEMY #"+ui.no+" · VISADA AKTYVUS";
     get("farmName").textContent=e.name||"Farm priešas";
     get("farmDesc").textContent=ui.desc;
     const art=get("rpgFarmArt");if(art){art.src=ui.image;art.alt=e.name||"Farm priešas"}
@@ -3021,7 +3021,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const active=battle?.status==="active";
     startBtn.textContent=active?"⚔️ TĘSTI FARM KOVĄ":"🌾 PRADĖTI FARM KOVĄ";
     startBtn.disabled=busy||playing||(!active&&(!farmState?.available||remain<=0));
-    if(!farmState?.available)setMsg((enemyMeta?.name||"Farm priešas")+" šiame Fantasy ture nebeaktyvus.");
+    if(!farmState?.available)setMsg((enemyMeta?.name||"Farm priešas")+" šiuo metu nepasiekiamas.");
     else if(remain<=0&&!active)setMsg("Šiandienos 3 šio priešo farm kovos išnaudotos. Limitas atsinaujins 00:00 Lietuvos laiku.");
     else setMsg("Liko šiandien: "+remain+" iš 3 kovų su "+(enemyMeta?.name||"šiuo priešu")+".");
 
