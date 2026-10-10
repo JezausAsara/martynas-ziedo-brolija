@@ -633,6 +633,20 @@
 .journeyRematchPanel button:hover:not(:disabled){border-color:#b4883a;background:linear-gradient(#78571d,#3e2c0e)}.journeyRematchPanel button:disabled{opacity:.5;cursor:not-allowed}
 .journeyRematchMsg{grid-column:1/-1;min-height:0;color:#d8b96d;font:800 8px/1.3 Arial,sans-serif}
 @media(max-width:650px){.journeyRematchPanel{grid-template-columns:1fr}.journeyRematchPanel button{width:100%}}
+</style><style id="spellSystemLiveStyles">
+.spellStatusCard{margin-bottom:12px;padding:13px 14px;border:1px solid #56436d;border-radius:12px;background:linear-gradient(180deg,#17101f,#0b0d12);color:#cdb8de;font:11px/1.5 Arial,sans-serif}
+.spellStatusCard.unlocked{border-color:#47664f;color:#b6d2bc}.spellStatusCard.locked{border-color:#6a4c31;color:#d0b48b}
+.spellMetaGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px}
+.spellMeta{padding:12px 14px;border:1px solid #443653;border-radius:11px;background:#0e1016}.spellMeta small{display:block;color:#7f7888;font:700 9px Arial,sans-serif;letter-spacing:.08em}.spellMeta strong{display:block;margin-top:4px;color:#d6b8ee;font:700 24px Georgia,serif}.spellMeta span{display:block;margin-top:3px;color:#8b8892;font:9px Arial,sans-serif}
+.spellSection{margin-top:12px}.spellSectionTitle{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px;color:#dcc2ef;font:700 13px Georgia,serif}.spellSectionTitle small{color:#847f89;font:9px Arial,sans-serif}
+.spellChoiceGrid,.spellOwnedGrid,.spellCatalogGrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.spellCard{padding:12px;border:1px solid #443753;border-radius:11px;background:linear-gradient(180deg,#15101c,#0a0d11);min-height:132px}
+.spellCard.selected{border-color:#9a6fc0;box-shadow:inset 0 0 18px #6a3d8a33}.spellCard.equipped{border-color:#41694e;background:linear-gradient(180deg,#0f1a14,#0a1010)}
+.spellCardTop{display:flex;gap:9px;align-items:flex-start}.spellCardIcon{font-size:26px}.spellCard strong{display:block;color:#eadcf3;font:700 13px Georgia,serif}.spellCard em{display:block;margin-top:2px;color:#8d8295;font:8px Arial,sans-serif;font-style:normal;text-transform:uppercase}.spellCard p{margin:8px 0;color:#a9a2ad;font:10px/1.4 Arial,sans-serif}
+.spellPickBtn,.spellEquipBtn,.spellConfirmBtn{border:1px solid #674d82;border-radius:8px;background:#261832;color:#ddc2f2;padding:8px 10px;font:800 9px Arial,sans-serif;cursor:pointer}.spellPickBtn:hover,.spellEquipBtn:hover,.spellConfirmBtn:hover:not(:disabled){background:#382048}.spellConfirmBtn{margin-top:10px;min-width:210px}.spellConfirmBtn:disabled,.spellEquipBtn:disabled{opacity:.4;cursor:not-allowed}
+.spellSlotBadges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.spellSlotBadge{padding:4px 6px;border:1px solid #3d5f47;border-radius:999px;color:#9fc6a8;font:800 8px Arial,sans-serif}
+.spellLockedBox{padding:22px;border:1px dashed #654c31;border-radius:11px;background:#0c1013;color:#bea885;text-align:center;font:11px/1.5 Arial,sans-serif}
+@media(max-width:900px){.spellChoiceGrid,.spellOwnedGrid,.spellCatalogGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.spellMetaGrid,.spellChoiceGrid,.spellOwnedGrid,.spellCatalogGrid{grid-template-columns:1fr}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -687,7 +701,7 @@
       <div class='journeyPanelTitle'><span>🔓 RPG ATRAKINIMAI</span><small>AKTYVU</small></div>
       <div class='journeyUnlock'><b>🤝 Trade & ♻ Sell</b><span>Aktyvu: 1 ↔ 1 itemų mainai tarp žaidėjų ir nereikalingų itemų pardavimas į Skill Point fragmentus.</span></div>
       <div class='journeyUnlock'><b>🌳 Skill Tree</b><span>Atrakintas jau dabar. Skillai perkami už pilnus Skill Points; Farm gali duoti +0.5 SP fragmentą.</span></div>
-      <div class='journeyUnlock'><b>🔮 Spell sistema</b><span>Paruošta, bet dar neaktyvi. Numatyta atrakinti individualiai įveikus Enemy #4.</span></div>
+      <div class='journeyUnlock'><b>🔮 Spell sistema</b><span>Aktyvi. Individualiai atsirakina įveikus Enemy #4: gauni 3 atsitiktinius Common spellus ir pasirenki 2 starterius.</span></div>
     </div>
   </div>
 
@@ -725,7 +739,7 @@
       <button data-rpg-panel='shop'>🏪 Shop</button>
       <button data-rpg-panel='farm'>🌾 Farm</button>
       <button data-rpg-panel='skills'>🌳 Skill Tree</button>
-      <button data-rpg-panel='spells' disabled title='Spell sistema paruošta, bet dar neaktyvuota'>🔒 Spells</button>
+      <button data-rpg-panel='spells' title='Spell sistema atsirakina individualiai įveikus Enemy #4'>🔮 Spells</button>
       <button data-rpg-panel='rpgRules'>📜 Taisyklės</button>
     </div>
 
@@ -1256,20 +1270,16 @@
 
     <div id='rpgPanel-spells' class='rpgPanel'>
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>MAGIC SYSTEM</div><h3>🔮 Spell sistema</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
-      <div class='rpg2-lockPanel'>
-        <b>🔒 SPELL SISTEMA PARUOŠTA, BET NEAKTYVI</b>
-        <span>Atrakinimo sąlyga: įveiktas Enemy #4. Startas: 3 atsitiktiniai Common spellai → pasirenkami 2. Pradžioje 2 Spell Slotai; #8 → 3 slotai, #12 → Rare, #20 → 4 slotai, #28 → Epic.</span>
+      <div id='rpgSpellStatus' class='spellStatusCard'>Spell sistemos būsena kraunama…</div>
+      <div class='spellMetaGrid'>
+        <div class='spellMeta'><small>SPELL SLOTAI</small><strong id='rpgSpellSlots'>—</strong><span>#8 → 3 · #20 → 4</span></div>
+        <div class='spellMeta'><small>MAX RARITY</small><strong id='rpgSpellRarity'>—</strong><span>#12 → Rare · #28 → Epic</span></div>
+        <div class='spellMeta'><small>NAUDOJIMAS KOVOJE</small><strong>2</strong><span>iki 2 skirtingų spellų per kovą</span></div>
       </div>
-      <div class='rpgRulesGrid rpg2-rulesGrid' style='margin-top:12px'>
-        <div class='rpgRuleCard'><b>🔥 Ember Strike</b><br>+2 Attack vienam smūgiui.</div>
-        <div class='rpgRuleCard'><b>🛡️ Arcane Shield</b><br>+2 AC iki kito savo ėjimo.</div>
-        <div class='rpgRuleCard'><b>❤️ Minor Mend</b><br>Atstato 1d6 HP.</div>
-        <div class='rpgRuleCard'><b>⚡ Quickstep</b><br>+3 kitam Initiative patikrinimui.</div>
-        <div class='rpgRuleCard'><b>🌑 Hex</b><br>Kita priešo ataka gauna −2 Attack.</div>
-        <div class='rpgRuleCard'><b>✨ True Aim</b><br>Leidžia permesti vieną nepavykusį Attack roll.</div>
-        <div class='rpgRuleCard'><b>🩸 Blood Pact</b><br>−1d4 HP sau, +1d6 kitam Damage roll.</div>
-        <div class='rpgRuleCard'><b>🌀 Blink</b><br>Kartą ignoruoja vieną sėkmingą priešo hitą.</div>
-      </div>
+      <div id='rpgSpellStarterArea' class='spellSection'></div>
+      <div id='rpgSpellOwnedArea' class='spellSection'></div>
+      <div id='rpgSpellCatalogArea' class='spellSection'></div>
+      <div id='rpgSpellMsg' class='rpgSheetMsg'></div>
     </div>
 
     <div id='rpgPanel-rpgRules' class='rpgPanel'>
@@ -1285,7 +1295,7 @@
         <div class='rpgRuleCard'><b>🛡️ Šarvai</b><br>Light armor labiausiai remiasi DEX, medium armor DEX bonusą riboja, heavy armor turi STR reikalavimus ir suteikia fiksuotą AC. Jei neatitinki requisito, daiktą gali turėti inventoriuje, bet negali equipinti.</div>
         <div class='rpgRuleCard'><b>🏪 Bendras ribotas Item Shop</b><br>Item Shop atsirakina nugalėjus Enemy #1. Shopas bendras visiems 7 žaidėjams: kiekvienas daiktas turi tik 1 egzempliorių, todėl vienam jį nupirkus jis iškart dingsta iš shopo visiems. Kai pilnai užfiksuojamas naujas Fantasy turas, paleidžiamas 8 val. SHOP RESET laikmatis. Iki jo pabaigos dar galioja sena rotacija; laikmačiui pasiekus nulį neparduoti seni daiktai dingsta ir atsiveria nauja ribota rotacija. Drop'ai gali apeiti shopo unlock'ą, bet ne STAT reikalavimą.</div>
         <div class='rpgRuleCard'><b>🧪 Consumables</b><br>Healing Potion ir Spell Scroll yra vienkartiniai. Panaudojus jie dingsta iš inventoriaus. Scroll'ams ignoruojami mūsų žaidime neegzistuojantys D&D atributai; galioja tik konkretaus scroll efekto sąlygos.</div>
-        <div class='rpgRuleCard'><b>🔮 Spell sistema</b><br>Sistema techniškai paruošta, tačiau kol kas globaliai išjungta. Numatyta atrakinti įveikus Enemy #4. Atrakinus pateikiami 3 atsitiktiniai Common spellai ir pasirenkami 2 starteriai; pradžioje turimi 2 Spell Slotai. Po Enemy #8 atsirakina 3-ias slotas, po #12 – Rare spellai, po #20 – 4-as slotas, po #28 – Epic spellai. Kiekvieną konkretų spellą galima panaudoti tik 1 kartą per kovą, o vienoje kovoje daugiausia 2 skirtingus spellus. Spellai yra atskiri nuo Skill Tree ir itemų.</div>
+        <div class='rpgRuleCard'><b>🔮 Spell sistema</b><br>Spell sistema aktyvi ir individualiai atsirakina įveikus Enemy #4. Atrakinus pateikiami 3 atsitiktiniai Common spellai ir pasirenkami 2 starteriai; pradžioje turimi 2 Spell Slotai. Po Enemy #8 atsirakina 3-ias slotas, po #12 – Rare spellai, po #20 – 4-as slotas, po #28 – Epic spellai. Kiekvieną konkretų spellą galima panaudoti tik 1 kartą per kovą, o vienoje kovoje daugiausia 2 skirtingus spellus. Spellai yra atskiri nuo Skill Tree ir itemų.</div>
         <div class='rpgRuleCard'><b>🌾 Farminimo priešai</b><br>Farm priešai yra atskiri nuo pagrindinės kampanijos: jie neduoda FPTS ir nekeičia Enemy progreso. Atrakinti Farm priešai lieka aktyvūs visam laikui ir nepriklauso nuo Fantasy turo. Kiekvieną Farm priešą galima kovoti daugiausia 3 kartus per dieną; Igno obouliu kurwa neatakuoja, bet NAT 1 tavo Attack roll iškart reiškia pralaimėjimą; limitas atsinaujina 00:00 Lietuvos laiku. Žaliasis Jesteris turi 10% šansą duoti +0.5 SP, o stipresnis Taurės Karalius – 15%. Jesteris duoda Common gear, o Taurės Karalius – Common potioną: Healing 2d6 HP arba +2 AC / +2 Attack 2 raundams.</div>
         <div class='rpgRuleCard'><b>🤝 Trade & ♻ Sell</b><br>Trade vyksta 1 itemas ↔ 1 itemas: pasiūlymą siunčiantis žaidėjas pasirenka savo itemą, kitą žaidėją ir norimą jo itemą; apsikeitimas įvyksta tik gavėjui patvirtinus. Užsidėtų itemų ir kovos metu keisti negalima. SELL negrįžtamas: Common = +0.1 SP, Uncommon = +0.2 SP, Rare = +0.3 SP, Epic = +0.5 SP, Legendary = +1.0 SP. Jei turi kelis vienodus itemus, parduodamas arba keičiamas po 1 vienetą.</div>
       </div>
@@ -1859,21 +1869,94 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     tree.innerHTML=attrHtml;
   }
 
+
+  let rpgSpellStateCache=null;
+  let rpgSpellStarterSelection=new Set();
+
+  function renderSpellPanel(state){
+    rpgSpellStateCache=state||null;
+    const status=document.getElementById("rpgSpellStatus");
+    const starter=document.getElementById("rpgSpellStarterArea");
+    const owned=document.getElementById("rpgSpellOwnedArea");
+    const catalog=document.getElementById("rpgSpellCatalogArea");
+    const slots=document.getElementById("rpgSpellSlots");
+    const rarity=document.getElementById("rpgSpellRarity");
+    const tab=document.querySelector("[data-rpg-panel='spells']");
+    if(!status||!starter||!owned||!catalog)return;
+
+    if(slots)slots.textContent=String(state?.slot_count??2);
+    if(rarity)rarity.textContent=state?.max_rarity||"Common";
+    if(tab)tab.textContent=state?.unlocked?"🔮 Spells":"🔒 Spells";
+
+    if(!state?.enabled){
+      status.className="spellStatusCard locked";
+      status.textContent="🔒 Spell sistema laikinai išjungta.";
+      starter.innerHTML=owned.innerHTML=catalog.innerHTML="";
+      return;
+    }
+    if(!state?.unlocked){
+      status.className="spellStatusCard locked";
+      status.textContent="🔒 Spellai atsirakina individualiai įveikus Enemy #"+(state?.unlock_after_enemy||4)+". Tavo progresas: "+Number(state?.defeated_enemies||0)+" / "+Number(state?.unlock_after_enemy||4)+".";
+      starter.innerHTML="<div class='spellLockedBox'>Įveik Enemy #4 ir čia gausi 3 atsitiktinius Common spellus, iš kurių pasirinksi 2.</div>";
+      owned.innerHTML="";
+    }else{
+      status.className="spellStatusCard unlocked";
+      status.textContent=state.battle_locked?"🔒 Spell sistema atrakinta, bet aktyvios kovos metu loadout keisti negalima.":"✓ Spell sistema atrakinta. Paruošk spellus prieš kovą; kovos metu vieną konkretų spellą gali panaudoti tik 1 kartą.";
+
+      const starters=state.starter_options||[];
+      const ownedSpells=state.owned||[];
+
+      if(!ownedSpells.length){
+        starter.innerHTML="<div class='spellSectionTitle'><span>🎴 PASIRINK 2 STARTERIUS</span><small>3 atsitiktiniai Common spellai</small></div>"+
+          (starters.length?"<div class='spellChoiceGrid'>"+starters.map(sp=>{
+            const sel=rpgSpellStarterSelection.has(sp.spell_id);
+            return "<div class='spellCard "+(sel?"selected":"")+"'><div class='spellCardTop'><span class='spellCardIcon'>"+escInv(sp.icon||"✨")+"</span><div><strong>"+escInv(sp.name)+"</strong><em>"+escInv(sp.rarity)+"</em></div></div><p>"+escInv(sp.description)+"</p><button type='button' class='spellPickBtn' data-spell-starter='"+escInv(sp.spell_id)+"'>"+(sel?"✓ PASIRINKTA":"PASIRINKTI")+"</button></div>";
+          }).join("")+"</div><button id='rpgSpellConfirmStarters' class='spellConfirmBtn' type='button' "+(rpgSpellStarterSelection.size===2?"":"disabled")+">PATVIRTINTI 2 SPELLUS</button>":"<div class='journeyLoading'>Generuojami starter spellai…</div>");
+      }else{
+        starter.innerHTML="";
+      }
+
+      if(ownedSpells.length){
+        owned.innerHTML="<div class='spellSectionTitle'><span>📖 TAVO SPELLAI</span><small>"+ownedSpells.length+" turimi · "+Number(state.slot_count||2)+" slotai</small></div><div class='spellOwnedGrid'>"+
+          ownedSpells.map(sp=>{
+            const eq=sp.equipped_slot!=null;
+            let buttons="";
+            for(let s=1;s<=Number(state.slot_count||2);s++){
+              buttons+="<button type='button' class='spellEquipBtn' data-spell-equip='"+escInv(sp.spell_id)+"' data-spell-slot='"+s+"' "+(state.battle_locked?"disabled":"")+">"+(Number(sp.equipped_slot)===s?"✓ SLOT "+s:"SLOT "+s)+"</button>";
+            }
+            return "<div class='spellCard "+(eq?"equipped":"")+"'><div class='spellCardTop'><span class='spellCardIcon'>"+escInv(sp.icon||"✨")+"</span><div><strong>"+escInv(sp.name)+"</strong><em>"+escInv(sp.rarity)+(eq?" · EQUIPPED":"")+"</em></div></div><p>"+escInv(sp.description)+"</p><div class='spellSlotBadges'>"+buttons+"</div></div>";
+          }).join("")+"</div>";
+      }else{
+        owned.innerHTML="";
+      }
+    }
+
+    const cat=state?.catalog||[];
+    catalog.innerHTML=cat.length?"<div class='spellSectionTitle'><span>📚 SPELL KATALOGAS</span><small>vėlesni rarity atsirakina pagal progresą</small></div><div class='spellCatalogGrid'>"+
+      cat.map(sp=>"<div class='spellCard'><div class='spellCardTop'><span class='spellCardIcon'>"+escInv(sp.icon||"✨")+"</span><div><strong>"+escInv(sp.name)+"</strong><em>"+escInv(sp.rarity)+" · nuo Enemy #"+Number(sp.unlock_after_enemy||4)+"</em></div></div><p>"+escInv(sp.description)+"</p></div>").join("")+"</div>":"";
+  }
+
   async function renderSheet(){
     const sb=window.rpgSupabase;if(!sb)return;
     const {data:{session}}=await sb.auth.getSession();
     if(!session){gate.style.display="";sheet.classList.remove("show");return;}
 
-    const [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog},{data:skillState},{data:shopState}]=await Promise.all([
+    let [{data,error},{data:cs},{data:ratings},{data:roundStatus},{data:enemyCatalog},{data:skillState},{data:shopState},{data:spellState}]=await Promise.all([
       sb.from("rpg_character_sheet").select("*").single(),
       sb.rpc("rpg_combat_stats"),
       sb.rpc("rpg_all_combat_ratings"),
       sb.rpc("rpg_round_status"),
       sb.rpc("rpg_enemy_catalog"),
       sb.rpc("rpg_skill_state"),
-      sb.rpc("rpg_shop_current")
+      sb.rpc("rpg_shop_current"),
+      sb.rpc("rpg_spell_state")
     ]);
     if(error || !data){gate.style.display="";sheet.classList.remove("show");return;}
+
+    if(spellState?.enabled&&spellState?.unlocked&&!(spellState?.owned||[]).length&&!(spellState?.starter_options||[]).length){
+      const prep=await sb.rpc("rpg_spell_prepare_starters");
+      if(!prep.error&&prep.data)spellState=prep.data;
+    }
 
     gate.style.display="none";sheet.classList.add("show");
     const portrait=document.getElementById("rpgSheetPortrait");
@@ -1922,6 +2005,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }
 
     renderSkillTree(skillState);
+    renderSpellPanel(spellState);
     await loadInventory();
     await loadTradeState();
   }
