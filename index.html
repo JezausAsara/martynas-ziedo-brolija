@@ -626,6 +626,13 @@
   .rpgCombatChoiceGrid{grid-template-columns:1fr}
   .rpgCombatChoice{grid-template-columns:30px minmax(0,1fr) auto}
 }
+</style><style id="journeyRematchStyles">
+.journeyRematchPanel{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 10px;align-items:center;margin:0 0 10px;padding:9px 10px;border:1px solid #4c4029;border-radius:8px;background:linear-gradient(90deg,#121008,#0a1012)}
+.journeyRematchPanel>div{min-width:0}.journeyRematchPanel b{display:block;color:#e6c56f;font:800 10px Arial,sans-serif;letter-spacing:.05em}.journeyRematchPanel span{display:block;margin-top:3px;color:#929da1;font:9px/1.35 Arial,sans-serif}
+.journeyRematchPanel button{padding:8px 10px;border:1px solid #7b5e2b;border-radius:8px;background:linear-gradient(#624617,#30220c);color:#f2d27d;font:800 9px Arial,sans-serif;cursor:pointer;white-space:nowrap}
+.journeyRematchPanel button:hover:not(:disabled){border-color:#b4883a;background:linear-gradient(#78571d,#3e2c0e)}.journeyRematchPanel button:disabled{opacity:.5;cursor:not-allowed}
+.journeyRematchMsg{grid-column:1/-1;min-height:0;color:#d8b96d;font:800 8px/1.3 Arial,sans-serif}
+@media(max-width:650px){.journeyRematchPanel{grid-template-columns:1fr}.journeyRematchPanel button{width:100%}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -2368,7 +2375,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const bardicArmed=!!battle?.bardic_armed;
 
     const attemptStatus=get("rpgAttemptStatus");
-    if(attemptStatus)attemptStatus.textContent="⚔️ Bandymai: "+attemptsUsed+" / 3 · liko "+attemptsRemaining;
+    if(attemptStatus){
+      attemptStatus.textContent=battle?.battle_type==="rematch"
+        ?"📜 Archyvo rematch: "+attemptsUsed+" / 3 · šiandien liko "+attemptsRemaining
+        :"⚔️ Bandymai: "+attemptsUsed+" / 3 · liko "+attemptsRemaining;
+    }
     const bardicStatus=get("rpgBardicStatus");
     if(bardicStatus){
       bardicStatus.classList.toggle("top3",bardicEligible);
@@ -2376,7 +2387,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }
 
     if(battle&&battle.status==="active"){
-      startBtn.disabled=false;startBtn.textContent="⚔️ TĘSTI KOVĄ · ENEMY #"+battle.enemy_no;if(req)req.textContent="Aktyvi kova išsaugota · bandymas "+(battle.attempt_no||"?")+"/3.";
+      startBtn.disabled=false;
+      startBtn.textContent=battle.battle_type==="rematch"?"📜 TĘSTI REMATCH · ENEMY #"+battle.enemy_no:"⚔️ TĘSTI KOVĄ · ENEMY #"+battle.enemy_no;
+      if(req)req.textContent=battle.battle_type==="rematch"
+        ?"Archyvo rematch · bandymas "+(battle.attempt_no||"?")+"/3 šiandien · progresas nesikeičia · dropas negarantuotas."
+        :"Aktyvi kova išsaugota · bandymas "+(battle.attempt_no||"?")+"/3.";
     }else if(nextEnemyNo>maxUnlocked){
       startBtn.disabled=true;startBtn.textContent="🔒 ENEMY #"+nextEnemyNo+" DAR UŽRAKINTAS";if(req)req.textContent="Dabar vyksta "+maxUnlocked+" turo periodas. Aukštesnio lygio priešo pulti negalima.";
     }else if(!roundStatus?.can_fight){
@@ -2640,7 +2655,23 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
   startBtn.addEventListener("click",()=>battle&&battle.status==="active"?(arena.classList.add("show"),arena.scrollIntoView({behavior:"smooth",block:"start"})):startBattle());
-  retryBtn.addEventListener("click",startBattle);
+  retryBtn.addEventListener("click",async()=>{
+    if(battle?.battle_type!=="rematch"){startBattle();return}
+    if(busy||playing)return;
+    busy=true;renderBattle();
+    try{
+      const enemyNo=Number(battle.enemy_no);
+      const {data,error}=await window.rpgSupabase.rpc("start_rpg_rematch",{p_enemy_no:enemyNo});if(error)throw error;
+      battle=data;
+      const [{data:s},{data:cs}]=await Promise.all([window.rpgSupabase.rpc("rpg_round_status"),window.rpgSupabase.rpc("rpg_combat_stats")]);
+      roundStatus=s||roundStatus;combatStats=cs||combatStats;enemyMeta=metaFor(enemyNo)||enemyMeta;
+      arena.classList.add("show");renderBattle();arena.scrollIntoView({behavior:"smooth",block:"start"});
+      if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+    }catch(e){
+      const t=String(e?.message||"").toLowerCase();
+      setTurn("result","REMATCH NEPRADĖTAS",t.includes("no archive rematch attempts")?"Šiandien šiam priešui jau išnaudoti 3/3 archyvo bandymai.":"Pabandyk dar kartą.");
+    }finally{busy=false;renderBattle()}
+  });
   d20Btn.addEventListener("click",()=>roll("d20"));
   damageBtn.addEventListener("click",()=>roll("damage"));
   if(bardicBtn)bardicBtn.addEventListener("click",armBardic);
@@ -2787,12 +2818,20 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     const combatSummary="";
     const dropPanel=(enemyNo===3&&d.drop)?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
+    const rematchChance=enemyNo===1?"20% drop pool":enemyNo===2?"15% · Titano Trišakis":enemyNo===3?"20% drop pool":enemyNo===4?"10% · tik Legendary":"retas dropas";
+    const rematchPanel=enemyNo<activeRound?
+      "<div class='journeyRematchPanel'>"+
+        "<div><b>📜 ARCHYVO REMATCH</b><span>"+rematchChance+" · iki 3 bandymų per dieną · kampanijos progresas nesikeičia</span></div>"+
+        "<button type='button' data-rematch-enemy='"+enemyNo+"'>⚔️ KOVOTI DAR KARTĄ</button>"+
+        "<small class='journeyRematchMsg'></small>"+
+      "</div>":"";
     const cardBadge=enemyNo===4?"":"<div class='journeyEnemyBadge'>PRIEŠAS #"+enemyNo+" · "+tag+"</div>";
     return cardBadge+
       art+
       combatSummary+
       "<div class='journeyCardFooter'>"+
         dropPanel+
+        rematchPanel+
         "<div class='journeyDefeatWrap'><div class='journeyDefeatLabel'><span>Kas jau įveikė</span><span>"+defeated+" / 7</span></div>"+
         "<div class='journeyDefeatRow'>"+defeatRow(enemyNo,campaign)+"</div></div>"+
       "</div>";
@@ -2861,6 +2900,37 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   const browseNext=document.getElementById("journeyNextEnemy");
   if(browsePrev)browsePrev.addEventListener("click",()=>{if(selectedRound>1){selectedRound--;renderStrip();renderEnemies(campaignCache);}});
   if(browseNext)browseNext.addEventListener("click",()=>{if(selectedRound<activeRound){selectedRound++;renderStrip();renderEnemies(campaignCache);}});
+
+  document.getElementById("journeyEnemyStage")?.addEventListener("click",async e=>{
+    const btn=e.target.closest("[data-rematch-enemy]");if(!btn)return;
+    const enemyNo=Number(btn.dataset.rematchEnemy||0);
+    const panel=btn.closest(".journeyRematchPanel"),msg=panel?.querySelector(".journeyRematchMsg");
+    const sb=window.rpgSupabase;
+    if(!sb){if(msg)msg.textContent="RPG serveris dar kraunamas.";return}
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){
+      if(msg)msg.textContent="Pirmiausia prisijunk prie savo RPG personažo.";
+      document.getElementById("rpgAccountBtn")?.click();
+      return;
+    }
+    btn.disabled=true;const oldText=btn.textContent;btn.textContent="⏳ RUOŠIAMA KOVA…";if(msg)msg.textContent="";
+    try{
+      const {data,error}=await sb.rpc("start_rpg_rematch",{p_enemy_no:enemyNo});if(error)throw error;
+      if(msg)msg.textContent="✓ Archyvo kova paruošta.";
+      document.querySelector("#nav button[data-tab='rpg']")?.click();
+      document.querySelector(".rpgTabs button[data-rpg-panel='character']")?.click();
+      if(window.refreshRpgCombat)await window.refreshRpgCombat();
+      if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+      setTimeout(()=>document.getElementById("rpgBattleArena")?.scrollIntoView({behavior:"smooth",block:"start"}),180);
+    }catch(err){
+      const t=String(err?.message||"").toLowerCase();
+      if(msg)msg.textContent=t.includes("no archive rematch attempts")?"Šiandien šiam priešui jau išnaudoti 3/3 rematch bandymai.":
+        t.includes("defeat this enemy")?"Pirmiausia įveik šį priešą pagrindinėje kampanijoje.":
+        t.includes("finish the active")?"Pirmiausia užbaik šiuo metu aktyvią kovą.":
+        t.includes("past-round")?"Rematch galima tik su praėjusio turo priešu.":
+        "Rematch kovos pradėti nepavyko.";
+    }finally{btn.disabled=false;btn.textContent=oldText}
+  });
 
   window.refreshJourneyDashboard=loadJourney;
   renderStrip();
