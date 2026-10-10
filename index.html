@@ -581,6 +581,44 @@
 .rpgTradeColumns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rpgTradeColumn{padding:12px;border:1px solid #303c42;border-radius:11px;background:#091114}.rpgTradeColumn h4{margin:0 0 9px;color:#d7bd78}
 .rpgTradeOffer{padding:10px 0;border-bottom:1px solid #263137}.rpgTradeOffer:last-child{border-bottom:0}.rpgTradeOffer b{display:block;color:#e3e8e9;font-size:12px}.rpgTradeOffer span{display:block;margin:4px 0 7px;color:#8e9a9f;font:10px/1.4 Arial,sans-serif}.rpgTradeOfferActions{display:flex;gap:6px}.rpgTradeOffer button.reject{background:#20100d;border-color:#64372f;color:#e0a79b}.rpgTradeOffer button.cancel{background:#11181b;border-color:#3b4a51;color:#aebdc3}
 @media(max-width:760px){.rpgTradeComposerGrid,.rpgTradeColumns{grid-template-columns:1fr}.rpgItemActions{justify-content:flex-start}}
+</style><style id="combatActionHubStyles">
+.rpgCombatActionHub{margin:14px 0 12px}
+.rpgCombatActionTabs{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:5px;border:1px solid #384349;border-radius:11px;background:#070c0f}
+.rpgCombatActionTab{min-width:0;padding:10px 7px;border:1px solid transparent;border-radius:8px;background:#0b1215;color:#859399;font:800 10px/1 Arial,sans-serif;cursor:pointer}
+.rpgCombatActionTab.active{border-color:#7a6030;background:linear-gradient(180deg,#261c0e,#13100b);color:#f0cf7d;box-shadow:inset 0 0 14px #b8872820}
+.rpgCombatActionTab[data-action="skill"].active{border-color:#396d4d;background:#0d2015;color:#9dd5ad}
+.rpgCombatActionTab[data-action="spell"].active{border-color:#5d4682;background:#171020;color:#d4b5ff}
+.rpgCombatActionTab[data-action="item"].active{border-color:#64496d;background:#1a111e;color:#e3c0eb}
+.rpgCombatActionPanel{display:none;margin-top:8px}
+.rpgCombatActionPanel.active{display:block}
+.rpgCombatActionPanel .rpgBattleControls{margin-top:18px}
+.rpgCombatActionPanel .rpgCombatItemsPanel{margin:0}
+.rpgCombatChoicePanel{padding:11px;border:1px solid #344148;border-radius:11px;background:#081013}
+.rpgCombatChoiceHead{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:8px}
+.rpgCombatChoiceHead b{color:#d7c17e;font:800 10px Arial,sans-serif;letter-spacing:.08em}
+.rpgCombatChoiceHead span{color:#76858a;font:8px Arial,sans-serif}
+.rpgCombatChoiceGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
+.rpgCombatChoice{display:grid;grid-template-columns:34px minmax(0,1fr) auto;gap:8px;align-items:center;padding:9px;border:1px solid #334047;border-radius:9px;background:#0b1317;min-width:0}
+.rpgCombatChoice.skill{border-color:#36533f;background:#0b1710}
+.rpgCombatChoice.spell{border-color:#4a3c62;background:#130e19}
+.rpgCombatChoiceIcon{font-size:21px;text-align:center}
+.rpgCombatChoiceText{min-width:0}.rpgCombatChoiceText b{display:block;color:#e5dcc6;font:700 10px/1.2 Georgia,serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rpgCombatChoiceText small{display:block;margin-top:3px;color:#87959a;font:8px/1.3 Arial,sans-serif}
+.rpgCombatChoiceBtn{min-width:75px;padding:7px 8px;border:1px solid #6d552c;border-radius:7px;background:#4c3714;color:#f0d58e;font:800 8px Arial,sans-serif;cursor:pointer}
+.rpgCombatChoice.skill .rpgCombatChoiceBtn{border-color:#3b6b4b;background:#173320;color:#aee0bb}
+.rpgCombatChoice.spell .rpgCombatChoiceBtn{border-color:#674c86;background:#2a1940;color:#dcbfff}
+.rpgCombatChoiceBtn:disabled{opacity:.42;cursor:not-allowed}
+.rpgCombatAutoBadge{min-width:58px;padding:6px;border:1px solid #3c484d;border-radius:7px;color:#839197;text-align:center;font:800 8px Arial,sans-serif}
+.rpgCombatActionMsg{min-height:16px;margin-top:7px;color:#d9bd78;font:800 9px/1.35 Arial,sans-serif}
+.rpgCombatLocked{grid-column:1/-1;padding:13px;border:1px dashed #554069;border-radius:9px;background:#120e17;color:#b7a4c5;font:10px/1.45 Arial,sans-serif;text-align:center}
+.rpgCombatLocked b{display:block;color:#d7b8ee;margin-bottom:3px}
+.rpgCombatUsed{color:#786f83!important}
+@media(max-width:700px){
+  .rpgCombatActionTabs{grid-template-columns:repeat(4,1fr);gap:4px}
+  .rpgCombatActionTab{padding:9px 3px;font-size:9px}
+  .rpgCombatChoiceGrid{grid-template-columns:1fr}
+  .rpgCombatChoice{grid-template-columns:30px minmax(0,1fr) auto}
+}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -3166,6 +3204,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }
     profile=p||null;farmState=s||null;combatStats=cs||null;enemyMeta=farmState?.enemy||null;battle=farmState?.active_battle||null;render();
   }
+  window.refreshRpgFarmCombat=refresh;
   async function selectEnemy(id){
     if(battle?.status==="active")return;
     selectedEnemyId=id;await refresh();
@@ -3222,7 +3261,172 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 })();
 </script>
 
-</body></html>
+<script id="combatActionHub">
+(() => {
+  const $=id=>document.getElementById(id);
+  const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const configs={
+    campaign:{arena:"rpgBattleArena",items:"rpgCombatItemsPanel",skills:"rpgCombatSkills",spells:"rpgCombatSpells",skillMsg:"rpgCombatSkillsMsg",spellMsg:"rpgCombatSpellsMsg"},
+    farm:{arena:"rpgFarmBattleArena",items:"farmRpgCombatItemsPanel",skills:"farmRpgCombatSkills",spells:"farmRpgCombatSpells",skillMsg:"farmRpgCombatSkillsMsg",spellMsg:"farmRpgCombatSpellsMsg"}
+  };
+  let skillState=null,spellState=null,campaignBattle=null,farmBattle=null;
+
+  function setup(kind){
+    const cfg=configs[kind],arena=$(cfg.arena);if(!arena||arena.querySelector(".rpgCombatActionHub"))return;
+    const item=$(cfg.items),controls=arena.querySelector(".rpgBattleControls");if(!item||!controls)return;
+    const hub=document.createElement("div");hub.className="rpgCombatActionHub";hub.dataset.kind=kind;
+    hub.innerHTML=
+      "<div class='rpgCombatActionTabs'>"+
+        "<button class='rpgCombatActionTab active' data-action='attack' type='button'>⚔ ATTACK</button>"+
+        "<button class='rpgCombatActionTab' data-action='skill' type='button'>🌳 SKILL</button>"+
+        "<button class='rpgCombatActionTab' data-action='spell' type='button'>🔮 SPELL</button>"+
+        "<button class='rpgCombatActionTab' data-action='item' type='button'>🧪 ITEM</button>"+
+      "</div>"+
+      "<div class='rpgCombatActionPanel active' data-panel='attack'></div>"+
+      "<div class='rpgCombatActionPanel' data-panel='skill'><div class='rpgCombatChoicePanel'><div class='rpgCombatChoiceHead'><b>🌳 TAVO SKILLAI</b><span>AUTO arba aktyvuojami kovoje</span></div><div id='"+cfg.skills+"' class='rpgCombatChoiceGrid'></div><div id='"+cfg.skillMsg+"' class='rpgCombatActionMsg'></div></div></div>"+
+      "<div class='rpgCombatActionPanel' data-panel='spell'><div class='rpgCombatChoicePanel'><div class='rpgCombatChoiceHead'><b>🔮 PARUOŠTI SPELLAI</b><span>iki 2 skirtingų spellų per kovą</span></div><div id='"+cfg.spells+"' class='rpgCombatChoiceGrid'></div><div id='"+cfg.spellMsg+"' class='rpgCombatActionMsg'></div></div></div>"+
+      "<div class='rpgCombatActionPanel' data-panel='item'></div>";
+    item.parentNode.insertBefore(hub,item);
+    hub.querySelector("[data-panel='attack']").appendChild(controls);
+    hub.querySelector("[data-panel='item']").appendChild(item);
+    hub.addEventListener("click",e=>{
+      const tab=e.target.closest(".rpgCombatActionTab");if(tab){switchTab(hub,tab.dataset.action);return}
+      const sk=e.target.closest("[data-use-combat-skill]");if(sk&&!sk.disabled)useSkill(kind,sk.dataset.useCombatSkill);
+      const sp=e.target.closest("[data-cast-combat-spell]");if(sp&&!sp.disabled)castSpell(kind,sp.dataset.castCombatSpell);
+    });
+  }
+
+  function switchTab(hub,name){
+    hub.querySelectorAll(".rpgCombatActionTab").forEach(x=>x.classList.toggle("active",x.dataset.action===name));
+    hub.querySelectorAll(".rpgCombatActionPanel").forEach(x=>x.classList.toggle("active",x.dataset.panel===name));
+  }
+
+  function battleFor(kind){return kind==="campaign"?campaignBattle:farmBattle}
+  function manualSkill(id){return id==="str_riposte"||id==="con_second_wind"}
+  function skillIcon(s){return s.attribute==="STR"?"⚔️":s.attribute==="DEX"?"🏹":"🛡️"}
+  function skillReason(s,b){
+    if(!b||b.status!=="active")return "TIK KOVOJE";
+    const st=b.skill_state||{};
+    if(s.id==="str_riposte"){
+      if(st.riposte_used)return "PANAUDOTA";
+      if(st.riposte_armed)return "PARUOŠTA";
+      if(b.phase!=="player_attack")return "TAVO ĖJIME";
+      return "";
+    }
+    if(s.id==="con_second_wind"){
+      if(st.second_wind_used)return "PANAUDOTA";
+      if(Number(b.player_hp)>=Number(b.player_max_hp))return "HP PILNAS";
+      if(b.phase!=="player_attack")return "TAVO ĖJIME";
+      return "";
+    }
+    return "AUTO";
+  }
+  function renderSkills(kind){
+    const cfg=configs[kind],box=$(cfg.skills);if(!box)return;
+    const b=battleFor(kind), owned=(skillState?.skills||[]).filter(s=>s.owned);
+    if(!owned.length){box.innerHTML="<div class='rpgCombatLocked'><b>Skillų dar neturi.</b>Atrakink Skill Tree skillą ir jis atsiras čia.</div>";return}
+    box.innerHTML=owned.map(s=>{
+      const reason=skillReason(s,b),manual=manualSkill(s.id),disabled=!manual||!!reason;
+      const action=!manual?"<span class='rpgCombatAutoBadge'>AUTO</span>":
+        "<button type='button' class='rpgCombatChoiceBtn' data-use-combat-skill='"+esc(s.id)+"' "+(disabled?"disabled":"")+">"+(s.id==="str_riposte"?"PARUOŠTI":"NAUDOTI")+"</button>";
+      const suffix=reason&&reason!=="AUTO"?" · "+reason:"";
+      return "<div class='rpgCombatChoice skill "+(reason==="PANAUDOTA"?"rpgCombatUsed":"")+"'>"+
+        "<span class='rpgCombatChoiceIcon'>"+skillIcon(s)+"</span>"+
+        "<span class='rpgCombatChoiceText'><b>"+esc(s.name)+"</b><small>"+esc(s.description)+suffix+"</small></span>"+action+"</div>";
+    }).join("");
+  }
+
+  function spellReason(sp,b){
+    if(!spellState?.enabled)return "SISTEMA NEAKTYVI";
+    if(!spellState?.unlocked)return "ĮVEIK ENEMY #4";
+    if(!b||b.status!=="active")return "TIK KOVOJE";
+    const used=Array.isArray(b.skill_state?.spell_used_ids)?b.skill_state.spell_used_ids:[];
+    if(used.includes(sp.spell_id))return "PANAUDOTA";
+    if(used.length>=2)return "2/2 SPELLAI";
+    const code=sp.effect_code;
+    if(code==="initiative_bonus"&&b.phase!=="initiative")return "TIK PRIEŠ INICIATYVĄ";
+    if(code!=="initiative_bonus"&&b.phase!=="player_attack")return "TAVO ĖJIME";
+    if(code==="heal"&&Number(b.player_hp)>=Number(b.player_max_hp))return "HP PILNAS";
+    if(code==="blood_pact"&&Number(b.player_hp)<=4)return "REIKIA 5+ HP";
+    return "";
+  }
+  function renderSpells(kind){
+    const cfg=configs[kind],box=$(cfg.spells);if(!box)return;
+    const b=battleFor(kind);
+    if(!spellState?.enabled){
+      box.innerHTML="<div class='rpgCombatLocked'><b>🔒 Spell sistema dar neaktyvi</b>UI jau paruoštas. Aktyvavus sistemą ir įveikus Enemy #4 čia atsiras tavo equipinti spellai.</div>";return;
+    }
+    if(!spellState?.unlocked){
+      box.innerHTML="<div class='rpgCombatLocked'><b>🔒 Spellai dar užrakinti</b>Atrakinimas: individualiai įveik Enemy #4.</div>";return;
+    }
+    const spells=(spellState.owned||[]).filter(x=>x.equipped_slot!=null).sort((a,b)=>Number(a.equipped_slot)-Number(b.equipped_slot));
+    if(!spells.length){box.innerHTML="<div class='rpgCombatLocked'><b>Nėra equipintų spellų.</b>Pasirink ir equipink spellus Spell skiltyje.</div>";return}
+    box.innerHTML=spells.map(sp=>{
+      const reason=spellReason(sp,b);
+      return "<div class='rpgCombatChoice spell "+(reason==="PANAUDOTA"?"rpgCombatUsed":"")+"'>"+
+        "<span class='rpgCombatChoiceIcon'>"+esc(sp.icon||"✨")+"</span>"+
+        "<span class='rpgCombatChoiceText'><b>"+esc(sp.name)+" · "+esc(sp.rarity)+"</b><small>"+esc(sp.description)+(reason?" · "+esc(reason):"")+"</small></span>"+
+        "<button type='button' class='rpgCombatChoiceBtn' data-cast-combat-spell='"+esc(sp.spell_id)+"' "+(reason?"disabled":"")+">CAST</button></div>";
+    }).join("");
+  }
+
+  async function useSkill(kind,id){
+    const cfg=configs[kind],msg=$(cfg.skillMsg);if(msg)msg.textContent="Skillas aktyvuojamas…";
+    try{
+      const {data,error}=await window.rpgSupabase.rpc("rpg_use_skill",{p_skill_id:id});if(error)throw error;
+      if(msg)msg.textContent=id==="str_riposte"?"⚔️ Riposte paruoštas. Jei priešas nepataikys, gausi nemokamą kontrataką.":"✓ "+(data?.name||"Skillas")+" panaudotas.";
+      if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
+      if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
+      await refreshHub();
+      const hub=$(cfg.arena)?.querySelector(".rpgCombatActionHub");if(hub)switchTab(hub,"attack");
+    }catch(e){
+      if(msg)msg.textContent=String(e?.message||"Skill panaudoti nepavyko.").replace(/^.*?message[: ]*/i,"");
+    }
+  }
+
+  async function castSpell(kind,id){
+    const cfg=configs[kind],msg=$(cfg.spellMsg);if(msg)msg.textContent="Spell castinamas…";
+    try{
+      const {data,error}=await window.rpgSupabase.rpc("rpg_spell_cast",{p_spell_id:id});if(error)throw error;
+      if(msg)msg.textContent=(data?.icon||"✨")+" "+(data?.name||"Spell")+" panaudotas.";
+      if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
+      if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
+      await refreshHub();
+      const hub=$(cfg.arena)?.querySelector(".rpgCombatActionHub");if(hub)switchTab(hub,"attack");
+    }catch(e){
+      if(msg)msg.textContent=String(e?.message||"Spell panaudoti nepavyko.");
+    }
+  }
+
+  async function refreshHub(){
+    const sb=window.rpgSupabase;if(!sb)return;
+    const {data:{session}}=await sb.auth.getSession();if(!session)return;
+    const [sk,sp,cb,fb]=await Promise.all([
+      sb.rpc("rpg_skill_state"),
+      sb.rpc("rpg_spell_state"),
+      sb.from("rpg_active_battles").select("*").maybeSingle(),
+      sb.from("rpg_active_farm_battles").select("*").maybeSingle()
+    ]);
+    skillState=sk.data||null;spellState=sp.data||null;campaignBattle=cb.data||null;farmBattle=fb.data||null;
+    renderSkills("campaign");renderSpells("campaign");renderSkills("farm");renderSpells("farm");
+  }
+  window.refreshCombatActionHub=refreshHub;
+
+  setup("campaign");setup("farm");
+  const wait=setInterval(()=>{
+    if(window.rpgSupabase){
+      clearInterval(wait);refreshHub();
+      window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(refreshHub,150));
+    }
+  },100);
+
+  document.addEventListener("click",e=>{
+    if(e.target.closest("#rpgStartBattleBtn,#rpgRetryBattleBtn,#rpgRollD20,#rpgRollDamage,#rpgCombatItems,#rpgFarmStart,#farmRpgRetryBattleBtn,#farmRpgRollD20,#farmRpgRollDamage,#farmRpgCombatItems")){
+      setTimeout(refreshHub,900);
+    }
+  });
+})();
+</script></body></html>
 <style id="enemyCardsExactGeometry">
 @media(min-width:901px){
   .journeyEnemyStage{align-items:stretch!important}
