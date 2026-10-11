@@ -692,6 +692,121 @@
           "x": 2
         }
       ]
+    },
+    {
+      "date": "2026-10-12",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kas buvo išrinktas 2018 m. Eurolygos finalo ketverto MVP, kai Madrido „Real“ tapo čempionu?",
+          "a": [
+            "Sergio Llull",
+            "Luka Dončić",
+            "Nando De Colo",
+            "Jan Veselý"
+          ],
+          "x": 1
+        },
+        {
+          "c": "NBA",
+          "q": "Kuri NBA komanda 1999 m. tapo pirmąja aštuntą vietą konferencijoje užėmusia ekipa, pasiekusia NBA finalą?",
+          "a": [
+            "Miami Heat",
+            "Indiana Pacers",
+            "New York Knicks",
+            "Orlando Magic"
+          ],
+          "x": 2
+        },
+        {
+          "c": "F1",
+          "q": "Kuri komanda 2009 m. debiutiniame ir vieninteliame savo F1 sezone laimėjo konstruktorių čempionatą?",
+          "a": [
+            "McLaren",
+            "Renault",
+            "Red Bull Racing",
+            "Brawn GP"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 2002 m. „Australian Open“ vyrų vienetų finale nugalėjo Maratą Safiną?",
+          "a": [
+            "Thomas Johansson",
+            "Lleyton Hewitt",
+            "Yevgeny Kafelnikov",
+            "Tommy Haas"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kas įmušė pergalingą „Bayern“ įvartį 2013 m. Čempionų lygos finale prieš Dortmundo „Borussia“?",
+          "a": [
+            "Mario Mandžukić",
+            "Arjen Robben",
+            "Franck Ribéry",
+            "Thomas Müller"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kokioje planetoje vyksta Brandono Sandersono „The Stormlight Archive“ sagos veiksmas?",
+          "a": [
+            "Scadrial",
+            "Sel",
+            "Roshar",
+            "Nalthis"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kuriame mokslinės fantastikos romane pagrindinis veikėjas yra astronautas Rylandas Grace'as?",
+          "a": [
+            "The Martian",
+            "Artemis",
+            "Leviathan Wakes",
+            "Project Hail Mary"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kokiame išgalvotame Meino valstijos mieste vyksta Stepheno Kingo romano „It“ veiksmas?",
+          "a": [
+            "Derry",
+            "Castle Rock",
+            "Jerusalem's Lot",
+            "Haven"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Procesas“ („The Trial“), kurio pagrindinis veikėjas yra Jozefas K.?",
+          "a": [
+            "Hermann Hesse",
+            "Albert Camus",
+            "Franz Kafka",
+            "Robert Musil"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kuris filmas 1994 m. Kanų kino festivalyje laimėjo „Auksinę palmės šakelę“?",
+          "a": [
+            "The Shawshank Redemption",
+            "Three Colours: Red",
+            "Forrest Gump",
+            "Pulp Fiction"
+          ],
+          "x": 3
+        }
+      ]
     }
   ]
 }

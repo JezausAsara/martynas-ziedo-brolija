@@ -527,6 +527,61 @@
           "question": "Kas režisavo 1974 m. filmą „The Conversation“ su Gene Hackmanu?"
         }
       ]
+    },
+    {
+      "date": "2026-10-12",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2018_final_four_mvp_luka_doncic",
+          "question": "Kas buvo išrinktas 2018 m. Eurolygos finalo ketverto MVP, kai Madrido „Real“ tapo čempionu?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_1999_first_eighth_seed_finals_new_york_knicks",
+          "question": "Kuri NBA komanda 1999 m. tapo pirmąja aštuntą vietą konferencijoje užėmusia ekipa, pasiekusia NBA finalą?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_2009_constructors_champion_brawn_gp",
+          "question": "Kuri komanda 2009 m. debiutiniame ir vieninteliame savo F1 sezone laimėjo konstruktorių čempionatą?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_2002_australian_open_mens_champion_thomas_johansson",
+          "question": "Kas 2002 m. „Australian Open“ vyrų vienetų finale nugalėjo Maratą Safiną?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "ucl_2013_final_bayern_winning_goal_arjen_robben",
+          "question": "Kas įmušė pergalingą „Bayern“ įvartį 2013 m. Čempionų lygos finale prieš Dortmundo „Borussia“?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "stormlight_archive_primary_planet_roshar",
+          "question": "Kokioje planetoje vyksta Brandono Sandersono „The Stormlight Archive“ sagos veiksmas?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "project_hail_mary_protagonist_ryland_grace",
+          "question": "Kuriame mokslinės fantastikos romane pagrindinis veikėjas yra astronautas Rylandas Grace'as?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "stephen_king_it_setting_derry_maine",
+          "question": "Kokiame išgalvotame Meino valstijos mieste vyksta Stepheno Kingo romano „It“ veiksmas?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "the_trial_novel_author_franz_kafka",
+          "question": "Kas parašė romaną „Procesas“ („The Trial“), kurio pagrindinis veikėjas yra Jozefas K.?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "cannes_1994_palme_dor_pulp_fiction",
+          "question": "Kuris filmas 1994 m. Kanų kino festivalyje laimėjo „Auksinę palmės šakelę“?"
+        }
+      ]
     }
   ]
 }
