@@ -1937,7 +1937,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         starter.innerHTML="<div class='spellSectionTitle'><span>🎴 PASIRINK 2 STARTERIUS</span><small>3 atsitiktiniai Common spellai</small></div>"+
           (starters.length?"<div class='spellChoiceGrid'>"+starters.map(sp=>{
             const sel=rpgSpellStarterSelection.has(sp.spell_id);
-            return "<div class='spellCard "+(sel?"selected":"")+"'><div class='spellCardTop'><span class='spellCardIcon'>"+escInv(sp.icon||"✨")+"</span><div><strong>"+escInv(sp.name)+"</strong><em>"+escInv(sp.rarity)+"</em></div></div><p>"+escInv(sp.description)+"</p><button type='button' class='spellPickBtn' data-spell-starter='"+escInv(sp.spell_id)+"'>"+(sel?"✓ PASIRINKTA":"PASIRINKTI")+"</button></div>";
+            return "<div class='spellCard "+(sel?"selected":"")+"'><div class='spellCardTop'><span class='spellCardIcon'>"+escInv(sp.icon||"✨")+"</span><div><strong>"+escInv(sp.name)+"</strong><em>"+escInv(sp.rarity)+"</em></div></div><p>"+escInv(sp.description)+"</p><button type='button' class='spellPickBtn' data-spell-starter='"+escInv(sp.spell_id)+"' "+(state.battle_locked?"disabled":"")+">"+(sel?"✓ PASIRINKTA":"PASIRINKTI")+"</button></div>";
           }).join("")+"</div><button id='rpgSpellConfirmStarters' class='spellConfirmBtn' type='button' "+(rpgSpellStarterSelection.size===2?"":"disabled")+">PATVIRTINTI 2 SPELLUS</button>":"<div class='journeyLoading'>Generuojami starter spellai…</div>");
       }else{
         starter.innerHTML="";
@@ -2037,6 +2037,106 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     await loadTradeState();
   }
   window.renderRpgSheet=renderSheet;
+
+  document.getElementById("rpgPanel-spells")?.addEventListener("click",async e=>{
+    const sb=window.rpgSupabase;if(!sb)return;
+    const msg=document.getElementById("rpgSpellMsg");
+
+    const pick=e.target.closest("[data-spell-starter]");
+    if(pick){
+      if(!rpgSpellStateCache?.enabled){
+        if(msg)msg.textContent="Spell sistema šiuo metu neaktyvi.";
+        return;
+      }
+      if(!rpgSpellStateCache?.unlocked){
+        if(msg)msg.textContent="Spellai atsirakina įveikus Enemy #"+Number(rpgSpellStateCache?.unlock_after_enemy||4)+".";
+        return;
+      }
+      if(rpgSpellStateCache?.battle_locked){
+        if(msg)msg.textContent="Aktyvios kovos metu starterių rinktis negalima.";
+        return;
+      }
+
+      const id=pick.dataset.spellStarter;
+      if(rpgSpellStarterSelection.has(id)){
+        rpgSpellStarterSelection.delete(id);
+      }else{
+        if(rpgSpellStarterSelection.size>=Number(rpgSpellStateCache?.starter_picks||2)){
+          if(msg)msg.textContent="Pasirink tik "+Number(rpgSpellStateCache?.starter_picks||2)+" starter spellus.";
+          return;
+        }
+        rpgSpellStarterSelection.add(id);
+      }
+      if(msg)msg.textContent=rpgSpellStarterSelection.size
+        ? "Pasirinkta "+rpgSpellStarterSelection.size+" / "+Number(rpgSpellStateCache?.starter_picks||2)+"."
+        : "";
+      renderSpellPanel(rpgSpellStateCache);
+      return;
+    }
+
+    const confirmBtn=e.target.closest("#rpgSpellConfirmStarters");
+    if(confirmBtn){
+      const picks=Array.from(rpgSpellStarterSelection);
+      const need=Number(rpgSpellStateCache?.starter_picks||2);
+      if(picks.length!==need){
+        if(msg)msg.textContent="Pasirink tiksliai "+need+" spellus.";
+        return;
+      }
+      confirmBtn.disabled=true;
+      confirmBtn.textContent="PATVIRTINAMA…";
+      if(msg)msg.textContent="Tvirtinami starter spellai…";
+
+      const {data,error}=await sb.rpc("rpg_spell_choose_starters",{p_spell_ids:picks});
+      if(error){
+        const t=String(error.message||"").toLowerCase();
+        if(msg)msg.textContent=t.includes("active combat")
+          ?"Aktyvios kovos metu spellų pasirinkimo keisti negalima."
+          :t.includes("already chosen")
+            ?"Starter spellai jau pasirinkti."
+            :"Nepavyko patvirtinti spellų: "+String(error.message||"nežinoma klaida");
+        confirmBtn.disabled=false;
+        confirmBtn.textContent="PATVIRTINTI "+need+" SPELLUS";
+        return;
+      }
+
+      rpgSpellStarterSelection.clear();
+      rpgSpellStateCache=data||rpgSpellStateCache;
+      if(msg)msg.textContent="✓ Starter spellai pasirinkti ir automatiškai įdėti į Spell Slot 1 ir 2.";
+      renderSpellPanel(rpgSpellStateCache);
+      if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+      return;
+    }
+
+    const equip=e.target.closest("[data-spell-equip]");
+    if(equip){
+      if(rpgSpellStateCache?.battle_locked){
+        if(msg)msg.textContent="Aktyvios kovos metu spell loadout keisti negalima.";
+        return;
+      }
+      const spellId=equip.dataset.spellEquip;
+      const slot=Number(equip.dataset.spellSlot||0);
+      if(!spellId||!slot)return;
+
+      equip.disabled=true;
+      const old=equip.textContent;
+      equip.textContent="EQUIP…";
+      if(msg)msg.textContent="Spell dedamas į Slot "+slot+"…";
+
+      const {data,error}=await sb.rpc("rpg_spell_equip",{p_spell_id:spellId,p_slot:slot});
+      if(error){
+        if(msg)msg.textContent="Nepavyko equipinti spello: "+String(error.message||"nežinoma klaida");
+        equip.disabled=false;
+        equip.textContent=old;
+        return;
+      }
+
+      rpgSpellStateCache=data||rpgSpellStateCache;
+      if(msg)msg.textContent="✓ Spell įdėtas į Slot "+slot+".";
+      renderSpellPanel(rpgSpellStateCache);
+      if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+      return;
+    }
+  });
 
   document.querySelectorAll(".rpgBuyStat").forEach(btn=>{
     btn.addEventListener("click",async()=>{
