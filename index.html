@@ -660,6 +660,30 @@
 .spellSlotBadges{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}.spellSlotBadge{padding:4px 6px;border:1px solid #3d5f47;border-radius:999px;color:#9fc6a8;font:800 8px Arial,sans-serif}
 .spellLockedBox{padding:22px;border:1px dashed #654c31;border-radius:11px;background:#0c1013;color:#bea885;text-align:center;font:11px/1.5 Arial,sans-serif}
 @media(max-width:900px){.spellChoiceGrid,.spellOwnedGrid,.spellCatalogGrid{grid-template-columns:repeat(2,1fr)}}@media(max-width:620px){.spellMetaGrid,.spellChoiceGrid,.spellOwnedGrid,.spellCatalogGrid{grid-template-columns:1fr}}
+</style><style id="rpgStatSourceStyles">
+:root{--rpg-base:#9ba8ad;--rpg-attr:#66c7ed;--rpg-item:#72d28a;--rpg-skill:#c28bea;--rpg-total:#f0ca70}
+.rpgStatValueV2{display:grid!important;justify-items:center;gap:6px}.rpgStatValueV2>strong{color:var(--rpg-total)!important;font-size:31px!important}
+.rpgAttrMod{display:inline-flex!important;padding:3px 7px;border:1px solid #27627a;border-radius:999px;background:#0b2029;color:var(--rpg-attr)!important;font:800 9px/1 Arial,sans-serif!important}
+.rpgSourceLine{display:flex;flex-wrap:wrap;gap:4px;align-items:center;justify-content:center;min-height:20px}
+.rpgSourceChip{display:inline-flex;gap:4px;align-items:center;padding:3px 6px;border-radius:6px;font:800 8px/1.15 Arial,sans-serif;white-space:nowrap}
+.rpgSourceChip em{font-style:normal;opacity:.72;font-size:7px}.rpgSourceChip b{font-size:10px}
+.rpgSourceChip.base{border:1px solid #45545a;background:#10181b;color:var(--rpg-base)}
+.rpgSourceChip.attr{border:1px solid #28667d;background:#0b2029;color:var(--rpg-attr)}
+.rpgSourceChip.item{border:1px solid #326d43;background:#0d2114;color:var(--rpg-item)}
+.rpgSourceChip.skill{border:1px solid #67447e;background:#1c1024;color:var(--rpg-skill)}
+.rpgHpCardV2{display:flex!important;flex-direction:column;align-items:center}.rpgHpCardV2>strong{color:var(--rpg-total)!important}.rpgSourceLine.hp{margin-top:6px}
+.rpgDerivedBonusesV2{display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px!important;margin-top:10px!important}
+.rpgDerivedStat{min-width:0;padding:9px 7px;border:1px solid #3b4549;border-radius:9px;background:#081014;text-align:center}
+.rpgDerivedStat>small{display:block;color:#879499;font:800 8px/1 Arial,sans-serif;letter-spacing:.05em}.rpgDerivedStat>strong{display:block;margin:5px 0 6px;color:var(--rpg-total)!important;font:800 20px/1 Georgia,serif}
+.rpgDerivedHint{color:#607076;font:700 7px Arial,sans-serif;letter-spacing:.05em}.rpgDerivedStat.dps{border-color:#5c4929}
+.rpgItemStatChips,.rpgEquipStatChips,.rpgSlotStats{display:flex!important;gap:4px;flex-wrap:wrap;align-items:center}
+.rpgItemStatChips{margin-top:6px}.rpgEquipStatChips{justify-content:center;margin-top:4px}.rpgSlotStats{margin-top:7px!important;min-height:22px!important}
+.rpgGearChip{display:inline-flex;align-items:center;gap:3px;padding:4px 6px;border:1px solid #346f45;border-radius:999px;background:#0d2114;color:var(--rpg-item);font:800 8px/1 Arial,sans-serif;white-space:nowrap}
+.rpgGearChip.die{border-color:#6c562a;background:#1c170c;color:#e6c46f}.rpgGearChip.req{border-color:#28667d;background:#0b2029;color:var(--rpg-attr)}.rpgGearChip.effect{border-color:#67447e;background:#1c1024;color:var(--rpg-skill)}
+.rpgItemDescription{margin-top:6px!important}.rpgInventoryItem.equipped .rpgGearChip{box-shadow:0 0 7px #5bcf7a20}
+.rpg2-inventorySlots .rpgSlot{min-height:138px!important;display:flex!important;flex-direction:column}.rpg2-inventorySlots .rpgSlot>span{margin-top:6px}.rpg2-inventorySlots .rpgSlotStats{margin-top:auto!important}
+@media(max-width:900px){.rpgDerivedBonusesV2{grid-template-columns:repeat(2,minmax(0,1fr))}.rpgDerivedStat.dps{grid-column:1/-1}}
+@media(max-width:620px){.rpgDerivedBonusesV2{grid-template-columns:1fr}.rpgDerivedStat.dps{grid-column:auto}.rpgSourceChip{font-size:7px}.rpg2-inventorySlots .rpgSlot{min-height:118px!important}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -785,37 +809,38 @@
         <div class='rpg2-center'>
           <div class='rpg2-blockTitle'>PAGRINDINĖ STATISTIKA</div>
           <div class='rpgStatGrid rpg2-statGrid'>
-            <div class='rpgStatCard rpg2-stat'>
+            <div class='rpgStatCard rpg2-stat rpgStatCardV2'>
               <div class='rpg2-statIcon'>💪</div><h4>STR · Jėga</h4>
-              <div class='rpgStatValue'><strong id='sheetStr'>10</strong><em id='sheetStrBonus' class='rpgItemStatBonus'>+0</em><span id='sheetStrMod'>MOD +0</span></div>
+              <div class='rpgStatValue rpgStatValueV2'><strong id='sheetStr'>10</strong><div id='sheetStrBreakdown' class='rpgSourceLine'></div><span id='sheetStrMod' class='rpgAttrMod'>MOD +0</span></div>
               <small>Melee attack ir damage</small>
               <button class='rpgBuyStat' data-stat='str'>+1 STR · 80 FPTS</button>
             </div>
-            <div class='rpgStatCard rpg2-stat'>
+            <div class='rpgStatCard rpg2-stat rpgStatCardV2'>
               <div class='rpg2-statIcon'>⚡</div><h4>DEX · Vikrumas</h4>
-              <div class='rpgStatValue'><strong id='sheetDex'>10</strong><em id='sheetDexBonus' class='rpgItemStatBonus'>+0</em><span id='sheetDexMod'>MOD +0</span></div>
+              <div class='rpgStatValue rpgStatValueV2'><strong id='sheetDex'>10</strong><div id='sheetDexBreakdown' class='rpgSourceLine'></div><span id='sheetDexMod' class='rpgAttrMod'>MOD +0</span></div>
               <small>Initiative, AC ir DEX ginklai</small>
               <button class='rpgBuyStat' data-stat='dex'>+1 DEX · 80 FPTS</button>
             </div>
-            <div class='rpgStatCard rpg2-stat'>
+            <div class='rpgStatCard rpg2-stat rpgStatCardV2'>
               <div class='rpg2-statIcon'>❤️</div><h4>CON · Ištvermė</h4>
-              <div class='rpgStatValue'><strong id='sheetCon'>10</strong><em id='sheetConBonus' class='rpgItemStatBonus'>+0</em><span id='sheetConMod'>MOD +0</span></div>
+              <div class='rpgStatValue rpgStatValueV2'><strong id='sheetCon'>10</strong><div id='sheetConBreakdown' class='rpgSourceLine'></div><span id='sheetConMod' class='rpgAttrMod'>MOD +0</span></div>
               <small>HP ir CON saving throws</small>
               <button class='rpgBuyStat' data-stat='con'>+1 CON · 80 FPTS</button>
             </div>
-            <div class='rpg2-hpCard'>
+            <div class='rpg2-hpCard rpgHpCardV2'>
               <small>SVEIKATA</small>
               <div class='rpg2-hpIcon'>♥</div>
               <strong id='sheetHp'>0</strong>
               <span>MAX HP</span>
+              <div id='sheetHpBreakdown' class='rpgSourceLine hp'></div>
             </div>
           </div>
-          <div id='rpgDerivedBonuses' class='rpgDerivedBonuses'>
-            <span>🎯 Attack <b id='sheetAttackBonus'>+0</b></span>
-            <span>💥 Damage <b id='sheetDamageBonus'>+0</b></span>
-            <span>🛡 AC <b id='sheetAcBonus'>+0</b></span>
-            <span>⚡ Initiative <b id='sheetInitBonus'>+0</b></span>
-            <span>⚔️ DPS <b id='sheetDpsRating'>0.00</b></span>
+          <div id='rpgDerivedBonuses' class='rpgDerivedBonuses rpgDerivedBonusesV2'>
+            <div class='rpgDerivedStat'><small>🎯 ATTACK</small><strong id='sheetAttackBonus'>+0</strong><div id='sheetAttackBreakdown' class='rpgSourceLine'></div></div>
+            <div class='rpgDerivedStat'><small>💥 DAMAGE</small><strong id='sheetDamageBonus'>+0</strong><div id='sheetDamageBreakdown' class='rpgSourceLine'></div></div>
+            <div class='rpgDerivedStat'><small>🛡 AC</small><strong id='sheetAcBonus'>10</strong><div id='sheetAcBreakdown' class='rpgSourceLine'></div></div>
+            <div class='rpgDerivedStat'><small>⚡ INITIATIVE</small><strong id='sheetInitBonus'>+0</strong><div id='sheetInitBreakdown' class='rpgSourceLine'></div></div>
+            <div class='rpgDerivedStat dps'><small>⚔️ DPS</small><strong id='sheetDpsRating'>0.00</strong><div class='rpgDerivedHint'>GALUTINIS REITINGAS</div></div>
           </div>
 
           <div class='rpg2-currencyHeader'>
@@ -1043,12 +1068,12 @@
     <div id='rpgPanel-inventory' class='rpgPanel'>
       <div class='rpg2-subHead'><div><div class='rpg2-kicker'>PERSONAŽO KREPŠYS</div><h3>Inventorius ir įranga</h3></div><button class='rpg2-backCharacter' type='button' data-open-rpg-character>← Personažas</button></div>
       <div class='rpgEquipGrid rpg2-inventorySlots'>
-        <div class='rpgSlot' data-slot='weapon'><b>⚔️ Ginklas</b><span>Tuščia</span></div>
-        <div class='rpgSlot' data-slot='armor'><b>🛡️ Šarvai</b><span>Tuščia</span></div>
-        <div class='rpgSlot' data-slot='helmet'><b>⛑️ Šalmas</b><span>Tuščia</span></div>
-        <div class='rpgSlot' data-slot='ring'><b>💍 Žiedas</b><span>Tuščia</span></div>
-        <div class='rpgSlot' data-slot='artifact'><b>🔮 Artefaktas</b><span>Tuščia</span></div>
-        <div class='rpgSlot' data-slot='spell'><b>✨ Burtas</b><span>Tuščia</span></div>
+        <div class='rpgSlot' data-slot='weapon'><b>⚔️ Ginklas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-slot='armor'><b>🛡️ Šarvai</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-slot='helmet'><b>⛑️ Šalmas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-slot='ring'><b>💍 Žiedas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-slot='artifact'><b>🔮 Artefaktas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-slot='spell'><b>✨ Burtas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
       </div>
       <div class='rpg2-lockPanel'><b>🏪 Item Shop</b><span id='rpgInventoryShopHint'>Shop būsena kraunama…</span><button class='rpg2-backCharacter' type='button' data-open-rpg-shop>ATIDARYTI SHOP</button></div>
       <div class='rpgInventoryList rpg2-bag'><h3>Kuprinė</h3><div id='rpgInventoryItems'><p>Inventorius kol kas tuščias.</p></div><div id='rpgInventoryMsg' class='rpgSheetMsg'></div></div>
@@ -1649,6 +1674,73 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     return s.join(" · ")||payload.description||"—";
   };
   const escInv=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+  const itemStatBadges=payload=>{
+    payload=payload||{};const a=[];
+    const add=(key,label,icon="")=>{const v=Number(payload[key]||0);if(v)a.push("<span class='rpgGearChip'>"+icon+escInv(label)+" "+(v>0?"+":"")+v+"</span>")};
+    if(payload.damage_die)a.push("<span class='rpgGearChip die'>🎲 "+escInv(String(payload.damage_die).toUpperCase())+"</span>");
+    add("attack_bonus","ATTACK","⚔ ");
+    add("damage_bonus","DAMAGE","💥 ");
+    add("ac_bonus","AC","🛡 ");
+    add("initiative_bonus","INIT","⚡ ");
+    add("max_hp_bonus","MAX HP","♥ ");
+    add("str_bonus","STR","💪 ");
+    add("dex_bonus","DEX","🏹 ");
+    add("con_bonus","CON","❤️ ");
+    if(payload.consumable&&payload.potion_type==="attack")a.push("<span class='rpgGearChip effect'>🧪 ATTACK +"+Number(payload.buff_bonus||0)+" · "+Number(payload.buff_rounds||0)+"R</span>");
+    if(payload.consumable&&payload.potion_type==="ac")a.push("<span class='rpgGearChip effect'>🧪 AC +"+Number(payload.buff_bonus||0)+" · "+Number(payload.buff_rounds||0)+"R</span>");
+    if(payload.consumable&&payload.potion_type==="heal")a.push("<span class='rpgGearChip effect'>🧪 HEAL "+escInv(String(payload.heal_dice||""))+"</span>");
+    if(payload.required_stat&&payload.min_stat)a.push("<span class='rpgGearChip req'>REQ "+escInv(String(payload.required_stat).toUpperCase())+" "+Number(payload.min_stat)+"</span>");
+    return a.join("");
+  };
+  const equippedRawBonus=key=>(rpgInventoryCache||[]).filter(i=>i.equipped).reduce((n,i)=>n+Number(i.rpg_items?.stat_payload?.[key]||0),0);
+  const sourceChip=(kind,label,value,plain=false)=>{
+    const n=Number(value||0);
+    const val=plain?String(value):(n>=0?"+":"")+n;
+    return "<span class='rpgSourceChip "+kind+"'><em>"+escInv(label)+"</em><b>"+escInv(val)+"</b></span>";
+  };
+  const setHtml=(id,html)=>{const el=document.getElementById(id);if(el)el.innerHTML=html};
+  function renderCharacterStatBreakdown(stats,profile){
+    stats=stats||{};profile=profile||{};
+    const strBase=Number(stats.base_str??profile.str??10),dexBase=Number(stats.base_dex??profile.dex??10),conBase=Number(stats.base_con??profile.con??10);
+    const strItem=Number(stats.str_bonus||0),dexItem=Number(stats.dex_bonus||0),conItem=Number(stats.con_bonus||0);
+    const strTotal=Number(stats.str??(strBase+strItem)),dexTotal=Number(stats.dex??(dexBase+dexItem)),conTotal=Number(stats.con??(conBase+conItem));
+    const sm=Number(stats.str_mod||0),dm=Number(stats.dex_mod||0),cm=Number(stats.con_mod||0);
+
+    const setText=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+    setText("sheetStr",strTotal);setText("sheetDex",dexTotal);setText("sheetCon",conTotal);
+    setText("sheetStrMod","MOD "+modText(sm));setText("sheetDexMod","MOD "+modText(dm));setText("sheetConMod","MOD "+modText(cm));
+    setHtml("sheetStrBreakdown",sourceChip("base","BASE",strBase,true)+sourceChip("item","ITEM",strItem));
+    setHtml("sheetDexBreakdown",sourceChip("base","BASE",dexBase,true)+sourceChip("item","ITEM",dexItem));
+    setHtml("sheetConBreakdown",sourceChip("base","BASE",conBase,true)+sourceChip("item","ITEM",conItem));
+
+    const atkStat=String(stats.attack_stat||"STR").toUpperCase();
+    const ability=atkStat==="DEX"?dm:sm;
+    const itemAtk=equippedRawBonus("attack_bonus"),skillAtk=Number(stats.attack_bonus||0)-itemAtk;
+    const itemDmg=equippedRawBonus("damage_bonus"),skillDmg=Number(stats.damage_bonus||0)-itemDmg;
+    const itemAc=equippedRawBonus("ac_bonus"),skillAc=Number(stats.ac_bonus||0)-itemAc;
+    const itemInit=equippedRawBonus("initiative_bonus"),skillInit=Number(stats.initiative_bonus||0)-itemInit;
+    const attackTotal=ability+Number(stats.attack_bonus||0);
+    const damageTotal=ability+Number(stats.damage_bonus||0);
+    const initTotal=dm+Number(stats.initiative_bonus||0);
+
+    setText("sheetAttackBonus",modText(attackTotal));
+    setText("sheetDamageBonus",modText(damageTotal));
+    setText("sheetAcBonus",String(Number(stats.ac||10)));
+    setText("sheetInitBonus",modText(initTotal));
+    setHtml("sheetAttackBreakdown",sourceChip("attr",atkStat,ability)+sourceChip("item","ITEM",itemAtk)+(skillAtk?sourceChip("skill","SKILL",skillAtk):""));
+    setHtml("sheetDamageBreakdown",sourceChip("attr",atkStat,ability)+sourceChip("item","ITEM",itemDmg)+(skillDmg?sourceChip("skill","SKILL",skillDmg):""));
+    setHtml("sheetAcBreakdown",sourceChip("base","BASE",10,true)+sourceChip("attr","DEX",dm)+sourceChip("item","ITEM",itemAc)+(skillAc?sourceChip("skill","SKILL",skillAc):""));
+    setHtml("sheetInitBreakdown",sourceChip("attr","DEX",dm)+sourceChip("item","ITEM",itemInit)+(skillInit?sourceChip("skill","SKILL",skillInit):""));
+
+    const career=Number(profile.career_fpts||0);
+    const hpCore=Math.floor(60+career*0.05);
+    const conHp=cm*12;
+    const itemHp=equippedRawBonus("max_hp_bonus");
+    const hpTotal=Number(stats.max_hp||0);
+    const skillHp=hpTotal-hpCore-conHp-itemHp;
+    setText("sheetHp",hpTotal);
+    setHtml("sheetHpBreakdown",sourceChip("base","BASE+FPTS",hpCore,true)+sourceChip("attr","CON",conHp)+sourceChip("item","ITEM",itemHp)+(skillHp?sourceChip("skill","SKILL",skillHp):""));
+  }
   const enemySymbol=no=>no===1?"★":no===2?"🔱":no===3?"🎭":no===4?"🏛️":"?";
   const enemyByNo=(catalog,no)=>(catalog||[]).find(e=>Number(e.enemy_no)===Number(no));
   function renderNextEnemyCard(profile,status,catalog){
@@ -1679,6 +1771,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const sb=window.rpgSupabase;if(!sb)return;
     const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,quantity,rpg_items(name,slot,rarity,stat_payload)");
     document.querySelectorAll(".rpgSlot span").forEach(x=>x.textContent="Tuščia");
+    document.querySelectorAll(".rpgSlotStats").forEach(x=>x.textContent="—");
 
     const previewMeta={
       weapon:["eqWeapon","eqWeaponIcon","eqWeaponStats","⚔️"],
@@ -1704,8 +1797,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     (data||[]).filter(i=>i.equipped&&i.rpg_items?.slot).forEach(i=>{
       const item=i.rpg_items||{}, payload=item.stat_payload||{}, slotName=item.slot;
-      const slot=document.querySelector(".rpgSlot[data-slot='"+slotName+"'] span");
+      const slotCard=document.querySelector(".rpgSlot[data-slot='"+slotName+"']");
+      const slot=slotCard?.querySelector("span");
+      const slotStats=slotCard?.querySelector(".rpgSlotStats");
       if(slot)slot.textContent=item.name||i.item_id;
+      if(slotStats)slotStats.innerHTML=itemStatBadges(payload)||"<span class='rpgGearChip'>BE STAT BONUSO</span>";
 
       const meta=previewMeta[slotName];
       if(meta){
@@ -1715,7 +1811,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         const name=document.getElementById(nameId), icon=document.getElementById(iconId), stats=document.getElementById(statsId);
         if(name)name.textContent=item.name||i.item_id;
         if(icon)icon.textContent=itemIcon(slotName,i.item_id);
-        if(stats)stats.innerHTML=escInv(itemStatsText(payload))+"<span class='rarity'>"+escInv(item.rarity||"")+"</span>";
+        if(stats)stats.innerHTML="<div class='rpgEquipStatChips'>"+(itemStatBadges(payload)||"<span class='rpgGearChip'>BE STAT BONUSO</span>")+"</div><span class='rarity'>"+escInv(item.rarity||"")+"</span>";
       }
     });
 
@@ -1726,7 +1822,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       return "<div class='rpgInventoryItem "+(i.equipped?"equipped":"")+"'>"+
         "<div class='rpgItemMain'><div class='rpgItemIcon'>"+itemIcon(item.slot,i.item_id)+"</div><div class='rpgItemInfo'>"+
         "<strong>"+escInv(item.name||i.item_id)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</strong>"+
-        (desc?"<small>"+escInv(desc)+"</small>":"")+
+        (itemStatBadges(payload)?"<div class='rpgItemStatChips'>"+itemStatBadges(payload)+"</div>":"")+
+        (desc?"<small class='rpgItemDescription'>"+escInv(desc)+"</small>":"")+
         "<em>"+escInv(item.rarity||"")+" · "+escInv(item.slot||"item")+(req?" · "+escInv(req):"")+"</em>"+
         "</div></div>"+
         "<div class='rpgItemActions'>"+
@@ -1998,24 +2095,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     renderNextEnemyCard(data,roundStatus,enemyCatalog);
 
     const stats=cs||{};
-    document.getElementById("sheetStr").textContent=stats.base_str ?? data.str;
-    document.getElementById("sheetDex").textContent=stats.base_dex ?? data.dex;
-    document.getElementById("sheetCon").textContent=stats.base_con ?? data.con;
-
-    const bonusMap=[["sheetStrBonus",Number(stats.str_bonus||0)],["sheetDexBonus",Number(stats.dex_bonus||0)],["sheetConBonus",Number(stats.con_bonus||0)]];
-    bonusMap.forEach(([id,v])=>{const el=document.getElementById(id);if(!el)return;el.textContent=(v>=0?"+":"")+v;el.classList.toggle("show",v!==0);});
-
-    document.getElementById("sheetStrMod").textContent="MOD "+modText(stats.str_mod ?? data.str_mod);
-    document.getElementById("sheetDexMod").textContent="MOD "+modText(stats.dex_mod ?? data.dex_mod);
-    document.getElementById("sheetConMod").textContent="MOD "+modText(stats.con_mod ?? data.con_mod);
-    document.getElementById("sheetHp").textContent=stats.max_hp ?? data.max_hp;
     document.getElementById("sheetCareer").textContent=Number(data.career_fpts).toFixed(2);
     document.getElementById("sheetAvailable").textContent=Number(data.available_fpts).toFixed(2);
-
-    document.getElementById("sheetAttackBonus").textContent=modText(Number(stats.attack_bonus||0));
-    document.getElementById("sheetDamageBonus").textContent=modText(Number(stats.damage_bonus||0));
-    document.getElementById("sheetAcBonus").textContent=modText(Number(stats.ac_bonus||0));
-    document.getElementById("sheetInitBonus").textContent=modText(Number(stats.initiative_bonus||0));
     const sheetDps=document.getElementById("sheetDpsRating");if(sheetDps)sheetDps.textContent=Number(stats.dps_rating||0).toFixed(2);
 
     document.querySelectorAll(".rpgBuyStat").forEach(b=>{
@@ -2034,6 +2115,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     renderSkillTree(skillState);
     renderSpellPanel(spellState);
     await loadInventory();
+    renderCharacterStatBreakdown(stats,data);
     await loadTradeState();
   }
   window.renderRpgSheet=renderSheet;
