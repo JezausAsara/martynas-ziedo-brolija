@@ -581,7 +581,20 @@
 .rpgTradeColumns{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rpgTradeColumn{padding:12px;border:1px solid #303c42;border-radius:11px;background:#091114}.rpgTradeColumn h4{margin:0 0 9px;color:#d7bd78}
 .rpgTradeOffer{padding:10px 0;border-bottom:1px solid #263137}.rpgTradeOffer:last-child{border-bottom:0}.rpgTradeOffer b{display:block;color:#e3e8e9;font-size:12px}.rpgTradeOffer span{display:block;margin:4px 0 7px;color:#8e9a9f;font:10px/1.4 Arial,sans-serif}.rpgTradeOfferActions{display:flex;gap:6px}.rpgTradeOffer button.reject{background:#20100d;border-color:#64372f;color:#e0a79b}.rpgTradeOffer button.cancel{background:#11181b;border-color:#3b4a51;color:#aebdc3}
 @media(max-width:760px){.rpgTradeComposerGrid,.rpgTradeColumns{grid-template-columns:1fr}.rpgItemActions{justify-content:flex-start}}
-</style><style id="combatActionHubStyles">
+</style>
+<style id="skillTreeUxFix">
+.skillPointProgress{margin:10px 0 14px;padding:10px 12px;border:1px solid #39464d;border-radius:10px;background:#091114}
+.skillPointProgressTop{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#b6c1c5;font:10px Arial,sans-serif}
+.skillPointProgressTop b{color:#efd078;font-size:12px}
+.skillPointProgressBar{height:8px;margin-top:7px;border:1px solid #344047;border-radius:999px;background:#05090b;overflow:hidden}
+.skillPointProgressBar span{display:block;height:100%;background:linear-gradient(90deg,#66501f,#d7b85c);width:0}
+.skillNode.available{box-shadow:0 0 0 1px #8a7138,inset 0 0 16px #d3a83a16}
+.skillNode.available .skillChoose{animation:skillPulse 1.8s ease-in-out infinite}
+.skillNode.blocked .skillChoose{opacity:.5}
+.skillChoose.busy{pointer-events:none;opacity:.55}
+@keyframes skillPulse{50%{box-shadow:0 0 12px #d4b75a55}}
+</style>
+<style id="combatActionHubStyles">
 .rpgCombatAbilityStrip{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:13px 0;padding:9px;border:1px solid #465158;border-radius:12px;background:linear-gradient(180deg,#0b1215,#070b0d);box-shadow:inset 0 0 20px #0006}
 .rpgCombatAbilityBlock{min-width:0;padding:9px;border:1px solid #35523e;border-radius:10px;background:#0a1510}
 .rpgCombatAbilityBlock.spellBlock{border-color:#51406d;background:#130e19}
@@ -1263,6 +1276,10 @@
         <button id='rpgResetSkills' class='skillResetBtn' type='button'>↻ RESET SKILLS · 30 FPTS</button>
       </div>
 
+      <div id='rpgSkillPointProgress' class='skillPointProgress'>
+        <div class='skillPointProgressTop'><span>PROGRESAS IKI KITO SKILLO</span><b id='rpgSkillPointProgressText'>0.0 / 1.0 SP</b></div>
+        <div class='skillPointProgressBar'><span id='rpgSkillPointProgressFill'></span></div>
+      </div>
       <div id='rpgSkillLockNotice' class='skillTreeNotice'></div>
       <div id='rpgSkillTree' class='skillTreeGrid'><div class='journeyLoading'>Kraunamas Skill Tree…</div></div>
       <div id='rpgSkillMsg' class='rpgSheetMsg'></div>
@@ -1837,7 +1854,17 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const earned=document.getElementById("skillEarned"),spent=document.getElementById("skillSpent"),avail=document.getElementById("skillAvailable");
     if(earned)earned.textContent=Number(state.earned_points??0).toFixed(1).replace(".0","")+(Number(state.bonus_points||0)>0?" ("+Number(state.bonus_points).toFixed(1).replace(".0","")+" bonus)":"");if(spent)spent.textContent=state.spent_points??0;if(avail)avail.textContent=Number(state.available_points??0).toFixed(1).replace(".0","");
     const next=nextSkillMilestone(state.defeated_enemies);
-    const nextEl=document.getElementById("skillNextPoint");if(nextEl)nextEl.textContent=Number(state.available_points||0)>=1?"Galima atrakinti skillą · kaina 1 SP":Number(state.available_points||0)>0?"Turi "+Number(state.available_points).toFixed(1)+" SP · reikia 1.0 SP":"Farm: 10% šansas gauti +0.5 SP"+(next?" · kampanijoje kitas +SP ties Enemy #"+next.round:"");
+    const freeSp=Number(state.available_points||0);
+    const nextEl=document.getElementById("skillNextPoint");
+    if(nextEl)nextEl.textContent=freeSp>=1
+      ?"✓ Turi pilną Skill Point · pasirink atrakintą skillą"
+      :freeSp>0
+        ?"Turi "+freeSp.toFixed(1)+" SP · trūksta "+Math.max(0,1-freeSp).toFixed(1)+" SP iki kito skillo"
+        :"Neturi laisvo SP"+(next?" · kampanijoje kitas +SP ties Enemy #"+next.round:"");
+    const progText=document.getElementById("rpgSkillPointProgressText");
+    const progFill=document.getElementById("rpgSkillPointProgressFill");
+    if(progText)progText.textContent=(freeSp>=1?"1.0+":freeSp.toFixed(1))+" / 1.0 SP";
+    if(progFill)progFill.style.width=Math.min(100,Math.max(0,freeSp*100))+"%";
     const notice=document.getElementById("rpgSkillLockNotice");
     if(notice){
       notice.className="skillTreeNotice "+(state.battle_locked?"locked":"unlocked");
