@@ -39,9 +39,9 @@
   <div class="card">
    <div class="stage">
     <img id="baseLayer" class="layer base" alt="MASTER personažas">
-    <img id="armorLayer" class="layer armor" src="assets/rpg-test/overlay/armor-crimson.webp?v=master2" alt="Armor overlay">
-    <img id="shieldLayer" class="layer shield" src="assets/rpg-test/overlay/shield-kite-common.webp?v=master2" alt="Shield overlay">
-    <img id="weaponLayer" class="layer weapon" src="assets/rpg-test/overlay/weapon-sword-common.webp?v=master2" alt="Weapon overlay">
+    <img id="armorLayer" class="layer armor" src="assets/rpg-test/overlay/armor-crimson.webp?v=master3" alt="Armor overlay">
+    <img id="shieldLayer" class="layer shield" src="assets/rpg-test/overlay/shield-kite-common.webp?v=master3" alt="Shield overlay">
+    <img id="weaponLayer" class="layer weapon" src="assets/rpg-test/overlay/weapon-sword-common.webp?v=master3" alt="Weapon overlay">
     <div class="stageShade"></div>
     <div class="stageName"><b id="stageOwner">—</b><span id="stageMeta">—</span></div>
    </div>
@@ -73,7 +73,7 @@ const chars=[
 ];
 let current="vytas";
 const $=id=>document.getElementById(id);
-const basePath=id=>"assets/rpg-test/master/"+id+".webp?v=master2";
+const basePath=id=>"assets/rpg-test/master/"+id+".webp?v=master3";
 function renderPicker(){
  $("picker").innerHTML=chars.map(c=>'<button class="pick '+(c.id===current?'active':'')+'" data-char="'+c.id+'"><img src="'+basePath(c.id)+'"><span><b>'+c.name+'</b><small>'+c.team+'</small></span></button>').join("");
  $("picker").querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>selectChar(b.dataset.char));
