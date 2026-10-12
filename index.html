@@ -695,6 +695,25 @@
 .rpg2-equipMiniExpanded .rpgEquipPreviewSlot[data-preview-slot='artifact']{border-color:#654377!important;background:linear-gradient(180deg,#15101c,#091114)!important}
 @media(max-width:980px){.rpgLoadoutSlots,.rpg2-equipMiniExpanded{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 @media(max-width:700px){.rpgLoadoutSlots,.rpg2-equipMiniExpanded{grid-template-columns:repeat(2,minmax(0,1fr))!important}.rpgSpellSeparationNote{display:grid}}
+</style><style id="rpgPaperDollStyles">
+.rpg2-portraitFrame{height:430px!important}
+.rpgPaperDoll{position:absolute;inset:0;z-index:5;pointer-events:none}
+.rpgPaperSlot{position:absolute;width:52px;height:52px;padding:4px 2px;border:1px solid #526068;border-radius:9px;background:linear-gradient(180deg,#11191d,#070b0d);color:#a9b5b9;display:grid;place-items:center;align-content:center;gap:1px;cursor:pointer;pointer-events:auto;box-shadow:0 4px 14px #0009,inset 0 0 12px #0008;transition:.15s ease}
+.rpgPaperSlot:hover{border-color:#d2a84b;transform:scale(1.06);z-index:10;box-shadow:0 0 18px #d7a9363f,0 5px 16px #000}
+.rpgPaperSlot>span{font-size:21px;line-height:1}.rpgPaperSlot>small{font:800 7px/1 Arial,sans-serif;color:#7f8b90;letter-spacing:.04em}
+.rpgPaperSlot.empty:after{content:'+';position:absolute;right:-4px;top:-4px;width:16px;height:16px;display:grid;place-items:center;border:1px solid #438157;border-radius:50%;background:#0d2917;color:#8de3a2;font:900 12px Arial,sans-serif;box-shadow:0 0 9px #65d78144}
+.rpgPaperSlot.filled{border-color:#4c8a5d;background:linear-gradient(180deg,#102219,#080d0f);box-shadow:0 0 14px #5acb7730,0 4px 14px #0009}
+.rpgPaperSlot.filled>small{color:#9bc9a5}.rpgPaperSlot[data-rarity='Rare']{border-color:#3e70a9}.rpgPaperSlot[data-rarity='Epic']{border-color:#8454aa}.rpgPaperSlot[data-rarity='Legendary']{border-color:#bc8a2d;box-shadow:0 0 15px #dcaa3d38,0 4px 14px #0009}
+.rpgPaperSlot.p-left{left:9px}.rpgPaperSlot.p-right{right:9px}.rpgPaperSlot.p1{top:18px}.rpgPaperSlot.p2{top:77px}.rpgPaperSlot.p3{top:136px}.rpgPaperSlot.p4{top:195px}.rpgPaperSlot.p5{top:254px}.rpgPaperSlot.p6{top:313px}
+.rpgPaperSlot.p-artifact{left:50%;bottom:64px;transform:translateX(-50%);width:62px}.rpgPaperSlot.p-artifact:hover{transform:translateX(-50%) scale(1.06)}
+.rpg2-identity{z-index:6;pointer-events:none}
+.rpgEquipPickerBackdrop{position:fixed;inset:0;z-index:10050;background:#020406d9;backdrop-filter:blur(4px);display:grid;place-items:center;padding:18px}
+.rpgEquipPicker{width:min(620px,96vw);max-height:min(720px,88vh);overflow:auto;border:1px solid #725326;border-radius:15px;background:linear-gradient(180deg,#11191d,#070b0d);box-shadow:0 30px 80px #000;padding:15px}
+.rpgEquipPickerHead{display:flex;justify-content:space-between;gap:12px;align-items:start;padding-bottom:12px;border-bottom:1px solid #44331e}.rpgEquipPickerHead small{display:block;color:#9a7a40;font:800 9px Arial,sans-serif;letter-spacing:.1em}.rpgEquipPickerHead h4{margin:3px 0 0;color:#f0ca70;font-size:22px}.rpgEquipPickerClose{width:34px;height:34px;border:1px solid #4d5b62;border-radius:8px;background:#0a1114;color:#c1c9cc;cursor:pointer;font-size:18px}
+.rpgEquipCurrent{margin:12px 0;padding:10px;border:1px solid #3c494f;border-radius:10px;background:#091114;display:flex;justify-content:space-between;gap:10px;align-items:center}.rpgEquipCurrent b{display:block;color:#e4e8e9}.rpgEquipCurrent span{display:block;color:#7f8b90;font:10px Arial,sans-serif;margin-top:3px}.rpgEquipCurrent button{padding:8px 10px;border:1px solid #64372f;border-radius:7px;background:#20100d;color:#e8a89c;cursor:pointer;font-weight:800}
+.rpgEquipPickerList{display:grid;gap:8px}.rpgEquipPickRow{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid #354248;border-radius:10px;background:#091114}.rpgEquipPickRow.current{border-color:#4b8158;background:#0c1811}.rpgEquipPickIcon{width:46px;height:46px;display:grid;place-items:center;border:1px solid #4b5860;border-radius:9px;background:#0d1518;font-size:24px}.rpgEquipPickInfo strong{display:block;color:#e5e8e9;font-size:13px}.rpgEquipPickInfo em{display:block;margin-top:3px;color:#8b989d;font:9px Arial,sans-serif}.rpgEquipPickInfo .rpgItemStatChips{margin-top:6px}.rpgEquipPickRow>button{padding:9px 11px;border:1px solid #6a5229;border-radius:8px;background:#5c4317;color:#ffe09a;cursor:pointer;font:800 10px Arial,sans-serif}.rpgEquipPickRow>button:disabled{opacity:.4;cursor:not-allowed}.rpgEquipEmpty{padding:20px;text-align:center;border:1px dashed #3e4a50;border-radius:10px;color:#758287;font:11px Arial,sans-serif}
+.rpgEquipPickerMsg{min-height:18px;margin-top:9px;color:#d5bd81;font:10px Arial,sans-serif}
+@media(max-width:800px){.rpg2-portraitFrame{height:420px!important}.rpgPaperSlot{width:48px;height:48px}.rpgPaperSlot.p1{top:14px}.rpgPaperSlot.p2{top:68px}.rpgPaperSlot.p3{top:122px}.rpgPaperSlot.p4{top:176px}.rpgPaperSlot.p5{top:230px}.rpgPaperSlot.p6{top:284px}.rpgPaperSlot.p-artifact{bottom:70px}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -797,6 +816,23 @@
           <div class='rpg2-portraitFrame'>
             <div id='rpgSheetPortrait' class='rpgPortrait rpg2-portrait'></div>
             <div class='rpg2-portraitShade'></div>
+            <div id='rpgPaperDoll' class='rpgPaperDoll' aria-label='Personažo įrangos slotai'>
+              <button type='button' class='rpgPaperSlot p-left p1' data-paper-slot='cloak' title='Cloak'><span>🧥</span><small>CLOAK</small></button>
+              <button type='button' class='rpgPaperSlot p-left p2' data-paper-slot='main_hand' title='Main Hand'><span>⚔️</span><small>MAIN</small></button>
+              <button type='button' class='rpgPaperSlot p-left p3' data-paper-slot='gloves' title='Pirštinės'><span>🧤</span><small>GLOVES</small></button>
+              <button type='button' class='rpgPaperSlot p-left p4' data-paper-slot='ring_1' title='Žiedas I'><span>💍</span><small>RING I</small></button>
+              <button type='button' class='rpgPaperSlot p-left p5' data-paper-slot='earring_1' title='Auskaras I'><span>💎</span><small>EAR I</small></button>
+              <button type='button' class='rpgPaperSlot p-left p6' data-paper-slot='boots' title='Batai'><span>🥾</span><small>BOOTS</small></button>
+
+              <button type='button' class='rpgPaperSlot p-right p1' data-paper-slot='helmet' title='Šalmas'><span>⛑️</span><small>HELM</small></button>
+              <button type='button' class='rpgPaperSlot p-right p2' data-paper-slot='necklace' title='Necklace'><span>📿</span><small>NECK</small></button>
+              <button type='button' class='rpgPaperSlot p-right p3' data-paper-slot='armor' title='Šarvai'><span>🦺</span><small>ARMOR</small></button>
+              <button type='button' class='rpgPaperSlot p-right p4' data-paper-slot='off_hand' title='Off Hand'><span>🛡️</span><small>OFF</small></button>
+              <button type='button' class='rpgPaperSlot p-right p5' data-paper-slot='ring_2' title='Žiedas II'><span>💍</span><small>RING II</small></button>
+              <button type='button' class='rpgPaperSlot p-right p6' data-paper-slot='earring_2' title='Auskaras II'><span>💎</span><small>EAR II</small></button>
+
+              <button type='button' class='rpgPaperSlot p-artifact' data-paper-slot='artifact' title='Artefaktas'><span>🔮</span><small>ARTIFACT</small></button>
+            </div>
             <div class='rpg2-identity'>
               <div id='rpgSheetTeam' class='rpgCharName'>—</div>
               <div id='rpgSheetOwner' class='rpgCharOwner'>—</div>
@@ -1789,6 +1825,109 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
   let rpgInventoryCache=[];
+  let rpgEquipPickerSlot=null;
+  const rpgPaperSlotMeta={
+    main_hand:{type:"weapon",label:"Main Hand",icon:"⚔️"},
+    off_hand:{type:"offhand",label:"Off Hand",icon:"🛡️"},
+    armor:{type:"armor",label:"Šarvai",icon:"🦺"},
+    helmet:{type:"helmet",label:"Šalmas",icon:"⛑️"},
+    gloves:{type:"gloves",label:"Pirštinės",icon:"🧤"},
+    boots:{type:"boots",label:"Batai",icon:"🥾"},
+    cloak:{type:"cloak",label:"Cloak",icon:"🧥"},
+    necklace:{type:"necklace",label:"Necklace",icon:"📿"},
+    earring_1:{type:"earring",label:"Auskaras I",icon:"💎"},
+    earring_2:{type:"earring",label:"Auskaras II",icon:"💎"},
+    ring_1:{type:"ring",label:"Žiedas I",icon:"💍"},
+    ring_2:{type:"ring",label:"Žiedas II",icon:"💍"},
+    artifact:{type:"artifact",label:"Artefaktas",icon:"🔮"}
+  };
+
+  function renderPaperDollSlots(){
+    Object.entries(rpgPaperSlotMeta).forEach(([slot,meta])=>{
+      const btn=document.querySelector("[data-paper-slot='"+slot+"']");if(!btn)return;
+      const row=(rpgInventoryCache||[]).find(i=>i.equipped&&i.equipped_slot===slot);
+      const item=row?.rpg_items||null;
+      btn.classList.toggle("filled",!!item);
+      btn.classList.toggle("empty",!item);
+      btn.removeAttribute("data-rarity");
+      const icon=btn.querySelector("span");
+      if(icon)icon.textContent=item?itemIcon(item.slot,row.item_id):meta.icon;
+      if(item){
+        btn.dataset.rarity=item.rarity||"";
+        btn.title=meta.label+": "+(item.name||row.item_id)+" · "+itemStatsText(item.stat_payload||{});
+      }else{
+        btn.title=meta.label+" · paspausk ir pasirink itemą";
+      }
+    });
+  }
+
+  function ensureEquipPicker(){
+    let back=document.getElementById("rpgEquipPickerBackdrop");
+    if(back)return back;
+    back=document.createElement("div");
+    back.id="rpgEquipPickerBackdrop";
+    back.className="rpgEquipPickerBackdrop";
+    back.style.display="none";
+    back.innerHTML="<div class='rpgEquipPicker' role='dialog' aria-modal='true'>"+
+      "<div class='rpgEquipPickerHead'><div><small>PERSONAŽO LOADOUT</small><h4 id='rpgEquipPickerTitle'>Equip</h4></div><button type='button' class='rpgEquipPickerClose' data-equip-picker-close>×</button></div>"+
+      "<div id='rpgEquipCurrent'></div><div id='rpgEquipPickerList' class='rpgEquipPickerList'></div><div id='rpgEquipPickerMsg' class='rpgEquipPickerMsg'></div>"+
+      "</div>";
+    document.body.appendChild(back);
+    return back;
+  }
+
+  function closeEquipPicker(){
+    const back=document.getElementById("rpgEquipPickerBackdrop");
+    if(back)back.style.display="none";
+    rpgEquipPickerSlot=null;
+  }
+
+  function openEquipPicker(slot){
+    const meta=rpgPaperSlotMeta[slot];if(!meta)return;
+    rpgEquipPickerSlot=slot;
+    const back=ensureEquipPicker();
+    const title=document.getElementById("rpgEquipPickerTitle");
+    const currentEl=document.getElementById("rpgEquipCurrent");
+    const list=document.getElementById("rpgEquipPickerList");
+    const msg=document.getElementById("rpgEquipPickerMsg");
+    if(title)title.textContent=meta.icon+" "+meta.label;
+    if(msg)msg.textContent="";
+
+    const current=(rpgInventoryCache||[]).find(i=>i.equipped&&i.equipped_slot===slot);
+    if(currentEl){
+      if(current){
+        const item=current.rpg_items||{};
+        currentEl.innerHTML="<div><b>Dabar: "+escInv(item.name||current.item_id)+"</b><span>"+escInv(itemStatsText(item.stat_payload||{}))+"</span></div>"+
+          "<button type='button' data-paper-unequip='"+escInv(current.item_id)+"'>NUSIIMTI</button>";
+        currentEl.className="rpgEquipCurrent";
+      }else{
+        currentEl.innerHTML="<div><b>Slotas tuščias</b><span>Pasirink itemą iš savo inventoriaus.</span></div>";
+        currentEl.className="rpgEquipCurrent";
+      }
+    }
+
+    const candidates=(rpgInventoryCache||[]).filter(i=>i.rpg_items?.slot===meta.type);
+    if(list){
+      if(!candidates.length){
+        list.innerHTML="<div class='rpgEquipEmpty'>Šiuo metu neturi nė vieno "+escInv(meta.label)+" slotui tinkamo itemo.</div>";
+      }else{
+        list.innerHTML=candidates.map(i=>{
+          const item=i.rpg_items||{},p=item.stat_payload||{};
+          const isHere=i.equipped&&i.equipped_slot===slot;
+          const elsewhere=i.equipped&&i.equipped_slot!==slot;
+          return "<div class='rpgEquipPickRow "+(isHere?"current":"")+"'>"+
+            "<div class='rpgEquipPickIcon'>"+itemIcon(item.slot,i.item_id)+"</div>"+
+            "<div class='rpgEquipPickInfo'><strong>"+escInv(item.name||i.item_id)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</strong>"+
+            "<em>"+escInv(item.rarity||"")+" · "+(elsewhere?"šiuo metu "+escInv(rpgPaperSlotMeta[i.equipped_slot]?.label||i.equipped_slot):isHere?"uždėta šiame slote":"inventoriuje")+"</em>"+
+            "<div class='rpgItemStatChips'>"+(itemStatBadges(p)||"<span class='rpgGearChip'>BE STAT BONUSO</span>")+"</div></div>"+
+            "<button type='button' data-paper-equip='"+escInv(i.item_id)+"' "+(isHere?"disabled":"")+">"+(isHere?"UŽDĖTA":elsewhere?"PERKELTI":"UŽSIDĖTI")+"</button>"+
+            "</div>";
+        }).join("");
+      }
+    }
+    back.style.display="grid";
+  }
+
   let rpgTradeStateCache=null;
   let rpgTradeOfferedItemId=null;
   let rpgTradeTargetId=null;
@@ -1824,8 +1963,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     });
 
     const list=document.getElementById("rpgInventoryItems");
-    if(error){rpgInventoryCache=[];list.innerHTML="<p style='color:#a97b72'>Nepavyko užkrauti inventoriaus.</p>";return;}
+    if(error){rpgInventoryCache=[];renderPaperDollSlots();list.innerHTML="<p style='color:#a97b72'>Nepavyko užkrauti inventoriaus.</p>";return;}
     rpgInventoryCache=data||[];
+    renderPaperDollSlots();
     if(!data || !data.length){list.innerHTML="<p style='color:#8e989d'>Inventorius kol kas tuščias.</p>";return;}
 
     (data||[]).filter(i=>i.equipped&&i.equipped_slot&&i.rpg_items?.slot).forEach(i=>{
@@ -2270,7 +2410,65 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     });
   });
 
-  document.querySelectorAll(".rpgEquipPreviewSlot").forEach(card=>card.addEventListener("click",()=>document.querySelector("[data-open-rpg-inventory]")?.click()));
+  document.querySelectorAll(".rpgEquipPreviewSlot").forEach(card=>card.addEventListener("click",()=>openEquipPicker(card.dataset.previewSlot)));
+
+  document.getElementById("rpgPaperDoll")?.addEventListener("click",e=>{
+    const btn=e.target.closest("[data-paper-slot]");if(!btn)return;
+    openEquipPicker(btn.dataset.paperSlot);
+  });
+
+  document.addEventListener("keydown",e=>{if(e.key==="Escape")closeEquipPicker();});
+
+  document.addEventListener("click",async e=>{
+    const back=e.target.closest("#rpgEquipPickerBackdrop");
+    if(e.target.id==="rpgEquipPickerBackdrop" || e.target.closest("[data-equip-picker-close]")){
+      closeEquipPicker();return;
+    }
+
+    const equip=e.target.closest("[data-paper-equip]");
+    const unequip=e.target.closest("[data-paper-unequip]");
+    if(!equip&&!unequip)return;
+    const sb=window.rpgSupabase;if(!sb||!rpgEquipPickerSlot)return;
+    const msg=document.getElementById("rpgEquipPickerMsg");
+    const btn=equip||unequip;
+    btn.disabled=true;
+
+    if(equip){
+      const itemId=equip.dataset.paperEquip;
+      if(msg)msg.textContent="Uždedama į "+(rpgPaperSlotMeta[rpgEquipPickerSlot]?.label||rpgEquipPickerSlot)+"…";
+      const {error}=await sb.rpc("equip_rpg_item_to_slot",{p_item_id:itemId,p_equipped_slot:rpgEquipPickerSlot});
+      if(error){
+        const t=String(error.message||"");
+        if(msg)msg.textContent=t.toLowerCase().includes("active battle")
+          ?"Kovos metu įrangos keisti negalima."
+          :t.startsWith("Requires ")
+            ?"Negali užsidėti: "+t.replace("Requires ","reikia ")+"."
+            :t.toLowerCase().includes("does not fit")
+              ?"Šis itemas netinka pasirinktam slotui."
+              :"Nepavyko užsidėti itemo.";
+        btn.disabled=false;
+        return;
+      }
+      if(msg)msg.textContent="✓ Itemas uždėtas.";
+    }else{
+      const itemId=unequip.dataset.paperUnequip;
+      if(msg)msg.textContent="Itemas nuimamas…";
+      const {error}=await sb.rpc("unequip_rpg_item",{p_item_id:itemId});
+      if(error){
+        if(msg)msg.textContent=String(error.message||"").toLowerCase().includes("active battle")
+          ?"Kovos metu įrangos keisti negalima."
+          :"Nepavyko nuimti itemo.";
+        btn.disabled=false;
+        return;
+      }
+      if(msg)msg.textContent="✓ Itemas nuimtas.";
+    }
+
+    await renderSheet();
+    closeEquipPicker();
+    if(window.refreshRpgCombat)await window.refreshRpgCombat();
+    if(window.loadRpgFarm)await window.loadRpgFarm();
+  });
 
   document.getElementById("rpgInventoryItems")?.addEventListener("click",async e=>{
     const btn=e.target.closest(".rpgItemAction");if(!btn)return;
