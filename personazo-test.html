@@ -28,8 +28,8 @@
     </div></div>
     <div class="card controls">
       <h2>MASTER V1 · zero-adjust testas</h2>
-      <div class="row"><div><b>🦺 Crimson Armor V1</b><small>Armor overlay · 200×267 · X 0 / Y 0 / Scale 100%</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
-      <div class="row"><div><b>⚔ Common 1H Sword V1</b><small>Main Hand overlay · 200×267 · X 0 / Y 0 / Scale 100%</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
+      <div class="row"><div><b>🦺 Crimson Armor V1</b><small>Armor overlay · MASTER canvas · X 0 / Y 0 / Scale 100%</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
+      <div class="row"><div><b>⚔ Common 1H Sword V1</b><small>Main Hand overlay · MASTER canvas · X 0 / Y 0 / Scale 100%</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
       <div class="btns"><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="armorOnly">BASE + ARMOR</button><button class="btn alt" id="swordOnly">BASE + SWORD</button><button class="btn" id="allOn">VISKAS ON</button></div>
       <div class="legend">
         <div class="tag"><i class="dot base"></i><span>MASTER V1 · nekintantis base character</span></div>
@@ -41,7 +41,7 @@
   </div>
 </div>
 <script>
-const BASE="assets/rpg-test/base.webp",ARMOR="assets/rpg-test/armor.webp",SWORD="assets/rpg-test/sword.webp";
+const BASE="assets/rpg-test/base.webp?v=2",ARMOR="assets/rpg-test/armor.webp?v=2",SWORD="assets/rpg-test/sword.webp?v=2";
 base.src=BASE;armor.src=ARMOR;sword.src=SWORD;
 function draw(){
   armor.style.opacity=armorOn.checked?1:0;
