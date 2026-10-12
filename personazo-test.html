@@ -2,58 +2,109 @@
 <html lang="lt">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Personažo test · Fantasy RPG</title>
+<title>Personažų overlay test · Fantasy RPG</title>
 <style>
-:root{--gold:#e3b95b;--bg:#050b0e;--panel:#0a1216;--line:#4c3a1d;--muted:#829198}
+:root{--gold:#e3b95b;--bg:#050b0e;--panel:#0a1216;--line:#4c3a1d;--muted:#829198;--green:#7fd19a}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 50% 0,#162028 0,#070c0f 45%,#030506 100%);color:#e6e9ea;font-family:Georgia,serif}
-.wrap{max-width:1200px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.kicker{font:800 10px Arial;letter-spacing:.16em;color:#bd8c35}.top h1{margin:4px 0 0;color:#f1c661}.back{color:#e7c77d;text-decoration:none;border:1px solid #73531f;border-radius:9px;padding:10px 13px;background:#0d1214}
-.grid{display:grid;grid-template-columns:minmax(360px,560px) 1fr;gap:18px;margin-top:18px}.card{border:1px solid #4b3a20;border-radius:16px;background:linear-gradient(180deg,#0d161a,#070b0d);padding:14px}
-.stage{aspect-ratio:3/4;position:relative;overflow:hidden;border:1px solid #37454c;border-radius:14px;background:radial-gradient(circle at 50% 25%,#1c2a31,#071014 65%,#030506);box-shadow:inset 0 0 50px #000}
-.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:center;pointer-events:none;transition:opacity .18s}.base{z-index:1}.armor{z-index:2}.sword{z-index:3}
-.controls h2{margin:0 0 12px;color:#f1c661}.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #263238}.row b{font-size:14px}.row small{display:block;color:var(--muted);font:10px/1.4 Arial;margin-top:3px}
+.wrap{max-width:1320px;margin:auto;padding:22px}.top{display:flex;justify-content:space-between;gap:18px;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.kicker{font:800 10px Arial;letter-spacing:.16em;color:#bd8c35}.top h1{margin:4px 0 0;color:#f1c661}.top p{margin:6px 0 0;color:#9eaaae;font:12px/1.45 Arial}.back{color:#e7c77d;text-decoration:none;border:1px solid #73531f;border-radius:9px;padding:10px 13px;background:#0d1214;white-space:nowrap}
+.picker{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:8px;margin-top:16px}.pick{display:grid;grid-template-columns:46px minmax(0,1fr);gap:8px;align-items:center;padding:7px;border:1px solid #34434a;border-radius:10px;background:#0a1216;color:#dce3e5;text-align:left;cursor:pointer;min-width:0}.pick:hover{border-color:#6a5328}.pick.active{border-color:#d0a34b;background:#17130d;box-shadow:0 0 0 1px #8a6728 inset}.pick img{width:46px;height:54px;object-fit:cover;object-position:center top;border-radius:7px}.pick b{display:block;color:#eac86f;font:700 12px Georgia,serif}.pick small{display:block;color:#76858a;font:9px/1.3 Arial;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.grid{display:grid;grid-template-columns:minmax(400px,600px) 1fr;gap:18px;margin-top:16px}.card{border:1px solid #4b3a20;border-radius:16px;background:linear-gradient(180deg,#0d161a,#070b0d);padding:14px}
+.stage{aspect-ratio:2/3;position:relative;overflow:hidden;border:1px solid #37454c;border-radius:14px;background:radial-gradient(circle at 50% 25%,#1c2a31,#071014 65%,#030506);box-shadow:inset 0 0 50px #000}
+.layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:center;pointer-events:none;transition:opacity .18s,transform .2s}.base{z-index:1}.armor{z-index:2}.sword{z-index:4}.shield{z-index:3;overflow:visible}
+.stageShade{position:absolute;z-index:5;inset:0;background:linear-gradient(180deg,transparent 68%,#050708b8 100%);pointer-events:none}.stageName{position:absolute;z-index:6;left:15px;right:15px;bottom:13px;text-align:center;text-shadow:0 2px 8px #000}.stageName b{display:block;color:#f1cb73;font-size:23px}.stageName span{display:block;margin-top:3px;color:#c1c9cb;font:10px Arial}
+.controls h2{margin:0 0 5px;color:#f1c661}.sub{color:#7f8e93;font:10px/1.45 Arial;margin-bottom:10px}.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 0;border-bottom:1px solid #263238}.row b{font-size:14px}.row small{display:block;color:var(--muted);font:10px/1.4 Arial;margin-top:3px}
 .toggle{appearance:none;width:48px;height:26px;border-radius:999px;background:#20292d;border:1px solid #4a555a;position:relative;cursor:pointer}.toggle:after{content:"";position:absolute;width:20px;height:20px;top:2px;left:3px;border-radius:50%;background:#7d898e;transition:.2s}.toggle:checked{background:#183721;border-color:#47835a}.toggle:checked:after{left:23px;background:#8fe4a5}
 .btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid #6b5127;border-radius:8px;background:#5a4219;color:#ffe1a1;padding:9px 12px;font-weight:800;cursor:pointer}.btn.alt{background:#10181b;color:#aebcc1;border-color:#3b4b52}
-.note{margin-top:12px;color:#819096;font:10px/1.55 Arial}.legend{display:grid;gap:8px;margin-top:14px}.tag{display:flex;align-items:center;gap:8px;padding:9px;border:1px solid #334047;border-radius:9px;background:#091114}.dot{width:10px;height:10px;border-radius:50%}.dot.base{background:#9aa7ac}.dot.armor{background:#b84236}.dot.sword{background:#d3b26a}
-@media(max-width:820px){.grid{grid-template-columns:1fr}.wrap{padding:12px}}
+.rigbox{margin-top:14px;padding:11px;border:1px solid #2f4a3a;border-radius:10px;background:#0a1711;font:10px/1.55 Arial;color:#a7b7af}.rigbox b{color:#8fdda7}.rigstats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.rigstats span{padding:6px;border:1px solid #294035;border-radius:7px;background:#08110d;text-align:center;color:#8da097}.rigstats strong{display:block;color:#cbd8d0;font-size:11px}
+.note{margin-top:12px;color:#819096;font:10px/1.55 Arial}.legend{display:grid;gap:7px;margin-top:14px}.tag{display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #304048;border-radius:9px;background:#081014;font-size:11px}.dot{width:10px;height:10px;border-radius:50%}.d1{background:#9daab0}.d2{background:#d34c43}.d3{background:#e1b85e}.d4{background:#b9c1c7}
+.allgrid{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;margin-top:16px}.mini{border:1px solid #3a3326;border-radius:10px;background:#081014;overflow:hidden}.mini img{width:100%;aspect-ratio:2/3;display:block;object-fit:cover;object-position:center top}.mini div{padding:7px;text-align:center}.mini b{display:block;color:#dbc078;font-size:11px}.mini small{color:#6f7d82;font:8px Arial}
+@media(max-width:1000px){.picker,.allgrid{grid-template-columns:repeat(4,1fr)}.grid{grid-template-columns:1fr}.stage{max-height:760px}.pick{grid-template-columns:38px 1fr}.pick img{width:38px;height:46px}}
+@media(max-width:560px){.wrap{padding:12px}.top{align-items:flex-start}.picker,.allgrid{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.card{padding:10px}.stageName b{font-size:18px}.rigstats{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="top"><div><div class="kicker">FANTASY RPG · EKSPERIMENTAS</div><h1>Personažo test</h1></div><a class="back" href="./index.html">← Grįžti į žaidimą</a></div>
+  <div class="top"><div><div class="kicker">FANTASY RPG · EKSPERIMENTAS</div><h1>Visų personažų overlay testas</h1><p>Armor / Main Hand / Shield · rig kalibruojamas vieną kartą kūno tipui, ne kiekvienam itemui.</p></div><a class="back" href="index.html">← Grįžti į žaidimą</a></div>
+  <div id="picker" class="picker"></div>
   <div class="grid">
-    <div class="card"><div class="stage" id="stage">
-      <img class="layer base" id="base" alt="Base character">
-      <img class="layer armor" id="armor" alt="Armor overlay">
-      <img class="layer sword" id="sword" alt="Sword overlay">
-    </div></div>
-    <div class="card controls">
-      <h2>MASTER V1 · zero-adjust testas</h2>
-      <div class="row"><div><b>🦺 Crimson Armor V1</b><small>Armor overlay · MASTER canvas · X 0 / Y 0 / Scale 100%</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
-      <div class="row"><div><b>⚔ Common 1H Sword V1</b><small>Main Hand overlay · MASTER canvas · X 0 / Y 0 / Scale 100%</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
-      <div class="btns"><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="armorOnly">BASE + ARMOR</button><button class="btn alt" id="swordOnly">BASE + SWORD</button><button class="btn" id="allOn">VISKAS ON</button></div>
-      <div class="legend">
-        <div class="tag"><i class="dot base"></i><span>MASTER V1 · nekintantis base character</span></div>
-        <div class="tag"><i class="dot armor"></i><span>Armor V1 · tas pats canvas, be jokio koregavimo</span></div>
-        <div class="tag"><i class="dot sword"></i><span>Sword V1 · tas pats canvas, be jokio koregavimo</span></div>
+    <div class="card">
+      <div class="stage">
+        <img id="base" class="layer base" alt="Personažas">
+        <img id="armor" class="layer armor" src="assets/rpg-test/armor.webp?v=rigtest1" alt="Armor overlay">
+        <svg id="shield" class="layer shield" viewBox="0 0 200 300" aria-label="Shield overlay">
+          <defs><linearGradient id="sg" x1="0" x2="1"><stop offset="0" stop-color="#65513d"/><stop offset=".45" stop-color="#b9a172"/><stop offset=".52" stop-color="#5b4936"/><stop offset="1" stop-color="#2e2721"/></linearGradient></defs>
+          <path d="M126 112 L160 124 L157 178 Q149 216 126 231 Q103 216 95 178 L92 124 Z" fill="url(#sg)" stroke="#d5b56d" stroke-width="3"/>
+          <path d="M126 121 V218 M101 146 H151" stroke="#433525" stroke-width="5" opacity=".75"/>
+          <circle cx="126" cy="165" r="10" fill="#c4a56a" stroke="#4b3c2a" stroke-width="3"/>
+        </svg>
+        <img id="sword" class="layer sword" src="assets/rpg-test/sword.webp?v=rigtest1" alt="Weapon overlay">
+        <div class="stageShade"></div><div class="stageName"><b id="stageOwner">—</b><span id="stageMeta">—</span></div>
       </div>
-      <div class="note"><b>Bandymo taisyklė:</b> jokio rankinio X/Y/Scale. Jei sluoksniai nesutampa, assetas laikomas netinkamu MASTER V1 standartui ir generuojamas iš naujo. Būtent taip veiks galutinė Diablo tipo sistema.</div>
+    </div>
+    <div class="card controls">
+      <h2>Įrangos testas</h2><div class="sub">Testiniai itemai tie patys. Keičiasi tik kūno tipo (rig) pritaikymas.</div>
+      <div class="row"><div><b>🦺 Armor V1</b><small>Armor overlay · torso rig</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
+      <div class="row"><div><b>⚔ Common 1H Sword V1</b><small>Main Hand overlay · hand anchor</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
+      <div class="row"><div><b>🛡 Test Shield V1</b><small>Off Hand shield · hand anchor</small></div><input id="shieldOn" class="toggle" type="checkbox" checked></div>
+      <div class="btns"><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="armorOnly">+ ARMOR</button><button class="btn alt" id="weaponOnly">+ WEAPON</button><button class="btn alt" id="shieldOnly">+ SHIELD</button><button class="btn" id="allOn">VISKAS ON</button></div>
+      <div class="rigbox"><b id="rigTitle">RIG —</b><div id="rigDesc"></div><div class="rigstats"><span><strong id="armorRig">—</strong>ARMOR</span><span><strong id="weaponRig">—</strong>WEAPON</span><span><strong id="shieldRig">—</strong>SHIELD</span></div></div>
+      <div class="legend"><div class="tag"><i class="dot d1"></i>Dabartinis personažo portretas = appearance MASTER reference</div><div class="tag"><i class="dot d2"></i>Armor overlay</div><div class="tag"><i class="dot d3"></i>Main Hand overlay</div><div class="tag"><i class="dot d4"></i>Shield overlay</div></div>
+      <div class="note">Svarbu: šiame etape testuojame <b>rig principą</b>. Dabartiniuose portretuose dalis personažų jau turi savo seną ginklą/šarvus, todėl vizualiai gali matytis dubliavimas. Galutinėje sistemoje kiekvienas personažas gaus neutralų MASTER, tačiau rig koordinates po to keisti nebereikės.</div>
     </div>
   </div>
+  <div id="allGrid" class="allgrid"></div>
 </div>
 <script>
-const BASE="assets/rpg-test/base.webp?v=2",ARMOR="assets/rpg-test/armor.webp?v=2",SWORD="assets/rpg-test/sword.webp?v=2";
-base.src=BASE;armor.src=ARMOR;sword.src=SWORD;
-function draw(){
-  armor.style.opacity=armorOn.checked?1:0;
-  sword.style.opacity=swordOn.checked?1:0;
-  armor.style.transform="none";
-  sword.style.transform="none";
+const chars=[
+ {id:"vytas",owner:"Vytas K.",team:"JėzausAšara",rig:"dwarf"},
+ {id:"rokas",owner:"Rokas A.",team:"3 pro Šalį",rig:"dwarf"},
+ {id:"tomas",owner:"Tomas B.",team:"Koksas",rig:"human"},
+ {id:"rycis",owner:"Ryčis",team:"Nerytas",rig:"goblin"},
+ {id:"domantas",owner:"Domantas M.",team:"Duok Dėdei Vieną",rig:"orc"},
+ {id:"martynas",owner:"Martynas M.",team:"BC Tritaškis",rig:"elf"},
+ {id:"ignas",owner:"Ignas R.",team:"Šūdas McČyzas",rig:"wizard"}
+];
+const rigs={
+ dwarf:{label:"DWARF",desc:"Vytas + Rokas dalinasi tuo pačiu kūno rig. Vienas dwarf item vizualas tinka abiem.",a:[0,-7,1.12],w:[-4,8,1.08],h:[-3,4,1.06]},
+ human:{label:"HUMAN",desc:"Standartinis humanoid rig · Tomas.",a:[0,-5,1.00],w:[0,1,1.00],h:[2,1,1.00]},
+ goblin:{label:"GOBLIN",desc:"Mažesnis, palinkęs rig · Ryčis.",a:[0,3,.78],w:[3,8,.82],h:[5,8,.78]},
+ orc:{label:"ORC",desc:"Platus ir masyvus rig · Domantas.",a:[0,-7,1.18],w:[-1,3,1.16],h:[0,2,1.15]},
+ elf:{label:"ELF",desc:"Aukštas, lieknas humanoid rig · Martynas.",a:[0,-5,.98],w:[0,0,.98],h:[2,1,.98]},
+ wizard:{label:"WIZARD",desc:"Aukštas humanoid rig su laisvesniu siluetu · Ignas.",a:[0,-3,.96],w:[-2,1,.96],h:[2,1,.96]}
+};
+let current="vytas";
+const $=id=>document.getElementById(id);
+function tr(v){return "translate("+v[0]+"%,"+v[1]+"%) scale("+v[2]+")"}
+function renderPicker(){
+ $("picker").innerHTML=chars.map(c=>'<button class="pick '+(c.id===current?'active':'')+'" data-char="'+c.id+'"><img src="assets/rpg/'+c.id+'.webp?v=rigtest1"><span><b>'+c.owner+'</b><small>'+c.team+'</small></span></button>').join("");
+ $("picker").querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>selectChar(b.dataset.char));
+ $("allGrid").innerHTML=chars.map(c=>'<div class="mini"><img src="assets/rpg/'+c.id+'.webp?v=rigtest1"><div><b>'+c.owner+'</b><small>'+rigs[c.rig].label+' · '+c.team+'</small></div></div>').join("");
 }
-armorOn.onchange=swordOn.onchange=draw;
-baseOnly.onclick=()=>{armorOn.checked=false;swordOn.checked=false;draw()};
-armorOnly.onclick=()=>{armorOn.checked=true;swordOn.checked=false;draw()};
-swordOnly.onclick=()=>{armorOn.checked=false;swordOn.checked=true;draw()};
-allOn.onclick=()=>{armorOn.checked=true;swordOn.checked=true;draw()};
-draw();
+function selectChar(id){
+ current=id;const c=chars.find(x=>x.id===id),r=rigs[c.rig];
+ $("base").src="assets/rpg/"+c.id+".webp?v=rigtest1";
+ $("base").alt=c.owner;
+ $("stageOwner").textContent=c.owner;
+ $("stageMeta").textContent=c.team+" · "+r.label+" RIG";
+ $("rigTitle").textContent=r.label+" RIG";
+ $("rigDesc").textContent=r.desc;
+ $("armorRig").textContent="X "+r.a[0]+" · Y "+r.a[1]+" · ×"+r.a[2];
+ $("weaponRig").textContent="X "+r.w[0]+" · Y "+r.w[1]+" · ×"+r.w[2];
+ $("shieldRig").textContent="X "+r.h[0]+" · Y "+r.h[1]+" · ×"+r.h[2];
+ $("armor").style.transform=tr(r.a);$("sword").style.transform=tr(r.w);$("shield").style.transform=tr(r.h);
+ renderPicker();draw();
+}
+function draw(){
+ $("armor").style.opacity=$("armorOn").checked?1:0;
+ $("sword").style.opacity=$("swordOn").checked?1:0;
+ $("shield").style.opacity=$("shieldOn").checked?1:0;
+}
+$("armorOn").onchange=$("swordOn").onchange=$("shieldOn").onchange=draw;
+$("baseOnly").onclick=()=>{$("armorOn").checked=$("swordOn").checked=$("shieldOn").checked=false;draw()};
+$("armorOnly").onclick=()=>{$("armorOn").checked=true;$("swordOn").checked=$("shieldOn").checked=false;draw()};
+$("weaponOnly").onclick=()=>{$("swordOn").checked=true;$("armorOn").checked=$("shieldOn").checked=false;draw()};
+$("shieldOnly").onclick=()=>{$("shieldOn").checked=true;$("armorOn").checked=$("swordOn").checked=false;draw()};
+$("allOn").onclick=()=>{$("armorOn").checked=$("swordOn").checked=$("shieldOn").checked=true;draw()};
+selectChar(current);
 </script>
 </body></html>
