@@ -12,7 +12,7 @@
 .layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transform-origin:center;pointer-events:none;transition:opacity .18s}.base{z-index:1}.armor{z-index:2}.sword{z-index:3}
 .controls h2{margin:0 0 12px;color:#f1c661}.row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #263238}.row b{font-size:14px}.row small{display:block;color:var(--muted);font:10px/1.4 Arial;margin-top:3px}
 .toggle{appearance:none;width:48px;height:26px;border-radius:999px;background:#20292d;border:1px solid #4a555a;position:relative;cursor:pointer}.toggle:after{content:"";position:absolute;width:20px;height:20px;top:2px;left:3px;border-radius:50%;background:#7d898e;transition:.2s}.toggle:checked{background:#183721;border-color:#47835a}.toggle:checked:after{left:23px;background:#8fe4a5}
-.cal{margin-top:14px}.cal h3{color:#d7b76e;margin:15px 0 8px}.slider{display:grid;grid-template-columns:70px 1fr 48px;gap:8px;align-items:center;margin:7px 0;font:10px Arial}.slider input{width:100%}.slider output{color:#d7bd78;text-align:right}.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid #6b5127;border-radius:8px;background:#5a4219;color:#ffe1a1;padding:9px 12px;font-weight:800;cursor:pointer}.btn.alt{background:#10181b;color:#aebcc1;border-color:#3b4b52}
+.btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.btn{border:1px solid #6b5127;border-radius:8px;background:#5a4219;color:#ffe1a1;padding:9px 12px;font-weight:800;cursor:pointer}.btn.alt{background:#10181b;color:#aebcc1;border-color:#3b4b52}
 .note{margin-top:12px;color:#819096;font:10px/1.55 Arial}.legend{display:grid;gap:8px;margin-top:14px}.tag{display:flex;align-items:center;gap:8px;padding:9px;border:1px solid #334047;border-radius:9px;background:#091114}.dot{width:10px;height:10px;border-radius:50%}.dot.base{background:#9aa7ac}.dot.armor{background:#b84236}.dot.sword{background:#d3b26a}
 @media(max-width:820px){.grid{grid-template-columns:1fr}.wrap{padding:12px}}
 </style>
@@ -27,47 +27,33 @@
       <img class="layer sword" id="sword" alt="Sword overlay">
     </div></div>
     <div class="card controls">
-      <h2>Sluoksnių testas</h2>
-      <div class="row"><div><b>🦺 Crimson Armor</b><small>Armor overlay · testinis assetas</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
-      <div class="row"><div><b>⚔ Common 1H Sword</b><small>Main Hand weapon overlay</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
-      <div class="cal">
-        <h3>Armor kalibravimas</h3>
-        <label class="slider">X <input id="ax" type="range" min="-80" max="80" value="0"><output id="axv">0</output></label>
-        <label class="slider">Y <input id="ay" type="range" min="-80" max="80" value="0"><output id="ayv">0</output></label>
-        <label class="slider">Scale <input id="as" type="range" min="70" max="135" value="100"><output id="asv">100%</output></label>
-        <h3>Sword kalibravimas</h3>
-        <label class="slider">X <input id="sx" type="range" min="-120" max="120" value="0"><output id="sxv">0</output></label>
-        <label class="slider">Y <input id="sy" type="range" min="-120" max="120" value="0"><output id="syv">0</output></label>
-        <label class="slider">Scale <input id="ss" type="range" min="55" max="150" value="100"><output id="ssv">100%</output></label>
-        <div class="btns"><button class="btn" id="reset">RESET</button><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="allOn">VISKAS ON</button></div>
-      </div>
+      <h2>MASTER V1 · zero-adjust testas</h2>
+      <div class="row"><div><b>🦺 Crimson Armor V1</b><small>Armor overlay · 200×267 · X 0 / Y 0 / Scale 100%</small></div><input id="armorOn" class="toggle" type="checkbox" checked></div>
+      <div class="row"><div><b>⚔ Common 1H Sword V1</b><small>Main Hand overlay · 200×267 · X 0 / Y 0 / Scale 100%</small></div><input id="swordOn" class="toggle" type="checkbox" checked></div>
+      <div class="btns"><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="armorOnly">BASE + ARMOR</button><button class="btn alt" id="swordOnly">BASE + SWORD</button><button class="btn" id="allOn">VISKAS ON</button></div>
       <div class="legend">
-        <div class="tag"><i class="dot base"></i><span>Base character · nekinta</span></div>
-        <div class="tag"><i class="dot armor"></i><span>Armor layer · keičiasi pagal equipped armor</span></div>
-        <div class="tag"><i class="dot sword"></i><span>Weapon layer · keičiasi pagal Main Hand</span></div>
+        <div class="tag"><i class="dot base"></i><span>MASTER V1 · nekintantis base character</span></div>
+        <div class="tag"><i class="dot armor"></i><span>Armor V1 · tas pats canvas, be jokio koregavimo</span></div>
+        <div class="tag"><i class="dot sword"></i><span>Sword V1 · tas pats canvas, be jokio koregavimo</span></div>
       </div>
-      <div class="note">Šis puslapis specialiai atskirtas nuo tikro RPG. Kalibravimo slankikliai padės nustatyti galutinį assetų standartą prieš jungiant sluoksnius prie realaus inventoriaus/equip sistemos.</div>
+      <div class="note"><b>Bandymo taisyklė:</b> jokio rankinio X/Y/Scale. Jei sluoksniai nesutampa, assetas laikomas netinkamu MASTER V1 standartui ir generuojamas iš naujo. Būtent taip veiks galutinė Diablo tipo sistema.</div>
     </div>
   </div>
 </div>
 <script>
 const BASE="assets/rpg-test/base.webp",ARMOR="assets/rpg-test/armor.webp",SWORD="assets/rpg-test/sword.webp";
 base.src=BASE;armor.src=ARMOR;sword.src=SWORD;
-const state={ax:0,ay:0,as:100,sx:0,sy:0,ss:100};
 function draw(){
- armor.style.opacity=armorOn.checked?1:0;sword.style.opacity=swordOn.checked?1:0;
- armor.style.transform=`translate(${state.ax}px,${state.ay}px) scale(${state.as/100})`;
- sword.style.transform=`translate(${state.sx}px,${state.sy}px) scale(${state.ss/100})`;
- axv.textContent=state.ax;ayv.textContent=state.ay;asv.textContent=state.as+"%";
- sxv.textContent=state.sx;syv.textContent=state.sy;ssv.textContent=state.ss+"%";
-}
-for(const [id,key] of [["ax","ax"],["ay","ay"],["as","as"],["sx","sx"],["sy","sy"],["ss","ss"]]){
- document.getElementById(id).addEventListener("input",e=>{state[key]=Number(e.target.value);draw()});
+  armor.style.opacity=armorOn.checked?1:0;
+  sword.style.opacity=swordOn.checked?1:0;
+  armor.style.transform="none";
+  sword.style.transform="none";
 }
 armorOn.onchange=swordOn.onchange=draw;
-reset.onclick=()=>{Object.assign(state,{ax:0,ay:0,as:100,sx:0,sy:0,ss:100});for(const k of ["ax","ay","as","sx","sy","ss"])document.getElementById(k).value=state[k];armorOn.checked=swordOn.checked=true;draw()};
-baseOnly.onclick=()=>{armorOn.checked=swordOn.checked=false;draw()};
-allOn.onclick=()=>{armorOn.checked=swordOn.checked=true;draw()};
+baseOnly.onclick=()=>{armorOn.checked=false;swordOn.checked=false;draw()};
+armorOnly.onclick=()=>{armorOn.checked=true;swordOn.checked=false;draw()};
+swordOnly.onclick=()=>{armorOn.checked=false;swordOn.checked=true;draw()};
+allOn.onclick=()=>{armorOn.checked=true;swordOn.checked=true;draw()};
 draw();
 </script>
 </body></html>
