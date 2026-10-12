@@ -705,6 +705,7 @@
 .rpgPaperSlot.filled{border-color:#4c8a5d;background:linear-gradient(180deg,#102219,#080d0f);box-shadow:0 0 14px #5acb7730,0 4px 14px #0009}
 .rpgPaperSlot.filled>small{color:#9bc9a5}.rpgPaperSlot[data-rarity='Rare']{border-color:#3e70a9}.rpgPaperSlot[data-rarity='Epic']{border-color:#8454aa}.rpgPaperSlot[data-rarity='Legendary']{border-color:#bc8a2d;box-shadow:0 0 15px #dcaa3d38,0 4px 14px #0009}
 .rpgPaperSlot.p-left{left:9px}.rpgPaperSlot.p-right{right:9px}.rpgPaperSlot.p1{top:18px}.rpgPaperSlot.p2{top:77px}.rpgPaperSlot.p3{top:136px}.rpgPaperSlot.p4{top:195px}.rpgPaperSlot.p5{top:254px}.rpgPaperSlot.p6{top:313px}
+.rpgPaperSlot.p-belt{left:50%;bottom:126px;transform:translateX(-50%);width:62px}.rpgPaperSlot.p-belt:hover{transform:translateX(-50%) scale(1.06)}
 .rpgPaperSlot.p-artifact{left:50%;bottom:64px;transform:translateX(-50%);width:62px}.rpgPaperSlot.p-artifact:hover{transform:translateX(-50%) scale(1.06)}
 .rpg2-identity{z-index:6;pointer-events:none}
 .rpgEquipPickerBackdrop{position:fixed;inset:0;z-index:10050;background:#020406d9;backdrop-filter:blur(4px);display:grid;place-items:center;padding:18px}
@@ -713,7 +714,7 @@
 .rpgEquipCurrent{margin:12px 0;padding:10px;border:1px solid #3c494f;border-radius:10px;background:#091114;display:flex;justify-content:space-between;gap:10px;align-items:center}.rpgEquipCurrent b{display:block;color:#e4e8e9}.rpgEquipCurrent span{display:block;color:#7f8b90;font:10px Arial,sans-serif;margin-top:3px}.rpgEquipCurrent button{padding:8px 10px;border:1px solid #64372f;border-radius:7px;background:#20100d;color:#e8a89c;cursor:pointer;font-weight:800}
 .rpgEquipPickerList{display:grid;gap:8px}.rpgEquipPickRow{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid #354248;border-radius:10px;background:#091114}.rpgEquipPickRow.current{border-color:#4b8158;background:#0c1811}.rpgEquipPickIcon{width:46px;height:46px;display:grid;place-items:center;border:1px solid #4b5860;border-radius:9px;background:#0d1518;font-size:24px}.rpgEquipPickInfo strong{display:block;color:#e5e8e9;font-size:13px}.rpgEquipPickInfo em{display:block;margin-top:3px;color:#8b989d;font:9px Arial,sans-serif}.rpgEquipPickInfo .rpgItemStatChips{margin-top:6px}.rpgEquipPickRow>button{padding:9px 11px;border:1px solid #6a5229;border-radius:8px;background:#5c4317;color:#ffe09a;cursor:pointer;font:800 10px Arial,sans-serif}.rpgEquipPickRow>button:disabled{opacity:.4;cursor:not-allowed}.rpgEquipEmpty{padding:20px;text-align:center;border:1px dashed #3e4a50;border-radius:10px;color:#758287;font:11px Arial,sans-serif}
 .rpgEquipPickerMsg{min-height:18px;margin-top:9px;color:#d5bd81;font:10px Arial,sans-serif}
-@media(max-width:800px){.rpg2-portraitFrame{height:420px!important}.rpgPaperSlot{width:48px;height:48px}.rpgPaperSlot.p1{top:14px}.rpgPaperSlot.p2{top:68px}.rpgPaperSlot.p3{top:122px}.rpgPaperSlot.p4{top:176px}.rpgPaperSlot.p5{top:230px}.rpgPaperSlot.p6{top:284px}.rpgPaperSlot.p-artifact{bottom:70px}}
+@media(max-width:800px){.rpg2-portraitFrame{height:420px!important}.rpgPaperSlot{width:48px;height:48px}.rpgPaperSlot.p1{top:14px}.rpgPaperSlot.p2{top:68px}.rpgPaperSlot.p3{top:122px}.rpgPaperSlot.p4{top:176px}.rpgPaperSlot.p5{top:230px}.rpgPaperSlot.p6{top:284px}.rpgPaperSlot.p-belt{bottom:128px}.rpgPaperSlot.p-artifact{bottom:70px}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -831,6 +832,7 @@
               <button type='button' class='rpgPaperSlot p-right p5' data-paper-slot='ring_2' title='Žiedas II'><span>💍</span><small>RING II</small></button>
               <button type='button' class='rpgPaperSlot p-right p6' data-paper-slot='earring_2' title='Auskaras II'><span>💎</span><small>EAR II</small></button>
 
+              <button type='button' class='rpgPaperSlot p-belt' data-paper-slot='belt' title='Diržas'><span>🪢</span><small>BELT</small></button>
               <button type='button' class='rpgPaperSlot p-artifact' data-paper-slot='artifact' title='Artefaktas'><span>🔮</span><small>ARTIFACT</small></button>
             </div>
             <div class='rpg2-identity'>
@@ -921,6 +923,7 @@
               <div class='rpgEquipPreviewSlot' data-preview-slot='gloves'><b id='eqGlovesIcon'>🧤</b><span>Pirštinės</span><small id='eqGloves'>Tuščia</small><em id='eqGlovesStats'>—</em></div>
               <div class='rpgEquipPreviewSlot' data-preview-slot='boots'><b id='eqBootsIcon'>🥾</b><span>Batai</span><small id='eqBoots'>Tuščia</small><em id='eqBootsStats'>—</em></div>
               <div class='rpgEquipPreviewSlot' data-preview-slot='cloak'><b id='eqCloakIcon'>🧥</b><span>Cloak</span><small id='eqCloak'>Tuščia</small><em id='eqCloakStats'>—</em></div>
+              <div class='rpgEquipPreviewSlot' data-preview-slot='belt'><b id='eqBeltIcon'>🪢</b><span>Diržas</span><small id='eqBelt'>Tuščia</small><em id='eqBeltStats'>—</em></div>
               <div class='rpgEquipPreviewSlot' data-preview-slot='necklace'><b id='eqNecklaceIcon'>📿</b><span>Necklace</span><small id='eqNecklace'>Tuščia</small><em id='eqNecklaceStats'>—</em></div>
               <div class='rpgEquipPreviewSlot' data-preview-slot='earring_1'><b id='eqEarring1Icon'>💎</b><span>Auskaras I</span><small id='eqEarring1'>Tuščia</small><em id='eqEarring1Stats'>—</em></div>
               <div class='rpgEquipPreviewSlot' data-preview-slot='earring_2'><b id='eqEarring2Icon'>💎</b><span>Auskaras II</span><small id='eqEarring2'>Tuščia</small><em id='eqEarring2Stats'>—</em></div>
@@ -1129,6 +1132,7 @@
         <div class='rpgSlot' data-equip-slot='gloves'><b>🧤 Pirštinės</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
         <div class='rpgSlot' data-equip-slot='boots'><b>🥾 Batai</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
         <div class='rpgSlot' data-equip-slot='cloak'><b>🧥 Cloak</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
+        <div class='rpgSlot' data-equip-slot='belt'><b>🪢 Diržas</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
         <div class='rpgSlot' data-equip-slot='necklace'><b>📿 Necklace</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
         <div class='rpgSlot' data-equip-slot='earring_1'><b>💎 Auskaras I</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
         <div class='rpgSlot' data-equip-slot='earring_2'><b>💎 Auskaras II</b><span>Tuščia</span><small class='rpgSlotStats'>—</small></div>
@@ -1718,9 +1722,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       quiz_10_token:"🧠",
       farm_king_hp_medallion:"❤️",
       farm_king_watch:"🛡️",
-      farm_king_trophy_ring:"⚔️"
+      farm_king_trophy_ring:"⚔️",
+      farm_jester_buckle:"🧷"
     };
-    return special[id]||({weapon:"⚔️",offhand:"🛡️",armor:"🦺",helmet:"⛑️",gloves:"🧤",boots:"🥾",cloak:"🧥",necklace:"📿",earring:"💎",ring:"💍",artifact:"🔮",consumable:"🧪"}[slot]||"🎒");
+    return special[id]||({weapon:"⚔️",offhand:"🛡️",armor:"🦺",helmet:"⛑️",gloves:"🧤",boots:"🥾",cloak:"🧥",belt:"🪢",necklace:"📿",earring:"💎",ring:"💍",artifact:"🔮",consumable:"🧪"}[slot]||"🎒");
   };
   const itemStatsText=payload=>{
     payload=payload||{};const s=[];
@@ -1834,6 +1839,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     gloves:{type:"gloves",label:"Pirštinės",icon:"🧤"},
     boots:{type:"boots",label:"Batai",icon:"🥾"},
     cloak:{type:"cloak",label:"Cloak",icon:"🧥"},
+    belt:{type:"belt",label:"Diržas",icon:"🪢"},
     necklace:{type:"necklace",label:"Necklace",icon:"📿"},
     earring_1:{type:"earring",label:"Auskaras I",icon:"💎"},
     earring_2:{type:"earring",label:"Auskaras II",icon:"💎"},
@@ -1946,6 +1952,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       gloves:["eqGloves","eqGlovesIcon","eqGlovesStats","🧤"],
       boots:["eqBoots","eqBootsIcon","eqBootsStats","🥾"],
       cloak:["eqCloak","eqCloakIcon","eqCloakStats","🧥"],
+      belt:["eqBelt","eqBeltIcon","eqBeltStats","🪢"],
       necklace:["eqNecklace","eqNecklaceIcon","eqNecklaceStats","📿"],
       earring_1:["eqEarring1","eqEarring1Icon","eqEarring1Stats","💎"],
       earring_2:["eqEarring2","eqEarring2Icon","eqEarring2Stats","💎"],
