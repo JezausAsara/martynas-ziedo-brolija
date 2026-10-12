@@ -15,7 +15,7 @@
 .pick img{width:46px;height:54px;object-fit:cover;object-position:center top;border-radius:7px}.pick b{display:block;color:#eac86f;font:700 12px Georgia,serif}.pick small{display:block;color:#76858a;font:9px/1.3 Arial;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .grid{display:grid;grid-template-columns:minmax(400px,600px) 1fr;gap:18px;margin-top:16px}.card{border:1px solid #4b3a20;border-radius:16px;background:linear-gradient(180deg,#0d161a,#070b0d);padding:14px}
 .stage{aspect-ratio:2/3;position:relative;overflow:hidden;border:1px solid #37454c;border-radius:14px;background:radial-gradient(circle at 50% 25%,#1c2a31,#071014 65%,#030506);box-shadow:inset 0 0 50px #000}
-.layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .15s}.base{z-index:1;object-fit:fill}.armor{z-index:2;object-fit:fill;transform:scale(.82);transform-origin:50% 52%}.shield{z-index:3;object-fit:fill;transform:scale(.56);transform-origin:50% 50%}.weapon{z-index:4;object-fit:fill;transform:scale(.60);transform-origin:50% 50%}
+.layer{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;transition:opacity .15s}.base{z-index:1;object-fit:fill}.armor{z-index:2;object-fit:fill;transform-origin:50% 52%}.shield{z-index:3;object-fit:fill;transform-origin:50% 50%}.weapon{z-index:4;object-fit:fill;transform-origin:50% 50%}
 .stageShade{position:absolute;z-index:5;inset:0;background:linear-gradient(180deg,transparent 72%,#050708c7 100%);pointer-events:none}.stageName{position:absolute;z-index:6;left:15px;right:15px;bottom:13px;text-align:center;text-shadow:0 2px 8px #000}
 .stageName b{display:block;color:#f1cb73;font-size:23px}.stageName span{display:block;margin-top:3px;color:#c1c9cb;font:10px Arial}
 .controls h2{margin:0 0 5px;color:#f1c661}.sub{color:#7f8e93;font:10px/1.45 Arial;margin-bottom:10px}
@@ -39,9 +39,9 @@
   <div class="card">
    <div class="stage">
     <img id="baseLayer" class="layer base" alt="MASTER personažas">
-    <img id="armorLayer" class="layer armor" src="assets/rpg-test/overlay/armor-crimson.webp?v=master4" alt="Armor overlay">
-    <img id="shieldLayer" class="layer shield" src="assets/rpg-test/overlay/shield-kite-common.webp?v=master4" alt="Shield overlay">
-    <img id="weaponLayer" class="layer weapon" src="assets/rpg-test/overlay/weapon-sword-common.webp?v=master4" alt="Weapon overlay">
+    <img id="armorLayer" class="layer armor" src="assets/rpg-test/overlay/armor-crimson.webp?v=anchor1" alt="Armor overlay">
+    <img id="shieldLayer" class="layer shield" src="assets/rpg-test/overlay/shield-kite-common.webp?v=anchor1" alt="Shield overlay">
+    <img id="weaponLayer" class="layer weapon" src="assets/rpg-test/overlay/weapon-sword-common.webp?v=anchor1" alt="Weapon overlay">
     <div class="stageShade"></div>
     <div class="stageName"><b id="stageOwner">—</b><span id="stageMeta">—</span></div>
    </div>
@@ -53,27 +53,35 @@
    <div class="row"><div><b>⚔ Common 1H Sword</b><small>Main Hand overlay</small></div><input id="weaponOn" class="toggle" type="checkbox" checked></div>
    <div class="row"><div><b>🛡 Common Kite Shield</b><small>Off Hand / Shield overlay</small></div><input id="shieldOn" class="toggle" type="checkbox" checked></div>
    <div class="btns"><button class="btn alt" id="baseOnly">TIK BASE</button><button class="btn alt" id="armorOnly">+ ARMOR</button><button class="btn alt" id="weaponOnly">+ WEAPON</button><button class="btn alt" id="shieldOnly">+ SHIELD</button><button class="btn" id="allOn">VISKAS ON</button></div>
-   <div class="standard"><b>✓ ZERO-ADJUST MASTER STANDARDAS</b><br>Personažo poza, mastelis ir drobė standartizuoti assetų paruošimo etape. Personažų rig nesikeičia; kiekviena itemų kategorija turi vieną globalų mastelį visiems personažams.
-    <div class="coords"><span><strong>X 0 · Y 0</strong>ARMOR · ×0.82</span><span><strong>X 0 · Y 0</strong>WEAPON · ×0.60</span><span><strong>X 0 · Y 0</strong>SHIELD · ×0.56</span></div>
+   <div class="standard"><b>✓ BODY-RIG ANCHOR STANDARDAS</b><br>Itemo ID lieka vienas, tačiau kūno tipas turi vieną kartą nustatytus torso ir abiejų rankų anchor taškus. Nauji itemai naudos tuos pačius anchor be papildomo derinimo.
+    <div class="coords"><span><strong id="armorFit">—</strong>ARMOR FIT</span><span><strong id="weaponFit">—</strong>MAIN HAND</span><span><strong id="shieldFit">—</strong>SHIELD HAND</span></div>
    </div>
    <div class="legend"><div class="tag"><i class="dot d1"></i>MASTER character</div><div class="tag"><i class="dot d2"></i>Armor overlay</div><div class="tag"><i class="dot d3"></i>Main Hand overlay</div><div class="tag"><i class="dot d4"></i>Shield overlay</div></div>
-   <div class="note">Jeigu šis testas vizualiai sutampa ant visų 7 personažų, tokį pat principą perkeliame į tikrą Equip sistemą. Portretą keis tik <b>Armor, Weapon ir Shield</b>; kiti itemai keis statsus, bet ne personažo vaizdą.</div>
+   <div class="note">Weapon ir Shield dabar rišami prie rankų anchor, todėl jų pozicija keičiasi pagal kūno tipą, o ne pagal konkretų itemą. <b>Armor</b> šiame teste dar naudoja vieną bendrą paveikslą, todėl jo fit yra tik apytikslis; produkcijoje tas pats armor itemas turės body-rig vizualo variantą (pvz. dwarf/orc/goblin), kaip įprasta RPG paper-doll sistemose.</div>
   </div>
  </div>
 </div>
 <script>
 const chars=[
- {id:"vytas",name:"Vytas K.",team:"JėzausAšara"},
- {id:"rokas",name:"Rokas A.",team:"3 pro Šalį"},
- {id:"tomas",name:"Tomas B.",team:"Koksas"},
- {id:"rycis",name:"Ryčis",team:"Nerytas"},
- {id:"domantas",name:"Domantas M.",team:"Duok Dėdei Vieną"},
- {id:"martynas",name:"Martynas M.",team:"BC Tritaškis"},
- {id:"ignas",name:"Ignas R.",team:"Šūdas McČyzas"}
+ {id:"vytas",name:"Vytas K.",team:"JėzausAšara",rig:"dwarf"},
+ {id:"rokas",name:"Rokas A.",team:"3 pro Šalį",rig:"dwarf"},
+ {id:"tomas",name:"Tomas B.",team:"Koksas",rig:"human"},
+ {id:"rycis",name:"Ryčis",team:"Nerytas",rig:"goblin"},
+ {id:"domantas",name:"Domantas M.",team:"Duok Dėdei Vieną",rig:"orc"},
+ {id:"martynas",name:"Martynas M.",team:"BC Tritaškis",rig:"elf"},
+ {id:"ignas",name:"Ignas R.",team:"Šūdas McČyzas",rig:"wizard"}
 ];
+const rigs={
+ dwarf:{label:"DWARF",armor:"translate(0%,1%) scale(.78)",weapon:"translate(-5%,-5%) rotate(-90deg) scale(.50)",shield:"translate(17%,-3.5%) scale(.42)",a:"torso ×0.78",w:"R hand anchor",h:"L hand anchor"},
+ human:{label:"HUMAN",armor:"translate(0%,0%) scale(.82)",weapon:"translate(-5%,-5%) rotate(-90deg) scale(.50)",shield:"translate(17%,-3.5%) scale(.42)",a:"torso ×0.82",w:"R hand anchor",h:"L hand anchor"},
+ goblin:{label:"GOBLIN",armor:"translate(0%,8%) scale(.62)",weapon:"translate(-6%,-2.5%) rotate(-90deg) scale(.42)",shield:"translate(18%,-1%) scale(.36)",a:"torso ×0.62",w:"R hand +6px Y",h:"L hand +6px Y"},
+ orc:{label:"ORC",armor:"translate(0%,0%) scale(.92)",weapon:"translate(-9%,-5%) rotate(-90deg) scale(.56)",shield:"translate(21%,-3.5%) scale(.48)",a:"torso ×0.92",w:"R hand wide",h:"L hand wide"},
+ elf:{label:"ELF",armor:"translate(0%,0%) scale(.80)",weapon:"translate(-4.5%,-5%) rotate(-90deg) scale(.49)",shield:"translate(16.5%,-3.5%) scale(.41)",a:"torso ×0.80",w:"R hand anchor",h:"L hand anchor"},
+ wizard:{label:"WIZARD",armor:"translate(0%,1%) scale(.84)",weapon:"translate(-5%,-5%) rotate(-90deg) scale(.52)",shield:"translate(17%,-3.5%) scale(.44)",a:"torso ×0.84",w:"R hand anchor",h:"L hand anchor"}
+};
 let current="vytas";
 const $=id=>document.getElementById(id);
-const basePath=id=>"assets/rpg-test/master/"+id+".webp?v=master4";
+const basePath=id=>"assets/rpg-test/master/"+id+".webp?v=anchor1";
 function renderPicker(){
  $("picker").innerHTML=chars.map(c=>'<button class="pick '+(c.id===current?'active':'')+'" data-char="'+c.id+'"><img src="'+basePath(c.id)+'"><span><b>'+c.name+'</b><small>'+c.team+'</small></span></button>').join("");
  $("picker").querySelectorAll("[data-char]").forEach(b=>b.onclick=()=>selectChar(b.dataset.char));
@@ -83,8 +91,15 @@ function selectChar(id){
  const c=chars.find(x=>x.id===id);
  $("baseLayer").src=basePath(c.id);
  $("baseLayer").alt=c.name;
+ const r=rigs[c.rig];
  $("stageOwner").textContent=c.name;
- $("stageMeta").textContent=c.team+" · MASTER 2:3 · ZERO-ADJUST";
+ $("stageMeta").textContent=c.team+" · "+r.label+" BODY RIG";
+ $("armorLayer").style.transform=r.armor;
+ $("weaponLayer").style.transform=r.weapon;
+ $("shieldLayer").style.transform=r.shield;
+ $("armorFit").textContent=r.a;
+ $("weaponFit").textContent=r.w;
+ $("shieldFit").textContent=r.h;
  renderPicker();draw();
 }
 function draw(){
