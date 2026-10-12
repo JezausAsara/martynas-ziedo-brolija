@@ -3631,7 +3631,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
   function battleFor(kind){return kind==="campaign"?campaignBattle:farmBattle}
-  function manualSkill(id){return ["str_riposte","str_precision_attack","str_action_surge","con_second_wind"].includes(id)}
+  function manualSkill(id){return id==="str_riposte"||id==="con_second_wind"}
   function skillIcon(s){return s.attribute==="STR"?"⚔️":s.attribute==="DEX"?"🏹":"🛡️"}
   function skillReason(s,b){
     if(!b||b.status!=="active")return "TIK KOVOJE";
@@ -3639,18 +3639,6 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(s.id==="str_riposte"){
       if(st.riposte_used)return "PANAUDOTA";
       if(st.riposte_armed)return "PARUOŠTA";
-      if(b.phase!=="player_attack")return "TAVO ĖJIME";
-      return "";
-    }
-    if(s.id==="str_precision_attack"){
-      if(st.precision_attack_used)return "PANAUDOTA";
-      if(st.precision_attack_armed)return "PARUOŠTA";
-      if(b.phase!=="player_attack")return "TAVO ĖJIME";
-      return "";
-    }
-    if(s.id==="str_action_surge"){
-      if(st.action_surge_used)return "PANAUDOTA";
-      if(st.action_surge_armed)return "PARUOŠTA";
       if(b.phase!=="player_attack")return "TAVO ĖJIME";
       return "";
     }
@@ -3669,8 +3657,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     box.innerHTML=owned.map(s=>{
       const reason=skillReason(s,b),manual=manualSkill(s.id),disabled=!manual||!!reason;
       const action=!manual?"<span class='rpgCombatAutoBadge'>AUTO</span>":
-        "<button type='button' class='rpgCombatChoiceBtn' data-use-combat-skill='"+esc(s.id)+"' "+(disabled?"disabled":"")+">"+
-        (["str_riposte","str_precision_attack","str_action_surge"].includes(s.id)?"PARUOŠTI":"NAUDOTI")+"</button>";
+        "<button type='button' class='rpgCombatChoiceBtn' data-use-combat-skill='"+esc(s.id)+"' "+(disabled?"disabled":"")+">"+(s.id==="str_riposte"?"PARUOŠTI":"NAUDOTI")+"</button>";
       const suffix=reason&&reason!=="AUTO"?" · "+reason:"";
       return "<div class='rpgCombatChoice skill "+(reason==="PANAUDOTA"?"rpgCombatUsed":"")+"'>"+
         "<span class='rpgCombatChoiceIcon'>"+skillIcon(s)+"</span>"+
@@ -3716,15 +3703,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const cfg=configs[kind],msg=$(cfg.skillMsg);if(msg)msg.textContent="Skillas aktyvuojamas…";
     try{
       const {data,error}=await window.rpgSupabase.rpc("rpg_use_skill",{p_skill_id:id});if(error)throw error;
-      if(msg){
-        msg.textContent=id==="str_riposte"
-          ?"⚔️ Riposte paruoštas. Jei priešas nepataikys, gausi nemokamą kontrataką."
-          :id==="str_precision_attack"
-            ?"🎯 Precision Attack paruoštas. Jei artimiausia ne-NAT 1 ataka nepataikys, bus pridėtas 1d6."
-            :id==="str_action_surge"
-              ?"⚡ Action Surge paruoštas. Po šio veiksmo gausi dar vieną pilną veiksmą."
-              :"✓ "+(data?.name||"Skillas")+" panaudotas.";
-      }
+      if(msg)msg.textContent=id==="str_riposte"?"⚔️ Riposte paruoštas. Jei priešas nepataikys, gausi nemokamą kontrataką.":"✓ "+(data?.name||"Skillas")+" panaudotas.";
       if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
       if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
       await refreshHub();
