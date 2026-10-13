@@ -582,6 +582,61 @@
           "question": "Kuris filmas 1994 m. Kanų kino festivalyje laimėjo „Auksinę palmės šakelę“?"
         }
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "questions": [
+        {
+          "category": "EuroLeague",
+          "fact_key": "euroleague_2004_champion_maccabi_tel_aviv",
+          "question": "Kuris klubas laimėjo 2004 m. Eurolygą, finale 118:74 sutriuškinęs Bolonijos „Fortitudo“?"
+        },
+        {
+          "category": "NBA",
+          "fact_key": "nba_first_official_quadruple_double_nate_thurmond_1974",
+          "question": "Kas 1974 m. užfiksavo pirmąjį oficialų keturgubą dublį NBA istorijoje?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_1958_first_constructors_champion_vanwall",
+          "question": "Kuri komanda 1958 m. tapo pirmąja Formulės 1 konstruktorių pasaulio čempione?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_2018_first_career_golden_masters_djokovic",
+          "question": "Kas 2018 m. Sinsinatyje tapo pirmuoju vyrų tenisininku, laimėjusiu visus devynis „Masters 1000“ turnyrus?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "world_cup_2010_final_winning_goal_iniesta",
+          "question": "Kas įmušė pergalingą įvartį 2010 m. pasaulio futbolo čempionato finale tarp Ispanijos ir Nyderlandų?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_gondolin_founder_turgon",
+          "question": "Kas Tolkieno pasaulyje įkūrė paslėptą Gondolino miestą?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "fahrenheit_451_author_ray_bradbury",
+          "question": "Kas parašė mokslinės fantastikos romaną „Fahrenheit 451“?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "nosferatu_1922_director_fw_murnau",
+          "question": "Kas režisavo 1922 m. nebyliojo kino siaubo klasiką „Nosferatu“?"
+        },
+        {
+          "category": "Knygos",
+          "fact_key": "moby_dick_author_herman_melville",
+          "question": "Kas parašė romaną „Moby-Dick“?"
+        },
+        {
+          "category": "Kino klasika",
+          "fact_key": "citizen_kane_1941_director_orson_welles",
+          "question": "Kas režisavo 1941 m. filmą „Citizen Kane“?"
+        }
+      ]
     }
   ]
 }
