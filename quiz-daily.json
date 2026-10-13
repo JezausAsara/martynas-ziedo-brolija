@@ -807,6 +807,121 @@
           "x": 3
         }
       ]
+    },
+    {
+      "date": "2026-10-13",
+      "questions": [
+        {
+          "c": "EuroLeague",
+          "q": "Kuris klubas laimėjo 2004 m. Eurolygą, finale 118:74 sutriuškinęs Bolonijos „Fortitudo“?",
+          "a": [
+            "Olympiacos",
+            "CSKA Moscow",
+            "Maccabi Tel Aviv",
+            "Panathinaikos"
+          ],
+          "x": 2
+        },
+        {
+          "c": "NBA",
+          "q": "Kas 1974 m. užfiksavo pirmąjį oficialų keturgubą dublį NBA istorijoje?",
+          "a": [
+            "Nate Thurmond",
+            "Hakeem Olajuwon",
+            "David Robinson",
+            "Alvin Robertson"
+          ],
+          "x": 0
+        },
+        {
+          "c": "F1",
+          "q": "Kuri komanda 1958 m. tapo pirmąja Formulės 1 konstruktorių pasaulio čempione?",
+          "a": [
+            "Ferrari",
+            "Cooper",
+            "BRM",
+            "Vanwall"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kas 2018 m. Sinsinatyje tapo pirmuoju vyrų tenisininku, laimėjusiu visus devynis „Masters 1000“ turnyrus?",
+          "a": [
+            "Roger Federer",
+            "Novak Djokovic",
+            "Rafael Nadal",
+            "Andy Murray"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Futbolas",
+          "q": "Kas įmušė pergalingą įvartį 2010 m. pasaulio futbolo čempionato finale tarp Ispanijos ir Nyderlandų?",
+          "a": [
+            "David Villa",
+            "Arjen Robben",
+            "Andrés Iniesta",
+            "Diego Forlán"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kas Tolkieno pasaulyje įkūrė paslėptą Gondolino miestą?",
+          "a": [
+            "Fëanor",
+            "Finwë",
+            "Fingolfin",
+            "Turgon"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas parašė mokslinės fantastikos romaną „Fahrenheit 451“?",
+          "a": [
+            "Ray Bradbury",
+            "Isaac Asimov",
+            "Arthur C. Clarke",
+            "Robert A. Heinlein"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas režisavo 1922 m. nebyliojo kino siaubo klasiką „Nosferatu“?",
+          "a": [
+            "Robert Wiene",
+            "F. W. Murnau",
+            "Fritz Lang",
+            "Tod Browning"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Knygos",
+          "q": "Kas parašė romaną „Moby-Dick“?",
+          "a": [
+            "F. Scott Fitzgerald",
+            "Ernest Hemingway",
+            "Herman Melville",
+            "John Steinbeck"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Kino klasika",
+          "q": "Kas režisavo 1941 m. filmą „Citizen Kane“?",
+          "a": [
+            "Alfred Hitchcock",
+            "Billy Wilder",
+            "Stanley Kubrick",
+            "Orson Welles"
+          ],
+          "x": 3
+        }
+      ]
     }
   ]
 }
