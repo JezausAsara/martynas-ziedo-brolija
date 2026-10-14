@@ -715,6 +715,22 @@
 .rpgEquipPickerList{display:grid;gap:8px}.rpgEquipPickRow{display:grid;grid-template-columns:48px 1fr auto;gap:10px;align-items:center;padding:10px;border:1px solid #354248;border-radius:10px;background:#091114}.rpgEquipPickRow.current{border-color:#4b8158;background:#0c1811}.rpgEquipPickIcon{width:46px;height:46px;display:grid;place-items:center;border:1px solid #4b5860;border-radius:9px;background:#0d1518;font-size:24px}.rpgEquipPickInfo strong{display:block;color:#e5e8e9;font-size:13px}.rpgEquipPickInfo em{display:block;margin-top:3px;color:#8b989d;font:9px Arial,sans-serif}.rpgEquipPickInfo .rpgItemStatChips{margin-top:6px}.rpgEquipPickRow>button{padding:9px 11px;border:1px solid #6a5229;border-radius:8px;background:#5c4317;color:#ffe09a;cursor:pointer;font:800 10px Arial,sans-serif}.rpgEquipPickRow>button:disabled{opacity:.4;cursor:not-allowed}.rpgEquipEmpty{padding:20px;text-align:center;border:1px dashed #3e4a50;border-radius:10px;color:#758287;font:11px Arial,sans-serif}
 .rpgEquipPickerMsg{min-height:18px;margin-top:9px;color:#d5bd81;font:10px Arial,sans-serif}
 @media(max-width:800px){.rpg2-portraitFrame{height:420px!important}.rpgPaperSlot{width:48px;height:48px}.rpgPaperSlot.p1{top:14px}.rpgPaperSlot.p2{top:68px}.rpgPaperSlot.p3{top:122px}.rpgPaperSlot.p4{top:176px}.rpgPaperSlot.p5{top:230px}.rpgPaperSlot.p6{top:284px}.rpgPaperSlot.p-belt{bottom:128px}.rpgPaperSlot.p-artifact{bottom:70px}}
+</style>
+<style id="rpgLegendaryItemArtwork">
+/* Legendary+ pictures live in equipment slots, not on the character sprite. */
+.rpgLegendaryArt{display:block;width:100%;height:100%;object-fit:contain;object-position:center;border-radius:6px}
+.rpgPaperSlot.has-legendary-art{background:linear-gradient(145deg,#30240f,#0c1418);border-color:#c69c45}
+.rpgPaperSlot.has-legendary-art>span{width:40px;height:37px;display:flex;align-items:center;justify-content:center;font-size:0}
+.rpgPaperSlot .rpgLegendaryArt{width:39px;height:37px;filter:drop-shadow(0 0 6px #efc46460)}
+.rpgEquipPreviewSlot.has-legendary-art{border-color:#bc8a2d!important;background:linear-gradient(180deg,#251d0d,#0b1318)!important}
+.rpg2-equipMini .rpgLegendaryArt{width:54px;height:54px;margin:0 auto 4px;filter:drop-shadow(0 0 5px #e7ac5060)}
+.rpg2-equipMini .rpgEquipPreviewSlot.has-legendary-art>b{font-size:0;filter:none!important;transform:none!important}
+.rpg2-inventorySlots .rpgSlot.has-legendary-art{border-color:#b68c35!important;background:linear-gradient(180deg,#241c10,#0b1418)}
+.rpgSlotArtwork{width:64px;height:64px;max-width:100%;margin:6px auto 1px;border:1px solid #a98137;border-radius:11px;overflow:hidden;box-shadow:0 0 14px #d9a44335;background:#131820}
+.rpgEquipPickIcon:has(.rpgLegendaryArt),.rpgItemIcon:has(.rpgLegendaryArt){border-color:#ba8736;background:#21170e;overflow:hidden;font-size:0}
+.rpgEquipPickIcon .rpgLegendaryArt{width:46px;height:46px}
+.rpgItemIcon .rpgLegendaryArt{width:38px;height:38px}
+@media(max-width:800px){.rpgPaperSlot.has-legendary-art>span{width:37px;height:34px}.rpgPaperSlot .rpgLegendaryArt{width:36px;height:34px}.rpg2-equipMini .rpgLegendaryArt{width:48px;height:48px}.rpgSlotArtwork{width:58px;height:58px}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>4 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -1743,6 +1759,24 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     return s.join(" · ")||payload.description||"—";
   };
   const escInv=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+
+  // Artwork is tied to each Legendary+ item. Avatar key and portrait are unaffected.
+  const rpgLegendaryItemArt={
+    barca_palau_reliquary:"assets/items/auksinis-palau-relikvijorius.svg",
+    fener_stratego_signet:"assets/items/stratego-signetas.svg"
+  };
+  function rpgItemArtUrl(item,id){
+    const tier=String(item?.rarity||"").trim().toLowerCase();
+    if(!["legendary","mythic","ancient","divine"].includes(tier))return "";
+    const custom=String(item?.stat_payload?.image_path||item?.stat_payload?.image_url||"").trim();
+    if(/^https:\/\/[^\s"'<>]+$/i.test(custom)||/^assets\/[\w./-]+\.(svg|png|webp|jpg|jpeg)$/i.test(custom))return custom;
+    return rpgLegendaryItemArt[id]||"";
+  }
+  function rpgItemArtMarkup(item,id){
+    const src=rpgItemArtUrl(item,id);
+    return src?"<img class='rpgLegendaryArt' src='"+escInv(src)+"' alt='"+escInv(item?.name||"Legendary item")+"' loading='lazy' decoding='async'>":"";
+  }
+  const rpgItemArtOrIcon=(item,id)=>rpgItemArtMarkup(item,id)||itemIcon(item?.slot,id);
   const itemStatBadges=payload=>{
     payload=payload||{};const a=[];
     const add=(key,label,icon="")=>{const v=Number(payload[key]||0);if(v)a.push("<span class='rpgGearChip'>"+icon+escInv(label)+" "+(v>0?"+":"")+v+"</span>")};
@@ -1859,7 +1893,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       btn.classList.toggle("empty",!item);
       btn.removeAttribute("data-rarity");
       const icon=btn.querySelector("span");
-      if(icon)icon.textContent=item?itemIcon(item.slot,row.item_id):meta.icon;
+      const art=item?rpgItemArtMarkup(item,row.item_id):"";
+      btn.classList.toggle("has-legendary-art",!!art);
+      if(icon)icon.innerHTML=item?(art||itemIcon(item.slot,row.item_id)):meta.icon;
       if(item){
         btn.dataset.rarity=item.rarity||"";
         btn.title=meta.label+": "+(item.name||row.item_id)+" · "+itemStatsText(item.stat_payload||{});
@@ -1924,7 +1960,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
           const isHere=i.equipped&&i.equipped_slot===slot;
           const elsewhere=i.equipped&&i.equipped_slot!==slot;
           return "<div class='rpgEquipPickRow "+(isHere?"current":"")+"'>"+
-            "<div class='rpgEquipPickIcon'>"+itemIcon(item.slot,i.item_id)+"</div>"+
+            "<div class='rpgEquipPickIcon'>"+rpgItemArtOrIcon(item,i.item_id)+"</div>"+
             "<div class='rpgEquipPickInfo'><strong>"+escInv(item.name||i.item_id)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</strong>"+
             "<em>"+escInv(item.rarity||"")+" · "+(elsewhere?"šiuo metu "+escInv(rpgPaperSlotMeta[i.equipped_slot]?.label||i.equipped_slot):isHere?"uždėta šiame slote":"inventoriuje")+"</em>"+
             "<div class='rpgItemStatChips'>"+(itemStatBadges(p)||"<span class='rpgGearChip'>BE STAT BONUSO</span>")+"</div></div>"+
@@ -1945,6 +1981,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const {data,error}=await sb.from("rpg_inventory").select("item_id,equipped,equipped_slot,quantity,rpg_items(name,slot,rarity,stat_payload)");
     document.querySelectorAll(".rpgSlot>span").forEach(x=>x.textContent="Tuščia");
     document.querySelectorAll(".rpgSlotStats").forEach(x=>x.textContent="—");
+    document.querySelectorAll(".rpgSlotArtwork").forEach(x=>x.remove());
+    document.querySelectorAll(".rpgSlot[data-equip-slot]").forEach(x=>x.classList.remove("has-legendary-art"));
 
     const previewMeta={
       main_hand:["eqMainHand","eqMainHandIcon","eqMainHandStats","⚔️"],
@@ -1964,7 +2002,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     };
     Object.entries(previewMeta).forEach(([slot,[nameId,iconId,statsId,emptyIcon]])=>{
       const card=document.querySelector(".rpgEquipPreviewSlot[data-preview-slot='"+slot+"']");
-      card?.classList.remove("equipped");
+      card?.classList.remove("equipped","has-legendary-art");
       const name=document.getElementById(nameId), icon=document.getElementById(iconId), stats=document.getElementById(statsId);
       if(name)name.textContent="Tuščia";
       if(icon)icon.textContent=emptyIcon;
@@ -1984,15 +2022,21 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const slotStats=slotCard?.querySelector(".rpgSlotStats");
       if(slot)slot.textContent=item.name||i.item_id;
       if(slotStats)slotStats.innerHTML=itemStatBadges(payload)||"<span class='rpgGearChip'>BE STAT BONUSO</span>";
+       const art=rpgItemArtMarkup(item,i.item_id);
+       if(slotCard&&art){
+         slotCard.classList.add("has-legendary-art");
+         slotCard.querySelector(":scope>b")?.insertAdjacentHTML("afterend","<div class='rpgSlotArtwork'>"+art+"</div>");
+       }
 
       const meta=previewMeta[equipSlot];
       if(meta){
         const [nameId,iconId,statsId]=meta;
         const card=document.querySelector(".rpgEquipPreviewSlot[data-preview-slot='"+equipSlot+"']");
         card?.classList.add("equipped");
+         card?.classList.toggle("has-legendary-art",!!rpgItemArtMarkup(item,i.item_id));
         const name=document.getElementById(nameId), icon=document.getElementById(iconId), stats=document.getElementById(statsId);
         if(name)name.textContent=item.name||i.item_id;
-        if(icon)icon.textContent=itemIcon(item.slot,i.item_id);
+        if(icon)icon.innerHTML=rpgItemArtOrIcon(item,i.item_id);
         if(stats)stats.innerHTML="<div class='rpgEquipStatChips'>"+(itemStatBadges(payload)||"<span class='rpgGearChip'>BE STAT BONUSO</span>")+"</div><span class='rarity'>"+escInv(item.rarity||"")+"</span>";
       }
     });
@@ -2002,7 +2046,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       const desc=payload.description||itemStatsText(payload);
       const req=payload.required_stat&&payload.min_stat ? "Reikia "+String(payload.required_stat).toUpperCase()+" "+payload.min_stat : "";
       return "<div class='rpgInventoryItem "+(i.equipped?"equipped":"")+"'>"+
-        "<div class='rpgItemMain'><div class='rpgItemIcon'>"+itemIcon(item.slot,i.item_id)+"</div><div class='rpgItemInfo'>"+
+        "<div class='rpgItemMain'><div class='rpgItemIcon'>"+rpgItemArtOrIcon(item,i.item_id)+"</div><div class='rpgItemInfo'>"+
         "<strong>"+escInv(item.name||i.item_id)+(Number(i.quantity||1)>1?" ×"+Number(i.quantity):"")+"</strong>"+
         (itemStatBadges(payload)?"<div class='rpgItemStatChips'>"+itemStatBadges(payload)+"</div>":"")+
         (desc?"<small class='rpgItemDescription'>"+escInv(desc)+"</small>":"")+
