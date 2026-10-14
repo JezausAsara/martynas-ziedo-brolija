@@ -922,6 +922,121 @@
           "x": 3
         }
       ]
+    },
+    {
+      "date": "2026-10-14",
+      "questions": [
+        {
+          "c": "Krepšinis",
+          "q": "Ką dažniausiai reiškia „roll“ pick-and-roll derinyje?",
+          "a": [
+            "Užtvarą statęs žaidėjas po užtvaros juda link krepšio",
+            "Kamuolį turintis žaidėjas atsitraukia prie centro linijos",
+            "Gynėjas keičiasi su kitu gynėju",
+            "Komanda pereina į zoninę gynybą"
+          ],
+          "x": 0
+        },
+        {
+          "c": "F1",
+          "q": "Kas F1 strategijoje vadinama „undercut“?",
+          "a": [
+            "Sąmoningas tempo mažinimas taupant degalus",
+            "Ankstesnis sustojimas boksuose bandant aplenkti varžovą šviežiomis padangomis",
+            "Startas iš techninio aptarnavimo juostos",
+            "Važiavimas paskui varžovą DRS zonoje"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Tenisas",
+          "q": "Ką tenise reiškia „break point“?",
+          "a": [
+            "Paskutinį seto tašką",
+            "Tašką, kuriuo paduodantis žaidėjas gali laimėti geimą",
+            "Tašką, kuriuo priimantis žaidėjas gali laimėti varžovo padavimo geimą",
+            "Tašką po dvigubos klaidos"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Futbolas",
+          "q": "Po kurio veiksmo žaidėjas negali būti nubaustas už nuošalę, jei kamuolį gauna tiesiogiai?",
+          "a": [
+            "Tiesioginio baudos smūgio",
+            "Baudinio",
+            "Metimo iš užribio",
+            "Numesto kamuolio"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kas Tolkieno pasaulyje yra palantíras?",
+          "a": [
+            "Elfų nukaltas kalavijas",
+            "Matymo ir ryšio akmuo",
+            "Mordoro tvirtovės vartai",
+            "Nykštukų karūna"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Su kuriuo autoriumi labiausiai siejami Trys robotikos dėsniai?",
+          "a": [
+            "Philip K. Dick",
+            "Arthur C. Clarke",
+            "Isaac Asimov",
+            "Frank Herbert"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kuriame išgalvotame mieste H. P. Lovecrafto kūriniuose yra Miskatonic University?",
+          "a": [
+            "Innsmouth",
+            "Arkham",
+            "Dunwich",
+            "Kingsport"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Kinas",
+          "q": "Kas kine ir literatūroje vadinama „MacGuffin“?",
+          "a": [
+            "Daiktas ar tikslas, stumiantis siužetą į priekį",
+            "Netikėtas pasakotojo pakeitimas",
+            "Scena po titrų",
+            "Klaidingas prisiminimas"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Geografija",
+          "q": "Kokius vandens telkinius jungia Bosforo sąsiauris?",
+          "a": [
+            "Adrijos ir Jonijos jūras",
+            "Juodąją jūrą ir Marmuro jūrą",
+            "Baltijos ir Šiaurės jūras",
+            "Raudonąją jūrą ir Adeno įlanką"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Istorija",
+          "q": "Kodėl Rozetės akmuo buvo toks svarbus egiptologijai?",
+          "a": [
+            "Jame rastas seniausias pasaulio žemėlapis",
+            "Jis patvirtino Tutanchamono kapo vietą",
+            "Tas pats tekstas buvo pateiktas keliais raštais ir padėjo iššifruoti hieroglifus",
+            "Jame pirmą kartą paminėtos piramidės"
+          ],
+          "x": 2
+        }
+      ]
     }
   ]
 }
