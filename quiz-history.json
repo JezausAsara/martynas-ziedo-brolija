@@ -637,6 +637,61 @@
           "question": "Kas režisavo 1941 m. filmą „Citizen Kane“?"
         }
       ]
+    },
+    {
+      "date": "2026-10-14",
+      "questions": [
+        {
+          "category": "Krepšinis",
+          "fact_key": "basketball_pick_and_roll_roll_action",
+          "question": "Ką dažniausiai reiškia „roll“ pick-and-roll derinyje?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_strategy_undercut_definition",
+          "question": "Kas F1 strategijoje vadinama „undercut“?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_break_point_definition",
+          "question": "Ką tenise reiškia „break point“?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "football_offside_exception_direct_throw_in",
+          "question": "Po kurio veiksmo žaidėjas negali būti nubaustas už nuošalę, jei kamuolį gauna tiesiogiai?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "tolkien_palantir_seeing_stone",
+          "question": "Kas Tolkieno pasaulyje yra palantíras?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "asimov_three_laws_of_robotics",
+          "question": "Su kuriuo autoriumi labiausiai siejami Trys robotikos dėsniai?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "lovecraft_miskatonic_university_arkham",
+          "question": "Kuriame išgalvotame mieste H. P. Lovecrafto kūriniuose yra Miskatonic University?"
+        },
+        {
+          "category": "Kinas",
+          "fact_key": "narrative_macguffin_plot_device",
+          "question": "Kas kine ir literatūroje vadinama „MacGuffin“?"
+        },
+        {
+          "category": "Geografija",
+          "fact_key": "bosporus_connects_black_sea_marmara",
+          "question": "Kokius vandens telkinius jungia Bosforo sąsiauris?"
+        },
+        {
+          "category": "Istorija",
+          "fact_key": "rosetta_stone_multiscript_hieroglyph_decipherment",
+          "question": "Kodėl Rozetės akmuo buvo toks svarbus egiptologijai?"
+        }
+      ]
     }
   ]
 }
