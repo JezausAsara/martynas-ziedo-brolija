@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="t d">
+<title id="t">Stratego Signetas</title><desc id="d">Legendinis auksinis stratego žiedas su kraujo rubinu ir žvaigždės simboliu.</desc>
+<defs>
+<radialGradient id="bg"><stop stop-color="#43282a"/><stop offset=".55" stop-color="#1f171d"/><stop offset="1" stop-color="#0b0a11"/></radialGradient>
+<linearGradient id="metal" x1=".12" x2=".92" y2="1"><stop stop-color="#fff1ad"/><stop offset=".22" stop-color="#b6792a"/><stop offset=".47" stop-color="#f9d87c"/><stop offset=".7" stop-color="#754018"/><stop offset="1" stop-color="#e9b84e"/></linearGradient>
+<radialGradient id="ruby" cx=".32" cy=".26" r=".85"><stop stop-color="#ffe6c1"/><stop offset=".13" stop-color="#f77b79"/><stop offset=".45" stop-color="#bc143b"/><stop offset="1" stop-color="#3c0825"/></radialGradient>
+<filter id="glow"><feGaussianBlur stdDeviation="10"/></filter></defs>
+<rect width="256" height="256" rx="30" fill="url(#bg)"/>
+<circle cx="128" cy="128" r="100" stroke="#d6a54c" stroke-width="2" stroke-opacity=".48" fill="none"/>
+<path d="M128 15v22M128 219v22M15 128h22M219 128h22M54 54l16 16m116 116 16 16M202 54l-16 16M70 186l-16 16" stroke="#ba7f43" opacity=".55" stroke-width="2"/>
+<path d="M128 27l7 15-7 15-7-15zM44 128l-14 6 14 6 14-6zM212 128l14 6-14 6-14-6z" fill="#b99456" opacity=".9"/>
+<ellipse cx="128" cy="130" rx="78" ry="59" fill="#ea243c" opacity=".21" filter="url(#glow)"/>
+<g transform="rotate(-18 128 138)">
+<ellipse cx="128" cy="157" rx="67" ry="66" fill="none" stroke="#5c3218" stroke-width="36"/>
+<ellipse cx="128" cy="157" rx="67" ry="66" fill="none" stroke="url(#metal)" stroke-width="24"/>
+<ellipse cx="128" cy="157" rx="65" ry="62" fill="none" stroke="#fff2af" stroke-opacity=".42" stroke-width="3"/>
+<path d="M60 151c5 15 13 19 24 19m88 0c11-1 19-4 24-19" stroke="#704216" stroke-width="5" fill="none"/>
+<path d="M58 111l29-22 82 0 29 22-16 47-54 28-54-28z" fill="url(#metal)" stroke="#fce4a0" stroke-width="4" stroke-linejoin="round"/>
+<path d="M128 66l43 33-8 44-35 30-35-30-8-44z" fill="#4d0c22" stroke="#ffe3a0" stroke-width="8"/>
+<path d="M128 75l34 28-8 36-26 25-26-25-8-36z" fill="url(#ruby)" stroke="#ff989b" stroke-width="2"/>
+<path d="M128 78l-8 34 8 49 8-49zM95 104l25 8 8-34 8 34 25-8-33 57z" fill="#ed6680" opacity=".40"/>
+<path d="M128 91l7 16 18 3-13 13 3 18-15-8-15 8 3-18-13-13 18-3z" fill="#ffdda3" opacity=".93"/>
+<path d="M128 99l3 10 10 2-8 7 2 11-7-6-7 6 2-11-8-7 10-2z" fill="#981b2e"/>
+<path d="M77 128l-11 7 11 8 10-8zM179 128l11 7-11 8-10-8z" fill="#763918" stroke="#e1aa59" stroke-width="3"/>
+</g>
+<path d="M41 73l5 10 5-10-5-10zM206 193l6 11 6-11-6-11zM207 59l4 7 4-7-4-7z" fill="#f5c77c"/>
+</svg>
