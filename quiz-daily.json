@@ -1037,6 +1037,121 @@
           "x": 2
         }
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "questions": [
+        {
+          "c": "Krepšinis",
+          "q": "Ką gynyboje reiškia „switch“ ginant užtvarą?",
+          "a": [
+            "Visa komanda pereina į zoną",
+            "Abu gynėjai lieka prie savo žaidėjų",
+            "Gynėjai apsikeičia dengiamais žaidėjais",
+            "Aukštaūgis tyčia atsitraukia į baudos aikštelę"
+          ],
+          "x": 2
+        },
+        {
+          "c": "F1",
+          "q": "Kuo „Virtual Safety Car“ labiausiai skiriasi nuo tikro „Safety Car“ periodo?",
+          "a": [
+            "Lenktynininkai laikosi nustatyto delta tempo, bet kolona fiziškai nesusirenka už saugos automobilio",
+            "Visi privalo sustoti boksuose",
+            "DRS leidžiamas visą laiką",
+            "Padangos keičiamos be laiko nuostolio"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Futbolas",
+          "q": "Koks pagrindinis „gegenpressing“ principas?",
+          "a": [
+            "Atsitraukti į žemą bloką po kamuolio praradimo",
+            "Nuolat siųsti ilgus perdavimus į kraštus",
+            "Gintis tik asmeniškai",
+            "Nedelsiant spausti varžovą po kamuolio praradimo"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Tenisas",
+          "q": "Koks efektas būdingiausias „slice“ smūgiui?",
+          "a": [
+            "Stiprus topspin ir aukštas atšokimas",
+            "Backspin, dėl kurio kamuolys dažnai skrieja žemiau ir atšoka žemiau",
+            "Smūgis be jokio sukimosi",
+            "Privalomas smūgis virš galvos"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Fantasy",
+          "q": "Kuris „The Witcher“ ženklas sukuria apsauginį skydą aplink Geraltą?",
+          "a": [
+            "Aard",
+            "Igni",
+            "Quen",
+            "Axii"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Kas Franko Herberto „Dune“ pasaulyje yra Mentatas?",
+          "a": [
+            "Žmogus, treniruotas atlikti itin sudėtingus loginius skaičiavimus",
+            "Smėlio kirmino jauniklis",
+            "Imperatoriaus asmens sargybinis",
+            "Prieskonių kasybos mašina"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kokia pagrindinė „facehugger“ paskirtis „Alien“ visatoje?",
+          "a": [
+            "Apsaugoti karalienę nuo ugnies",
+            "Medžioti kitus ksenomorfus",
+            "Kurti rūgšties lizdus",
+            "Implantuoti embrioną į šeimininko kūną"
+          ],
+          "x": 3
+        },
+        {
+          "c": "Kinas",
+          "q": "Kas yra „nepatikimas pasakotojas“ pasakojime?",
+          "a": [
+            "Pasakotojas, kuris kalba tik trečiuoju asmeniu",
+            "Pasakotojas, kurio pateikiama versija negali būti laikoma visiškai patikima",
+            "Veikėjas, kuris pasirodo tik filmo pabaigoje",
+            "Autorius, slepiantis savo tikrą vardą"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Geografija",
+          "q": "Kuri valstybė visiškai supa Lesotą?",
+          "a": [
+            "Namibija",
+            "Botsvana",
+            "Pietų Afrikos Respublika",
+            "Esvatinis"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Mokslas",
+          "q": "Kodėl slėginis puodas gali maistą išvirti greičiau?",
+          "a": [
+            "Didesnis slėgis pakelia vandens virimo temperatūrą, todėl galima gaminti karščiau",
+            "Jame vanduo užverda žemesnėje temperatūroje",
+            "Slėgis visiškai panaikina vandens garavimą",
+            "Maistas verda vakuume"
+          ],
+          "x": 0
+        }
+      ]
     }
   ]
 }
