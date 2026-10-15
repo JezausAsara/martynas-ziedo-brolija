@@ -692,6 +692,61 @@
           "question": "Kodėl Rozetės akmuo buvo toks svarbus egiptologijai?"
         }
       ]
+    },
+    {
+      "date": "2026-10-15",
+      "questions": [
+        {
+          "category": "Krepšinis",
+          "fact_key": "basketball_screen_defense_switch_definition",
+          "question": "Ką gynyboje reiškia „switch“ ginant užtvarą?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_virtual_safety_car_delta_no_physical_bunching",
+          "question": "Kuo „Virtual Safety Car“ labiausiai skiriasi nuo tikro „Safety Car“ periodo?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "football_gegenpressing_immediate_counterpress_after_loss",
+          "question": "Koks pagrindinis „gegenpressing“ principas?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_slice_backspin_low_bounce",
+          "question": "Koks efektas būdingiausias „slice“ smūgiui?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "witcher_quen_protective_shield_sign",
+          "question": "Kuris „The Witcher“ ženklas sukuria apsauginį skydą aplink Geraltą?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "dune_mentat_human_computational_specialist",
+          "question": "Kas Franko Herberto „Dune“ pasaulyje yra Mentatas?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "alien_facehugger_implants_embryo_host",
+          "question": "Kokia pagrindinė „facehugger“ paskirtis „Alien“ visatoje?"
+        },
+        {
+          "category": "Kinas",
+          "fact_key": "narrative_unreliable_narrator_definition",
+          "question": "Kas yra „nepatikimas pasakotojas“ pasakojime?"
+        },
+        {
+          "category": "Geografija",
+          "fact_key": "lesotho_enclave_within_south_africa",
+          "question": "Kuri valstybė visiškai supa Lesotą?"
+        },
+        {
+          "category": "Mokslas",
+          "fact_key": "pressure_cooker_higher_pressure_raises_boiling_point",
+          "question": "Kodėl slėginis puodas gali maistą išvirti greičiau?"
+        }
+      ]
     }
   ]
 }
