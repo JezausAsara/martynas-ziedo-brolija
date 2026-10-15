@@ -3397,7 +3397,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
     const combatSummary="";
     const dropPanel=(enemyNo===3&&d.drop)?"<div class='journeyCompactDrop "+(d.dropEpic?"epic":"")+"'><b>"+(d.dropEpic?"✨ EPIC DROP CHANCE":"🎁 DROP POOL")+"</b><span>"+d.drop+"</span></div>":"";
-    const rematchChance=enemyNo===1?"20% drop pool":enemyNo===2?"15% · Titano Trišakis":enemyNo===3?"20% drop pool":enemyNo===4?"10% · tik Legendary":"retas dropas";
+    const rematchChance=enemyNo===1?"20% drop pool":enemyNo===2?"15% · Titano Trišakis":enemyNo===3?"20% drop pool":enemyNo===4?"10% · tik Legendary":enemyNo===5?"10% · tik Legendary Stratego Signetas":"retas dropas";
     const rematchPanel=enemyNo<activeRound?
       "<div class='journeyRematchPanel'>"+
         "<div><b>📜 ARCHYVO REMATCH</b><span>"+rematchChance+" · iki 3 bandymų per dieną · kampanijos progresas nesikeičia</span></div>"+
