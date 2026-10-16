@@ -747,6 +747,61 @@
           "question": "Kodėl slėginis puodas gali maistą išvirti greičiau?"
         }
       ]
+    },
+    {
+      "date": "2026-10-16",
+      "questions": [
+        {
+          "category": "Krepšinis",
+          "fact_key": "basketball_skip_pass_cross_court_definition",
+          "question": "Ką krepšinyje reiškia „skip pass“?"
+        },
+        {
+          "category": "F1",
+          "fact_key": "f1_parc_ferme_restricted_setup_changes",
+          "question": "Ką F1 reiškia „parc fermé“ režimas?"
+        },
+        {
+          "category": "Futbolas",
+          "fact_key": "football_inverted_fullback_moves_into_midfield",
+          "question": "Ką dažniausiai daro „inverted full-back“ atakoje?"
+        },
+        {
+          "category": "Tenisas",
+          "fact_key": "tennis_kick_serve_high_sideways_bounce",
+          "question": "Kodėl „kick serve“ dažnai nepatogus priimančiajam?"
+        },
+        {
+          "category": "Fantasy",
+          "fact_key": "mistborn_allomancy_ingest_and_burn_metals",
+          "question": "Ką „Mistborn“ pasaulyje Allomantai daro su metalais, kad panaudotų jų galias?"
+        },
+        {
+          "category": "Sci-Fi",
+          "fact_key": "foundation_psychohistory_predicts_mass_behavior",
+          "question": "Ką Asimovo „Foundation“ pasaulyje bando prognozuoti psichoistorija?"
+        },
+        {
+          "category": "Siaubas",
+          "fact_key": "horror_final_girl_last_surviving_heroine_archetype",
+          "question": "Kas siaubo kine vadinama „final girl“ archetipu?"
+        },
+        {
+          "category": "Kinas",
+          "fact_key": "film_diegetic_sound_exists_within_story_world",
+          "question": "Ką reiškia „diegetic sound“ filme?"
+        },
+        {
+          "category": "Geografija",
+          "fact_key": "sargasso_sea_no_land_boundaries_currents",
+          "question": "Kuri jūra neturi sausumos krantų ir ją riboja vandenynų srovės?"
+        },
+        {
+          "category": "Technologijos",
+          "fact_key": "aircraft_windows_rounded_reduce_stress_concentration",
+          "question": "Kodėl keleivinių lėktuvų langai paprastai yra suapvalintais kampais?"
+        }
+      ]
     }
   ]
 }
