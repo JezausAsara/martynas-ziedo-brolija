@@ -3002,6 +3002,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(ready("spell_blink_ready"))playerBadges.push({icon:"🌀",text:"Blink · blokuoja kitą pataikymą",kind:"magical"});
     if(ready("riposte_armed"))playerBadges.push({icon:"🛡️",text:"Riposte · paruoštas"});
     if(ready("riposte_counter"))playerBadges.push({icon:"⚔️",text:"Riposte · kontrataka"});
+    if(ready("action_surge_ready"))playerBadges.push({icon:"⚡",text:"Action Surge · papildomas veiksmas paruoštas"});
+    if(ready("extra_attack_ready"))playerBadges.push({icon:"⚔️",text:"Extra Attack · papildoma ataka paruošta"});
+    if(battle.phase==="precision_choice")playerBadges.push({icon:"🎯",text:"Precision Attack · pasirinkimas po MISS",kind:"warning"});
     keepStatus(prefix+"PlayerEffectStatus","player",playerBadges);
 
     const round=number(battle.combat_round||1),no=number(battle.enemy_no||enemy.enemy_no||0);
