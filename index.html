@@ -264,6 +264,12 @@
 .journeyEnemySpecial{margin-top:9px;padding:9px;border-left:2px solid #846329;background:#0b1114;color:#b8c0c3;font:10px/1.45 Arial,sans-serif}.journeyEnemySpecial b{color:#dfbd68}
 .journeyEnemyDrop{margin-top:8px;padding:9px;border:1px solid #5a4628;border-radius:8px;background:#0d1112;color:#aeb6b9;font:10px/1.45 Arial,sans-serif}.journeyEnemyDrop b{display:block;color:#f0c66f;margin-bottom:2px}.journeyEnemyDrop.epic{border-color:#69417d;background:linear-gradient(90deg,#15101c,#0c1113);box-shadow:inset 0 0 18px #6f3a8e22}.journeyEnemyDrop.epic b{color:#d9a6ff}
 .journeyDefeatWrap{margin-top:10px;padding-top:9px;border-top:1px solid #302a20}.journeyDefeatLabel{display:flex;justify-content:space-between;gap:8px;color:#8d979b;font:9px Arial,sans-serif;margin-bottom:6px}.journeyDefeatRow{display:flex;flex-wrap:wrap;gap:5px}.journeyDefeatChip{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;border:1px solid #465158;background:#10171a;color:#7f898d;font:700 9px Arial,sans-serif}.journeyDefeatChip.win{border-color:#3b7d51;background:#10281a;color:#9fe0ad;box-shadow:0 0 10px #42a95b22}.journeyDefeatChip.win:after{content:'✓';position:absolute}.journeyDefeatChip{position:relative}.journeyDefeatChip.win span{opacity:0}
+.journeyBonusBoss{margin:18px 0 20px;border:1px solid #8a6028;border-radius:18px;overflow:hidden;background:radial-gradient(circle at 75% 20%,#6d1b173d,transparent 38%),linear-gradient(180deg,#17120e,#090b0d);box-shadow:0 18px 45px #0009,0 0 26px #b77b2b25}
+.journeyBonusBossHead{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid #60451f;background:linear-gradient(90deg,#2a120e,#15110c 55%,#29160d);color:#f2c871}.journeyBonusBossHead b{font:700 13px/1 Georgia,serif;letter-spacing:.1em}.journeyBonusBossHead span{font:700 10px Arial,sans-serif;color:#ffe6ad;border:1px solid #9b6b2d;border-radius:999px;padding:5px 8px;background:#120d09}
+.journeyBonusBossGrid{display:grid;grid-template-columns:minmax(260px,.8fr) minmax(0,1.2fr);gap:0}.journeyBonusBossArt{min-height:560px;background:#090a0b center top/cover no-repeat;position:relative}.journeyBonusBossArt:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,#0b0b0b 100%)}
+.journeyBonusBossInfo{padding:18px}.journeyBonusBossInfo h4{margin:0;color:#ffe0a0;font:700 31px/1 Georgia,serif}.journeyBonusBossInfo>p{margin:7px 0 13px;color:#b9b2a4;font:12px/1.5 Arial,sans-serif}.journeyBonusBossStats{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin:12px 0}.journeyBonusBossStats span{border:1px solid #594322;border-radius:8px;background:#0d1113;padding:8px 4px;text-align:center;color:#989fa1;font:9px Arial,sans-serif}.journeyBonusBossStats b{display:block;margin-top:3px;color:#f3c76b;font:700 15px Georgia,serif}
+.journeyBonusSkills{display:grid;grid-template-columns:1fr 1fr;gap:7px}.journeyBonusSkill{padding:9px 10px;border:1px solid #393128;border-left:2px solid #a97831;border-radius:8px;background:#0b1012;color:#b8bec0;font:10px/1.42 Arial,sans-serif}.journeyBonusSkill b{display:block;color:#e9c778;margin-bottom:2px;font-size:10px}.journeyBonusDrop{margin-top:11px;border:1px solid #98672d;border-radius:10px;padding:11px;background:linear-gradient(90deg,#211407,#100f0d);color:#d8c8a9;font:11px/1.45 Arial,sans-serif;box-shadow:inset 0 0 20px #bd7d2720}.journeyBonusDrop b{display:block;color:#ffd46f;font-size:12px;margin-bottom:3px}.journeyBonusActions{display:flex;align-items:center;gap:10px;margin-top:12px;flex-wrap:wrap}.journeyBonusFight{border:1px solid #c58b39;border-radius:9px;background:linear-gradient(180deg,#7a331f,#40150e);color:#fff0c7;padding:10px 15px;font:800 11px Arial,sans-serif;letter-spacing:.05em;cursor:pointer;box-shadow:0 0 18px #b4482930}.journeyBonusFight:hover{filter:brightness(1.12)}.journeyBonusFight:disabled{opacity:.55;cursor:wait}.journeyBonusStatus{color:#9ca4a7;font:10px Arial,sans-serif}
+@media(max-width:780px){.journeyBonusBossGrid{grid-template-columns:1fr}.journeyBonusBossArt{min-height:440px}.journeyBonusSkills{grid-template-columns:1fr}.journeyBonusBossStats{grid-template-columns:repeat(5,minmax(48px,1fr));overflow-x:auto}.journeyBonusBossInfo h4{font-size:25px}}
 .journeyDashboardGrid{display:grid;grid-template-columns:1.7fr .72fr .9fr;gap:12px;margin-top:12px}.journeyPanel{border:1px solid #4c3b22;border-radius:13px;background:linear-gradient(180deg,#101619,#080d10);padding:13px}.journeyPanelTitle{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.journeyPanelTitle span{color:#e2bf6b;font-weight:700}.journeyPanelTitle small{color:#778286;font:9px Arial,sans-serif;letter-spacing:.08em}
 .journeyHeroStats{display:grid;grid-template-columns:repeat(7,1fr);gap:7px}.journeyHeroCard{min-width:0;padding:9px 6px;border:1px solid #344047;border-radius:9px;background:#0a1114;text-align:center}.journeyHeroCard .avatar{width:43px;height:43px;margin:0 auto 6px;display:block}.journeyHeroCard b{display:block;color:#e7cc91;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.journeyHeroNumbers{display:grid;gap:3px;margin-top:7px;color:#aeb6b9;font:9px Arial,sans-serif}.journeyHeroNumbers span{display:flex;justify-content:space-between;gap:3px}.journeyHeroNumbers strong{color:#eef0f0;font-size:10px}
 .journeyShopTimer{padding:13px 6px;border:1px solid #6d5228;border-radius:10px;background:#120f0b;text-align:center;color:#f2cc75;font:700 26px/1 Georgia,serif;letter-spacing:.04em}.journeyShopMeta{margin-top:8px;text-align:center;color:#98a3a7;font:10px/1.45 Arial,sans-serif}
@@ -963,6 +969,40 @@
     <article id='journeyEnemyPrev' class='journeyEnemyCard previous'></article>
     <article id='journeyEnemyCurrent' class='journeyEnemyCard current'></article>
     <article id='journeyEnemyNext' class='journeyEnemyCard next'></article>
+  </div>
+
+  <div id='rolasBonusBoss' class='journeyBonusBoss'>
+    <div class='journeyBonusBossHead'>
+      <b>👑 BONUS BOSS · VISADA ATRAKINTAS</b>
+      <span>NEBLOKUOJA KAMPANIJOS</span>
+    </div>
+    <div class='journeyBonusBossGrid'>
+      <div class='journeyBonusBossArt' style="background-image:url('assets/rpg/bonus-boss-rolas.webp?v=20261016')"></div>
+      <div class='journeyBonusBossInfo'>
+        <h4>ALK Valdovas Rolas</h4>
+        <p>Optional superboss. Gali kautis bet kada. Pralaimėjimas nekeičia turo progreso ir nenaudoja pagrindinių kampanijos bandymų.</p>
+        <div class='journeyBonusBossStats'>
+          <span>HP<b>120</b></span><span>AC<b>15</b></span><span>ATK<b>+5</b></span><span>DMG<b>1d12+2</b></span><span>INIT<b>+4</b></span>
+        </div>
+        <div class='journeyBonusSkills'>
+          <div class='journeyBonusSkill'><b>👑 PASIKĖLIMO AURA</b>Pirmus 2 ratus +2 AC ir +1 Attack.</div>
+          <div class='journeyBonusSkill'><b>🏀 3x3 TĖVAS</b>Kas 3 ratą atlieka 2 atakas; antra su -2 Attack.</div>
+          <div class='journeyBonusSkill'><b>📺 SERIALO CLIFFHANGERIS</b>Pirmą kartą žemiau 50% HP gauna papildomą ataką.</div>
+          <div class='journeyBonusSkill'><b>📈 DIDESNI PLANAI</b>Kas 4 ratus +1 Attack visam likusiam fightui. Kaupiasi.</div>
+          <div class='journeyBonusSkill'><b>🎤 MAMA VALDYBA</b>Pirmą kartą žemiau 25% HP: +15 HP ir 2 ėjimams +2 Damage.</div>
+          <div class='journeyBonusSkill'><b>📜 ALK KONTRAKTAS</b>1× per kovą tavo NAT 20 crit paverčia paprastu hitu.</div>
+        </div>
+        <div class='journeyBonusDrop'>
+          <b>✨ LEGENDARY · ALK VALDOVO KARŪNA</b>
+          +1 Attack · +1 AC · <strong>Pasikėlimo aura:</strong> virš 50% HP dar +1 AC · <strong>Valdovo Žodis:</strong> 1× per kovą priešo pataikymas priverstinai permetamas.<br>
+          <small>Pirmas Rolo nugalėjimas — garantuotas dropas. Vėlesnės pergalės — 8% Legendary chance.</small>
+        </div>
+        <div class='journeyBonusActions'>
+          <button id='rolasBonusFightBtn' class='journeyBonusFight' type='button'>⚔️ KOVOTI SU ROLU</button>
+          <span id='rolasBonusStatus' class='journeyBonusStatus'>Kraunama bonus boss būsena…</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class='journeyDashboardGrid'>
@@ -3085,9 +3125,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   function renderEnemyCombatMeta(){
     const e=enemyMeta;if(!e)return;
     const no=Number(e.enemy_no);
-    const kicker=get("rpgBattleEnemyKicker");if(kicker)kicker.textContent="ENEMY #"+no+" · "+String(e.team_name||"").toUpperCase();
+    const isBonus=Number(no)===99||battle?.battle_type==="bonus";
+    const kicker=get("rpgBattleEnemyKicker");if(kicker)kicker.textContent=isBonus?"BONUS BOSS · ALK":("ENEMY #"+no+" · "+String(e.team_name||"").toUpperCase());
     const title=get("rpgBattleTitle");if(title)title.textContent="Kova su "+e.name;
-    const label=get("rpgEnemyLabel");if(label)label.textContent="PRIEŠAS · ENEMY #"+no;
+    const label=get("rpgEnemyLabel");if(label)label.textContent=isBonus?"👑 BONUS BOSS":("PRIEŠAS · ENEMY #"+no);
     const name=get("rpgEnemyName");if(name)name.textContent=e.name;
     const ac=get("rpgEnemyAc");if(ac)ac.textContent=e.ac;
     const atk=get("rpgEnemyAttack");if(atk)atk.textContent=mod(e.attack_bonus);
@@ -3309,7 +3350,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const portrait=get("rpgPlayerBattlePortrait");
     if(portrait)portrait.style.backgroundImage="linear-gradient(180deg,transparent 62%,#071014 100%),url('assets/rpg/"+profile.avatar_key+".webp')";
     get("rpgCombatRound").textContent=battle.combat_round||1;
-    const attemptBadge=get("rpgAttemptBadge");if(attemptBadge)attemptBadge.textContent="BANDYMAS "+(battle.attempt_no||"?")+"/3";
+    const attemptBadge=get("rpgAttemptBadge");if(attemptBadge)attemptBadge.textContent=battle?.battle_type==="bonus"?"BONUS BOSS · BANDYMAS "+(battle.attempt_no||1):("BANDYMAS "+(battle.attempt_no||"?")+"/3");
 
     setHp("player",battle.player_hp,battle.player_max_hp);
     setHp("enemy",battle.enemy_hp,battle.enemy_max_hp);
@@ -3519,7 +3560,9 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const sb=window.rpgSupabase;
     try{
       const minDelay=sleep(520);
-      const rpc=sb.rpc("rpg_roll",{p_kind:kind});
+      const rpc=battle?.battle_type==="bonus"
+        ? sb.rpc("rpg_roll_bonus",{p_kind:kind})
+        : sb.rpc("rpg_roll",{p_kind:kind});
       const [{data,error}]=await Promise.all([rpc,minDelay]);
       if(error)throw error;
       const result=data;
@@ -3532,6 +3575,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         if(p)profile=p;if(cs)combatStats=cs;
         if(window.renderRpgSheet)await window.renderRpgSheet();
         if(window.loadRpgMiniProfile)await window.loadRpgMiniProfile();
+        if(window.refreshRolasBonusBoss)await window.refreshRolasBonusBoss();
       }
     }catch(e){
       console.error(e);
@@ -3558,6 +3602,21 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 
   startBtn.addEventListener("click",()=>battle&&battle.status==="active"?(arena.classList.add("show"),arena.scrollIntoView({behavior:"smooth",block:"start"})):startBattle());
   retryBtn.addEventListener("click",async()=>{
+    if(battle?.battle_type==="bonus"){
+      if(busy||playing)return;
+      busy=true;renderBattle();
+      try{
+        const {data,error}=await window.rpgSupabase.rpc("start_rpg_bonus_boss");if(error)throw error;
+        battle=data;
+        const [{data:s},{data:cs}]=await Promise.all([window.rpgSupabase.rpc("rpg_round_status"),window.rpgSupabase.rpc("rpg_combat_stats")]);
+        roundStatus=s||roundStatus;combatStats=cs||combatStats;enemyMeta=metaFor(99)||enemyMeta;
+        arena.classList.add("show");renderBattle();arena.scrollIntoView({behavior:"smooth",block:"start"});
+        if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+      }catch(e){
+        setTurn("result","BONUS BOSS NEPRADĖTAS","Pabandyk dar kartą.");
+      }finally{busy=false;renderBattle()}
+      return;
+    }
     if(battle?.battle_type!=="rematch"){startBattle();return}
     if(busy||playing)return;
     busy=true;renderBattle();
@@ -3588,6 +3647,61 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       document.querySelectorAll(".rpgBuyStat").forEach(b=>b.addEventListener("click",()=>setTimeout(refresh,450)));
     }
   },100);
+})();
+</script>
+
+<script id="rolasBonusBossScript">
+(() => {
+  const btn=document.getElementById("rolasBonusFightBtn");
+  const status=document.getElementById("rolasBonusStatus");
+  if(!btn||!status)return;
+
+  async function refreshStatus(){
+    const sb=window.rpgSupabase;
+    if(!sb){status.textContent="Prisijunk prie RPG personažo.";return;}
+    const {data:{session}}=await sb.auth.getSession();
+    if(!session){status.textContent="Prisijunk prie RPG personažo.";btn.disabled=false;return;}
+    const {data,error}=await sb.rpc("rpg_bonus_boss_status");
+    if(error){status.textContent="Bonus boss būsena laikinai nepasiekiama.";return;}
+    const wins=Number(data?.wins||0);
+    if(wins===0){
+      status.textContent="Dar nenugalėtas · pirmas win garantuoja Legendary Karūną.";
+      btn.textContent="⚔️ KOVOTI SU ROLU";
+    }else{
+      status.textContent="Nugalėtas "+wins+"× · rematch drop chance 8%"+(data?.has_crown?" · 👑 Karūna inventoriuje":"")+".";
+      btn.textContent="⚔️ BONUS BOSS REMATCH";
+    }
+  }
+
+  async function fight(){
+    if(btn.disabled)return;
+    const sb=window.rpgSupabase;
+    if(!sb){status.textContent="RPG sistema dar neužsikrovė.";return;}
+    btn.disabled=true;status.textContent="Atidaromas ALK Valdovo encounteris…";
+    try{
+      const {data,error}=await sb.rpc("start_rpg_bonus_boss");
+      if(error)throw error;
+      if(window.refreshRpgCombat)await window.refreshRpgCombat();
+      if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
+      document.getElementById("rpg")?.scrollIntoView({behavior:"smooth",block:"start"});
+      status.textContent="👑 Bonus boss kova aktyvi.";
+    }catch(e){
+      const t=String(e?.message||"").toLowerCase();
+      status.textContent=t.includes("active battle")?"Pirma užbaik aktyvią kampanijos / archyvo kovą.":t.includes("farm")?"Pirma užbaik aktyvią Farm kovą.":"Nepavyko pradėti bonus boss kovos.";
+    }finally{
+      btn.disabled=false;
+    }
+  }
+
+  btn.addEventListener("click",fight);
+  window.refreshRolasBonusBoss=refreshStatus;
+  const wait=setInterval(()=>{
+    if(window.rpgSupabase){
+      clearInterval(wait);
+      refreshStatus();
+      window.rpgSupabase.auth.onAuthStateChange(()=>setTimeout(refreshStatus,160));
+    }
+  },120);
 })();
 </script>
 
