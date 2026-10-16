@@ -918,6 +918,13 @@
 #rpgBattleArena .rpgCombatEffectStatus,#farmRpgBattleArena .rpgCombatEffectStatus{position:relative;z-index:1}
 @media(max-width:700px){.rpgCombatEffectStatus{padding:5px;gap:4px}.rpgCombatEffectBadge{font-size:8px;padding:4px 5px}}
 @media(prefers-reduced-motion:reduce){.rpgCombatEffectChanged{animation:none}}
+</style><style id="rpgFighterSkillsControls">
+.rpgPrecisionDecision{grid-column:1/-1;display:flex;flex-direction:column;gap:7px;padding:10px 12px;border:1px solid #b28b42;border-radius:9px;background:linear-gradient(120deg,#30210b,#11110d);box-shadow:0 0 14px #c6a03d30;color:#efcd76}
+.rpgPrecisionDecision>b{font:800 12px Georgia,serif}
+.rpgPrecisionDecision>span{font:10px/1.45 Arial,sans-serif;color:#ddc89a}
+.rpgPrecisionSkip{align-self:start;padding:8px 11px;border:1px solid #827457;border-radius:7px;background:#231c13;color:#f2d7a0;cursor:pointer;font:800 10px Arial,sans-serif}
+.rpgPrecisionSkip:hover:not(:disabled){background:#47341a}.rpgPrecisionSkip:disabled{opacity:.4}
+#farmRpgBattleArena .rpgPrecisionDecision{padding:8px}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>5 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>5 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -3069,6 +3076,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(b.phase==="initiative")return "Mesk D20 iniciatyvai";
     if(b.phase==="player_attack")return "Mesk D20 atakai";
     if(b.phase==="player_damage")return "Mesk "+(b.pending_crit?"2×":"")+playerDamageDie()+" žalai";
+    if(b.phase==="precision_choice")return "🎯 Pasirink Precision Attack arba tęsk";
     return "Kova baigta";
   }
   function renderEnemyCombatMeta(){
@@ -3348,7 +3356,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(!playing){
       if(active){
         setTurn("player","TAVO ĖJIMAS",phaseText(battle));
-        setAction("LAUKIAMA TAVO METIMO",battle.phase==="player_damage"?"Pataikei. Dabar išmesk žalą.":"Pasirink aktyvų kauliuko mygtuką.","");
+        setAction(battle.phase==="precision_choice"?"🎯 PRECISION ATTACK?":"LAUKIAMA TAVO METIMO",battle.phase==="precision_choice"?"Pridėk 1d6 Skill skiltyje arba praleisk.":battle.phase==="player_damage"?"Pataikei. Dabar išmesk žalą.":"Pasirink aktyvų kauliuko mygtuką.","");
       }else if(battle.status==="win"){
         setTurn("result","PERGALĖ","Priešas įveiktas.");
         setAction("ENEMY #"+battle.enemy_no+" ĮVEIKTAS","Kovos rezultatas išsaugotas. Gali tęsti su sekančiu atrakintu priešu.","crit");
@@ -3894,6 +3902,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     if(b.phase==="initiative")return "Mesk D20 iniciatyvai";
     if(b.phase==="player_attack")return "Mesk D20 atakai";
     if(b.phase==="player_damage")return "Mesk "+(b.pending_crit?"2×":"")+playerDamageDie()+" žalai";
+    if(b.phase==="precision_choice")return "🎯 Pasirink Precision Attack arba tęsk";
     return "Kova baigta";
   }
   function setTurn(actor,title,detail){
@@ -4124,7 +4133,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     retryBtn.disabled=remain<=0;
     retryBtn.textContent=remain<=0?"⛔ BANDYMAI IŠNAUDOTI":"↻ BANDYTI DAR KARTĄ";
     if(!playing){
-      if(active){setTurn("player","TAVO ĖJIMAS",phaseText(battle));setAction("LAUKIAMA TAVO METIMO",battle.phase==="player_damage"?"Pataikei. Dabar išmesk žalą.":"Pasirink aktyvų kauliuko mygtuką.","")}
+      if(active){setTurn("player","TAVO ĖJIMAS",phaseText(battle));setAction(battle.phase==="precision_choice"?"🎯 PRECISION ATTACK?":"LAUKIAMA TAVO METIMO",battle.phase==="precision_choice"?"Pridėk 1d6 Skill skiltyje arba praleisk.":battle.phase==="player_damage"?"Pataikei. Dabar išmesk žalą.":"Pasirink aktyvų kauliuko mygtuką.","")}
       else if(battle.status==="win"){setTurn("result","PERGALĖ",(enemyMeta?.name||"Farm priešas")+" įveiktas.");setAction("FARM PERGALĖ","Rewardas įrašytas į inventorių.","crit")}
       else{setTurn("result","PRALAIMĖJIMAS","Šis farm bandymas baigtas.");setAction("BANDYMAS BAIGTAS","Gali pradėti kitą bandymą, jei dar liko dienos limitas.","enemyHit")}
     }
@@ -4315,11 +4324,25 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
 
   function battleFor(kind){return kind==="campaign"?campaignBattle:farmBattle}
-  function manualSkill(id){return id==="str_riposte"||id==="con_second_wind"}
+  function manualSkill(id){return ["str_riposte","con_second_wind","str_precision_attack","str_action_surge","str_extra_attack"].includes(id)}
   function skillIcon(s){return s.attribute==="STR"?"⚔️":s.attribute==="DEX"?"🏹":"🛡️"}
   function skillReason(s,b){
     if(!b||b.status!=="active")return "TIK KOVOJE";
     const st=b.skill_state||{};
+    if(s.id==="str_precision_attack"){
+      if(st.precision_used)return "PANAUDOTA";
+      return b.phase==="precision_choice"?"":"PO MISS";
+    }
+    if(s.id==="str_action_surge"){
+      if(st.action_surge_ready)return "PARUOŠTA";
+      if(st.action_surge_used)return "PANAUDOTA";
+      return b.phase==="player_attack"?"":"TAVO ĖJIME";
+    }
+    if(s.id==="str_extra_attack"){
+      if(st.extra_attack_ready)return "PARUOŠTA";
+      if(st.extra_attack_used)return "PANAUDOTA";
+      return b.phase==="player_attack"?"":"TAVO ĖJIME";
+    }
     if(s.id==="str_riposte"){
       if(st.riposte_used)return "PANAUDOTA";
       if(st.riposte_armed)return "PARUOŠTA";
@@ -4352,13 +4375,20 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     box.innerHTML=shown.map(s=>{
       const reason=skillReason(s,b),manual=manualSkill(s.id),disabled=!manual||!!reason;
       const action=!manual?"<span class='rpgCombatAutoBadge'>AUTO</span>":
-        "<button type='button' class='rpgCombatChoiceBtn' data-use-combat-skill='"+esc(s.id)+"' "+(disabled?"disabled":"")+">"+(s.id==="str_riposte"?"PARUOŠTI":"NAUDOTI")+"</button>";
+        "<button type='button' class='rpgCombatChoiceBtn' data-use-combat-skill='"+esc(s.id)+"' "+(disabled?"disabled":"")+">"+
+        (s.id==="str_precision_attack"?"PRIDĖTI D6":["str_riposte","str_action_surge","str_extra_attack"].includes(s.id)?"PARUOŠTI":"NAUDOTI")+"</button>";
       const suffix=reason&&reason!=="AUTO"?" · "+reason:"";
       return "<div class='rpgCombatChoice skill "+(reason==="PANAUDOTA"?"rpgCombatUsed":"")+"' title='"+esc(s.description||s.name)+"'>"+
         "<span class='rpgCombatChoiceIcon'>"+skillIcon(s)+"</span>"+
         "<span class='rpgCombatChoiceText'><b>"+esc(s.name)+"</b>"+
         (manual?"<small>"+esc(s.description)+esc(suffix)+"</small>":"")+"</span>"+action+"</div>";
     }).join("");
+    if(b?.status==="active"&&b.phase==="precision_choice"){
+      box.insertAdjacentHTML("afterbegin",
+        "<div class='rpgPrecisionDecision'><b>🎯 NEPATAIKEI · PRECISION ATTACK?</b>"+
+        "<span>Pridėk 1d6 prie nesėkmingo Attack metimo arba tęsk be bonuso.</span>"+
+        "<button type='button' class='rpgPrecisionSkip' data-skip-precision='"+kind+"'>TĘSTI BE PRECISION</button></div>");
+    }
   }
 
   function spellReason(sp,b){
@@ -4399,7 +4429,13 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const cfg=configs[kind],msg=$(cfg.skillMsg);if(msg)msg.textContent="Skillas aktyvuojamas…";
     try{
       const {data,error}=await window.rpgSupabase.rpc("rpg_use_skill",{p_skill_id:id});if(error)throw error;
-      if(msg)msg.textContent=id==="str_riposte"?"⚔️ Riposte paruoštas. Jei priešas nepataikys, gausi nemokamą kontrataką.":"✓ "+(data?.name||"Skillas")+" panaudotas.";
+      if(msg){
+        if(id==="str_precision_attack")msg.textContent="🎯 Precision Attack: D6 = "+(data?.roll??"?")+(data?.precision_hit?" · ataka išgelbėta! Mesk žalą.":" · vis dar MISS. Priešo ėjimas.");
+        else if(id==="str_riposte")msg.textContent="⚔️ Riposte paruoštas. Jei priešas nepataikys, gausi nemokamą kontrataką.";
+        else if(id==="str_action_surge")msg.textContent="⚡ Action Surge paruoštas: po atakos papildomas veiksmas.";
+        else if(id==="str_extra_attack")msg.textContent="⚔️ Extra Attack paruoštas: po atakos smogsi dar kartą.";
+        else msg.textContent="✓ "+(data?.name||"Skillas")+" panaudotas.";
+      }
       if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
       if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
       await refreshHub();
@@ -4436,7 +4472,24 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   }
   window.refreshCombatActionHub=refreshHub;
 
-  document.addEventListener("click",e=>{
+  document.addEventListener("click",async e=>{
+    const skip=e.target.closest("[data-skip-precision]");
+    if(skip){
+      if(skip.disabled)return;
+      skip.disabled=true;
+      const kind=skip.dataset.skipPrecision,cfg=configs[kind];
+      try{
+        const {error}=await window.rpgSupabase.rpc(kind==="farm"?"rpg_farm_roll":"rpg_roll",{p_kind:"continue"});
+        if(error)throw error;
+        if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
+        if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
+        await refreshHub();
+      }catch(err){
+        skip.disabled=false;
+        const msg=$(cfg.skillMsg);if(msg)msg.textContent=String(err?.message||"Nepavyko pratęsti kovos.");
+      }
+      return;
+    }
     const sk=e.target.closest("[data-use-combat-skill]");
     if(sk&&!sk.disabled){
       sk.setAttribute("data-use-combat-skill-static","1");
