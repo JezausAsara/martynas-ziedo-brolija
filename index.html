@@ -739,42 +739,42 @@
 @media(max-width:800px){.rpgPaperSlot.has-legendary-art>span{width:37px;height:34px}.rpgPaperSlot .rpgLegendaryArt{width:36px;height:34px}.rpg2-equipMini .rpgLegendaryArt{width:48px;height:48px}.rpgSlotArtwork{width:58px;height:58px}}
 </style>
 <style id="farmCombatVisualUpgrade2026">
-/* FARM combat: keeps the original 1v1 logic and all existing element IDs. */
-#farmRpgBattleArena{
+/* Shared FARM + CAMPAIGN combat layout: same 1v1 UI, existing IDs preserved. */
+:is(#farmRpgBattleArena,#rpgBattleArena){
   --farm-gold:#c89b4b;--farm-ink:#080c10;
   border:1px solid #92703a;
   background:radial-gradient(ellipse at 50% 6%,#4e34213d,transparent 36%),linear-gradient(165deg,#12171b,#06090b 72%);
   box-shadow:inset 0 0 0 1px #291d10,inset 0 0 44px #000a,0 9px 30px #0009;
 }
-#farmRpgBattleArena .rpgBattleTop{align-items:center;border-color:#624a27}
-#farmRpgBattleArena .rpgBattleTop h3{color:#f3d388;letter-spacing:.015em}
-#farmRpgBattleArena .rpgTurnBanner{margin:9px 0;padding:9px 12px;border-color:#506b55;background:linear-gradient(90deg,#0a1713,#10251c,#0a1713)}
-#farmRpgBattleArena .rpgBattleCards{grid-template-columns:minmax(0,1fr) 84px minmax(0,1fr)!important;gap:10px!important;align-items:stretch!important;margin-top:10px}
-#farmRpgBattleArena .rpgCombatCard{padding:11px;border-radius:11px;box-shadow:inset 0 0 0 1px #191d1b,0 8px 17px #0008}
-#farmRpgBattleArena .rpgCombatCard.player{border-color:#5b653f;background:linear-gradient(155deg,#1d241b,#0b1010 55%,#080c0f)}
-#farmRpgBattleArena .rpgCombatCard.enemy{border-color:#864837;background:linear-gradient(155deg,#291714,#150e10 52%,#0a090c)}
-#farmRpgBattleArena .rpgCombatCardTop{display:grid;grid-template-columns:minmax(90px,43%) minmax(0,1fr);gap:12px;align-items:center}
-#farmRpgBattleArena .rpgCombatPortrait,
-#farmRpgBattleArena .rpgEnemyPortraitArt{height:196px;border:1px solid #977135;border-radius:8px;box-shadow:inset 0 0 22px #000,0 0 0 2px #181710,0 6px 14px #000b}
-#farmRpgBattleArena .rpgCombatIdentity strong{font-size:clamp(13px,1.45vw,21px);color:#eecf91;margin-bottom:12px;line-height:1.17}
-#farmRpgBattleArena .rpgCombatIdentity small{color:#bb9660;letter-spacing:.13em}
-#farmRpgBattleArena .rpgCombatPrimary{grid-template-columns:minmax(0,1fr) 66px;gap:6px}
-#farmRpgBattleArena .rpgVital{padding:7px}
-#farmRpgBattleArena .rpgVital.hp b{font-size:clamp(12px,1.5vw,19px)}
-#farmRpgBattleArena .rpgHpBar.combat{height:11px;margin:10px 0 8px;border-radius:6px}
-#farmRpgBattleArena .rpgBattleVersus{gap:10px;padding:3px!important;align-self:center}
-#farmRpgBattleArena .rpgVsMark{font-size:35px;color:#b18c4e;text-shadow:0 0 15px #ad7b3940}
-#farmRpgBattleArena .rpgActionHeadline{padding:9px 4px;font-size:10px;border-color:#5a4425}
-#farmRpgBattleArena .rpgActionDetail{font-size:9px}
-#farmRpgBattleArena .rpgBattleControls{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleTop{align-items:center;border-color:#624a27}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleTop h3{color:#f3d388;letter-spacing:.015em}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgTurnBanner{margin:9px 0;padding:9px 12px;border-color:#506b55;background:linear-gradient(90deg,#0a1713,#10251c,#0a1713)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleCards{grid-template-columns:minmax(0,1fr) 84px minmax(0,1fr)!important;gap:10px!important;align-items:stretch!important;margin-top:10px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCard{padding:11px;border-radius:11px;box-shadow:inset 0 0 0 1px #191d1b,0 8px 17px #0008}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCard.player{border-color:#5b653f;background:linear-gradient(155deg,#1d241b,#0b1010 55%,#080c0f)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCard.enemy{border-color:#864837;background:linear-gradient(155deg,#291714,#150e10 52%,#0a090c)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCardTop{display:grid;grid-template-columns:minmax(90px,43%) minmax(0,1fr);gap:12px;align-items:center}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatPortrait,
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgEnemyPortraitArt{height:196px;border:1px solid #977135;border-radius:8px;box-shadow:inset 0 0 22px #000,0 0 0 2px #181710,0 6px 14px #000b}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatIdentity strong{font-size:clamp(13px,1.45vw,21px);color:#eecf91;margin-bottom:12px;line-height:1.17}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatIdentity small{color:#bb9660;letter-spacing:.13em}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatPrimary{grid-template-columns:minmax(0,1fr) 66px;gap:6px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital{padding:7px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital.hp b{font-size:clamp(12px,1.5vw,19px)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgHpBar.combat{height:11px;margin:10px 0 8px;border-radius:6px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleVersus{gap:10px;padding:3px!important;align-self:center}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgVsMark{font-size:35px;color:#b18c4e;text-shadow:0 0 15px #ad7b3940}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgActionHeadline{padding:9px 4px;font-size:10px;border-color:#5a4425}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgActionDetail{font-size:9px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleControls{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;
   margin:8px 0 5px;padding:0;border:none;background:none
 }
-#farmRpgBattleArena .rpgBattleControls:before{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleControls:before{
   content:"🎲 TAVO METIMAI";position:static;display:block;grid-column:1/-1;
   margin:0 0 1px;color:#d9b66c;font:800 9px/1 Arial,sans-serif;letter-spacing:.1em
 }
-#farmRpgBattleArena .rpgCombatDieBtn{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn{
   min-width:0;min-height:60px;padding:7px;
   grid-template-columns:34px minmax(0,1fr);grid-template-rows:auto auto;gap:2px 6px;
   border-radius:8px;border-color:#ab7f34;
@@ -782,131 +782,131 @@
   box-shadow:inset 0 1px 0 #f7ce7f55,0 2px 10px #0009;
   transition:filter .15s,transform .15s
 }
-#farmRpgBattleArena .rpgCombatDieBtn.damage{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn.damage{
   border-color:#965244;background:linear-gradient(155deg,#73271d,#35110f 65%,#1c1110)
 }
-#farmRpgBattleArena .rpgCombatDieBtn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.18)}
-#farmRpgBattleArena .rpgCombatDieBtn .dieIcon{width:32px;height:36px;grid-row:1/3;color:#ffe4ab;font-size:14px;border-color:#c7964f}
-#farmRpgBattleArena .rpgCombatDieBtn b{font:900 11px/1.15 Arial,sans-serif;color:#ffe6ad}
-#farmRpgBattleArena .rpgCombatDieBtn small{font:8px/1.3 Arial,sans-serif;color:#e0c79c}
-#farmRpgBattleArena .rpgCombatDieBtn:disabled{opacity:.43;transform:none}
-#farmRpgBattleArena .rpgRollBox{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn:hover:not(:disabled){transform:translateY(-1px);filter:brightness(1.18)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn .dieIcon{width:32px;height:36px;grid-row:1/3;color:#ffe4ab;font-size:14px;border-color:#c7964f}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn b{font:900 11px/1.15 Arial,sans-serif;color:#ffe6ad}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn small{font:8px/1.3 Arial,sans-serif;color:#e0c79c}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn:disabled{opacity:.43;transform:none}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollBox{
   margin:7px 0 8px;padding:6px 9px;
   display:grid;grid-template-columns:minmax(0,1fr) 47px minmax(0,1fr);gap:7px;
   align-items:center;text-align:left;border-color:#57452b;background:#080d10
 }
-#farmRpgBattleArena .rpgRollBox>small{font-size:8px;color:#af9970;line-height:1.25}
-#farmRpgBattleArena .rpgSideDie{width:45px!important;height:45px!important;margin:0!important}
-#farmRpgBattleArena .rpgSideDie b{font-size:18px!important}
-#farmRpgBattleArena .rpgSideDie span{font-size:7px!important}
-#farmRpgBattleArena .rpgRollTotal{text-align:right;font-size:9px;min-height:0;overflow-wrap:anywhere}
-#farmRpgBattleArena .rpgCombatLoadout{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:9px 0 6px}
-#farmRpgBattleArena .rpgLoadoutCard{min-width:0;grid-template-columns:28px 1fr;gap:5px;padding:7px}
-#farmRpgBattleArena .rpgLoadoutIcon{font-size:19px}
-#farmRpgBattleArena .rpgLoadoutStats{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
-#farmRpgBattleArena .rpgLoadoutStats span{font-size:6px;padding:3px 1px}
-#farmRpgBattleArena .rpgLoadoutStats b{font-size:9px}
-#farmRpgBattleArena .rpgCombatRatingLine{margin:5px 0}
-#farmRpgBattleArena .rpgPotionStatus{font-size:9px}
-#farmRpgBattleArena .rpgFarmEnemyAutoRoll{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollBox>small{font-size:8px;color:#af9970;line-height:1.25}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgSideDie{width:45px!important;height:45px!important;margin:0!important}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgSideDie b{font-size:18px!important}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgSideDie span{font-size:7px!important}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollTotal{text-align:right;font-size:9px;min-height:0;overflow-wrap:anywhere}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatLoadout{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;margin:9px 0 6px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgLoadoutCard{min-width:0;grid-template-columns:28px 1fr;gap:5px;padding:7px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgLoadoutIcon{font-size:19px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgLoadoutStats{grid-template-columns:repeat(3,minmax(0,1fr));gap:2px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgLoadoutStats span{font-size:6px;padding:3px 1px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgLoadoutStats b{font-size:9px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatRatingLine{margin:5px 0}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgPotionStatus{font-size:9px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmEnemyAutoRoll{
   margin-top:10px;border:1px solid #664038;border-radius:8px;background:#1a1010;
   padding:8px 10px;color:#b58e79;font:800 9px Arial,sans-serif;letter-spacing:.045em
 }
-#farmRpgBattleArena .rpgCombatAbilityStrip{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityStrip{
   display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1.2fr) minmax(0,.83fr);
   gap:8px;padding:9px;margin:11px 0;border-color:#6b512e;
   background:linear-gradient(180deg,#14120d,#080c10)
 }
-#farmRpgBattleArena .rpgCombatAbilityBlock{border-color:#5e6941;background:linear-gradient(145deg,#142014,#0b120f);min-width:0}
-#farmRpgBattleArena .rpgCombatAbilityBlock.spellBlock{border-color:#615180;background:linear-gradient(145deg,#1b1429,#0e0c18)}
-#farmRpgBattleArena .rpgCombatAbilityBlock.passiveBlock{border-color:#7b6340;background:linear-gradient(145deg,#1c1812,#10100e)}
-#farmRpgBattleArena .rpgCombatChoiceHead b{color:#edce88;font:900 12px Georgia,serif}
-#farmRpgBattleArena .rpgCombatChoiceHead span{font-size:8px;color:#a4987e}
-#farmRpgBattleArena .rpgCombatChoiceGrid{display:grid;grid-template-columns:1fr;gap:6px}
-#farmRpgBattleArena .rpgCombatChoice{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityBlock{border-color:#5e6941;background:linear-gradient(145deg,#142014,#0b120f);min-width:0}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityBlock.spellBlock{border-color:#615180;background:linear-gradient(145deg,#1b1429,#0e0c18)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityBlock.passiveBlock{border-color:#7b6340;background:linear-gradient(145deg,#1c1812,#10100e)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceHead b{color:#edce88;font:900 12px Georgia,serif}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceHead span{font-size:8px;color:#a4987e}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceGrid{display:grid;grid-template-columns:1fr;gap:6px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice{
   min-width:0;grid-template-columns:43px minmax(0,1fr);gap:8px;align-items:center;
   border-radius:9px;border-color:#7f6033;padding:8px;
   background:linear-gradient(120deg,#201c13,#0d1314);
 }
-#farmRpgBattleArena .rpgCombatChoice.skill{border-color:#476448}
-#farmRpgBattleArena .rpgCombatChoice.spell{border-color:#5e4c7d}
-#farmRpgBattleArena .rpgCombatChoiceIcon{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice.skill{border-color:#476448}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice.spell{border-color:#5e4c7d}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceIcon{
   width:43px;height:43px;position:relative;grid-row:span 2;display:grid;place-items:center;
   font-size:26px;border:1px solid #8e6c34;border-radius:7px;
   background:radial-gradient(circle at 50% 38%,#645321,#14170d 74%);
   box-shadow:inset 0 0 11px #e0b14c20,0 0 9px #000
 }
-#farmRpgBattleArena .rpgCombatChoice.spell .rpgCombatChoiceIcon{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice.spell .rpgCombatChoiceIcon{
   border-color:#7456ad;background:radial-gradient(circle at 50% 30%,#473673,#110c1e 73%);
   box-shadow:inset 0 0 12px #a678ef33,0 0 9px #231246
 }
-#farmRpgBattleArena .rpgCombatChoiceIcon:after{content:"✦";position:absolute;right:2px;top:1px;font-size:9px;color:#f2d184}
-#farmRpgBattleArena .rpgCombatChoiceText b{font-size:11px;color:#f4e5c7;white-space:normal}
-#farmRpgBattleArena .rpgCombatChoiceText small{font-size:8px}
-#farmRpgBattleArena .rpgCombatChoiceBtn{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceIcon:after{content:"✦";position:absolute;right:2px;top:1px;font-size:9px;color:#f2d184}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceText b{font-size:11px;color:#f4e5c7;white-space:normal}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceText small{font-size:8px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceBtn{
   grid-column:2;justify-self:stretch;min-width:0;padding:8px;
   border:1px solid #638756;border-radius:6px;
   background:linear-gradient(#315737,#15351e);
   color:#d3f4cc;box-shadow:inset 0 1px 0 #aaf19e31;font:900 9px Arial,sans-serif
 }
-#farmRpgBattleArena .rpgCombatChoice.spell .rpgCombatChoiceBtn{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice.spell .rpgCombatChoiceBtn{
   border-color:#397ba2;background:linear-gradient(#155e88,#112d48);
   color:#c9eaff;box-shadow:inset 0 1px 0 #a5e5ff25
 }
-#farmRpgBattleArena .rpgCombatChoiceBtn:hover:not(:disabled){filter:brightness(1.2)}
-#farmRpgBattleArena .rpgCombatChoiceBtn:disabled{opacity:.45}
-#farmRpgBattleArena .rpgFarmPassiveList{display:flex;flex-direction:column;gap:6px;max-height:243px;overflow-y:auto}
-#farmRpgBattleArena .rpgFarmPassiveItem{
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceBtn:hover:not(:disabled){filter:brightness(1.2)}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceBtn:disabled{opacity:.45}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveList{display:flex;flex-direction:column;gap:6px;max-height:243px;overflow-y:auto}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveItem{
   display:flex;align-items:center;gap:6px;min-width:0;padding:7px;
   border:1px solid #52462e;border-radius:7px;background:#121612;
   font:800 10px/1.25 Georgia,serif;color:#d9d2bd
 }
-#farmRpgBattleArena .rpgFarmPassiveItem span{font-size:15px;flex-shrink:0}
-#farmRpgBattleArena .rpgFarmPassiveItem b{font-weight:700;overflow-wrap:anywhere}
-#farmRpgBattleArena .rpgFarmPassiveEmpty{color:#85928a;font:10px/1.4 Arial,sans-serif;padding:7px}
-#farmRpgBattleArena .rpgCombatItemsPanel{margin:9px 0}
-#farmRpgBattleArena .rpgBattleLogWrap{border-color:#6e532e;padding-top:8px;margin-top:10px}
-#farmRpgBattleArena .rpgBattleLog{max-height:170px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveItem span{font-size:15px;flex-shrink:0}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveItem b{font-weight:700;overflow-wrap:anywhere}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveEmpty{color:#85928a;font:10px/1.4 Arial,sans-serif;padding:7px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatItemsPanel{margin:9px 0}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleLogWrap{border-color:#6e532e;padding-top:8px;margin-top:10px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleLog{max-height:170px}
 @media(max-width:1150px){
-  #farmRpgBattleArena .rpgBattleCards{grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr)!important;gap:7px!important}
-  #farmRpgBattleArena .rpgCombatCardTop{grid-template-columns:1fr;gap:6px}
-  #farmRpgBattleArena .rpgCombatPortrait,#farmRpgBattleArena .rpgEnemyPortraitArt{height:180px}
-  #farmRpgBattleArena .rpgCombatLoadout{grid-template-columns:1fr}
-  #farmRpgBattleArena .rpgCombatAbilityStrip{grid-template-columns:repeat(2,minmax(0,1fr))}
-  #farmRpgBattleArena .rpgCombatAbilityBlock.passiveBlock{grid-column:1/-1}
-  #farmRpgBattleArena .rpgFarmPassiveList{flex-direction:row;flex-wrap:wrap;max-height:none}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleCards{grid-template-columns:minmax(0,1fr) 65px minmax(0,1fr)!important;gap:7px!important}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCardTop{grid-template-columns:1fr;gap:6px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatPortrait,:is(#farmRpgBattleArena,#rpgBattleArena) .rpgEnemyPortraitArt{height:180px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatLoadout{grid-template-columns:1fr}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityStrip{grid-template-columns:repeat(2,minmax(0,1fr))}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityBlock.passiveBlock{grid-column:1/-1}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveList{flex-direction:row;flex-wrap:wrap;max-height:none}
 }
 @media(max-width:700px){
-  #farmRpgBattleArena{padding:9px}
-  #farmRpgBattleArena .rpgBattleTop h3{font-size:17px}
-  #farmRpgBattleArena .rpgBattleCards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
-  #farmRpgBattleArena .rpgBattleVersus{grid-column:1/-1;grid-row:1;display:grid!important;grid-template-columns:1fr;gap:2px;padding:3px!important}
-  #farmRpgBattleArena .rpgVsMark{display:none}
-  #farmRpgBattleArena .rpgCombatCard{padding:6px}
-  #farmRpgBattleArena .rpgCombatPortrait,#farmRpgBattleArena .rpgEnemyPortraitArt{height:134px}
-  #farmRpgBattleArena .rpgCombatIdentity strong{font-size:12px;margin:3px 0 6px}
-  #farmRpgBattleArena .rpgCombatPrimary{grid-template-columns:minmax(0,1fr) 44px;gap:3px}
-  #farmRpgBattleArena .rpgVital{padding:4px 2px}
-  #farmRpgBattleArena .rpgVital small{font-size:6px}
-  #farmRpgBattleArena .rpgVital.hp b{font-size:10px}
-  #farmRpgBattleArena .rpgVital.ac b{font-size:15px}
-  #farmRpgBattleArena .rpgBattleControls{grid-template-columns:1fr;gap:5px}
-  #farmRpgBattleArena .rpgCombatDieBtn{min-height:49px;padding:5px;grid-template-columns:28px 1fr}
-  #farmRpgBattleArena .rpgCombatDieBtn .dieIcon{width:27px;height:30px;font-size:12px}
-  #farmRpgBattleArena .rpgCombatDieBtn b{font-size:10px}
-  #farmRpgBattleArena .rpgCombatDieBtn small{font-size:7px}
-  #farmRpgBattleArena .rpgRollBox{display:flex;gap:4px;flex-wrap:wrap;padding:5px}
-  #farmRpgBattleArena .rpgRollBox>small{flex:1 1 100%}
-  #farmRpgBattleArena .rpgSideDie{width:37px!important;height:37px!important}
-  #farmRpgBattleArena .rpgRollTotal{flex:1}
-  #farmRpgBattleArena .rpgCombatAbilityStrip{grid-template-columns:1fr}
-  #farmRpgBattleArena .rpgCombatAbilityBlock.passiveBlock{grid-column:auto}
-  #farmRpgBattleArena .rpgFarmPassiveList{flex-direction:row;flex-wrap:wrap}
-  #farmRpgBattleArena .rpgCombatChoice{grid-template-columns:44px 1fr}
-  #farmRpgBattleArena .rpgCombatChoiceBtn{min-height:32px}
+  :is(#farmRpgBattleArena,#rpgBattleArena){padding:9px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleTop h3{font-size:17px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleCards{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:6px!important}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleVersus{grid-column:1/-1;grid-row:1;display:grid!important;grid-template-columns:1fr;gap:2px;padding:3px!important}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgVsMark{display:none}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatCard{padding:6px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatPortrait,:is(#farmRpgBattleArena,#rpgBattleArena) .rpgEnemyPortraitArt{height:134px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatIdentity strong{font-size:12px;margin:3px 0 6px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatPrimary{grid-template-columns:minmax(0,1fr) 44px;gap:3px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital{padding:4px 2px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital small{font-size:6px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital.hp b{font-size:10px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgVital.ac b{font-size:15px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgBattleControls{grid-template-columns:1fr;gap:5px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn{min-height:49px;padding:5px;grid-template-columns:28px 1fr}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn .dieIcon{width:27px;height:30px;font-size:12px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn b{font-size:10px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn small{font-size:7px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollBox{display:flex;gap:4px;flex-wrap:wrap;padding:5px}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollBox>small{flex:1 1 100%}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgSideDie{width:37px!important;height:37px!important}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgRollTotal{flex:1}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityStrip{grid-template-columns:1fr}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatAbilityBlock.passiveBlock{grid-column:auto}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgFarmPassiveList{flex-direction:row;flex-wrap:wrap}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoice{grid-template-columns:44px 1fr}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatChoiceBtn{min-height:32px}
 }
 @media(prefers-reduced-motion:reduce){
-  #farmRpgBattleArena .rpgCombatDieBtn{transition:none}
+  :is(#farmRpgBattleArena,#rpgBattleArena) .rpgCombatDieBtn{transition:none}
 }
 </style>
 <style id="combatLiveStatEffectStyles">
@@ -930,7 +930,7 @@
 .rpgPrecisionDecision>span{font:10px/1.45 Arial,sans-serif;color:#ddc89a}
 .rpgPrecisionSkip{align-self:start;padding:8px 11px;border:1px solid #827457;border-radius:7px;background:#231c13;color:#f2d7a0;cursor:pointer;font:800 10px Arial,sans-serif}
 .rpgPrecisionSkip:hover:not(:disabled){background:#47341a}.rpgPrecisionSkip:disabled{opacity:.4}
-#farmRpgBattleArena .rpgPrecisionDecision{padding:8px}
+:is(#farmRpgBattleArena,#rpgBattleArena) .rpgPrecisionDecision{padding:8px}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>5 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>5 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -1244,6 +1244,19 @@
               </div>
             </div>
             <div class='rpgHpBar combat'><span id='rpgPlayerHpBar'></span></div>
+            <div class='rpgBattleControls'>
+              <button id='rpgRollD20' class='rpgCombatDieBtn d20' type='button'>
+                <span class='dieIcon'>20</span><b>MESTI D20</b><small id='rpgD20Hint'>Iniciatyvai / atakai</small>
+              </button>
+              <button id='rpgRollDamage' class='rpgCombatDieBtn damage' type='button' disabled>
+                <span class='dieIcon' id='rpgDamageDieIcon'>8</span><b id='rpgDamageBtnText'>MESTI D8</b><small>Žalos metimas</small>
+              </button>
+            </div>
+            <div class='rpgRollBox'>
+              <small>TAVO KAULIUKAS</small>
+              <div id='rpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
+              <div id='rpgPlayerRollTotal' class='rpgRollTotal'>—</div>
+            </div>
             <div class='rpgCombatLoadout'>
               <div class='rpgLoadoutCard weapon'>
                 <div class='rpgLoadoutIcon'>⚔️</div>
@@ -1275,12 +1288,7 @@
               <small>Vidutinė žala per atakos ėjimą</small>
             </div>
             <div id='rpgPotionStatus' class='rpgPotionStatus'>🧪 Aktyvaus potion efekto nėra</div>
-              <div id='rpgPlayerEffectStatus' class='rpgCombatEffectStatus player' aria-live='polite'></div>
-            <div class='rpgRollBox'>
-              <small>TAVO KAULIUKAS</small>
-              <div id='rpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
-              <div id='rpgPlayerRollTotal' class='rpgRollTotal'>—</div>
-            </div>
+            <div id='rpgPlayerEffectStatus' class='rpgCombatEffectStatus player' aria-live='polite'></div>
             <div id='rpgPlayerImpact' class='rpgImpact damage'>−0 HP</div>
           </article>
 
@@ -1311,6 +1319,12 @@
               </div>
             </div>
             <div class='rpgHpBar combat enemy'><span id='rpgEnemyHpBar'></span></div>
+            <div class='rpgFarmEnemyAutoRoll'>🎲 PRIEŠAS META AUTOMATIŠKAI</div>
+            <div class='rpgRollBox'>
+              <small>AUTOMATINIS METIMAS</small>
+              <div id='rpgEnemyDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
+              <div id='rpgEnemyRollTotal' class='rpgRollTotal'>—</div>
+            </div>
             <div class='rpgCombatStats'>
               <span>ATTACK<b id='rpgEnemyAttack'>+1</b></span>
               <span>DAMAGE<b id='rpgEnemyDamage'>1d6+1</b></span>
@@ -1318,11 +1332,6 @@
             </div>
             <div id='rpgEnemyEffectStatus' class='rpgCombatEffectStatus enemy' aria-live='polite'></div>
             <div class='rpgCombatGear'><span>★ <b id='rpgEnemySpecialName'>Raudonosios žvaigždės įniršis</b></span><span id='rpgEnemySpecialDesc'>Žemiau 50% HP: kitai atakai +2.</span></div>
-            <div class='rpgRollBox'>
-              <small>PRIEŠININKO KAULIUKAS</small>
-              <div id='rpgEnemyDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
-              <div id='rpgEnemyRollTotal' class='rpgRollTotal'>—</div>
-            </div>
             <div id='rpgEnemyImpact' class='rpgImpact damage'>−0 HP</div>
           </article>
         </div>
@@ -1343,6 +1352,10 @@
             <div id='rpgCombatSpells' class='rpgCombatChoiceGrid'><div class='rpgCombatLocked'><b>🔒 Spell sistema tikrinama…</b></div></div>
             <div id='rpgCombatSpellsMsg' class='rpgCombatActionMsg'></div>
           </div>
+          <div class='rpgCombatAbilityBlock passiveBlock'>
+            <div class='rpgCombatChoiceHead'><b>✦ PASSIVE SKILLS</b><span>visada aktyvūs</span></div>
+            <div id='rpgCombatPassives' class='rpgFarmPassiveList'><div class='rpgFarmPassiveEmpty'>Kraunami passive skillai…</div></div>
+          </div>
         </div>
 
         <div id='rpgCombatItemsPanel' class='rpgCombatItemsPanel'>
@@ -1352,15 +1365,6 @@
           </div>
           <div id='rpgCombatItems' class='rpgCombatItemsGrid'><div class='rpgCombatItemsEmpty'>Kraunama…</div></div>
           <div id='rpgCombatItemsMsg' class='rpgCombatItemsMsg'></div>
-        </div>
-
-        <div class='rpgBattleControls'>
-          <button id='rpgRollD20' class='rpgCombatDieBtn d20' type='button'>
-            <span class='dieIcon'>20</span><b>MESTI D20</b><small id='rpgD20Hint'>Iniciatyvai / atakai</small>
-          </button>
-          <button id='rpgRollDamage' class='rpgCombatDieBtn damage' type='button' disabled>
-            <span class='dieIcon' id='rpgDamageDieIcon'>8</span><b id='rpgDamageBtnText'>MESTI D8</b><small>Žalos metimas</small>
-          </button>
         </div>
 
         <div class='rpgBattleLogWrap'>
@@ -3076,6 +3080,16 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         if(grow>0){eAtkBonus+=grow;enemyBadges.push({icon:"🔥",text:"Įniršis · Attack +"+grow,kind:"warning"});}
         if(number(st.efes_ac_turns)>0){eAcBonus+=2;enemyBadges.push({icon:"🛡️",text:"Achilo operacija · AC +2",kind:"warning"});}
       }
+      if(no===99){
+        if(round<=2){
+          eAtkBonus+=1;eAcBonus+=2;
+          enemyBadges.push({icon:"👑",text:"Pasikėlimo aura · Attack +1 · AC +2",kind:"warning"});
+        }
+        const grow=Math.floor(Math.max(round,1)/4);
+        if(grow>0){eAtkBonus+=grow;enemyBadges.push({icon:"📈",text:"Didesni planai · Attack +"+grow,kind:"warning"});}
+        if(number(st.rolas_mama_turns)>0){eDmgBonus+=2;enemyBadges.push({icon:"🎤",text:"MAMA Valdyba · Damage +2",kind:"warning"});}
+        if(st.rolas_cliffhanger_ready){enemyBadges.push({icon:"📺",text:"Cliffhangeris · paruošta papildoma ataka",kind:"warning"});}
+      }
       if(no===2&&battle.special_pending){enemyBadges.push({icon:"🌊",text:"Bangų rūstybė · kitam pataikymui +1d6",kind:"warning"});}
     }
     if(hex){eAtkBonus-=hex;enemyBadges.push({icon:"🕷️",text:"Hex · Attack −"+hex,kind:"magical"});}
@@ -3681,9 +3695,17 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     try{
       const {data,error}=await sb.rpc("start_rpg_bonus_boss");
       if(error)throw error;
+      const rpgNav=document.querySelector("#nav button[data-tab='rpg']");
+      if(rpgNav)rpgNav.click();
+      const characterTab=document.querySelector(".rpgTabs button[data-rpg-panel='character']");
+      if(characterTab)characterTab.click();
       if(window.refreshRpgCombat)await window.refreshRpgCombat();
       if(window.refreshCombatActionHub)await window.refreshCombatActionHub();
-      document.getElementById("rpg")?.scrollIntoView({behavior:"smooth",block:"start"});
+      const battleArena=document.getElementById("rpgBattleArena");
+      if(battleArena){
+        battleArena.classList.add("show");
+        requestAnimationFrame(()=>battleArena.scrollIntoView({behavior:"smooth",block:"start"}));
+      }
       status.textContent="👑 Bonus boss kova aktyvi.";
     }catch(e){
       const t=String(e?.message||"").toLowerCase();
@@ -4485,7 +4507,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const cfg=configs[kind],box=$(cfg.skills);if(!box)return;
     const b=battleFor(kind),owned=(skillState?.skills||[]).filter(s=>s.owned);
     const passive=owned.filter(s=>!manualSkill(s.id));
-    const passiveBox=kind==="farm"?$("farmRpgCombatPassives"):null;
+    const passiveBox=kind==="farm"?$("farmRpgCombatPassives"):$("rpgCombatPassives");
     if(passiveBox){
       // Only the passive skill name is visible; details remain accessible on hover.
       passiveBox.innerHTML=passive.length?passive.map(s=>
@@ -4494,7 +4516,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       ).join(""):"<div class='rpgFarmPassiveEmpty'>Passive skillų dar neturi.</div>";
     }
     if(!owned.length){box.innerHTML="<div class='rpgCombatLocked'><b>Skillų dar neturi.</b>Atrakink Skill Tree skillą ir jis atsiras čia.</div>";return}
-    const shown=kind==="farm"?owned.filter(s=>manualSkill(s.id)):owned;
+    const shown=owned.filter(s=>manualSkill(s.id));
     if(!shown.length){box.innerHTML="<div class='rpgFarmPassiveEmpty'>Aktyvių skillų dar neturi. Pasyvūs bonusai veikia automatiškai.</div>";return}
     box.innerHTML=shown.map(s=>{
       const reason=skillReason(s,b),manual=manualSkill(s.id),disabled=!manual||!!reason;
@@ -4603,7 +4625,8 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       skip.disabled=true;
       const kind=skip.dataset.skipPrecision,cfg=configs[kind];
       try{
-        const {error}=await window.rpgSupabase.rpc(kind==="farm"?"rpg_farm_roll":"rpg_roll",{p_kind:"continue"});
+        const rollRpc=kind==="farm"?"rpg_farm_roll":(campaignBattle?.battle_type==="bonus"?"rpg_roll_bonus":"rpg_roll");
+        const {error}=await window.rpgSupabase.rpc(rollRpc,{p_kind:"continue"});
         if(error)throw error;
         if(kind==="farm"&&window.refreshRpgFarmCombat)await window.refreshRpgFarmCombat();
         if(kind==="campaign"&&window.refreshRpgCombat)await window.refreshRpgCombat();
