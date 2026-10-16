@@ -3040,6 +3040,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     keepStatus(prefix+"EnemyEffectStatus","enemy",enemyBadges);
   }
   window.rpgRenderLiveCombatEffects=render;
+  window.rpgSetLiveStatText=textValue;
 })();
 </script>
 
@@ -3111,7 +3112,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const isP=side==="player";
     const text=get(isP?"rpgPlayerHpText":"rpgEnemyHpText");
     const bar=get(isP?"rpgPlayerHpBar":"rpgEnemyHpBar");
-    if(text)text.textContent=Math.max(0,current)+" / "+max;
+    if(text){
+      const next=Math.max(0,Number(current||0))+" / "+Number(max||0);
+      if(window.rpgSetLiveStatText)window.rpgSetLiveStatText(text.id,next);
+      else text.textContent=next;
+    }
     if(bar)bar.style.width=pct(current,max)+"%";
   }
 
@@ -3909,7 +3914,11 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     const player=side==="player";
     const text=get(player?"farmRpgPlayerHpText":"farmRpgEnemyHpText");
     const bar=get(player?"farmRpgPlayerHpBar":"farmRpgEnemyHpBar");
-    if(text)text.textContent=Math.max(0,Number(current||0))+" / "+Number(max||0);
+    if(text){
+      const next=Math.max(0,Number(current||0))+" / "+Number(max||0);
+      if(window.rpgSetLiveStatText)window.rpgSetLiveStatText(text.id,next);
+      else text.textContent=next;
+    }
     if(bar)bar.style.width=pct(current,max)+"%";
   }
   function sidesFromDie(label){const m=String(label||"d20").match(/d(\d+)/i);return m?Number(m[1]):20}
