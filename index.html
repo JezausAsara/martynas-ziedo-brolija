@@ -902,6 +902,22 @@
 @media(prefers-reduced-motion:reduce){
   #farmRpgBattleArena .rpgCombatDieBtn{transition:none}
 }
+</style>
+<style id="combatLiveStatEffectStyles">
+/* Live stat modifiers for both farm and campaign; visual only, no combat rules changed. */
+.rpgCombatEffectStatus{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:8px 0;padding:7px;border:1px solid #554930;border-radius:8px;background:linear-gradient(110deg,#10180f,#0a1012)}
+.rpgCombatEffectStatus.enemy{border-color:#714236;background:linear-gradient(110deg,#1d1010,#100d0d)}
+.rpgCombatEffectStatus:empty{display:none}
+.rpgCombatEffectBadge{display:inline-flex;align-items:center;gap:4px;max-width:100%;padding:5px 7px;border:1px solid #537a57;border-radius:6px;background:#183521;color:#c7e7bb;font:800 9px/1.25 Arial,sans-serif;overflow-wrap:anywhere}
+.rpgCombatEffectStatus.enemy .rpgCombatEffectBadge{border-color:#90564d;background:#331915;color:#f5b4a3}
+.rpgCombatEffectBadge.magical{border-color:#7561aa;background:#251a3d;color:#dac9fb}
+.rpgCombatEffectBadge.warning{border-color:#a07b37;background:#302311;color:#f6d18a}
+.rpgCombatEffectBadge span{font-size:13px}
+@keyframes rpgEffectStatPulse{0%{box-shadow:0 0 0 1px #e2b35f00;filter:brightness(1)}30%{box-shadow:0 0 0 2px #ffd678bb,0 0 15px #e2aa4480;filter:brightness(1.38)}100%{box-shadow:none;filter:brightness(1)}}
+.rpgCombatEffectChanged{animation:rpgEffectStatPulse 1.05s ease}
+#rpgBattleArena .rpgCombatEffectStatus,#farmRpgBattleArena .rpgCombatEffectStatus{position:relative;z-index:1}
+@media(max-width:700px){.rpgCombatEffectStatus{padding:5px;gap:4px}.rpgCombatEffectBadge{font-size:8px;padding:4px 5px}}
+@media(prefers-reduced-motion:reduce){.rpgCombatEffectChanged{animation:none}}
 </style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>5 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>5 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
@@ -1212,6 +1228,7 @@
               <small>Vidutinė žala per atakos ėjimą</small>
             </div>
             <div id='rpgPotionStatus' class='rpgPotionStatus'>🧪 Aktyvaus potion efekto nėra</div>
+              <div id='rpgPlayerEffectStatus' class='rpgCombatEffectStatus player' aria-live='polite'></div>
             <div class='rpgRollBox'>
               <small>TAVO KAULIUKAS</small>
               <div id='rpgPlayerDie' class='rpgSideDie'><span>D20</span><b>—</b></div>
@@ -1252,6 +1269,7 @@
               <span>DAMAGE<b id='rpgEnemyDamage'>1d6+1</b></span>
               <span>INIT<b id='rpgEnemyInit'>+0</b></span>
             </div>
+            <div id='rpgEnemyEffectStatus' class='rpgCombatEffectStatus enemy' aria-live='polite'></div>
             <div class='rpgCombatGear'><span>★ <b id='rpgEnemySpecialName'>Raudonosios žvaigždės įniršis</b></span><span id='rpgEnemySpecialDesc'>Žemiau 50% HP: kitai atakai +2.</span></div>
             <div class='rpgRollBox'>
               <small>PRIEŠININKO KAULIUKAS</small>
@@ -1469,6 +1487,7 @@
                 <small>Vidutinė žala per atakos ėjimą</small>
               </div>
               <div id='farmRpgPotionStatus' class='rpgPotionStatus'>🧪 Aktyvaus potion efekto nėra</div>
+              <div id='farmRpgPlayerEffectStatus' class='rpgCombatEffectStatus player' aria-live='polite'></div>
               <div id='farmRpgPlayerImpact' class='rpgImpact damage'>−0 HP</div>
             </article>
 
@@ -1502,6 +1521,7 @@
                 <span>DAMAGE<b id='farmRpgEnemyDamage'>1d4+1</b></span>
                 <span>INIT<b id='farmRpgEnemyInit'>+1</b></span>
               </div>
+              <div id='farmRpgEnemyEffectStatus' class='rpgCombatEffectStatus enemy' aria-live='polite'></div>
               <div id='farmRpgEnemySkills' class='rpgCombatGear'><span>🤡 <b>Kreivas balnas</b></span><span>Natural 1–3: Jesteris pats gauna 1d4 damage.</span></div>
               <div id='farmRpgEnemyImpact' class='rpgImpact damage'>−0 HP</div>
             </article>
@@ -2914,6 +2934,115 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
 </script>
 
 
+<script id="rpgLiveStatEffects">
+(function(){
+  const number=v=>{const n=Number(v);return Number.isFinite(n)?n:0};
+  const plus=n=>(number(n)>=0?"+":"")+number(n);
+  const el=id=>document.getElementById(id);
+  const statusChip=(icon,text,kind="")=>{
+    const chip=document.createElement("span");
+    chip.className="rpgCombatEffectBadge "+kind;
+    const symbol=document.createElement("span");symbol.textContent=icon;symbol.setAttribute("aria-hidden","true");
+    chip.appendChild(symbol);chip.appendChild(document.createTextNode(text));
+    return chip;
+  };
+  const textValue=(id,value)=>{
+    const node=el(id);if(!node)return;
+    const next=String(value);
+    if(node.dataset.liveStatValue!==undefined&&node.dataset.liveStatValue!==next){
+      node.classList.remove("rpgCombatEffectChanged");void node.offsetWidth;node.classList.add("rpgCombatEffectChanged");
+    }
+    node.dataset.liveStatValue=next;node.textContent=next;
+  };
+  const keepStatus=(id,kind,badges)=>{
+    const node=el(id);if(!node)return;
+    node.className="rpgCombatEffectStatus "+kind;
+    node.replaceChildren(...badges.map(x=>statusChip(x.icon,x.text,x.kind||"")));
+  };
+  function render(kind,battle,stats,enemy){
+    if(!battle||!enemy)return;
+    const farm=kind==="farm",prefix=farm?"farmRpg":"rpg";
+    const st=battle.skill_state||{},cs=stats||{};
+    const active=battle.status==="active";
+    const mod=(key)=>active?number(st[key]):0;
+    const ready=(key)=>active&&(st[key]===true||st[key]==="true");
+    const potionRounds=active?number(st.potion_rounds_left):0;
+    const potion=String(st.potion_buff||"");
+    const potionAtk=potionRounds>0&&potion==="attack"?2:0;
+    const potionAc=potionRounds>0&&potion==="ac"?2:0;
+    const spellAtk=mod("spell_attack_bonus"),spellAc=mod("spell_ac_bonus"),
+          spellInit=mod("spell_initiative_bonus"),hex=mod("spell_enemy_attack_penalty");
+    const charger=ready("charger_ready")?2:0;
+    const ability=String(cs.attack_stat||"STR").toUpperCase()==="DEX"?number(cs.dex_mod):number(cs.str_mod);
+    const playerAtk=ability+number(cs.attack_bonus)+potionAtk+spellAtk+charger;
+    const playerAc=number(cs.ac||10)+potionAc+spellAc;
+    const playerInit=number(cs.dex_mod)+number(cs.initiative_bonus)+spellInit;
+    const playerDmg=ability+number(cs.damage_bonus);
+    textValue(prefix+"CombatAttack",plus(playerAtk));
+    textValue(prefix+"PlayerAc",playerAc);
+    textValue(prefix+"CombatTotalAc",playerAc);
+    textValue(prefix+"CombatInit",plus(playerInit));
+    textValue(prefix+"CombatDamage",plus(playerDmg));
+    const playerBadges=[];
+    if(potionAtk)playerBadges.push({icon:"🧪",text:"Potion · Attack +"+potionAtk+" · "+potionRounds+"R"});
+    if(potionAc)playerBadges.push({icon:"🧪",text:"Potion · AC +"+potionAc+" · "+potionRounds+"R"});
+    if(spellAtk)playerBadges.push({icon:"🔥",text:"Ember Strike · Attack +"+spellAtk,kind:"magical"});
+    if(spellAc)playerBadges.push({icon:"🔮",text:"Arcane Shield · AC +"+spellAc,kind:"magical"});
+    if(spellInit)playerBadges.push({icon:"⚡",text:"Quickstep · Initiative +"+spellInit,kind:"magical"});
+    if(charger)playerBadges.push({icon:"⚔️",text:"Charger · Attack +2"});
+    if(ready("spell_blood_pact_ready"))playerBadges.push({icon:"🩸",text:"Blood Pact · kitai žalai +1d6",kind:"magical"});
+    if(ready("spell_true_aim_ready"))playerBadges.push({icon:"🎯",text:"True Aim · atakos permetimas",kind:"magical"});
+    if(ready("spell_blink_ready"))playerBadges.push({icon:"🌀",text:"Blink · blokuoja kitą pataikymą",kind:"magical"});
+    if(ready("riposte_armed"))playerBadges.push({icon:"🛡️",text:"Riposte · paruoštas"});
+    if(ready("riposte_counter"))playerBadges.push({icon:"⚔️",text:"Riposte · kontrataka"});
+    keepStatus(prefix+"PlayerEffectStatus","player",playerBadges);
+
+    const round=number(battle.combat_round||1),no=number(battle.enemy_no||enemy.enemy_no||0);
+    const farmId=String(enemy.id||battle.farm_enemy_id||"");
+    const eBaseAc=number(enemy.ac||10);
+    const eBaseAtk=number(enemy.attack_bonus);
+    const eBaseInit=number(enemy.initiative_bonus);
+    const enemyBadges=[];
+    let eAcBonus=0,eAtkBonus=0,eDmgBonus=0,eInitBonus=0;
+    if(active&&farm&&farmId==="cup-king"&&!ready("authority_used")&&st.authority_used!==true){
+      eAcBonus+=1;
+      enemyBadges.push({icon:"👑",text:"Sosto autoritetas · pirmai atakai AC +1",kind:"warning"});
+    }
+    if(active&&!farm){
+      if(no===4){
+        if(round<=2){eAcBonus+=3;enemyBadges.push({icon:"🔵",text:"Šešėlių siena · AC +3",kind:"warning"});}
+        const grow=Math.floor(Math.max(round-1,0)/3);
+        if(grow>0){eAtkBonus+=grow;enemyBadges.push({icon:"👑",text:"Ilga Tradicija · Attack +"+grow,kind:"warning"});}
+        if(number(st.barca_unity_turns)>0){eDmgBonus+=2;enemyBadges.push({icon:"🔥",text:"Blaugranos Vienybė · Damage +2",kind:"warning"});}
+      }
+      if(no===5){
+        eInitBonus+=1;
+        if(round<=2){eAtkBonus+=1;enemyBadges.push({icon:"🐤",text:"Kanarėlių spaudimas · Attack +1",kind:"warning"});}
+      }
+      if(no===6){
+        eInitBonus+=2;
+        if(round<=2){eAtkBonus+=1;enemyBadges.push({icon:"⚡",text:"Sugrįžimo audra · Attack +1",kind:"warning"});}
+        const grow=Math.floor(Math.max(round,1)/3);
+        if(grow>0){eAtkBonus+=grow;enemyBadges.push({icon:"🔥",text:"Įniršis · Attack +"+grow,kind:"warning"});}
+        if(number(st.efes_ac_turns)>0){eAcBonus+=2;enemyBadges.push({icon:"🛡️",text:"Achilo operacija · AC +2",kind:"warning"});}
+      }
+      if(no===2&&battle.special_pending){enemyBadges.push({icon:"🌊",text:"Bangų rūstybė · kitam pataikymui +1d6",kind:"warning"});}
+    }
+    if(hex){eAtkBonus-=hex;enemyBadges.push({icon:"🕷️",text:"Hex · Attack −"+hex,kind:"magical"});}
+    textValue(prefix+"EnemyAc",eBaseAc+eAcBonus);
+    textValue(prefix+"EnemyInit",plus(eBaseInit+eInitBonus));
+    const pacifist=farm&&farmId==="igno-apple-pile";
+    if(!pacifist){
+      textValue(prefix+"EnemyAttack",plus(eBaseAtk+eAtkBonus));
+      const dmgDie=String(enemy.damage_die||"d6");
+      textValue(prefix+"EnemyDamage",dmgDie+plus(number(enemy.damage_modifier)+eDmgBonus));
+    }
+    keepStatus(prefix+"EnemyEffectStatus","enemy",enemyBadges);
+  }
+  window.rpgRenderLiveCombatEffects=render;
+})();
+</script>
+
 <script id="rpgCombatEngine">
 (() => {
   const get=id=>document.getElementById(id);
@@ -3192,6 +3321,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("rpgCombatTotalAc").textContent=totalAc;
     get("rpgCombatInit").textContent=mod(initTotal);
     get("rpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
+    window.rpgRenderLiveCombatEffects?.("campaign",battle,cs,enemyMeta);
     const potionStatus=get("rpgPotionStatus");
     if(potionStatus){
       const potionActive=battle?.status==="active"&&potionRounds>0;
@@ -3964,6 +4094,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     get("farmRpgCombatTotalAc").textContent=Number(cs.ac??10)+potionAc;
     get("farmRpgCombatInit").textContent=mod(initTotal);
     get("farmRpgCombatDps").textContent=Number(cs.dps_rating||0).toFixed(2);
+    window.rpgRenderLiveCombatEffects?.("farm",battle,cs,enemyMeta);
     const potionStatus=get("farmRpgPotionStatus");
     if(potionStatus){
       const potionActive=battle?.status==="active"&&potionRounds>0;
