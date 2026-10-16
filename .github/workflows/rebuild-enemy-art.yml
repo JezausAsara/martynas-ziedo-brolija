@@ -20,12 +20,13 @@ jobs:
           e3=(assets/rpg/hq-source/e3-*.txt)
           e5=(assets/rpg/hq-source/e5-*.txt)
           e6=(assets/rpg/hq-source/e6-*.txt)
+          bb1=(assets/rpg/hq-source/bb1-*.txt)
           f1=(assets/rpg/hq-source/f1-*.txt)
           f2=(assets/rpg/hq-source/f2-*.txt)
           f3=(assets/rpg/hq-source/f3-*.txt)
           # Enemy #4 is a finished full-card asset and is intentionally NOT rebuilt here.
-          if [ "${#e1[@]}" -ne 14 ] || [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ] || [ "${#e5[@]}" -ne 14 ] || [ "${#e6[@]}" -ne 15 ] || [ "${#f1[@]}" -ne 1 ] || [ "${#f2[@]}" -ne 1 ] || [ "${#f3[@]}" -ne 1 ]; then
-            echo "Waiting for all HQ chunks: e1=${#e1[@]}/14 e2=${#e2[@]}/17 e3=${#e3[@]}/15 e5=${#e5[@]}/14 e6=${#e6[@]}/15 f1=${#f1[@]}/1 f2=${#f2[@]}/1 f3=${#f3[@]}/1"
+          if [ "${#e1[@]}" -ne 14 ] || [ "${#e2[@]}" -ne 17 ] || [ "${#e3[@]}" -ne 15 ] || [ "${#e5[@]}" -ne 14 ] || [ "${#e6[@]}" -ne 15 ] || [ "${#bb1[@]}" -ne 9 ] || [ "${#f1[@]}" -ne 1 ] || [ "${#f2[@]}" -ne 1 ] || [ "${#f3[@]}" -ne 1 ]; then
+            echo "Waiting for all HQ chunks: e1=${#e1[@]}/14 e2=${#e2[@]}/17 e3=${#e3[@]}/15 e5=${#e5[@]}/14 e6=${#e6[@]}/15 bb1=${#bb1[@]}/9 f1=${#f1[@]}/1 f2=${#f2[@]}/1 f3=${#f3[@]}/1"
             exit 0
           fi
           cat "${e1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy1-legionierius.webp
@@ -33,6 +34,7 @@ jobs:
           cat "${e3[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy3-paris.webp
           cat "${e5[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy5-fenerbahce-card.webp
           cat "${e6[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/enemy6-efes-card.webp
+          cat "${bb1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/bonus-alk-rolas-card.webp
           cat "${f1[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm1-zaliasis-jesteris.webp
           cat "${f2[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm2-taures-karalius.webp
           cat "${f3[@]}" | tr -d '\n\r' | base64 -d > assets/rpg/farm3-igno-obouliu-kurwa.webp
@@ -41,6 +43,7 @@ jobs:
           echo "Enemy 3 bytes: $(stat -c%s assets/rpg/enemy3-paris.webp)"
           echo "Enemy 5 bytes: $(stat -c%s assets/rpg/enemy5-fenerbahce-card.webp)"
           echo "Enemy 6 bytes: $(stat -c%s assets/rpg/enemy6-efes-card.webp)"
+          echo "Bonus boss bytes: $(stat -c%s assets/rpg/bonus-alk-rolas-card.webp)"
           echo "Farm 1 bytes: $(stat -c%s assets/rpg/farm1-zaliasis-jesteris.webp)"
           echo "Farm 2 bytes: $(stat -c%s assets/rpg/farm2-taures-karalius.webp)"
           echo "Farm 3 bytes: $(stat -c%s assets/rpg/farm3-igno-obouliu-kurwa.webp)"
@@ -49,12 +52,13 @@ jobs:
           file assets/rpg/enemy3-paris.webp
           file assets/rpg/enemy5-fenerbahce-card.webp
           file assets/rpg/enemy6-efes-card.webp
+          file assets/rpg/bonus-alk-rolas-card.webp
           file assets/rpg/farm1-zaliasis-jesteris.webp
           file assets/rpg/farm2-taures-karalius.webp
           file assets/rpg/farm3-igno-obouliu-kurwa.webp
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/rpg/enemy1-legionierius.webp assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp assets/rpg/enemy5-fenerbahce-card.webp assets/rpg/enemy6-efes-card.webp assets/rpg/farm1-zaliasis-jesteris.webp assets/rpg/farm2-taures-karalius.webp assets/rpg/farm3-igno-obouliu-kurwa.webp
+          git add assets/rpg/enemy1-legionierius.webp assets/rpg/enemy2-olympiakos.webp assets/rpg/enemy3-paris.webp assets/rpg/enemy5-fenerbahce-card.webp assets/rpg/enemy6-efes-card.webp assets/rpg/bonus-alk-rolas-card.webp assets/rpg/farm1-zaliasis-jesteris.webp assets/rpg/farm2-taures-karalius.webp assets/rpg/farm3-igno-obouliu-kurwa.webp
           if git diff --cached --quiet; then
             echo "No binary changes."
           else
