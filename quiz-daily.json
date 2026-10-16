@@ -1152,6 +1152,121 @@
           "x": 0
         }
       ]
+    },
+    {
+      "date": "2026-10-16",
+      "questions": [
+        {
+          "c": "Krepšinis",
+          "q": "Ką krepšinyje reiškia „skip pass“?",
+          "a": [
+            "Trumpą perdavimą aukštaūgiui po krepšiu",
+            "Perdavimą per aikštę į priešingą pusę, praleidžiant artimesnį komandos draugą",
+            "Perdavimą nuo lentos sau pačiam",
+            "Perdavimą tik viena ranka iš už nugaros"
+          ],
+          "x": 1
+        },
+        {
+          "c": "F1",
+          "q": "Ką F1 reiškia „parc fermé“ režimas?",
+          "a": [
+            "Laikotarpį, kai automobilio nustatymų keitimas yra griežtai ribojamas",
+            "Zoną, kurioje leidžiama naudoti DRS",
+            "Privalomą padangų šildymo procedūrą prieš startą",
+            "Saugos automobilio laukimo vietą"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Futbolas",
+          "q": "Ką dažniausiai daro „inverted full-back“ atakoje?",
+          "a": [
+            "Visada lieka prie šoninės linijos ir kelia kamuolius",
+            "Traukiasi į savo baudos aikštelę kaip trečias vidurio gynėjas",
+            "Juda į aikštės vidurį ir padeda kurti žaidimą centre",
+            "Keičiasi vietomis su vartininku"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Tenisas",
+          "q": "Kodėl „kick serve“ dažnai nepatogus priimančiajam?",
+          "a": [
+            "Kamuolys visada skrieja visiškai be sukimosi",
+            "Po atšokimo kamuolys linkęs pašokti aukščiau ir į šoną",
+            "Jis privalo kristi tik į T zoną",
+            "Jį galima atlikti tik antru padavimu"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Fantasy",
+          "q": "Ką „Mistborn“ pasaulyje Allomantai daro su metalais, kad panaudotų jų galias?",
+          "a": [
+            "Kaldina juos į ginklus",
+            "Ištirpina juos vandenyje ir užšaldo",
+            "Praryja ir „degina“ juos savo organizme",
+            "Naudoja tik kaip amuletus"
+          ],
+          "x": 2
+        },
+        {
+          "c": "Sci-Fi",
+          "q": "Ką Asimovo „Foundation“ pasaulyje bando prognozuoti psichoistorija?",
+          "a": [
+            "Atskiro žmogaus tikslius sprendimus",
+            "Didelių žmonių masių elgesio tendencijas",
+            "Planetų orbitų pokyčius",
+            "Robotų techninius gedimus"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Siaubas",
+          "q": "Kas siaubo kine vadinama „final girl“ archetipu?",
+          "a": [
+            "Paskutinė išgyvenusi herojė, dažnai stojanti akis į akį su grėsme",
+            "Pirmoji aukos scena filme",
+            "Antgamtinė būtybė, apsimetanti vaiku",
+            "Veikėja, kuri visada paaiškina monstro kilmę"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Kinas",
+          "q": "Ką reiškia „diegetic sound“ filme?",
+          "a": [
+            "Muziką, kurią girdi tik žiūrovas",
+            "Garsą, kylantį iš filmo pasaulio ir galimą girdėti veikėjams",
+            "Bet kokį garsą, pridėtą tik per anonsą",
+            "Tik dialogą be aplinkos garsų"
+          ],
+          "x": 1
+        },
+        {
+          "c": "Geografija",
+          "q": "Kuri jūra neturi sausumos krantų ir ją riboja vandenynų srovės?",
+          "a": [
+            "Sargaso jūra",
+            "Arabijos jūra",
+            "Tasmano jūra",
+            "Beringo jūra"
+          ],
+          "x": 0
+        },
+        {
+          "c": "Technologijos",
+          "q": "Kodėl keleivinių lėktuvų langai paprastai yra suapvalintais kampais?",
+          "a": [
+            "Kad pro juos patektų daugiau šviesos",
+            "Kad sumažėtų įtempių koncentracija slėgio veikiamame fiuzeliaže",
+            "Kad būtų lengviau nuvalyti ledą nuo stiklo",
+            "Kad sumažėtų radijo trikdžiai salone"
+          ],
+          "x": 1
+        }
+      ]
     }
   ]
 }
