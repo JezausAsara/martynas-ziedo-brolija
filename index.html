@@ -3537,7 +3537,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
       console.error(e);
       setTurn("result","METIMAS NEPAVYKO","Pabandyk dar kartą.");
       setAction("TECHNINĖ KLAIDA","Kovos būsena nepakeista.","enemyHit");
-    }finally{busy=false;playing=false;renderBattle();}
+    }finally{
+      busy=false;playing=false;renderBattle();
+      window.refreshCombatActionHub?.().catch(e=>console.error("Skill status refresh",e));
+    }
   }
 
   async function armBardic(){
@@ -4270,7 +4273,10 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
         if(window.renderRpgSheet)await window.renderRpgSheet();
       }
     }catch(e){console.error(e);setTurn("result","METIMAS NEPAVYKO","Pabandyk dar kartą.");setAction("TECHNINĖ KLAIDA","Kovos būsena nepakeista.","enemyHit")}
-    finally{busy=false;playing=false;render()}
+    finally{
+      busy=false;playing=false;render();
+      window.refreshCombatActionHub?.().catch(e=>console.error("Farm skill status refresh",e));
+    }
   }
   document.querySelectorAll(".rpgFarmEnemyPick").forEach(btn=>btn.addEventListener("click",()=>selectEnemy(btn.dataset.farmEnemy)));
   startBtn.addEventListener("click",startBattle);retryBtn.addEventListener("click",startBattle);
@@ -4332,6 +4338,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
   function skillReason(s,b){
     if(!b||b.status!=="active")return "TIK KOVOJE";
     const st=b.skill_state||{};
+    if(Array.isArray(b.skill_snapshot)&&!b.skill_snapshot.includes(s.id))return "KITOJE KOVOJE";
     if(s.id==="str_precision_attack"){
       if(st.precision_used)return "PANAUDOTA";
       return b.phase==="precision_choice"?"":"PO MISS";
