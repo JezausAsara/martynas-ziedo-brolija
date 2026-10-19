@@ -1,0 +1,1577 @@
+{
+  "version": 1,
+  "effectiveFrom": "2026-10-17",
+  "rules": {
+    "sportPerDay": 4,
+    "fictionPerDay": 4,
+    "randomPerDay": 2
+  },
+  "groups": {
+    "sport": [
+      {
+        "id": "old-2026-10-14-0",
+        "c": "Krepšinis",
+        "q": "Ką dažniausiai reiškia „roll“ pick-and-roll derinyje?",
+        "a": [
+          "Užtvarą statęs žaidėjas po užtvaros juda link krepšio",
+          "Kamuolį turintis žaidėjas atsitraukia prie centro linijos",
+          "Gynėjas keičiasi su kitu gynėju",
+          "Komanda pereina į zoninę gynybą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-14-1",
+        "c": "F1",
+        "q": "Kas F1 strategijoje vadinama „undercut“?",
+        "a": [
+          "Sąmoningas tempo mažinimas taupant degalus",
+          "Ankstesnis sustojimas boksuose bandant aplenkti varžovą šviežiomis padangomis",
+          "Startas iš techninio aptarnavimo juostos",
+          "Važiavimas paskui varžovą DRS zonoje"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-14-2",
+        "c": "Tenisas",
+        "q": "Ką tenise reiškia „break point“?",
+        "a": [
+          "Paskutinį seto tašką",
+          "Tašką, kuriuo paduodantis žaidėjas gali laimėti geimą",
+          "Tašką, kuriuo priimantis žaidėjas gali laimėti varžovo padavimo geimą",
+          "Tašką po dvigubos klaidos"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-14-3",
+        "c": "Futbolas",
+        "q": "Po kurio veiksmo žaidėjas negali būti nubaustas už nuošalę, jei kamuolį gauna tiesiogiai?",
+        "a": [
+          "Tiesioginio baudos smūgio",
+          "Baudinio",
+          "Metimo iš užribio",
+          "Numesto kamuolio"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-15-0",
+        "c": "Krepšinis",
+        "q": "Ką gynyboje reiškia „switch“ ginant užtvarą?",
+        "a": [
+          "Visa komanda pereina į zoną",
+          "Abu gynėjai lieka prie savo žaidėjų",
+          "Gynėjai apsikeičia dengiamais žaidėjais",
+          "Aukštaūgis tyčia atsitraukia į baudos aikštelę"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-15-1",
+        "c": "F1",
+        "q": "Kuo „Virtual Safety Car“ labiausiai skiriasi nuo tikro „Safety Car“ periodo?",
+        "a": [
+          "Lenktynininkai laikosi nustatyto delta tempo, bet kolona fiziškai nesusirenka už saugos automobilio",
+          "Visi privalo sustoti boksuose",
+          "DRS leidžiamas visą laiką",
+          "Padangos keičiamos be laiko nuostolio"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-15-2",
+        "c": "Futbolas",
+        "q": "Koks pagrindinis „gegenpressing“ principas?",
+        "a": [
+          "Atsitraukti į žemą bloką po kamuolio praradimo",
+          "Nuolat siųsti ilgus perdavimus į kraštus",
+          "Gintis tik asmeniškai",
+          "Nedelsiant spausti varžovą po kamuolio praradimo"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-15-3",
+        "c": "Tenisas",
+        "q": "Koks efektas būdingiausias „slice“ smūgiui?",
+        "a": [
+          "Stiprus topspin ir aukštas atšokimas",
+          "Backspin, dėl kurio kamuolys dažnai skrieja žemiau ir atšoka žemiau",
+          "Smūgis be jokio sukimosi",
+          "Privalomas smūgis virš galvos"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-16-0",
+        "c": "Krepšinis",
+        "q": "Ką krepšinyje reiškia „skip pass“?",
+        "a": [
+          "Trumpą perdavimą aukštaūgiui po krepšiu",
+          "Perdavimą per aikštę į priešingą pusę, praleidžiant artimesnį komandos draugą",
+          "Perdavimą nuo lentos sau pačiam",
+          "Perdavimą tik viena ranka iš už nugaros"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-16-1",
+        "c": "F1",
+        "q": "Ką F1 reiškia „parc fermé“ režimas?",
+        "a": [
+          "Laikotarpį, kai automobilio nustatymų keitimas yra griežtai ribojamas",
+          "Zoną, kurioje leidžiama naudoti DRS",
+          "Privalomą padangų šildymo procedūrą prieš startą",
+          "Saugos automobilio laukimo vietą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-16-2",
+        "c": "Futbolas",
+        "q": "Ką dažniausiai daro „inverted full-back“ atakoje?",
+        "a": [
+          "Visada lieka prie šoninės linijos ir kelia kamuolius",
+          "Traukiasi į savo baudos aikštelę kaip trečias vidurio gynėjas",
+          "Juda į aikštės vidurį ir padeda kurti žaidimą centre",
+          "Keičiasi vietomis su vartininku"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-16-3",
+        "c": "Tenisas",
+        "q": "Kodėl „kick serve“ dažnai nepatogus priimančiajam?",
+        "a": [
+          "Kamuolys visada skrieja visiškai be sukimosi",
+          "Po atšokimo kamuolys linkęs pašokti aukščiau ir į šoną",
+          "Jis privalo kristi tik į T zoną",
+          "Jį galima atlikti tik antru padavimu"
+        ],
+        "x": 1
+      },
+      {
+        "id": "sp-boxout",
+        "c": "Krepšinis",
+        "q": "Ką krepšinyje reiškia „box out“ po metimo?",
+        "a": [
+          "Užsiimti poziciją kūnu tarp varžovo ir krepšio, kad lengviau paimtum kamuolį",
+          "Tyčia išmušti kamuolį į užribį",
+          "Užstatyti užtvarą kamuolio valdytojui",
+          "Atsitraukti į aikštės kampą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-helpdef",
+        "c": "Krepšinis",
+        "q": "Ką reiškia „help defense“?",
+        "a": [
+          "Gynėjas palieka savo žmogų tik tam, kad pradėtų greitą ataką",
+          "Komandos draugas padeda sustabdyti prasiveržusį varžovą",
+          "Visa komanda pereina į puolimą penkiese iš eilės",
+          "Gynėjas tyčia prasižengia prieš silpną baudų metiką"
+        ],
+        "x": 1
+      },
+      {
+        "id": "sp-closeout",
+        "c": "Krepšinis",
+        "q": "Kas yra geras „closeout“ gynyboje?",
+        "a": [
+          "Greitas priartėjimas prie metiko kontroliuojant jo metimą ir prasiveržimą",
+          "Atsitraukimas po krepšiu, leidžiant laisvą metimą",
+          "Dvigubinimas prieš bet kurį aukštaūgį",
+          "Tik kamuolio išmušimas iš nugaros"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-stretch5",
+        "c": "Krepšinis",
+        "q": "Kuo išsiskiria „stretch five“ tipo centras?",
+        "a": [
+          "Žaidžia tik nugara į krepšį",
+          "Gali ištempti gynybą tolimu metimu",
+          "Visada dengia įžaidėją",
+          "Niekada nestato užtvarų"
+        ],
+        "x": 1
+      },
+      {
+        "id": "sp-shortroll",
+        "c": "Krepšinis",
+        "q": "Kas yra „short roll“ po užtvaros?",
+        "a": [
+          "Užtvarą statęs žaidėjas sustoja ar gauna kamuolį dar nepasiekęs krepšio",
+          "Kamuolys ridenamas grindimis į užribį",
+          "Greita ataka be nė vieno perdavimo",
+          "Užtvarą stato du gynėjai vienu metu"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-flare",
+        "c": "Krepšinis",
+        "q": "Kam dažniausiai naudojama „flare screen“ užtvara?",
+        "a": [
+          "Padėti metikui atsitraukti nuo kamuolio link perimetro",
+          "Atlaisvinti kelią centrui tiesiai po krepšiu",
+          "Sustabdyti greitą ataką pražanga",
+          "Priversti gynėją keistis prie baudų metimo linijos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-stopball",
+        "c": "Krepšinis",
+        "q": "Koks pirmas gynybos prioritetas dažnai akcentuojamas stabdant varžovų greitą ataką?",
+        "a": [
+          "Nedelsiant dvigubinti silpnosios pusės kampą",
+          "Sustabdyti kamuolio valdytoją",
+          "Leisti laisvą tritaškį ir saugoti tik baudos aikštelę",
+          "Visiems bėgti po savo krepšiu nežiūrint kamuolio"
+        ],
+        "x": 1
+      },
+      {
+        "id": "sp-andone",
+        "c": "Krepšinis",
+        "q": "Ką reiškia „and-one“ situacija?",
+        "a": [
+          "Įmestas metimas su pražanga ir papildomas baudos metimas",
+          "Du baudų metimai po techninės pražangos",
+          "Tritaškis paskutinę sekundę",
+          "Kamuolio grąžinimas varžovui po ginčo"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-overcut",
+        "c": "F1",
+        "q": "Kas F1 strategijoje vadinama „overcut“?",
+        "a": [
+          "Likti trasoje ilgiau už varžovą ir bandyti laimėti poziciją vėlesniu sustojimu",
+          "Stoti anksčiau už varžovą dėl šviežių padangų",
+          "Aplenkti už trasos ribų",
+          "Praleisti komandos draugą komandos nurodymu"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-dirtyair",
+        "c": "F1",
+        "q": "Kodėl važiuoti labai arti kito F1 bolido posūkiuose gali būti sunkiau?",
+        "a": [
+          "Priekyje važiuojantis bolidas sukuria „dirty air“, mažinančią aerodinaminį prispaudimą",
+          "Variklis automatiškai praranda pusę galios",
+          "DRS automatiškai užsiblokuoja visam ratui",
+          "Padangos akimirksniu atšąla"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-slipstream",
+        "c": "F1",
+        "q": "Kokia pagrindinė „slipstream“ nauda tiesiojoje?",
+        "a": [
+          "Mažesnis oro pasipriešinimas važiuojant priekyje esančio bolido oro sraute",
+          "Didesnis padangų sukibimas lėtuose posūkiuose",
+          "Trumpesnis sustojimas boksuose",
+          "Automatinis baterijos įkrovimas"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-brakebias",
+        "c": "F1",
+        "q": "Ką reguliuoja bolido „brake bias“?",
+        "a": [
+          "Stabdžių jėgos pasiskirstymą tarp priekinės ir galinės ašies",
+          "Degalų srautą į variklį",
+          "DRS atsidarymo kampą",
+          "Padangų slėgį važiuojant"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-liftcoast",
+        "c": "F1",
+        "q": "Ką reiškia „lift and coast“?",
+        "a": [
+          "Atleisti akceleratorių dar prieš stabdymo zoną ir dalį atstumo riedėti",
+          "Visą ratą važiuoti tik aukščiausia pavara",
+          "Išjungti hibridinę sistemą boksuose",
+          "Tyčia praleisti kvalifikacinį ratą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-graining",
+        "c": "F1",
+        "q": "Kas padangoms vyksta esant „graining“?",
+        "a": [
+          "Nuo paviršiaus nusitrinusios gumos dalelės prilimpa ir mažina sukibimą",
+          "Padangos šonas pradeda pūstis dėl karkaso pažeidimo",
+          "Protektorius visiškai ištirpsta viename rate",
+          "Padanga automatiškai praranda slėgį"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-blistering",
+        "c": "F1",
+        "q": "Kuo „blistering“ skiriasi nuo „graining“?",
+        "a": [
+          "„Blistering“ susijęs su perkaitimu ir pūslėmis padangos paviršiuje",
+          "Tai tas pats reiškinys kitu pavadinimu",
+          "„Blistering“ atsiranda tik lietaus padangoms",
+          "Jis reiškia ratlankio įtrūkimą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-halfspace",
+        "c": "Futbolas",
+        "q": "Kas futbole vadinama „half-space“?",
+        "a": [
+          "Zona tarp aikštės centro ir krašto kanalo",
+          "Plotas tik už vartų linijos",
+          "Baudos aikštelės vidurys tarp vartininko ir gynėjų",
+          "Techninė trenerio zona"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-lowblock",
+        "c": "Futbolas",
+        "q": "Ką reiškia gintis „low block“?",
+        "a": [
+          "Komanda ginasi kompaktiškai giliai prie savo vartų",
+          "Gynėjai spaudžia varžovą prie jo baudos aikštelės",
+          "Komanda palieka tik vieną gynėją savo pusėje",
+          "Visi žaidėjai dengia asmeniškai visame aikštės plote"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-highline",
+        "c": "Futbolas",
+        "q": "Kokia pagrindinė rizika žaidžiant labai aukšta gynybos linija?",
+        "a": [
+          "Erdvė už gynėjų gali būti išnaudota greitais perdavimais ar bėgimais",
+          "Komanda nebegali atlikti kampinių",
+          "Vartininkas negali žaisti kojomis",
+          "Puolėjai negali patekti į nuošalę"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-overlap",
+        "c": "Futbolas",
+        "q": "Kas yra „overlap“ krašte?",
+        "a": [
+          "Komandos draugo bėgimas iš išorės pro kamuolį turintį žaidėją",
+          "Puolėjo grįžimas į savo baudos aikštelę",
+          "Gynėjo perdavimas atgal vartininkui",
+          "Du žaidėjai vienu metu spaudžia teisėją"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-underlap",
+        "c": "Futbolas",
+        "q": "Kuo „underlap“ skiriasi nuo „overlap“?",
+        "a": [
+          "Bėgimas atliekamas vidiniu kanalu, arčiau aikštės centro",
+          "Jis galimas tik po kampinio",
+          "Tai visada yra bėgimas į nuošalę",
+          "Jį atlieka tik vartininkas"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-false9",
+        "c": "Futbolas",
+        "q": "Ką dažniausiai daro „false nine“?",
+        "a": [
+          "Nusileidžia giliau iš centro puolėjo pozicijos ir padeda kurti žaidimą",
+          "Stovi tik prie varžovų vartininko",
+          "Visą laiką žaidžia kaip krašto gynėjas",
+          "Atlieka tik standartines padėtis"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-thirdman",
+        "c": "Futbolas",
+        "q": "Kas yra „third-man run“ kombinacijoje?",
+        "a": [
+          "Trečias žaidėjas įbėga į erdvę po dviejų kitų žaidėjų sąveikos",
+          "Trečias atsarginis vartininkas įeina į aikštę",
+          "Gynėjas tyčia palieka trečią varžovą laisvą",
+          "Trečias smūgis serijoje visada atliekamas galva"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-insideout",
+        "c": "Tenisas",
+        "q": "Kas tenise yra „inside-out forehand“?",
+        "a": [
+          "Forehand smūgis iš backhand pusės į varžovo forehand ar išorinę aikštės pusę",
+          "Smūgis tarp kojų bėgant atgal",
+          "Tik trumpas smūgis prie tinklo",
+          "Padavimas į kūną"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-servevolley",
+        "c": "Tenisas",
+        "q": "Kokia „serve-and-volley“ taktikos esmė?",
+        "a": [
+          "Po padavimo greitai judėti prie tinklo ir siekti užbaigti tašką volejumi",
+          "Po padavimo likti kuo toliau už galinės linijos",
+          "Visada paduoti tik antrą padavimą",
+          "Vengti smūgių iš oro"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-unforced",
+        "c": "Tenisas",
+        "q": "Kas laikoma „unforced error“?",
+        "a": [
+          "Klaida padaryta be pakankamo varžovo spaudimo, kai smūgis buvo realiai kontroliuojamas",
+          "Bet koks pralaimėtas taškas",
+          "Tik dviguba padavimo klaida",
+          "Smūgis į tinklą po varžovo ace"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-topspin",
+        "c": "Tenisas",
+        "q": "Ką topspin dažniausiai daro kamuolio trajektorijai ir atšokimui?",
+        "a": [
+          "Padeda kamuoliui kristi į aikštę ir po atšokimo šokti aukščiau",
+          "Visada verčia kamuolį slysti labai žemai",
+          "Panaikina visą kamuolio sukimąsi",
+          "Priverčia kamuolį po atšokimo riedėti atgal"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-dropshot",
+        "c": "Tenisas",
+        "q": "Kada „drop shot“ dažniausiai efektyviausias?",
+        "a": [
+          "Kai varžovas stovi giliai už galinės linijos",
+          "Kai varžovas jau yra prie pat tinklo",
+          "Tik priimant pirmą padavimą",
+          "Tik ant žolės dangos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-lob",
+        "c": "Tenisas",
+        "q": "Kam dažniausiai naudojamas „lob“ prieš varžovą prie tinklo?",
+        "a": [
+          "Permesti kamuolį aukštai virš jo ir nusiųsti į aikštės galą",
+          "Smūgiuoti kuo žemiau tiesiai į tinklą",
+          "Sustabdyti žaidimą ir prašyti pakartojimo",
+          "Priversti teisėją pakeisti kamuolius"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-adcourt",
+        "c": "Tenisas",
+        "q": "Kuri pusė vadinama „ad court“?",
+        "a": [
+          "Kairė padavimo aikštelės pusė žiūrint iš paduodančiojo pozicijos",
+          "Dešinė pusė tik per tiebreaką",
+          "Zona už galinės linijos",
+          "Plotas tarp tinklo ir padavimo linijos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-horns",
+        "c": "Krepšinis",
+        "q": "Ką dažniausiai reiškia „Horns“ puolimo išsidėstymas?",
+        "a": [
+          "Du aukštaūgiai stovi ties abiem baudos metimo linijos alkūnėmis",
+          "Visi penki žaidėjai išsirikiuoja kampuose",
+          "Centras visada lieka po savo krepšiu",
+          "Du gynėjai vienu metu stato užtvarą prie galinės linijos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-nail",
+        "c": "Krepšinis",
+        "q": "Kas krepšinio taktikos kalboje yra „nail“?",
+        "a": [
+          "Zona ties baudos metimo linijos centru, svarbi pagalbos gynybai",
+          "Lankelio tvirtinimo detalė",
+          "Kampas tarp galinės ir šoninės linijos",
+          "Vidurio linijos logotipas"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-spainpnr",
+        "c": "Krepšinis",
+        "q": "Kuo išsiskiria „Spain pick-and-roll“?",
+        "a": [
+          "Trečias puolėjas stato nugarinę užtvarą gynėjui, dengiančiam riedantį aukštaūgį",
+          "Užtvara statoma tik aikštės kampe",
+          "Kamuolio valdytojas po užtvaros privalo mesti tritaškį",
+          "Derinys žaidžiamas be aukštaūgio"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-ice",
+        "c": "Krepšinis",
+        "q": "Ką dažniausiai siekia padaryti „ICE“ gynyba šoniniame pick-and-roll?",
+        "a": [
+          "Nukreipti kamuolio valdytoją nuo užtvaros link šoninės linijos",
+          "Priversti centrą keistis su įžaidėju",
+          "Leisti laisvą prasiveržimą per vidurį",
+          "Nedelsiant dvigubinti nuo silpnosios pusės kampo"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-drop",
+        "c": "Krepšinis",
+        "q": "Ką daro aukštaūgis taikant „drop coverage“ prieš pick-and-roll?",
+        "a": [
+          "Atsitraukia giliau link baudos aikštelės, saugodamas prasiveržimą ir lanką",
+          "Agresyviai vejasi kamuolį virš tritaškio linijos",
+          "Visada keičiasi dengiamais žaidėjais",
+          "Palieka baudos aikštelę ir dengia kampą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-ghost",
+        "c": "Krepšinis",
+        "q": "Kas yra „ghost screen“?",
+        "a": [
+          "Žaidėjas apsimeta statantis užtvarą, bet greitai atsitraukia į laisvą erdvę",
+          "Neteisėta užtvara nugara į gynėją",
+          "Užtvara, kurios teisėjai nepastebi",
+          "Užtvara tik po baudos metimo"
+        ],
+        "x": 0
+      },
+      {
+        "id": "sp-weakcorner",
+        "c": "Krepšinis",
+        "q": "Ką reiškia „weak-side corner“?",
+        "a": [
+          "Kampą priešingoje aikštės pusėje nuo kamuolio",
+          "Kampą, kuriame stovi silpniausias metikas",
+          "Vietą prie atsarginių suolo",
+          "Bet kurį kampą paskutinėmis rungtynių minutėmis"
+        ],
+        "x": 0
+      }
+    ],
+    "fiction": [
+      {
+        "id": "old-2026-10-06-5",
+        "c": "Fantasy",
+        "q": "Kuris Tolkieno veikėjas buvo Saurono valdovas ir pirmasis Tamsos Valdovas?",
+        "a": [
+          "Sarumanas",
+          "Morgothas",
+          "Ungoliantė",
+          "Gothmogas"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-06-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė originaliąją „Foundation“ („Fondo“) romanų seriją?",
+        "a": [
+          "Arthur C. Clarke",
+          "Isaac Asimov",
+          "Philip K. Dick",
+          "Robert A. Heinlein"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-06-7",
+        "c": "Siaubas",
+        "q": "Kas režisavo 1968 m. siaubo klasiką „Rosemary's Baby“?",
+        "a": [
+          "George A. Romero",
+          "Roman Polanski",
+          "William Friedkin",
+          "John Carpenter"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-06-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „The Name of the Rose“ („Rožės vardas“)?",
+        "a": [
+          "Italo Calvino",
+          "Umberto Eco",
+          "Milan Kundera",
+          "Jorge Luis Borges"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-06-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1954 m. filmą „Seven Samurai“?",
+        "a": [
+          "Yasujirō Ozu",
+          "Kenji Mizoguchi",
+          "Akira Kurosawa",
+          "Masaki Kobayashi"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-07-5",
+        "c": "Fantasy",
+        "q": "Kokia kalba užrašytas užrašas ant Vieno Žiedo Tolkieno pasaulyje?",
+        "a": [
+          "Sindarinų",
+          "Quenya",
+          "Juodąja Mordoro kalba",
+          "Khuzdul"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-07-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė kiberpanko klasiką „Neuromancer“?",
+        "a": [
+          "Neal Stephenson",
+          "William Gibson",
+          "Bruce Sterling",
+          "Iain M. Banks"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-07-7",
+        "c": "Siaubas",
+        "q": "Kas režisavo 1960 m. filmą „Psycho“?",
+        "a": [
+          "Alfred Hitchcock",
+          "Stanley Kubrick",
+          "Brian De Palma",
+          "Robert Wise"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-07-8",
+        "c": "Knygos",
+        "q": "Kas parašė postapokaliptinį romaną „The Road“?",
+        "a": [
+          "Cormac McCarthy",
+          "Don DeLillo",
+          "Kazuo Ishiguro",
+          "John Steinbeck"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-07-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1957 m. filmą „12 Angry Men“?",
+        "a": [
+          "Billy Wilder",
+          "Elia Kazan",
+          "Sidney Lumet",
+          "Otto Preminger"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-08-5",
+        "c": "Fantasy",
+        "q": "Kaip Tolkieno pasaulyje vadinamas Balrogas, su kuriuo Gandalfas kovojo Morijoje?",
+        "a": [
+          "Glaurungas",
+          "Durino Pražūtis",
+          "Ancalagonas",
+          "Azogas"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-08-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė mokslinės fantastikos romaną „Hyperion“?",
+        "a": [
+          "Dan Simmons",
+          "Iain M. Banks",
+          "Alastair Reynolds",
+          "Peter F. Hamilton"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-08-7",
+        "c": "Siaubas",
+        "q": "Kas parašė romaną „The Exorcist“, pagal kurį sukurtas garsusis 1973 m. filmas?",
+        "a": [
+          "Ira Levin",
+          "Peter Straub",
+          "Clive Barker",
+          "William Peter Blatty"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-08-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Šimtas metų vienatvės“ („One Hundred Years of Solitude“)?",
+        "a": [
+          "Mario Vargas Llosa",
+          "Jorge Luis Borges",
+          "Gabriel García Márquez",
+          "Julio Cortázar"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-08-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1942 m. kino klasiką „Casablanca“?",
+        "a": [
+          "John Huston",
+          "Michael Curtiz",
+          "Billy Wilder",
+          "Howard Hawks"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-09-5",
+        "c": "Fantasy",
+        "q": "Kaip vadinamas trumpasis elfų kardas, kurį Bilbas perdavė Frodui?",
+        "a": [
+          "Glamdring",
+          "Orcrist",
+          "Sting",
+          "Narsil"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-09-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė kiberpanko romaną „Snow Crash“?",
+        "a": [
+          "Neal Stephenson",
+          "William Gibson",
+          "Philip K. Dick",
+          "Vernor Vinge"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-09-7",
+        "c": "Siaubas",
+        "q": "Kas parašė romaną „The Haunting of Hill House“?",
+        "a": [
+          "Shirley Jackson",
+          "Susan Hill",
+          "Anne Rice",
+          "Daphne du Maurier"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-09-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Meistras ir Margarita“?",
+        "a": [
+          "Fiodoras Dostojevskis",
+          "Michailas Bulgakovas",
+          "Borisas Pasternakas",
+          "Aleksandras Solženicynas"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-09-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1948 m. italų neorealizmo klasiką „Bicycle Thieves“?",
+        "a": [
+          "Federico Fellini",
+          "Roberto Rossellini",
+          "Luchino Visconti",
+          "Vittorio De Sica"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-10-5",
+        "c": "Fantasy",
+        "q": "Kas Tolkieno pasaulyje nukalė tris Silmarilus?",
+        "a": [
+          "Celebrimboras",
+          "Fëanoras",
+          "Thingolas",
+          "Turgonas"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-10-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė karinį mokslinės fantastikos romaną „The Forever War“?",
+        "a": [
+          "Joe Haldeman",
+          "Robert A. Heinlein",
+          "Larry Niven",
+          "Frederik Pohl"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-10-7",
+        "c": "Siaubas",
+        "q": "Kas parašė japonų siaubo romaną „Ring“, tapusį filmų „Ringu“ ir „The Ring“ pagrindu?",
+        "a": [
+          "Koji Suzuki",
+          "Kenzaburō Ōe",
+          "Haruki Murakami",
+          "Ryu Murakami"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-10-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Nusikaltimas ir bausmė“?",
+        "a": [
+          "Levas Tolstojus",
+          "Ivanas Turgenevas",
+          "Fiodoras Dostojevskis",
+          "Nikolajus Gogolis"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-10-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1949 m. film noir klasiką „The Third Man“?",
+        "a": [
+          "Orson Welles",
+          "Carol Reed",
+          "John Huston",
+          "Alfred Hitchcock"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-11-5",
+        "c": "Fantasy",
+        "q": "Kas parašė fantastinį romaną „The Lies of Locke Lamora“?",
+        "a": [
+          "Joe Abercrombie",
+          "Scott Lynch",
+          "Patrick Rothfuss",
+          "Steven Erikson"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-11-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė mokslinės fantastikos romaną „Rendezvous with Rama“?",
+        "a": [
+          "Robert A. Heinlein",
+          "Larry Niven",
+          "Arthur C. Clarke",
+          "Frederik Pohl"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-11-7",
+        "c": "Siaubas",
+        "q": "Kas režisavo 1987 m. siaubo filmą „Hellraiser“?",
+        "a": [
+          "Wes Craven",
+          "John Carpenter",
+          "David Cronenberg",
+          "Clive Barker"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-11-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Grafas Montekristas“ („The Count of Monte Cristo“)?",
+        "a": [
+          "Aleksandras Diuma",
+          "Viktoras Hugo",
+          "Onorė de Balzakas",
+          "Stendalis"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-11-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1974 m. filmą „The Conversation“ su Gene Hackmanu?",
+        "a": [
+          "Alan J. Pakula",
+          "Sidney Lumet",
+          "Francis Ford Coppola",
+          "Martin Scorsese"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-12-5",
+        "c": "Fantasy",
+        "q": "Kokioje planetoje vyksta Brandono Sandersono „The Stormlight Archive“ sagos veiksmas?",
+        "a": [
+          "Scadrial",
+          "Sel",
+          "Roshar",
+          "Nalthis"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-12-6",
+        "c": "Sci-Fi",
+        "q": "Kuriame mokslinės fantastikos romane pagrindinis veikėjas yra astronautas Rylandas Grace'as?",
+        "a": [
+          "The Martian",
+          "Artemis",
+          "Leviathan Wakes",
+          "Project Hail Mary"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-12-7",
+        "c": "Siaubas",
+        "q": "Kokiame išgalvotame Meino valstijos mieste vyksta Stepheno Kingo romano „It“ veiksmas?",
+        "a": [
+          "Derry",
+          "Castle Rock",
+          "Jerusalem's Lot",
+          "Haven"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-12-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Procesas“ („The Trial“), kurio pagrindinis veikėjas yra Jozefas K.?",
+        "a": [
+          "Hermann Hesse",
+          "Albert Camus",
+          "Franz Kafka",
+          "Robert Musil"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-12-9",
+        "c": "Kino klasika",
+        "q": "Kuris filmas 1994 m. Kanų kino festivalyje laimėjo „Auksinę palmės šakelę“?",
+        "a": [
+          "The Shawshank Redemption",
+          "Three Colours: Red",
+          "Forrest Gump",
+          "Pulp Fiction"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-13-5",
+        "c": "Fantasy",
+        "q": "Kas Tolkieno pasaulyje įkūrė paslėptą Gondolino miestą?",
+        "a": [
+          "Fëanor",
+          "Finwë",
+          "Fingolfin",
+          "Turgon"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-13-6",
+        "c": "Sci-Fi",
+        "q": "Kas parašė mokslinės fantastikos romaną „Fahrenheit 451“?",
+        "a": [
+          "Ray Bradbury",
+          "Isaac Asimov",
+          "Arthur C. Clarke",
+          "Robert A. Heinlein"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-13-7",
+        "c": "Siaubas",
+        "q": "Kas režisavo 1922 m. nebyliojo kino siaubo klasiką „Nosferatu“?",
+        "a": [
+          "Robert Wiene",
+          "F. W. Murnau",
+          "Fritz Lang",
+          "Tod Browning"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-13-8",
+        "c": "Knygos",
+        "q": "Kas parašė romaną „Moby-Dick“?",
+        "a": [
+          "F. Scott Fitzgerald",
+          "Ernest Hemingway",
+          "Herman Melville",
+          "John Steinbeck"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-13-9",
+        "c": "Kino klasika",
+        "q": "Kas režisavo 1941 m. filmą „Citizen Kane“?",
+        "a": [
+          "Alfred Hitchcock",
+          "Billy Wilder",
+          "Stanley Kubrick",
+          "Orson Welles"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-14-4",
+        "c": "Fantasy",
+        "q": "Kas Tolkieno pasaulyje yra palantíras?",
+        "a": [
+          "Elfų nukaltas kalavijas",
+          "Matymo ir ryšio akmuo",
+          "Mordoro tvirtovės vartai",
+          "Nykštukų karūna"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-14-5",
+        "c": "Sci-Fi",
+        "q": "Su kuriuo autoriumi labiausiai siejami Trys robotikos dėsniai?",
+        "a": [
+          "Philip K. Dick",
+          "Arthur C. Clarke",
+          "Isaac Asimov",
+          "Frank Herbert"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-14-6",
+        "c": "Siaubas",
+        "q": "Kuriame išgalvotame mieste H. P. Lovecrafto kūriniuose yra Miskatonic University?",
+        "a": [
+          "Innsmouth",
+          "Arkham",
+          "Dunwich",
+          "Kingsport"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-14-7",
+        "c": "Kinas",
+        "q": "Kas kine ir literatūroje vadinama „MacGuffin“?",
+        "a": [
+          "Daiktas ar tikslas, stumiantis siužetą į priekį",
+          "Netikėtas pasakotojo pakeitimas",
+          "Scena po titrų",
+          "Klaidingas prisiminimas"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-15-4",
+        "c": "Fantasy",
+        "q": "Kuris „The Witcher“ ženklas sukuria apsauginį skydą aplink Geraltą?",
+        "a": [
+          "Aard",
+          "Igni",
+          "Quen",
+          "Axii"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-15-5",
+        "c": "Sci-Fi",
+        "q": "Kas Franko Herberto „Dune“ pasaulyje yra Mentatas?",
+        "a": [
+          "Žmogus, treniruotas atlikti itin sudėtingus loginius skaičiavimus",
+          "Smėlio kirmino jauniklis",
+          "Imperatoriaus asmens sargybinis",
+          "Prieskonių kasybos mašina"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-15-6",
+        "c": "Siaubas",
+        "q": "Kokia pagrindinė „facehugger“ paskirtis „Alien“ visatoje?",
+        "a": [
+          "Apsaugoti karalienę nuo ugnies",
+          "Medžioti kitus ksenomorfus",
+          "Kurti rūgšties lizdus",
+          "Implantuoti embrioną į šeimininko kūną"
+        ],
+        "x": 3
+      },
+      {
+        "id": "old-2026-10-15-7",
+        "c": "Kinas",
+        "q": "Kas yra „nepatikimas pasakotojas“ pasakojime?",
+        "a": [
+          "Pasakotojas, kuris kalba tik trečiuoju asmeniu",
+          "Pasakotojas, kurio pateikiama versija negali būti laikoma visiškai patikima",
+          "Veikėjas, kuris pasirodo tik filmo pabaigoje",
+          "Autorius, slepiantis savo tikrą vardą"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-16-4",
+        "c": "Fantasy",
+        "q": "Ką „Mistborn“ pasaulyje Allomantai daro su metalais, kad panaudotų jų galias?",
+        "a": [
+          "Kaldina juos į ginklus",
+          "Ištirpina juos vandenyje ir užšaldo",
+          "Praryja ir „degina“ juos savo organizme",
+          "Naudoja tik kaip amuletus"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-16-5",
+        "c": "Sci-Fi",
+        "q": "Ką Asimovo „Foundation“ pasaulyje bando prognozuoti psichoistorija?",
+        "a": [
+          "Atskiro žmogaus tikslius sprendimus",
+          "Didelių žmonių masių elgesio tendencijas",
+          "Planetų orbitų pokyčius",
+          "Robotų techninius gedimus"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-16-6",
+        "c": "Siaubas",
+        "q": "Kas siaubo kine vadinama „final girl“ archetipu?",
+        "a": [
+          "Paskutinė išgyvenusi herojė, dažnai stojanti akis į akį su grėsme",
+          "Pirmoji aukos scena filme",
+          "Antgamtinė būtybė, apsimetanti vaiku",
+          "Veikėja, kuri visada paaiškina monstro kilmę"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-16-7",
+        "c": "Kinas",
+        "q": "Ką reiškia „diegetic sound“ filme?",
+        "a": [
+          "Muziką, kurią girdi tik žiūrovas",
+          "Garsą, kylantį iš filmo pasaulio ir galimą girdėti veikėjams",
+          "Bet kokį garsą, pridėtą tik per anonsą",
+          "Tik dialogą be aplinkos garsų"
+        ],
+        "x": 1
+      }
+    ],
+    "random": [
+      {
+        "id": "old-2026-10-14-8",
+        "c": "Geografija",
+        "q": "Kokius vandens telkinius jungia Bosforo sąsiauris?",
+        "a": [
+          "Adrijos ir Jonijos jūras",
+          "Juodąją jūrą ir Marmuro jūrą",
+          "Baltijos ir Šiaurės jūras",
+          "Raudonąją jūrą ir Adeno įlanką"
+        ],
+        "x": 1
+      },
+      {
+        "id": "old-2026-10-14-9",
+        "c": "Istorija",
+        "q": "Kodėl Rozetės akmuo buvo toks svarbus egiptologijai?",
+        "a": [
+          "Jame rastas seniausias pasaulio žemėlapis",
+          "Jis patvirtino Tutanchamono kapo vietą",
+          "Tas pats tekstas buvo pateiktas keliais raštais ir padėjo iššifruoti hieroglifus",
+          "Jame pirmą kartą paminėtos piramidės"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-15-8",
+        "c": "Geografija",
+        "q": "Kuri valstybė visiškai supa Lesotą?",
+        "a": [
+          "Namibija",
+          "Botsvana",
+          "Pietų Afrikos Respublika",
+          "Esvatinis"
+        ],
+        "x": 2
+      },
+      {
+        "id": "old-2026-10-15-9",
+        "c": "Mokslas",
+        "q": "Kodėl slėginis puodas gali maistą išvirti greičiau?",
+        "a": [
+          "Didesnis slėgis pakelia vandens virimo temperatūrą, todėl galima gaminti karščiau",
+          "Jame vanduo užverda žemesnėje temperatūroje",
+          "Slėgis visiškai panaikina vandens garavimą",
+          "Maistas verda vakuume"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-16-8",
+        "c": "Geografija",
+        "q": "Kuri jūra neturi sausumos krantų ir ją riboja vandenynų srovės?",
+        "a": [
+          "Sargaso jūra",
+          "Arabijos jūra",
+          "Tasmano jūra",
+          "Beringo jūra"
+        ],
+        "x": 0
+      },
+      {
+        "id": "old-2026-10-16-9",
+        "c": "Technologijos",
+        "q": "Kodėl keleivinių lėktuvų langai paprastai yra suapvalintais kampais?",
+        "a": [
+          "Kad pro juos patektų daugiau šviesos",
+          "Kad sumažėtų įtempių koncentracija slėgio veikiamame fiuzeliaže",
+          "Kad būtų lengviau nuvalyti ledą nuo stiklo",
+          "Kad sumažėtų radijo trikdžiai salone"
+        ],
+        "x": 1
+      },
+      {
+        "id": "rnd-meridian",
+        "c": "Geografija",
+        "q": "Ką žemėlapiuose jungia dienovidiniai (meridianai)?",
+        "a": [
+          "Šiaurės ir Pietų ašigalius",
+          "Vienodo aukščio taškus",
+          "Vienodo klimato zonas",
+          "Tik pusiaujo miestus"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-atacama",
+        "c": "Geografija",
+        "q": "Su kuria šalimi labiausiai siejama Atakamos dykuma?",
+        "a": [
+          "Čile",
+          "Egiptu",
+          "Australija",
+          "Mongolija"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-bosporus",
+        "c": "Geografija",
+        "q": "Ką geografiškai skiria Bosforo sąsiauris?",
+        "a": [
+          "Europos ir Azijos žemynines dalis ties Stambulu",
+          "Afriką ir Europą ties Gibraltaru",
+          "Šiaurės ir Pietų Ameriką",
+          "Arabijos pusiasalį ir Afriką"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-ringfire",
+        "c": "Geografija",
+        "q": "Aplink kurį vandenyną driekiasi didžioji dalis vadinamojo Ugnies žiedo?",
+        "a": [
+          "Ramųjį",
+          "Atlanto",
+          "Indijos",
+          "Arkties"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-renaissance",
+        "c": "Istorija",
+        "q": "Su kuriuo Italijos miestu ypač siejama ankstyvojo Renesanso pradžia?",
+        "a": [
+          "Florencija",
+          "Neapolis",
+          "Palermas",
+          "Turinas"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-rosetta",
+        "c": "Istorija",
+        "q": "Kodėl Rozetės akmuo buvo toks svarbus egiptologijai?",
+        "a": [
+          "Tas pats tekstas jame pateiktas keliomis rašto sistemomis ir padėjo iššifruoti hieroglifus",
+          "Jame rastas seniausias pasaulio žemėlapis",
+          "Tai pirmasis žinomas metalinis kalendorius",
+          "Jame išliko vienintelė faraono mumifikacijos instrukcija"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-magnacarta",
+        "c": "Istorija",
+        "q": "Kokia Magna Carta idėja buvo ypač reikšminga vėlesnei politinei tradicijai?",
+        "a": [
+          "Valdovo galia nėra visiškai neribota ir jai gali būti taikomi teisės apribojimai",
+          "Karalius visada renkamas visuotiniu balsavimu",
+          "Visos valstybės privalo turėti dvi parlamento rūmus",
+          "Bažnyčia neturi jokio teisinio statuso"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-silkroad",
+        "c": "Istorija",
+        "q": "Kas geriausiai apibūdina Šilko kelią?",
+        "a": [
+          "Prekybos ir kultūrinių mainų maršrutų tinklą tarp skirtingų Eurazijos regionų",
+          "Vieną tiesų romėnų kelią nuo Romos iki Kinijos",
+          "Vien tik jūrinį kelią aplink Afriką",
+          "Tik karinį Persijos imperijos traktą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-syncopation",
+        "c": "Muzika",
+        "q": "Kas muzikoje yra sinkopė?",
+        "a": [
+          "Akcento perkėlimas į neįprastą ar silpnesnę ritmo dalį",
+          "Staigus kūrinio nutildymas visam laikui",
+          "Grojamų natų pavertimas vien pustoniais",
+          "Tik tempo lėtinimas kūrinio pabaigoje"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-leitmotif",
+        "c": "Muzika",
+        "q": "Kas yra leitmotyvas?",
+        "a": [
+          "Pasikartojanti muzikinė tema, siejama su veikėju, idėja ar objektu",
+          "Bet koks būgnų solo",
+          "Tik pirmoji simfonijos nata",
+          "Muzikos kūrinio techninis pavadinimas be melodijos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-acappella",
+        "c": "Muzika",
+        "q": "Ką reiškia dainuoti „a cappella“?",
+        "a": [
+          "Be instrumentinio pritarimo",
+          "Tik labai tyliai",
+          "Tik lotynų kalba",
+          "Dainuoti vienu tonu"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-crescendo",
+        "c": "Muzika",
+        "q": "Ką nurodo „crescendo“?",
+        "a": [
+          "Palaipsniui garsinti",
+          "Palaipsniui lėtinti tempą",
+          "Kartoti visą kūrinį nuo pradžių",
+          "Staiga nutraukti garsą"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-qr",
+        "c": "Technologijos",
+        "q": "Kuo QR kodas skiriasi nuo įprasto vienmačio brūkšninio kodo?",
+        "a": [
+          "Informaciją koduoja dviem matmenimis",
+          "Veikia tik be kameros",
+          "Gali saugoti tik skaičius",
+          "Jį galima nuskaityti tik lazeriu"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-dns",
+        "c": "Technologijos",
+        "q": "Kokia pagrindinė DNS paskirtis internete?",
+        "a": [
+          "Susieti domenų vardus su IP adresais ir kitais DNS įrašais",
+          "Šifruoti visą interneto srautą",
+          "Saugoti slaptažodžius naršyklėje",
+          "Suspausti vaizdo failus"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-ram",
+        "c": "Technologijos",
+        "q": "Kodėl RAM vadinama nepastovia (volatile) atmintimi?",
+        "a": [
+          "Jos turinys paprastai dingsta išjungus maitinimą",
+          "Ji negali būti perrašoma",
+          "Ji visada lėtesnė už kietąjį diską",
+          "Ji naudojama tik vaizdo plokštėse"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-https",
+        "c": "Technologijos",
+        "q": "Ką praktiškai suteikia HTTPS, palyginti su paprastu HTTP?",
+        "a": [
+          "Šifruotą ryšį ir serverio tapatybės patikrinimą per TLS",
+          "Garantuoja, kad svetainės turinys visada teisingas",
+          "Padvigubina interneto greitį",
+          "Neleidžia svetainei naudoti slapukų"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-chlorophyll",
+        "c": "Gamta",
+        "q": "Kodėl dauguma augalų lapų atrodo žali?",
+        "a": [
+          "Chlorofilas stipriau atspindi ar praleidžia žalią šviesą nei sugeria ją",
+          "Lapuose nėra jokių pigmentų",
+          "Žalia spalva susidaro tik dėl vandens",
+          "Augalai skleidžia žalią šviesą kaip LED"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-biolum",
+        "c": "Gamta",
+        "q": "Kas yra bioliuminescencija?",
+        "a": [
+          "Gyvų organizmų gebėjimas cheminėmis reakcijomis skleisti šviesą",
+          "Saulės šviesos atspindėjimas nuo ledo",
+          "Mineralų švytėjimas tik kaitinant",
+          "Elektros išlydis debesyse"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-umami",
+        "c": "Maistas",
+        "q": "Su kokia medžiaga labiausiai siejamas umami skonis?",
+        "a": [
+          "Glutamatu",
+          "Sacharoze",
+          "Citrinų rūgštimi",
+          "Kapsaicinu"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-emulsion",
+        "c": "Maistas",
+        "q": "Kas majoneze padeda stabilizuoti aliejaus ir vandens emulsiją?",
+        "a": [
+          "Kiaušinio trynyje esantis lecitinas",
+          "Vien druska",
+          "Kepimo soda",
+          "Krakmolas iš miltų yra vienintelis stabilizatorius"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-chiaroscuro",
+        "c": "Menas",
+        "q": "Kas dailėje vadinama „chiaroscuro“?",
+        "a": [
+          "Ryškus šviesos ir tamsos kontrastų naudojimas formai kurti",
+          "Tik tapyba viena spalva",
+          "Perspektyvos atsisakymas",
+          "Skulptūros poliravimas iki veidrodinio blizgesio"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-fresco",
+        "c": "Menas",
+        "q": "Kaip tradiciškai atliekama freska?",
+        "a": [
+          "Pigmentai tepami ant dar drėgno tinko",
+          "Dažoma tik ant metalo",
+          "Piešiama anglimi ant stiklo",
+          "Spausdinama nuo medžio lentos"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-lingua",
+        "c": "Kalba",
+        "q": "Kas yra „lingua franca“?",
+        "a": [
+          "Bendra kalba, naudojama skirtingų gimtųjų kalbų žmonių susikalbėjimui",
+          "Tik išnykusi kalba",
+          "Oficialus bet kurios šalies dialektas",
+          "Kalba be skolinių"
+        ],
+        "x": 0
+      },
+      {
+        "id": "rnd-hanami",
+        "c": "Pasaulio kultūra",
+        "q": "Su kuo Japonijoje siejama hanami tradicija?",
+        "a": [
+          "Žydinčių vyšnių ir kitų žiedų stebėjimu",
+          "Naujųjų metų fejerverkais",
+          "Arbatos lapų rinkimu",
+          "Sumo turnyrų atidarymu"
+        ],
+        "x": 0
+      }
+    ]
+  }
+}
