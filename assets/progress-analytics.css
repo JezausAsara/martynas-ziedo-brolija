@@ -69,3 +69,6 @@
 @media(max-width:1050px){#progress .pg-controls{grid-template-columns:repeat(3,minmax(0,1fr))}#progress .pg-controls label:first-child{grid-column:1/-1}}
 @media(max-width:720px){#progress .pg-root{padding:10px}#progress .pg-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}#progress .pg-kpi{padding:8px}#progress .pg-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#progress .pg-presets{gap:5px}#progress .pg-presets button{padding:7px}#progress .pg-team{font-size:10px;padding:8px 6px}#progress .pg-teams{grid-template-columns:repeat(2,minmax(0,1fr))}#progress .pg-controls select{font-size:12px}#progress .pg-live{font-size:9px}}
 @media(prefers-reduced-motion:reduce){#progress .pg-team,#progress .pg-presets button{transition:none}}
+
+#progress .pg-controls label[hidden]{display:none!important}
+#progress .pg-archive{overflow-x:auto}
