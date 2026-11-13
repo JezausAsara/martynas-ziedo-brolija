@@ -183,6 +183,33 @@ function rebuildTeamButtons(){
     cell("span",t.team_name,b);
   }
 }
+
+function updateArchive(){
+  const box=$("progressRows"),last=state.rounds[state.rounds.length-1];
+  if(!box||!last)return;
+  const previous=state.rounds.length>1?state.rounds[state.rounds.length-2]:null;
+  const th=box.closest("table")?.querySelectorAll("thead th");
+  if(th&&th.length>=5)th[2].textContent=last.roundNo+" turo FPTS";
+  const title=document.querySelector("#progress .pg-archive h4");
+  if(title)title.textContent="Bendra lentelė po "+last.roundNo+" turo";
+  box.replaceChildren();
+  const ordered=[...state.teams].sort((a,b)=>{
+    const pa=last.points.get(a.id),pb=last.points.get(b.id);
+    return pa.rank-pb.rank||pb.total-pa.total||a.team_name.localeCompare(b.team_name,"lt");
+  });
+  for(const team of ordered){
+    const p=last.points.get(team.id),prev=previous?.points.get(team.id);
+    const diff=prev?prev.rank-p.rank:0;
+    const row=cell("tr",null,box);
+    cell("td",p.rank,row,{"class":"rank"});
+    const name=cell("td",null,row);
+    const avatar=cell("span","",name,{"class":"avatar av-"+String(team.slug||"").replace(/[^a-z0-9_-]/gi,""),title:team.owner_name||team.team_name});
+    name.appendChild(document.createTextNode(team.team_name));
+    cell("td",fixed(p.score),row);
+    cell("td",fixed(p.total),row);
+    cell("td",diff>0?"↑ +"+diff:diff<0?"↓ "+Math.abs(diff):"—",row);
+  }
+}
 function updateKPIs(){
   const el=$("pgKpis");el.replaceChildren();
   const last=state.rounds[state.rounds.length-1];
@@ -310,7 +337,7 @@ function renderTable(){
 }
 function render(){
   if(!state.rounds.length)return;
-  toggleDependentControls();rebuildTeamButtons();updateKPIs();
+  toggleDependentControls();rebuildTeamButtons();updateKPIs();updateArchive();
   renderChart();renderTable();
   $("pgTableLabel").textContent=metricDefs[state.metric].label;
   $("pgIntervalHint").textContent="Turai "+state.from+"–"+state.to+" · "+chosenTeams().length+" / "+state.teams.length+" komandos";
