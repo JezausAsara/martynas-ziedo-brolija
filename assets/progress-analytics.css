@@ -1,0 +1,71 @@
+/* FANTASY RAMB2026 / Progress analytics – isolated from combat and journey UI */
+#progress .pg-root{--pg-border:#574b34;--pg-accent:#e3b85e;background:linear-gradient(160deg,#111a1b 0%,#090e11 56%,#100d0b 100%);border:1px solid #665334;border-radius:14px;padding:16px;box-shadow:inset 0 0 0 1px #271f13,0 10px 34px #0007;margin:14px 0 21px}
+#progress .pg-root *{box-sizing:border-box}
+#progress .pg-header{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:2px 1px 13px;border-bottom:1px solid #514127}
+#progress .pg-eyebrow{color:#c9a36a;font:800 10px/1.5 Arial,sans-serif;letter-spacing:.17em}
+#progress .pg-title{font:700 clamp(17px,2.7vw,25px)/1.2 Georgia,serif;color:#f2d398;margin:5px 0}
+#progress .pg-description{color:#c0c7c4;font:12px/1.55 Arial,sans-serif;max-width:680px;margin:6px 0 0}
+#progress .pg-live{font:800 10px/1.4 Arial,sans-serif;color:#aedbc7;border:1px solid #365b4c;background:#102119;border-radius:999px;padding:7px 10px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+#progress .pg-live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:#7dd3a1;box-shadow:0 0 9px #7dd3a190}
+#progress .pg-live.pg-offline{color:#e4b1a0;border-color:#7b493d;background:#261411}
+#progress .pg-live.pg-offline:before{background:#d08b63;box-shadow:none}
+#progress .pg-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:14px 0}
+#progress .pg-kpi{border:1px solid #474532;border-radius:9px;padding:12px;background:linear-gradient(170deg,#1d2420,#0d1316)}
+#progress .pg-kpi label{display:block;color:#9eb2a7;font:800 9px/1.4 Arial,sans-serif;letter-spacing:.06em}
+#progress .pg-kpi strong{display:block;color:#f6d894;font:800 clamp(15px,2.2vw,22px)/1.3 Georgia,serif;margin-top:5px;overflow-wrap:anywhere}
+#progress .pg-kpi small{display:block;color:#a5ada9;font:10px/1.4 Arial,sans-serif;margin-top:3px}
+#progress .pg-presets{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:14px 0 12px}
+#progress .pg-presets button{border:1px solid #56503c;background:#171e1b;color:#d3cbba;padding:7px 10px;border-radius:7px;cursor:pointer;font:800 10px Arial,sans-serif}
+#progress .pg-presets button:hover{filter:brightness(1.18)}
+#progress .pg-presets button[aria-pressed="true"]{border-color:#c69a4e;background:#423018;color:#ffe0a2}
+#progress .pg-controls{display:grid;grid-template-columns:minmax(185px,2fr) repeat(4,minmax(95px,1fr));gap:9px;align-items:end}
+#progress .pg-controls label{display:flex;flex-direction:column;gap:6px;min-width:0;color:#a9bbb7;font:800 10px/1.25 Arial,sans-serif;letter-spacing:.03em}
+#progress .pg-controls select{width:100%;min-width:0;border:1px solid #5b5442;border-radius:7px;background:#111719;color:#f1e4cb;font:700 11px/1.3 Arial,sans-serif;padding:9px 27px 9px 8px;min-height:37px}
+#progress .pg-controls select:focus-visible,#progress .pg-actions button:focus-visible,#progress .pg-team:focus-visible,#progress .pg-presets button:focus-visible,#progress .pg-point:focus-visible{outline:2px solid #efd17a;outline-offset:2px}
+#progress .pg-control-hint{font:10px/1.5 Arial,sans-serif;color:#97a8a2;margin:9px 0}
+#progress .pg-teamheading{display:flex;align-items:center;justify-content:space-between;gap:9px;flex-wrap:wrap;margin:15px 0 9px}
+#progress .pg-teamheading strong{font:700 12px Georgia,serif;color:#e5cb91}
+#progress .pg-actions{display:flex;gap:6px;flex-wrap:wrap}
+#progress .pg-actions button{border:1px solid #5c5a49;border-radius:7px;background:#1a2221;color:#e4ded2;font:800 10px Arial,sans-serif;padding:7px 9px;cursor:pointer}
+#progress .pg-actions button:hover{filter:brightness(1.18)}
+#progress .pg-actions button:disabled{opacity:.5;cursor:not-allowed}
+#progress .pg-teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(142px,1fr));gap:6px}
+#progress .pg-team{display:flex;align-items:center;gap:6px;text-align:left;padding:9px 8px;border:1px solid #434c47;background:#0c1415;border-radius:8px;cursor:pointer;color:#c9d1cf;font:800 11px/1.25 Arial,sans-serif;min-width:0}
+#progress .pg-team .pg-swatch{display:inline-block;width:9px;height:19px;border-radius:3px;background:var(--pg-team-color);flex:none;box-shadow:0 0 9px var(--pg-team-color)}
+#progress .pg-team span:last-child{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#progress .pg-team[aria-pressed="false"]{opacity:.46;filter:grayscale(.6)}
+#progress .pg-team[aria-pressed="true"]{border-color:var(--pg-team-color);background:#17201b}
+#progress .pg-graph-head{display:flex;justify-content:space-between;align-items:baseline;gap:8px;flex-wrap:wrap;margin:16px 0 5px}
+#progress .pg-graph-head b{color:#f0d29b;font:800 14px Georgia,serif}
+#progress .pg-graph-head small{color:#9caeaa;font:10px Arial,sans-serif}
+#progress .pg-chart-scroll{width:100%;overflow-x:auto;overflow-y:hidden;border:1px solid #41504b;border-radius:11px;background:radial-gradient(ellipse at 50% 0%,#18302955,transparent 60%),#081012;scrollbar-color:#776347 #0b1315}
+#progress .pg-chart-scroll svg{display:block;max-width:none;user-select:none;overflow:visible}
+#progress .pg-chart-scroll .pg-gridline{stroke:#394743;stroke-width:1;stroke-dasharray:3 5;opacity:.7}
+#progress .pg-chart-scroll .pg-gridline.major{stroke:#536047;opacity:.9;stroke-dasharray:0}
+#progress .pg-chart-scroll .pg-axis-label{font:11px Arial,sans-serif;fill:#a7b8ae}
+#progress .pg-chart-scroll .pg-axis-title{font:800 10px Arial,sans-serif;fill:#d2b782}
+#progress .pg-chart-scroll .pg-point{cursor:pointer;stroke:#0a1010;stroke-width:2}
+#progress .pg-chart-scroll .pg-point:hover,#progress .pg-chart-scroll .pg-point:focus{stroke:#fff;stroke-width:3;filter:drop-shadow(0 0 5px #fff7)}
+#progress .pg-info{margin:9px 1px 0;padding:9px 11px;min-height:37px;border:1px solid #55543c;border-radius:8px;background:#121915;color:#d8dbcd;font:11px/1.55 Arial,sans-serif}
+#progress .pg-info strong{color:#f0d28d}
+#progress .pg-info .pg-note{color:#a8b6b1}
+#progress .pg-table-label{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin:17px 1px 7px}
+#progress .pg-table-label b{font:700 12px Georgia,serif;color:#e6c991}
+#progress .pg-table-label small{font:10px Arial,sans-serif;color:#a4b1ae}
+#progress .pg-data-table{max-height:360px;overflow:auto;border:1px solid #48504b;border-radius:9px}
+#progress .pg-data-table table{margin:0;width:max-content;min-width:100%;border-collapse:separate;border-spacing:0}
+#progress .pg-data-table th,#progress .pg-data-table td{font:10px Arial,sans-serif;padding:9px 10px;border-bottom:1px solid #283733;background:#0b1314;color:#dfdfcf;white-space:nowrap;text-align:right}
+#progress .pg-data-table th{position:sticky;top:0;background:#19221e;color:#edce8d;z-index:1}
+#progress .pg-data-table th:first-child,#progress .pg-data-table td:first-child{position:sticky;left:0;z-index:2;text-align:left;min-width:155px;background:#14201d;font-weight:800}
+#progress .pg-data-table th:first-child{z-index:3;background:#283027}
+#progress .pg-data-table .pg-rowname{display:inline-flex;align-items:center;gap:6px}
+#progress .pg-data-table .pg-dot{width:8px;height:8px;border-radius:50%;background:var(--pg-team-color)}
+#progress .pg-footer{display:flex;gap:11px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-top:10px}
+#progress .pg-footer p{font:10px/1.5 Arial,sans-serif;color:#8d9e99;margin:0}
+#progress .pg-error{padding:14px;color:#f1c3ad;border:1px solid #92493e;background:#24130f;border-radius:8px;font:12px Arial,sans-serif}
+#progress .pg-no-results{padding:30px 12px;color:#afbbb6;text-align:center;font:12px Arial,sans-serif}
+#progress .pg-archive{margin-top:21px}
+#progress .pg-archive h4{font:700 16px Georgia,serif;color:#d6bd89;margin:14px 0 9px}
+@media(max-width:1050px){#progress .pg-controls{grid-template-columns:repeat(3,minmax(0,1fr))}#progress .pg-controls label:first-child{grid-column:1/-1}}
+@media(max-width:720px){#progress .pg-root{padding:10px}#progress .pg-kpis{grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}#progress .pg-kpi{padding:8px}#progress .pg-controls{grid-template-columns:repeat(2,minmax(0,1fr))}#progress .pg-presets{gap:5px}#progress .pg-presets button{padding:7px}#progress .pg-team{font-size:10px;padding:8px 6px}#progress .pg-teams{grid-template-columns:repeat(2,minmax(0,1fr))}#progress .pg-controls select{font-size:12px}#progress .pg-live{font-size:9px}}
+@media(prefers-reduced-motion:reduce){#progress .pg-team,#progress .pg-presets button{transition:none}}
