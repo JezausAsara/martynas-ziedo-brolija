@@ -216,7 +216,7 @@ function updateKPIs(){
   if(!last)return;
   const top=state.teams.find(t=>t.id===last.leaderId);
   const kpis=[
-    ["UŽBAIGTI TURAI",String(last.roundNo)+" / 38","Nuo 1-ojo užfiksuoto turo"],
+    ["UŽBAIGTI TURAI",String(state.rounds.length)+" / 38","Naujausias pilnas: T"+last.roundNo],
     ["KOMANDOS",String(state.teams.length),"Visos lygos dalyvės"],
     ["LYDERIS PO T"+last.roundNo,top?top.team_name:"—","Pagal sukauptus FPTS"],
     ["LYDERIO REZULTATAS",fixed(last.leaderPoints),"Sukaupti FPTS"]
