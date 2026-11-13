@@ -73,9 +73,11 @@
 #progress .pg-controls label[hidden]{display:none!important}
 #progress .pg-archive{overflow-x:auto}
 
-/* Current standings: signed FPTS gap to nearest rival. */
-#progress td.pg-nearest-gap{font-variant-numeric:tabular-nums;font-weight:800;min-width:125px}
-#progress td.pg-nearest-gap.positive{color:#94dfae}
-#progress td.pg-nearest-gap.negative{color:#f3a198}
-#progress td.pg-nearest-gap.neutral{color:#e4d0a4}
-#progress td.pg-nearest-gap .pg-nearest-opponent{display:block;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:10px/1.35 Arial,sans-serif;font-weight:400;color:#b8beb7;margin-top:3px}
+/* Two directional leaderboard gaps in cumulative FPTS. */
+#progress td.pg-standings-gap{font-variant-numeric:tabular-nums;font-weight:800;min-width:125px}
+#progress td.pg-standings-gap.positive{color:#94dfae}
+#progress td.pg-standings-gap.negative{color:#f3a198}
+#progress td.pg-standings-gap.neutral{color:#e4d0a4}
+#progress td.pg-standings-gap .pg-gap-opponent{display:block;max-width:180px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font:10px/1.35 Arial,sans-serif;font-weight:400;color:#b8beb7;margin-top:3px}
+#progress .pg-archive table{min-width:880px}
+#progress .pg-archive th:nth-child(5),#progress .pg-archive th:nth-child(6){min-width:145px}
