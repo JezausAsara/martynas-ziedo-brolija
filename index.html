@@ -931,12 +931,108 @@
 .rpgPrecisionSkip{align-self:start;padding:8px 11px;border:1px solid #827457;border-radius:7px;background:#231c13;color:#f2d7a0;cursor:pointer;font:800 10px Arial,sans-serif}
 .rpgPrecisionSkip:hover:not(:disabled){background:#47341a}.rpgPrecisionSkip:disabled{opacity:.4}
 :is(#farmRpgBattleArena,#rpgBattleArena) .rpgPrecisionDecision{padding:8px}
-</style></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
+</style><link rel='stylesheet' href='assets/progress-analytics.css?v=1'></head><body><header class='hero'><img src='hero-top.png' alt='Martynas ir Žiedo brolijos nariai – Fantasy lyga 2026/27'></header><div class='wrap'><div class='stats'><div class='card'><small>EREBORO LOBYNAS</small><strong id='fund'>0 €</strong></div><div class='card'><small>ŽIEDO PRAKEIKSMAI · 100+ FPTS</small><strong id='curses'>0</strong></div><div class='card danger'><small>MORDORO ZONA</small><strong>#6 ir #7</strong><span>Sezono pabaigoje kartu prideda sumą, lygią sukauptam fondui.</span></div></div><div class='layout'><nav class='nav' id='nav'><button class='active' data-tab='league'>🏆 Lygos lentelė</button><button data-tab='rounds'>🗓 Turai</button><button data-tab='funds'>💰 Fondas</button><button data-tab='club'>⭕ 100+ klubas</button><button data-tab='progress'>📈 Progresas</button><button data-tab='journey'>🗺️ Kelionė į Mordorą</button><button data-tab='quiz'>🧠 Dienos kvizas</button><button data-tab='rpg'>⚔️ Mano personažas</button><button data-tab='people'>👥 Dalyviai</button><button data-tab='rules'>📜 Taisyklės</button></nav><main class='main'>
 <section id='league' class='section active'><div class='toolbar'><h3>Lygos lentelė</h3><span class='pill'>10 turas</span></div><table><thead><tr><th>#</th><th>Komanda</th><th>Valdytojas</th><th>FPTS</th><th>Δ nuo #1</th><th>100+</th><th>Į fondą</th></tr></thead><tbody id='leaderRows'></tbody></table></section>
 <section id='rounds' class='section'><h3>Turai</h3><p><b>10 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 100.50 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>9 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>8 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>7 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: Z. LeDay — 100.00 FPTS (Tomas B. / Koksas), +5 € į fondą.</p><p><b>6 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>5 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>4 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. 100+ FPTS įvykių nebuvo.</p><p><b>3 turas — pilnas.</b> Gauti visų 7 komandų rezultatai. Vienas 100+ FPTS įvykis: E. Bryant — 113.00 FPTS (Ignas R. / Šūdas McČyzas), +5 € į fondą.</p><p><b>2 turas — pilnas.</b> Vienas 100+ FPTS įvykis: T. Shorts II — 115.50 FPTS (Rokas A. / 3 pro Šalį), +5 € į fondą.</p><p><b>1 turas — pilnas.</b> 100+ FPTS įvykių nebuvo.</p></section>
 <section id='funds' class='section'><h3>Fondas</h3><table><thead><tr><th>Valdytojas</th><th>100+ atvejai</th><th>Įnašas</th></tr></thead><tbody id='fundRows'></tbody></table><p id='finalFund'></p></section>
 <section id='club' class='section'><h3>100+ klubas</h3><p>Už kiekvieną vieno komandos žaidėjo rezultatą ≥100 FPTS komandos valdytojas į fondą perveda 5 €.</p><div id='clubList'></div></section>
-<section id='progress' class='section'><h3>Progresas</h3><table><thead><tr><th>#</th><th>Komanda</th><th>10 turo FPTS</th><th>Bendri FPTS</th><th>Pozicijos pokytis</th></tr></thead><tbody id='progressRows'></tbody></table></section>
+<section id='progress' class='section'><h3>Progresas</h3><div id='progressAnalytics' class='pg-root'>
+  <div class='pg-header'>
+    <div>
+      <div class='pg-eyebrow'>✦ ŽIEDO BROLIJA · 2026/27 · ANALITIKA</div>
+      <div class='pg-title'>Lyderių kelias per visus turus</div>
+      <p class='pg-description'>Pasirink rodiklį, žaidėjus ir turų intervalą – kiekviena kreivė persibraižys iš Supabase rezultatų. Visi FPTS skaičiuojami iš tikrų Fantasy turų duomenų, o pozicijos – pagal sukauptus FPTS po kiekvieno turo.</p>
+    </div>
+    <span id='pgLive' class='pg-live'>Jungiamasi prie Supabase…</span>
+  </div>
+  <div id='pgError' class='pg-error' role='alert' hidden></div>
+  <div id='pgKpis' class='pg-kpis' aria-live='polite'>
+    <div class='pg-kpi'><label>DUOMENYS</label><strong>Kraunama…</strong></div>
+  </div>
+  <div class='pg-presets' aria-label='Greitieji grafikai'>
+    <button type='button' data-pg-preset='rank' aria-pressed='true'>🏆 Pozicijos</button>
+    <button type='button' data-pg-preset='total' aria-pressed='false'>📈 Bendri FPTS</button>
+    <button type='button' data-pg-preset='round' aria-pressed='false'>🎯 Turo FPTS</button>
+    <button type='button' data-pg-preset='rolling' aria-pressed='false'>〰️ Tendencija</button>
+    <button type='button' data-pg-preset='leaderGap' aria-pressed='false'>⚔️ Iki lyderio</button>
+    <button type='button' data-pg-preset='posChange' aria-pressed='false'>↕ Vietų pokytis</button>
+  </div>
+  <div class='pg-controls'>
+    <label for='pgMetric'>ANALIZUOJAMAS RODIKLIS
+      <select id='pgMetric'>
+        <optgroup label='Lentelės pozicijos'>
+          <option value='rank'>Bendra vieta po kiekvieno turo</option>
+          <option value='roundRank'>Vieta atskirame ture</option>
+          <option value='posChange'>Vietų pokytis po turo</option>
+          <option value='top3Count'>TOP 3 turų skaičius</option>
+          <option value='leaderCount'>Lyderystės turų skaičius</option>
+          <option value='roundWinCount'>Laimėti atskiri turai</option>
+        </optgroup>
+        <optgroup label='FPTS progresas'>
+          <option value='total'>Sukaupti FPTS</option>
+          <option value='round'>Kiekvieno turo FPTS</option>
+          <option value='avg'>Vidutinis FPTS per turą</option>
+          <option value='rolling'>Slenkantis FPTS vidurkis</option>
+          <option value='roundChange'>Turo FPTS pokytis</option>
+          <option value='roundShare'>Turo FPTS dalis lygoje (%)</option>
+          <option value='avgStreak'>Virš vidurkio iš eilės</option>
+        </optgroup>
+        <optgroup label='Konkurencija ir palyginimai'>
+          <option value='leaderGap'>Atsilikimas nuo lyderio</option>
+          <option value='aheadGap'>Iki artimiausios komandos aukščiau</option>
+          <option value='leagueGap'>Bendri FPTS prieš lygos vidurkį</option>
+          <option value='leagueRoundGap'>Turo FPTS prieš lygos vidurkį</option>
+          <option value='h2hTotal'>Bendri FPTS prieš pasirinktą varžovą</option>
+          <option value='h2hRound'>Turo FPTS prieš pasirinktą varžovą</option>
+          <option value='h2hPosition'>Vietų skirtumas nuo varžovo</option>
+        </optgroup>
+      </select>
+    </label>
+    <label for='pgFrom'>NUO TURO
+      <select id='pgFrom'><option value='1'>T1</option></select>
+    </label>
+    <label for='pgTo'>IKI TURO
+      <select id='pgTo'><option value='10'>T10</option></select>
+    </label>
+    <label id='pgWindowLabel' for='pgWindow' hidden>VIDURKIO LANGAS
+      <select id='pgWindow'>
+        <option value='2'>2 turai</option><option value='3' selected>3 turai</option><option value='5'>5 turai</option>
+      </select>
+    </label>
+    <label id='pgRivalLabel' for='pgRival' hidden>PALYGINTI SU
+      <select id='pgRival'><option>Pasirink</option></select>
+    </label>
+  </div>
+  <div class='pg-teamheading'>
+    <strong>LYGOS ŽAIDĖJAI · pasirink kreives</strong>
+    <div class='pg-actions'>
+      <button type='button' id='pgSelectAll'>Visi</button>
+      <button type='button' id='pgSelectTop'>TOP 3</button>
+      <button type='button' id='pgSelectNone'>Nuimti visus</button>
+    </div>
+  </div>
+  <div id='pgTeams' class='pg-teams' aria-label='Žaidėjų pasirinkimas'></div>
+  <div class='pg-graph-head'>
+    <b id='pgChartTitle'>Bendra lentelės pozicija</b>
+    <small id='pgChartHint'>1 vieta – viršuje</small>
+  </div>
+  <div id='pgChartScroll' class='pg-chart-scroll'><div class='pg-no-results'>Gaunami duomenys iš Supabase…</div></div>
+  <div id='pgInfo' class='pg-info' aria-live='polite'>Užvesk pelę ant taško arba paspausk jį, kad pamatytum rezultatą.</div>
+  <div class='pg-table-label'>
+    <b id='pgTableLabel'>Visų turų lentelė</b>
+    <small id='pgIntervalHint'>Kraunama…</small>
+  </div>
+  <div id='pgTable' class='pg-data-table' tabindex='0' aria-label='Pasirinktų rodiklių lentelė'></div>
+  <div class='pg-footer'>
+    <p>Skaičiuojama iš Supabase <b>fantasy_round_scores</b> kiekvienam užbaigtam turui. Nepilni turai nerodomi kaip galutinė lentelė. Vienodų taškų komandos dalijasi vietą.</p>
+    <div class='pg-actions'>
+      <button type='button' id='pgRefresh'>↻ Atnaujinti</button>
+      <button type='button' id='pgExportSvg'>↓ Grafikas SVG</button>
+      <button type='button' id='pgExportCsv'>↓ Duomenys CSV</button>
+    </div>
+  </div>
+</div>
+<div class='pg-archive'><h4>Dabartinė pozicija</h4></div><table><thead><tr><th>#</th><th>Komanda</th><th>10 turo FPTS</th><th>Bendri FPTS</th><th>Pozicijos pokytis</th></tr></thead><tbody id='progressRows'></tbody></table></section>
 <section id='journey' class='section journeyV2'>
   <div class='journeyIntro journeyV2Intro'>
     <div>
@@ -4725,7 +4821,7 @@ document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.quer
     }
   });
 })();
-</script></body></html>
+</script><script src='assets/progress-analytics.js?v=1' defer></script></body></html>
 <style id="enemyCardsExactGeometry">
 @media(min-width:901px){
   .journeyEnemyStage{align-items:stretch!important}
