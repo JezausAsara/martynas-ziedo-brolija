@@ -189,7 +189,7 @@ function updateArchive(){
   if(!box||!last)return;
   const previous=state.rounds.length>1?state.rounds[state.rounds.length-2]:null;
   const th=box.closest("table")?.querySelectorAll("thead th");
-  if(th&&th.length>=6)th[2].textContent=last.roundNo+" turo FPTS";
+  if(th&&th.length>=7)th[2].textContent=last.roundNo+" turo FPTS";
   const title=document.querySelector("#progress .pg-archive h4");
   if(title)title.textContent="Bendra lentelė po "+last.roundNo+" turo";
   box.replaceChildren();
@@ -207,19 +207,23 @@ function updateArchive(){
     name.appendChild(document.createTextNode(team.team_name));
     cell("td",fixed(p.score),row);
     cell("td",fixed(p.total),row);
-    // Closest rival by ABSOLUTE cumulative FPTS gap (not simply the row above).
-    // Positive: this team is ahead; negative: this team is behind.
-    const rivals=ordered.filter(t=>t.id!==team.id).map(t=>({
-      team:t,delta:Number((p.total-last.points.get(t.id).total).toFixed(2))
-    })).sort((a,b)=>Math.abs(a.delta)-Math.abs(b.delta)||
-      last.points.get(a.team.id).rank-last.points.get(b.team.id).rank);
-    const nearest=rivals[0];
-    const gap=nearest?nearest.delta:0;
-    const gapCell=cell("td",nearest?(gap>0?"+":"")+fixed(gap):"—",row,{
-      "class":"pg-nearest-gap "+(gap>0?"positive":gap<0?"negative":"neutral"),
-      title:nearest?"Artimiausias varžovas: "+nearest.team.team_name+" · "+(gap>=0?"lenki":"atsilieki")+" "+fixed(Math.abs(gap))+" FPTS":""
+    // Compare with the immediately higher and lower DISTICT cumulative FPTS
+    // positions, not with whichever competitor has the smallest absolute gap.
+    // A tie shares a rank; skip the tied teams to find the next actual position.
+    const higher=[...ordered].reverse().find(t=>last.points.get(t.id).total>p.total);
+    const lower=ordered.find(t=>last.points.get(t.id).total<p.total);
+    const aheadGap=higher?Number((p.total-last.points.get(higher.id).total).toFixed(2)):null;
+    const behindGap=lower?Number((p.total-last.points.get(lower.id).total).toFixed(2)):null;
+    const higherCell=cell("td",higher?fixed(aheadGap):"—",row,{
+      "class":"pg-standings-gap "+(higher?"negative":"neutral"),
+      title:higher?"Iki "+higher.team_name+" trūksta "+fixed(Math.abs(aheadGap))+" FPTS":"Pirma vieta – aukštesnės pozicijos nėra"
     });
-    if(nearest)cell("small",nearest.team.team_name,gapCell,{"class":"pg-nearest-opponent"});
+    if(higher)cell("small",higher.team_name,higherCell,{"class":"pg-gap-opponent"});
+    const lowerCell=cell("td",lower?"+"+fixed(behindGap):"—",row,{
+      "class":"pg-standings-gap "+(lower?"positive":"neutral"),
+      title:lower?"Prieš "+lower.team_name+" pirmauja "+fixed(behindGap)+" FPTS":"Paskutinė vieta – žemesnės pozicijos nėra"
+    });
+    if(lower)cell("small",lower.team_name,lowerCell,{"class":"pg-gap-opponent"});
     cell("td",diff>0?"↑ +"+diff:diff<0?"↓ "+Math.abs(diff):"—",row);
   }
 }
